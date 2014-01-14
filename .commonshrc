@@ -1,0 +1,118 @@
+# -------------------------------------------------
+# editor config
+export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+# for tmux
+export TERM=screen-256color
+if [ "$VIM" ] && [ "$TERM" = "dumb" ]
+then
+  # For gvim's monochromatic :shell
+  export PS1="\[\033[01;32m\]\u@\[\033[01;33m\]\h \[\033[01;34m\]\W $ \[\033[00m\]"
+fi
+
+# ------------------------------------------------
+# alias config
+# ls
+alias ls='ls -G'
+alias la='ls -a'
+alias ll='ls -la'
+
+# bundle
+alias be='bundle exec'
+alias bi='bundle install'
+alias br='bundle exec rails'
+alias brk='bundle exec rake'
+alias brs='bundle exec rspec -cfs'
+alias ss='bundle exec spring status'
+alias sr='bundle exec spring rails'
+alias srk='bundle exec spring rake'
+alias srs='bundle exec spring rspec -cfs'
+alias srst='bundle exec spring rspec -r turnip'
+
+# ctags
+alias ctags='/opt/boxen/homebrew/bin/ctags -f .tags'
+
+# ag
+alias ag='ag -S --hidden'
+
+# gcalcli
+alias gcal='gcalcli agenda --cal "kimura"#magenta'
+alias gcalw='gcalcli calw --width 20 --cal "kimura"#magenta'
+
+# -------------------------------------------------
+# Others
+# history config
+export HISTCONTROL=ignoreboth #ignorespace+ignoredups
+export HISTIGNORE="fg*:bg*:history*:cd*:ls*"
+HISTTIMEFORMAT='%Y-%m-%d %T ';
+export HISTTIMEFORMAT
+
+# tmux/screenの自動起動設定
+#  Note: .bashrc or .zshrc に設定して使用して下さい。
+#
+#  ログイン時にtmux または screenが起動してない場合は自動的に起動
+#  デタッチ済みセッションが存在すればアタッチし、なければ新規セッションを生成
+#  tmuxを優先して起動し、tmuxが使えなければscreenを起動する
+#
+if [ -z "$TMUX" -a -z "$STY" ]; then
+    if type tmuxx >/dev/null 2>&1; then
+        tmuxx
+    elif type tmux >/dev/null 2>&1; then
+        if tmux has-session && tmux list-sessions | egrep -q '.*]$'; then
+            # デタッチ済みセッションが存在する
+            tmux attach && echo "tmux attached session "
+        else
+            tmux new-session && echo "tmux created new session"
+        fi
+    elif type screen >/dev/null 2>&1; then
+        screen -rx || screen -D -RR
+    fi
+fi
+
+# w3m google search
+function ggrks() {
+  local str opt
+  if [ $ != 0 ]; then
+    for i in $*; do
+      str="$str+$i"
+    done
+    str=`echo $str | sed 's/^\+//'`
+    opt='search?num=50&h1=ja&lr=lang_ja'
+    opt="${opt}&q=${str}"
+  fi
+  w3m http://www.google.co.jp/$opt
+}
+
+# w3m でGoogle translate English->Japanese
+function gte() {
+  google_translate "$*" "en-ja"
+}
+
+# w3m でGoogle translate Japanese->English
+function gtj() {
+  google_translate "$*" "ja-en"
+}
+
+# 実行方法
+# google_translate "検索文字列" [翻訳オプション(en-ja 英語->日本語)]
+function google_translate() {
+  local str opt cond
+
+  if [ $# != 0 ]; then
+    str=`echo $1 | sed -e 's/  */+/g'` # 1文字以上の半角空白を+に変換
+    cond=$2
+    if [ $cond = "ja-en" ]; then
+      # ja -> en 翻訳
+      opt='?hl=ja&sl=ja&tl=en&ie=UTF-8&oe=UTF-8'
+    else
+      # en -> ja 翻訳
+      opt='?hl=ja&sl=en&tl=ja&ie=UTF-8&oe=UTF-8'
+    fi
+  else
+    opt='?hl=ja&sl=en&tl=ja&ie=UTF-8&oe=UTF-8'
+  fi
+
+  opt="${opt}&text=${str}"
+  w3m +13 "http://translate.google.com/${opt}"
+}

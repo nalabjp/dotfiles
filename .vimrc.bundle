@@ -1,0 +1,166 @@
+filetype off
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('~/.vim/bundle/'))
+endif
+
+" ColorSchema {{{
+NeoBundle 'altercation/vim-colors-solarized'
+" }}}
+
+
+" Unite {{{
+" Unite.vim
+NeoBundle 'Shougo/unite.vim'
+
+" rails
+NeoBundleLazy 'ujihisa/unite-rake', {
+  \ 'depends' : 'Shougo/unite.vim' }
+NeoBundleLazy 'basyura/unite-rails', {
+  \ 'depends' : 'Shjkougo/unite.vim' }
+NeoBundleLazy 'taichouchou2/unite-rails_best_practices', {
+  \ 'depends' : 'Shougo/unite.vim',
+  \ 'build' : {
+  \    'mac': 'gem install rails_best_practices',
+  \    'unix': 'gem install rails_best_practices',
+  \   }
+  \ }
+NeoBundleLazy 'taichouchou2/unite-reek', {
+  \ 'build' : {
+  \    'mac': 'gem install reek',
+  \    'unix': 'gem install reek',
+  \ },
+  \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] },
+  \ 'depends' : 'Shougo/unite.vim' }
+" }}}
+
+
+" Util {{{
+" VimShell
+NeoBundle 'Shougo/vimshell'
+
+" 非同期実行
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+  \     'mac' : 'make -f make_mac.mak',
+  \     'unix' : 'make -f make_unix.mak',
+  \    },
+  \ }
+
+" Git操作
+NeoBundle 'tpope/vim-fugitive'
+
+" StatusLineの装飾
+NeoBundle 'itchyny/lightline.vim'
+
+" Dash
+NeoBundle 'rizzatti/funcoo.vim'
+NeoBundle 'rizzatti/dash.vim'
+" }}}
+
+
+" Edit {{{
+" コメント
+NeoBundle 'scrooloose/nerdcommenter'
+
+" 文字列の囲み等
+NeoBundle 'tpope/vim-surround'
+" }}}
+
+
+" Move {{{
+" 移動先をハイライト
+NeoBundle 'Lokaltog/vim-easymotion'
+
+" tag移動
+NeoBundle 'szw/vim-tags'
+" }}}
+
+
+" Completion {{{
+" 補完
+NeoBundle 'Shougo/neocomplcache'
+
+" snippet
+NeoBundle 'Shougo/neosnippet'
+
+" rsense
+NeoBundleLazy 'Shougo/neocomplcache-rsense', {
+  \ 'depends': 'Shougo/neocomplcache',
+  \ 'autoload': { 'filetypes': 'ruby' }}
+NeoBundleLazy 'taichouchou2/rsense-0.3', {
+  \ 'build' : {
+  \    'mac': 'ruby ~/.vim/bundle/rsense-0.3/etc/config.rb > ~/.rsense',
+  \    'unix': 'ruby ~/.vim/bundle/rsense-0.3/etc/config.rb > ~/.rsense',
+  \ } }
+
+" switch
+NeoBundle 'AndrewRadev/switch.vim'
+" }}}
+
+
+" Programing {{{
+" quickrun
+NeoBundle 'thinca/vim-quickrun'
+
+" リファレンス
+NeoBundle 'thinca/vim-ref'
+
+" Ruby
+NeoBundleLazy 'vim-ruby/vim-ruby', {
+  \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+
+" if do def やらのブロック閉じる
+NeoBundleLazy 'taichouchou2/vim-endwise.git', {
+  \ 'autoload' : {
+  \   'insert' : 1,
+  \ } }
+
+" ref
+NeoBundleLazy 'taka84u9/vim-ref-ri', {
+  \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
+  \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+
+" rspec
+NeoBundle 'thoughtbot/vim-rspec'
+
+" endに%で移動
+NeoBundleLazy 'ruby-matchit', {
+  \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+
+" Rails
+NeoBundle 'tpope/vim-rails'
+
+" Slim
+NeoBundle 'slim-template/vim-slim'
+
+" Dispatch
+NeoBundle 'tpope/vim-dispatch'
+" }}}
+
+
+" Syntax {{{
+" syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
+NeoBundle 'scrooloose/syntastic'
+
+" jQuery
+NeoBundle 'jQuery'
+
+" coffee script
+NeoBundle 'kchmck/vim-coffee-script'
+" }}}
+
+
+" Buffer {{{
+" NERDTree : ツリー型エクスプローラ
+NeoBundle 'scrooloose/nerdtree'
+
+" ファイル検索
+NeoBundle 'ctrlp.vim'
+" }}}
+
+" grep (the silver search)
+NeoBundle 'rking/ag.vim'
+
+filetype plugin indent on

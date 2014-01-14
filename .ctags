@@ -1,0 +1,3 @@
+--append=yes
+--recurse=yes
+--regex-ruby=/^[ \t]*([A-Z_][A-Z0-9_]*)[ \t]*=/\1/C, constant/
