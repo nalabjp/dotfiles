@@ -119,21 +119,21 @@ macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
 # Color settings for mutt.
 # Default color definitions
-color normal     default        default
-color hdrdefault green         default
-color quoted    green         default
-color quoted1    yellow        default
-color quoted2    red           default
-color signature  cyan          default
-color indicator  black magenta
-color error      brightred     default
-color tree  brightmagenta default
-color tilde     blue          default
-color attachment brightyellow  default
-color markers   brightred     default
-color message    white         default
-color search     brightwhite   magenta
-color bold       brightyellow  default
+color normal      default       default
+color hdrdefault  green         default
+color quoted      green         default
+color quoted1     yellow        default
+color quoted2     red           default
+color signature   cyan          default
+color indicator   black         magenta
+color error       brightred     default
+color tree        brightmagenta default
+color tilde       blue          default
+color attachment  brightyellow  default
+color markers     brightred     default
+color message     white         default
+color search      brightwhite   magenta
+color bold        brightyellow  default
 
 # Color definitions when on a mono screen
 mono bold      bold
