@@ -34,7 +34,8 @@ alias srst='bundle exec spring rspec -r turnip'
 alias ctags='/opt/boxen/homebrew/bin/ctags -f .tags'
 
 # ag
-alias ag='ag -S --hidden'
+alias ag='ag -S --stats --pager less'
+alias agh='ag --hidden'
 
 # gcalcli
 alias gcal='gcalcli agenda --cal "kimura"#magenta'
