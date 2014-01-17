@@ -42,6 +42,9 @@ alias gcalw='gcalcli calw --width 20 --cal "kimura"#magenta'
 
 # -------------------------------------------------
 # Others
+# LIBRARY_PATH
+export LIBRARY_PATH=/opt/boxen/homebrew/lib:$LIBRARY_PATH
+
 # history config
 export HISTCONTROL=ignoreboth #ignorespace+ignoredups
 export HISTIGNORE="fg*:bg*:history*:cd*:ls*"
