@@ -1,0 +1,31 @@
+# boxen
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+[ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
+
+# rbenv
+#
+export PATH=/opt/boxen/rbenv/shims:$PATH
+eval "$(rbenv init -)"
+
+# mysql
+export PATH=/usr/local/mysql/bin:$PATH
+
+# Vim
+export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+
+# tmux
+export TERM=screen-256color
+
+# For gvim's monochromatic :shell
+if [ "$VIM" ] && [ "$TERM" = "dumb" ]
+then
+  export PS1="\[\033[01;32m\]\u@\[\033[01;33m\]\h \[\033[01;34m\]\W $ \[\033[00m\]"
+fi
+
+# LIBRARY_PATH
+export LIBRARY_PATH=/opt/boxen/homebrew/lib:$LIBRARY_PATH
+
+# history config
+export HISTCONTROL=ignoreboth #ignorespace+ignoredups
+export HISTIGNORE="fg*:bg*:history*:cd*:ls*"
+export HISTTIMEFORMAT='%Y-%m-%d %T ';

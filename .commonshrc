@@ -1,15 +1,7 @@
 # -------------------------------------------------
 # editor config
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-# for tmux
-export TERM=screen-256color
-if [ "$VIM" ] && [ "$TERM" = "dumb" ]
-then
-  # For gvim's monochromatic :shell
-  export PS1="\[\033[01;32m\]\u@\[\033[01;33m\]\h \[\033[01;34m\]\W $ \[\033[00m\]"
-fi
 
 # ------------------------------------------------
 # alias config
@@ -43,15 +35,6 @@ alias gcalw='gcalcli calw --width 20 --cal "kimura"#magenta'
 
 # -------------------------------------------------
 # Others
-# LIBRARY_PATH
-export LIBRARY_PATH=/opt/boxen/homebrew/lib:$LIBRARY_PATH
-
-# history config
-export HISTCONTROL=ignoreboth #ignorespace+ignoredups
-export HISTIGNORE="fg*:bg*:history*:cd*:ls*"
-HISTTIMEFORMAT='%Y-%m-%d %T ';
-export HISTTIMEFORMAT
-
 # tmux/screenの自動起動設定
 #  Note: .bashrc or .zshrc に設定して使用して下さい。
 #

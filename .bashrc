@@ -1,3 +1,4 @@
+source ~/.dotfiles/.commonshenv
 source ~/.dotfiles/.commonshrc
 
 # ls
