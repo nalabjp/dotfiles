@@ -1,5 +1,6 @@
 source ~/.dotfiles/.commonshrc
 
+
 if [ -f ~/.dotfiles/.zshrc.local ] ; then
     . ~/.dotfiles/.zshrc.local
 fi

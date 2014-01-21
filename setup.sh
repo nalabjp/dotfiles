@@ -17,7 +17,7 @@ create_symlink() {
     local target=$1
     local origin=$2
     create_backup $target
-    if [ ! -a $target ]; then
+    if [ ! -e $target ]; then
         echo "Create symbolic link: $target -> $origin"
         ln -s $origin $target
     fi
@@ -26,7 +26,7 @@ create_symlink() {
 # Backup
 create_backup() {
     local target=$1
-    if [ -a $target ]; then
+    if [ -e $target ]; then
         echo "Already exists: $target"
         echo "Back up to $BACKUP_DIR"
         mkdir -p $BACKUP_DIR
@@ -59,24 +59,26 @@ setup_sh() {
 setup_zsh() {
     echo ""
     echo "Setup zsh"
-    local file=.zshrc
+    local ohmyzshrc=.ohmyzshrc
+    local zshrc=.zshrc
+    local theme_file=zdj.zsh-theme
     local ohmyzsh_dir=.oh-my-zsh
-    local origin=$HOME/$DOTS_DIR/$file
     if [ -a $HOME/$ohmyzsh_dir ]; then
         echo "Exists $HOME/$ohmyzsh_dir"
-        local target=$HOME/$ohmyzsh_dir/custom/${file#\.}.zsh
     else
         echo "Not Exists $HOME/$ohmyzsh_dir"
         if [ $USE_OHMYZSH -eq 1 ]; then
             echo "Install oh-my-zsh"
             git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/$ohmyzsh_dir
-            mv $HOME/$file $BACKUP_DIR/$file
-            cp $HOME/$ohmyzsh_dir/templates/zshrc.zsh-template $HOME/$file
-            local target=$HOME/$ohmyzsh_dir/custom/${file#\.}.zsh
+            mv $HOME/$zshrc $BACKUP_DIR/$zshrc
         fi
-        local target=$HOME/$file
     fi
-    create_symlink $target $origin
+    # .ohmyzshrc
+    create_symlink $HOME/$zshrc $HOME/$DOTS_DIR/$ohmyzshrc
+    # .zshrc
+    create_symlink $HOME/$ohmyzsh_dir/custom/${zshrc#\.}.zsh $HOME/$DOTS_DIR/$zshrc
+    # themes
+    create_symlink $HOME/$ohmyzsh_dir/themes/$theme_file $HOME/$DOTS_DIR/$ohmyzsh_dir/themes/$theme_file
     local zsh=/bin/zsh
     if [ ! $SHELL = $zsh ]; then
         echo "Change login shell : $zsh"
