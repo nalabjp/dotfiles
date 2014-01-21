@@ -1,6 +1,3 @@
-colorscheme solarized
-set background=dark
-
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
   " 256色

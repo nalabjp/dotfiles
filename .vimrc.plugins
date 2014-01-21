@@ -1,11 +1,4 @@
 " ColorSchema {{{
-"------------------------------------
-" vim-colors-solarized
-"------------------------------------
-"let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-" 輝度を高くする
-let g:solarized_visibility = "high"
 " }}}
 
 
@@ -50,7 +43,7 @@ nnoremap <Space>gb :<C-u>Gblame<Enter>
 " lightline.vim
 "------------------------------------
 let g:lightline = {
-  \ 'colorscheme': 'solarized',
+  \ 'colorscheme': 'Tomorrow_Night_Bright',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
