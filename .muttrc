@@ -151,14 +151,14 @@ mono  header bold                 "^(From|Subject):"
 # These would be much simpler if colors were additive.
 
 # regular new messages
-color index black         white "~N !~T !~F !~p !~P"
+color index black         yellow "~N !~T !~F !~p !~P"
 # regular tagged messages
 color index black         cyan    "~T !~F !~p !~P"
 # regular flagged messages
 color index black         red     "~F !~p !~P"
 # messages to me
 color index yellow        default "~p !~N !~T !~F !~P"
-color index brightyellow  white  "~p ~N !~T !~F !~P"
+color index brightyellow  white   "~p ~N !~T !~F !~P"
 color index yellow        cyan    "~p ~T !~F !~P"
 color index yellow        red     "~p ~F !~P"
 # messages from me
