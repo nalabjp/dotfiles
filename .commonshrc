@@ -34,7 +34,13 @@ alias gcal='gcalcli agenda --cal "kimura"#magenta'
 alias gcalw='gcalcli calw --width 20 --cal "kimura"#magenta'
 
 # -------------------------------------------------
-# Others
+# direnv config
+# https://github.com/zimbatm/direnv
+if type direnv > /dev/null 2>&1; then
+  eval "$(direnv hook $SHELL)"
+fi
+
+# -------------------------------------------------
 # tmux/screenの自動起動設定
 #  Note: .bashrc or .zshrc に設定して使用して下さい。
 #
@@ -57,6 +63,8 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
     fi
 fi
 
+# -------------------------------------------------
+# w3m config
 # w3m google search
 function ggrks() {
   local str opt
