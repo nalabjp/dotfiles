@@ -23,7 +23,7 @@ alias srs='bundle exec spring rspec -cfs'
 alias srst='bundle exec spring rspec -r turnip'
 
 # ctags
-alias ctags='/opt/boxen/homebrew/bin/ctags -f .tags'
+alias ctags='`brew --prefix`/bin/ctags -f .tags'
 
 # ag
 alias ag='ag -S --stats --pager less'
