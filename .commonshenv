@@ -4,7 +4,7 @@
 
 # rbenv
 #
-export PATH=/opt/boxen/rbenv/shims:$PATH
+export PATH=$BOXEN_HOME/rbenv/shims:$PATH
 eval "$(rbenv init -)"
 
 # mysql
@@ -26,7 +26,7 @@ then
 fi
 
 # LIBRARY_PATH
-export LIBRARY_PATH=/opt/boxen/homebrew/lib:$LIBRARY_PATH
+export LIBRARY_PATH=`brew --prefix`/lib:$LIBRARY_PATH
 
 # history config
 export HISTCONTROL=ignoreboth #ignorespace+ignoredups
