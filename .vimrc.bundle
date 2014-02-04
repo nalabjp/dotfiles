@@ -71,9 +71,6 @@ NeoBundle 'tpope/vim-surround'
 " Move {{{
 " 移動先をハイライト
 NeoBundle 'Lokaltog/vim-easymotion'
-
-" tag移動
-NeoBundle 'szw/vim-tags'
 " }}}
 
 
