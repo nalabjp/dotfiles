@@ -27,13 +27,23 @@ def weechat_init
 end
 
 def hook_notifications
-  Weechat.hook_signal("weechat_pv", "show_private", "")
-  Weechat.hook_signal("weechat_highlight", "show_highlight", "")
+  Weechat.hook_signal("*,irc_in2_PRIVMSG", "show_irc_privmsg", "")
+  #Weechat.hook_signal("weechat_pv", "show_private", "")
+  #Weechat.hook_signal("weechat_highlight", "show_highlight", "")
 end
 
 def unhook_notifications(data, signal, message)
-  Weechat.unhook(show_private)
-  Weechat.unhook(show_highlight)
+  Weechat.unhook(show_irc_privmsg)
+  #Weechat.unhook(show_private)
+  #Weechat.unhook(show_highlight)
+end
+
+def show_irc_privmsg(data, signal, message)
+  line = message.split
+  from = line[0].sub(/^:/, '').sub(/!(.*)/, '')
+  msg = line[3..-1].join(' ').sub(/^:/, '')
+  show_notification("Weechat Message",  "#{from}: #{msg}")
+  return Weechat::WEECHAT_RC_OK
 end
 
 def show_private(data, signal, message)
