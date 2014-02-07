@@ -30,8 +30,8 @@ alias ag='ag -S --stats --pager less'
 alias agh='ag --hidden'
 
 # gcalcli
-alias gcal='gcalcli agenda --cal "kimura"#magenta'
-alias gcalw='gcalcli calw --width 20 --cal "kimura"#magenta'
+alias gcal='gcalcli agenda --cal "kimura"#brightmagenta'
+alias gcalw='gcalcli calw --width 20 --cal "kimura"#brightmagenta'
 
 # -------------------------------------------------
 # direnv config
