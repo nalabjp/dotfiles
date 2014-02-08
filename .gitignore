@@ -11,7 +11,6 @@
 *.sw[po]
 tags
 .tags
-.gitconfig
 .bashrc.local
 .zshrc.local
 .muttrc.account

@@ -1,0 +1,24 @@
+
+[hub]
+protocol = https
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
+
+[core]
+excludesfile = /opt/boxen/config/git/gitignore
+excludesfile = ~/.gitignore
+[difftool "sourcetree"]
+cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+path = 
+[mergetool "sourcetree"]
+cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+trustExitCode = true
+[pager]
+log = diff-highlight | less
+show = diff-highlight | less
+diff = diff-highlight | less
+[merge]
+tool = vimdiff
+[push]
+default = simple
