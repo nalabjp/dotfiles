@@ -1,0 +1,34 @@
+# ----------
+# Display
+# ----------
+# show commit id in main view
+set show-id = yes
+# vertical split diff in main view
+set vertical-split = yes
+# diff context line number in diff view
+set diff-context = 6
+
+# ----------
+# key bind
+# ----------
+# generic
+# do nothing
+bind generic G none
+# gg like vim key bind
+bind generic g move-first-line
+# G like vim key bind
+bind generic G move-last-line
+
+# main
+# pull from remote
+bind main ^r !git pull --rebase
+# checkout 
+bind main C !?git checkout %(commit)
+
+# branch
+# make new branch
+bind branch n !git checkout -b %(prompt) %(branch)
+# remove branch for squash merge
+bind branch D !?git branch -D %(branch)
+# remove branch
+bind branch d !?git branch -d %(branch)

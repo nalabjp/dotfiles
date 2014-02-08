@@ -3,7 +3,7 @@
 # dot files dir
 DOTS_DIR=.dotfiles
 # basic dot files
-BASIC_DOTS=( .gemrc .pryrc .tmux.conf .screenrc .vimrc .gvimrc .gitignore .muttrc .zshenv .bundle )
+BASIC_DOTS=( .gemrc .pryrc .tmux.conf .screenrc .vimrc .gvimrc .gitignore .muttrc .zshenv .bundle .tigrc )
 # use zsh
 USE_ZSH=1
 # use oh-my-zsh
