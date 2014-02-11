@@ -1,6 +1,11 @@
 # See installation instructions at
 # https://github.com/wallace/weechat-notification-center-rb
 # Derived from https://github.com/tinifni/gntp-notify
+#
+# gem install in system
+# $ rbenv shell system
+# $ gem install ruby_gntp weechat terminal-notifier
+# $ rbenv shell --unset
 
 # Add load path
 %w(weechat terminal-notifier).each do |x|
