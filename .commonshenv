@@ -32,3 +32,6 @@ export LIBRARY_PATH=`brew --prefix`/lib:$LIBRARY_PATH
 export HISTCONTROL=ignoreboth #ignorespace+ignoredups
 export HISTIGNORE="fg*:bg*:history*:cd*:ls*"
 export HISTTIMEFORMAT='%Y-%m-%d %T ';
+
+# Homebrew Cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
