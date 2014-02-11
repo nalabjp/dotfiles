@@ -8,6 +8,7 @@ path =
 cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 trustExitCode = true
 [pager]
+# ln -s /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
 log = diff-highlight | less
 show = diff-highlight | less
 diff = diff-highlight | less
