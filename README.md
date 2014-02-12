@@ -5,4 +5,4 @@ dotfiles
 
     $ cd ~
     $ git clone git@github.com:nalabjp/dotfiles.git .dotfiles
-    $ .dotfiles/setup.sh
+    $ .dotfiles/init.sh
