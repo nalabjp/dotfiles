@@ -24,10 +24,6 @@ alias ctags='`brew --prefix`/bin/ctags -f .tags'
 alias ag='ag -S --stats --pager less'
 alias agh='ag --hidden'
 
-# gcalcli
-alias gcal='gcalcli agenda --cal "kimura"#brightmagenta'
-alias gcalw='gcalcli calw --width 20 --cal "kimura"#brightmagenta'
-
 # -------------------------------------------------
 # direnv config
 # https://github.com/zimbatm/direnv
