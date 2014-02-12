@@ -8,11 +8,11 @@ if [ -x "`which brew`" ]; then
 fi
 
 # install Homebrew
-echo 'brew install...'
+echo 'brew install'
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
 
 # prepare for mutt for version 1.5.20 (2009-06-14)
-echo 'prepare for mutt...'
+echo 'prepare for mutt'
 git checkout 0476235 /usr/local/Library/Formula/mutt.rb
 mkdir -p ~/.mutt/cache/headers && mkdir -p ~/.mutt/cache/bodies
 if [ ! -e ~/.mutt/certificates ]; then
