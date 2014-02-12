@@ -19,6 +19,11 @@ echo 'start after_brew_bundle.sh'
 echo 'finish after_brew_bundle.sh'
 
 echo ''
+echo 'start rbenv_setup.sh'
+./rbenv_setup.sh
+echo 'finish rbenv_setup.sh'
+
+echo ''
 echo 'start setup.sh'
 ./setup.sh
 echo 'finish setup.sh'
