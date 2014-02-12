@@ -79,11 +79,6 @@ setup_zsh() {
     create_symlink $HOME/$ohmyzsh_dir/custom/${zshrc#\.}.zsh $HOME/$DOTS_DIR/$zshrc
     # themes
     create_symlink $HOME/$ohmyzsh_dir/themes/$theme_file $HOME/$DOTS_DIR/$ohmyzsh_dir/themes/$theme_file
-    local zsh=/bin/zsh
-    if [ ! $SHELL = $zsh ]; then
-        echo "Change login shell : $zsh"
-        chsh -s $zsh
-    fi
 }
 
 # bash
@@ -129,11 +124,9 @@ setup_weechat() {
 }
 
 main() {
-    echo "setup.sh start"
     setup_basic_dots
     setup_sh
     setup_weechat
-    echo "setup.sh finish"
 }
 
 main
