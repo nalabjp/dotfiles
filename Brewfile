@@ -2,8 +2,7 @@
 # Requires manual configuration you run the "brew bundle"
 #
 # before run the "brew bundle":
-#   mutt
-#     $ brew versions mutt
+#   mutt 1.5.20 (2009-06-14)
 #     $ cd /usr/local
 #     $ git checkout 0476235 Library/Formula/mutt.rb
 #     $ mkdir -p ~/.mutt/cache/headers && mkdir ~/.mutt/cache/bodies && touch ~/.mutt/certificates && touch ~/.mutt/signature
