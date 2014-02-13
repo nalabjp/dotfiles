@@ -85,6 +85,8 @@ install readline
 install rbenv
 install ruby-build
 install rsense
+# source-highlight
+install source-highlight
 # sqlite
 install sqlite
 # tmux
