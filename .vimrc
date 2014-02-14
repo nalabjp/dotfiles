@@ -1,32 +1,19 @@
-" vundle.vim関連のプラグインのロード
-source ~/.dotfiles/.vimrc.bundle
+filetype off
 
-" プラグイン
-source ~/.dotfiles/.vimrc.plugins
+" mkdir -p ~/.vim/bundle
+" git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('~/.vim/bundle/'))
+endif
 
-" 基本
-source ~/.dotfiles/.vimrc.basic
+NeoBundle 'Shougo/neobundle.vim'
 
-" インデント
-source ~/.dotfiles/.vimrc.indent
+filetype plugin indent on
 
-" 表示
-source ~/.dotfiles/.vimrc.apperance
+if isdirectory(expand('~/.vim/conf.d'))
+  runtime! conf.d/*.vim
+endif
 
-" カラー
-source ~/.dotfiles/.vimrc.color
-
-" 検索
-source ~/.dotfiles/.vimrc.search
-
-" 移動
-source ~/.dotfiles/.vimrc.move
-
-" 編集
-source ~/.dotfiles/.vimrc.edit
-
-" エンコーディング
-source ~/.dotfiles/.vimrc.encoding
-
-" その他
-source ~/.dotfiles/.vimrc.misc
+" Installation check.
+NeoBundleCheck
