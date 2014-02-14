@@ -13,7 +13,7 @@ export PATH=/usr/local/mysql/bin:$PATH
 export PGDATA=`brew --prefix`/var/postgres
 
 # Vim
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+export EDITOR='vim'
 
 # tmux
 export TERM=screen-256color
