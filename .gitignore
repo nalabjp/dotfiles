@@ -15,3 +15,4 @@ tags
 .zshrc.local
 .muttrc.account
 .weechat/irc.conf
+.envrc
