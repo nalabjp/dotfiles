@@ -1,10 +1,5 @@
 # ------------------------------------------------
 # alias config
-# ls
-alias ls='ls -G'
-alias la='ls -a'
-alias ll='ls -la'
-
 # bundle
 alias be='bundle exec'
 alias bi='bundle install'
