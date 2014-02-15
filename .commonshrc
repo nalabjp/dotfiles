@@ -1,8 +1,5 @@
 # ------------------------------------------------
 # alias config
-# ctags
-alias ctags='`brew --prefix`/bin/ctags -f .tags'
-
 # ag
 alias ag='ag -S --stats --pager less'
 alias agh='ag --hidden'
