@@ -1,17 +1,5 @@
 # ------------------------------------------------
 # alias config
-# bundle
-alias be='bundle exec'
-alias bi='bundle install'
-alias br='bundle exec rails'
-alias brk='bundle exec rake'
-alias brs='bundle exec rspec -cfs'
-alias ss='bundle exec spring status'
-alias sr='bundle exec spring rails'
-alias srk='bundle exec spring rake'
-alias srs='bundle exec spring rspec -cfs'
-alias srst='bundle exec spring rspec -r turnip'
-
 # ctags
 alias ctags='`brew --prefix`/bin/ctags -f .tags'
 
