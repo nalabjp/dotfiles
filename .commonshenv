@@ -7,15 +7,3 @@ export PATH=/usr/local/mysql/bin:$PATH
 
 # postgresql
 export PGDATA=`brew --prefix`/var/postgres
-
-# Vim
-export EDITOR='vim'
-
-# tmux
-export TERM=screen-256color
-
-# For gvim's monochromatic :shell
-if [ "$VIM" ] && [ "$TERM" = "dumb" ]
-then
-  export PS1="\[\033[01;32m\]\u@\[\033[01;33m\]\h \[\033[01;34m\]\W $ \[\033[00m\]"
-fi
