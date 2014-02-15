@@ -4,8 +4,6 @@
 DOTS_DIR=.dotfiles
 # basic dot files
 BASIC_DOTS=( .gemrc .pryrc .tmux.conf .screenrc .vimrc .gvimrc .vim/conf.d .vim/snippets .gitconfig .gitignore .muttrc .bundle .tigrc )
-# use zsh
-USE_ZSH=1
 # use oh-my-zsh
 USE_OHMYZSH=1
 # backup dir
@@ -45,16 +43,6 @@ setup_basic_dots() {
     done
 }
 
-
-# login shell
-setup_sh() {
-    if [ $USE_ZSH -eq 1 ]; then
-        setup_zsh
-    else
-        setup_bash
-    fi
-}
-
 # zsh
 setup_zsh() {
     echo ""
@@ -79,14 +67,6 @@ setup_zsh() {
     create_symlink $HOME/$ohmyzsh_dir/custom/${zshrc#\.}.zsh $HOME/$DOTS_DIR/$zshrc
     # themes
     create_symlink $HOME/$ohmyzsh_dir/themes/$theme_file $HOME/$DOTS_DIR/$ohmyzsh_dir/themes/$theme_file
-}
-
-# bash
-setup_bash() {
-    echo ""
-    echo "Setup bash"
-    local file=.bash_profile
-    create_symlink $HOME/$file $HOME/$DOTS_DIR/$file
 }
 
 # weechat
@@ -125,7 +105,7 @@ setup_weechat() {
 
 main() {
     setup_basic_dots
-    setup_sh
+    setup_zsh
     setup_weechat
 }
 
