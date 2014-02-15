@@ -4,6 +4,3 @@ eval "$(rbenv init -)"
 
 # mysql
 export PATH=/usr/local/mysql/bin:$PATH
-
-# postgresql
-export PGDATA=`brew --prefix`/var/postgres
