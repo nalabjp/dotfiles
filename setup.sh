@@ -3,9 +3,7 @@
 # dot files dir
 DOTS_DIR=.dotfiles
 # basic dot files
-BASIC_DOTS=( .gemrc .pryrc .tmux.conf .screenrc .vimrc .gvimrc .vim/conf.d .vim/snippets .gitconfig .gitignore .muttrc .bundle .tigrc )
-# use oh-my-zsh
-USE_OHMYZSH=1
+BASIC_DOTS=( .gemrc .pryrc .tmux.conf .screenrc .vimrc .gvimrc .vim/conf.d .vim/snippets .gitconfig .gitignore .muttrc .bundle .tigrc .zshrc .oh-my-zsh )
 # backup dir
 BACKUP_DIR=$HOME/.dotfiles_backup/`date +%Y%m%d_%H%M%S`
 
@@ -41,32 +39,6 @@ setup_basic_dots() {
         echo "$file"
         create_symlink $HOME/$file $HOME/$DOTS_DIR/$file
     done
-}
-
-# zsh
-setup_zsh() {
-    echo ""
-    echo "Setup zsh"
-    local ohmyzshrc=.ohmyzshrc
-    local zshrc=.zshrc
-    local theme_file=zdj.zsh-theme
-    local ohmyzsh_dir=.oh-my-zsh
-    if [ -a $HOME/$ohmyzsh_dir ]; then
-        echo "Exists $HOME/$ohmyzsh_dir"
-    else
-        echo "Not Exists $HOME/$ohmyzsh_dir"
-        if [ $USE_OHMYZSH -eq 1 ]; then
-            echo "Install oh-my-zsh"
-            git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/$ohmyzsh_dir
-            mv $HOME/$zshrc $BACKUP_DIR/$zshrc
-        fi
-    fi
-    # .ohmyzshrc
-    create_symlink $HOME/$zshrc $HOME/$DOTS_DIR/$ohmyzshrc
-    # .zshrc
-    create_symlink $HOME/$ohmyzsh_dir/custom/${zshrc#\.}.zsh $HOME/$DOTS_DIR/$zshrc
-    # themes
-    create_symlink $HOME/$ohmyzsh_dir/themes/$theme_file $HOME/$DOTS_DIR/$ohmyzsh_dir/themes/$theme_file
 }
 
 # weechat
@@ -105,7 +77,6 @@ setup_weechat() {
 
 main() {
     setup_basic_dots
-    setup_zsh
     setup_weechat
 }
 
