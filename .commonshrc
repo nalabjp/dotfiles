@@ -1,11 +1,4 @@
 # -------------------------------------------------
-# direnv config
-# https://github.com/zimbatm/direnv
-if type direnv > /dev/null 2>&1; then
-  eval "$(direnv hook $SHELL)"
-fi
-
-# -------------------------------------------------
 # tmux/screenの自動起動設定
 #  Note: .bashrc or .zshrc に設定して使用して下さい。
 #
