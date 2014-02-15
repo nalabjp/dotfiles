@@ -45,7 +45,7 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git postgres rbenv)
+plugins=(git postgres rbenv tmux)
 
 source $ZSH/oh-my-zsh.sh
 
