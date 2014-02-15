@@ -20,13 +20,7 @@ then
   export PS1="\[\033[01;32m\]\u@\[\033[01;33m\]\h \[\033[01;34m\]\W $ \[\033[00m\]"
 fi
 
-# LIBRARY_PATH
-export LIBRARY_PATH=`brew --prefix`/lib:$LIBRARY_PATH
-
 # history config
 export HISTCONTROL=ignoreboth #ignorespace+ignoredups
 export HISTIGNORE="fg*:bg*:history*:cd*:ls*"
 export HISTTIMEFORMAT='%Y-%m-%d %T ';
-
-# Homebrew Cask
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
