@@ -33,8 +33,6 @@ install the_silver_searcher
 # apple-gcc42
 tap homebrew/dupes
 install apple-gcc42
-# bash-completion
-install bash-completion
 # direnv
 install direnv
 # findutils
@@ -102,7 +100,6 @@ install wget
 install w3m
 # zsh
 install --disable-etcdir zsh
-install z
 
 # brew-cask
 tap phinze/homebrew-cask
