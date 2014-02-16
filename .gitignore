@@ -15,4 +15,7 @@ tags
 .zshrc.local
 .muttrc.account
 .weechat/irc.conf
+.weechat/logs/*
+.weechat/*.log
+.weechat/weechat_fifo_*
 .envrc
