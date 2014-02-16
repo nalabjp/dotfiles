@@ -12,7 +12,7 @@ NeoBundle 'Shougo/neobundle.vim'
 filetype plugin indent on
 
 if isdirectory(expand('~/.vim/conf.d'))
-  runtime! conf.d/*.vim
+  runtime! conf.d/**/*.vim
 endif
 
 " Installation check.
