@@ -46,3 +46,4 @@ main() {
 }
 
 main
+source ~/.zshrc
