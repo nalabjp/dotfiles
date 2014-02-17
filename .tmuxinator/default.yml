@@ -11,6 +11,7 @@ pre:
   - ([ `pgrep weechat` ] && kill `pgrep weechat`)
 
 windows:
+  - zsh: cd ~
   - editor:
       layout: even-horizon
       panes:
@@ -27,3 +28,4 @@ windows:
   - test: guard
   - log: tail -f log/development.log
   - chat: weechat
+  - mail: mutt
