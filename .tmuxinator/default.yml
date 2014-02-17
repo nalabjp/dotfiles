@@ -1,0 +1,24 @@
+# ~/.tmuxinator/default.yml
+
+name: project_name
+root: ~/dev/
+
+pre:
+  - pgrep mysqld || startmysql
+
+windows:
+  - editor:
+      layout: even-horizon
+      panes:
+        - vim .
+        - la
+  - git:
+      layout: even-vertical
+      panes:
+        - tig --all
+        - gst
+  - console: rails c
+  - db: rails db
+  - server: rails s
+  - test: guard
+  - log: tail -f log/development.log

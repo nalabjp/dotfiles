@@ -19,3 +19,5 @@ tags
 .weechat/*.log
 .weechat/weechat_fifo_*
 .envrc
+.tmuxinator/*
+!.tmuxinator/default.yml
