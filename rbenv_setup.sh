@@ -1,15 +1,20 @@
 #!/bin/bash
 
-# ruby install
-rbenv install 1.9.3-p484
-rbenv install 2.0.0-p353
-rbenv install 2.1.0
-rbenv global 2.1.0
+RUBIES=(1.9.3-p484 2.0.0-p353 2.1.0)
+GEMLIST_TO_VERSION='bundler pry pry-byebug pry-doc pry-stack_explorer awesome_print tapp'
+GEMLIST_TO_SYSTEM='ruby_gntp weechat terminal-notifier tmuxinator'
 
-# gem install to global
-gem install bundler pry pry-byebug pry-doc pry-stack_explorer awesome_print tapp
+# ruby install & gem install to global
+for version in ${RUBIES[@]}
+do
+    echo $version
+    rbenv install $version
+    rbenv global $version
+    rbenv rehash
+    gem install $GEMLIST_TO_VERSION
+done
 
-# gem install to system for weechat/ruby/notification_center.rb
+# gem install to system
 rbenv shell system
-gem install ruby_gntp weechat terminal-notifier tmuxinator
+gem install $GEMLIST_TO_SYSTEM
 rbenv shell --unset
