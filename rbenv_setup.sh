@@ -7,10 +7,11 @@ GEMLIST_TO_SYSTEM='ruby_gntp weechat terminal-notifier tmuxinator'
 # ruby install & gem install to global
 for version in ${RUBIES[@]}
 do
-    echo $version
-    rbenv install $version
-    rbenv global $version
-    rbenv rehash
+    if [ ! -d $(brew --prefix rbenv)/versions/$version ]; then
+        rbenv install $version
+        rbenv global $version
+        rbenv rehash
+    fi
     gem install $GEMLIST_TO_VERSION
 done
 
