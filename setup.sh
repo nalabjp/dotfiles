@@ -3,7 +3,7 @@
 # dot files dir
 DOTS_DIR=.dotfiles
 # basic dot files
-BASIC_DOTS=( .gemrc .pryrc .tmux.conf .vimrc .gvimrc .vim/conf.d .vim/snippets .gitconfig .gitignore .muttrc .bundle .tigrc .zshrc .oh-my-zsh .weechat)
+BASIC_DOTS=(.zshrc .oh-my-zsh .gemrc .pryrc .tmux.conf .tmuxinator .vimrc .gvimrc .vim/conf.d .vim/snippets .gitconfig .gitignore .muttrc .bundle .tigrc .weechat)
 # backup dir
 BACKUP_DIR=$HOME/.dotfiles_backup/`date +%Y%m%d_%H%M%S`
 
@@ -46,4 +46,3 @@ main() {
 }
 
 main
-source ~/.zshrc
