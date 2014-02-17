@@ -11,7 +11,7 @@ pre:
   - ([ `pgrep weechat` ] && kill `pgrep weechat`)
 
 windows:
-  - zsh: cd ~
+  - zsh:
   - editor:
       layout: even-horizon
       panes:
