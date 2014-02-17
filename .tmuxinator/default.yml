@@ -5,6 +5,9 @@ root: ~/dev/
 
 pre:
   - pgrep mysqld || startmysql
+  - spring stop
+  - ([ -f tmp/pids/server.pid ] && kill -INT `cat tmp/pids/server.pid`)
+  - ([ -f tmp/pids/server.pid ] && rm tmp/pids/server.pid)
 
 windows:
   - editor:
