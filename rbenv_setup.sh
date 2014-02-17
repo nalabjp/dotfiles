@@ -11,5 +11,5 @@ gem install bundler pry pry-byebug pry-doc pry-stack_explorer awesome_print tapp
 
 # gem install to system for weechat/ruby/notification_center.rb
 rbenv shell system
-gem install ruby_gntp weechat terminal-notifier
+gem install ruby_gntp weechat terminal-notifier tmuxinator
 rbenv shell --unset
