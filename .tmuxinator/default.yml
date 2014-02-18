@@ -8,23 +8,31 @@ pre:
   - spring stop
   - ([ -f tmp/pids/server.pid ] && kill -INT `cat tmp/pids/server.pid`)
   - ([ -f tmp/pids/server.pid ] && rm tmp/pids/server.pid)
+  - rails s & > /dev/null
   - ([ `pgrep weechat` ] && kill `pgrep weechat`)
 
 windows:
   - zsh: la
-  - editor:
-      layout: even-horizon
-      panes:
-        - vim .
+  - editor: vim
   - git:
       layout: even-vertical
       panes:
         - tig --all
         - gst
-  - console: rails c
-  - db: rails db
-  - server: rails s
-  - test: guard
-  - log: tail -f log/development.log
+  - console:
+      layout: even-horizon
+      panes:
+        - rails c
+        - rails db
+  - test:
+      layout: even-horizon
+      panes:
+        - guard
+        - tail -f log/test.log
+  - log:
+      layout: even-horizon
+      panes:
+        - tail -f log/development.log
+        - sleep 1 && pstree -s rails
   - chat: weechat
   - mail: mutt
