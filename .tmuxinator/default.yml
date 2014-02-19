@@ -8,12 +8,12 @@ pre:
   - spring stop
   - ([ -f tmp/pids/server.pid ] && kill -INT `cat tmp/pids/server.pid`)
   - ([ -f tmp/pids/server.pid ] && rm tmp/pids/server.pid)
-  - rails s > /dev/null &
+  - (rails s > /dev/null &)
   - ([ `pgrep weechat` ] && kill `pgrep weechat`)
 
 windows:
   - zsh: la
-  - editor: vim
+  - editor: vim .
   - git:
       layout: even-vertical
       panes:
@@ -27,7 +27,7 @@ windows:
   - test:
       layout: even-horizon
       panes:
-        - guard
+        - DISABLE_SPRING=1 guard
         - tail -f log/test.log
   - log:
       layout: even-horizon
