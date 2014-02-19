@@ -33,6 +33,8 @@ install the_silver_searcher
 # apple-gcc42
 tap homebrew/dupes
 install apple-gcc42
+# colordiff
+install colordiff
 # direnv
 install direnv
 # findutils
