@@ -94,6 +94,8 @@ install reattach-to-user-namespace
 install tmux
 # tree
 install tree
+# watch
+install watch
 # weechat
 install --with-aspell --with-guile --with-lua --with-perl --with-python --with-ruby weechat
 # wget
