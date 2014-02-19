@@ -59,10 +59,12 @@ install --with-lua --override-system-vim macvim
 install mongodb
 # mutt
 # version 1.5.20
+# '|| true' ignore already installed error
 install gnupg
 install msmtp
 install urlview
-install --sidebar-patch mutt
+install --sidebar-patch mutt || true
+pin mutt
 # mysql
 install mysql
 # nginx
