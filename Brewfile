@@ -81,6 +81,8 @@ install postgresql
 install pstree
 # pwgen
 install pwgen
+# redis
+install redis
 # ruby
 install openssl
 install readline
