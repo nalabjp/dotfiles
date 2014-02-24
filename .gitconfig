@@ -15,3 +15,25 @@ diff = diff-highlight | less
 tool = vimdiff
 [push]
 default = simple
+[alias]
+a = add -v
+aa = add -Av
+au = add -uv
+b = branch
+c = commit -v
+cm = commit -mv
+ch = checkout
+chb = checkout -b
+d = diff
+dc = diff --cached
+l = log --stat
+lg = log --graph --decorate --all
+lo = log --oneline
+p = push -v
+pl = pull --rebase -v
+r = rm
+re = reset
+reh = reset --hard
+res = reset --soft
+s = status
+sh = show
