@@ -32,7 +32,7 @@ set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 
 " OSのクリップボードを使用
-set clipboard=unnamed
+set clipboard=unnamed,autoselect
 
 " swapファイル
 silent execute '!mkdir -p $HOME/.vimswap'
@@ -43,6 +43,3 @@ set directory=~/.vimswap
 silent execute '!mkdir -p $HOME/.vimbackup'
 set backup
 set backupdir=~/.vimbackup
-
-" ファイルタイプ判定をon
-filetype plugin on
