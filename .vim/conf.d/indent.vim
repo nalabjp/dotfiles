@@ -9,8 +9,8 @@ set tabstop=2 shiftwidth=2 softtabstop=0
 
 " ファイルタイプ毎のインデント設定
 if has('autocmd')
-  filetype plugin on
-  filetype indent on
+  "filetype plugin on
+  "filetype indent on
 
   autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
