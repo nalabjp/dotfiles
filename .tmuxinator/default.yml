@@ -6,12 +6,13 @@ root: ~/dev/
 pre:
   - (pgrep mongod || mongod > /dev/null &)
   - spring stop
-  - ([ -f tmp/pids/server.pid ] && kill -INT `cat tmp/pids/server.pid`)
-  - ([ -f tmp/pids/server.pid ] && rm tmp/pids/server.pid)
+  - ([ -f tmp/pids/server.pid ] && kill -INT `cat tmp/pids/server.pid`; rm tmp/pids/server.pid)
   - ([ `pgrep weechat` ] && kill `pgrep weechat`)
 
 windows:
-  - zsh: while [ ! `pgrep mysqld` ]; do sleep 1; done && rails s > /dev/null &
+  - setup: (while [ ! `pgrep mysqld` ]; do sleep 1; done; rails s > /dev/null &); exit
+  - setup: (redis-server > /dev/null &); (sleep 1 && rake resque:work > /dev/null &); exit
+  - zsh:
   - editor: vim .
   - git:
       layout: even-vertical
