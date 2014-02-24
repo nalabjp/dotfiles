@@ -45,6 +45,8 @@ install fontforge
 install git
 install hub
 install tig
+tap thoughtbot/formulae
+install gitsh
 # gnu-tar
 install --default-names gnu-tar
 # htop
