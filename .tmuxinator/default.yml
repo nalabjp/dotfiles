@@ -11,7 +11,7 @@ pre:
   - ([ `pgrep weechat` ] && kill `pgrep weechat`)
 
 windows:
-  - zsh: rails s > /dev/null &
+  - zsh: while [ ! `pgrep mysqld` ]; do sleep 1; done && rails s > /dev/null &
   - editor: vim .
   - git:
       layout: even-vertical
