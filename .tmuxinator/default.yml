@@ -4,7 +4,6 @@ name: project_name
 root: ~/dev/
 
 pre:
-  - (pgrep mysqld || startmysql)
   - (pgrep mongod || mongod > /dev/null &)
   - spring stop
   - ([ -f tmp/pids/server.pid ] && kill -INT `cat tmp/pids/server.pid`)
@@ -23,7 +22,7 @@ windows:
       layout: main-vertical
       panes:
         - rails c
-        - sleep 1 && rails db
+        - (pgrep mysqld || startmysql) && rails db
   - test:
       layout: even-horizon
       panes:
