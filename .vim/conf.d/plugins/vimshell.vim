@@ -1,2 +1,0 @@
-" vimshell
-NeoBundle 'Shougo/vimshell'
