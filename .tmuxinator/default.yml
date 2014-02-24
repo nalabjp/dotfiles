@@ -23,7 +23,7 @@ windows:
       layout: main-vertical
       panes:
         - rails c
-        - rails db
+        - sleep 1 && rails db
   - test:
       layout: even-horizon
       panes:
