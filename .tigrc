@@ -3,8 +3,6 @@
 # ----------
 # show commit id in main view
 set show-id = yes
-# vertical split diff in main view
-set vertical-split = yes
 # diff context line number in diff view
 set diff-context = 6
 
