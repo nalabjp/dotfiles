@@ -4,35 +4,38 @@ name: project_name
 root: ~/dev/
 
 pre:
-  - (pgrep mongod || mongod > /dev/null &)
-  - spring stop
-  - ([ -f tmp/pids/server.pid ] && kill -INT `cat tmp/pids/server.pid`; rm tmp/pids/server.pid)
-  - ([ `pgrep weechat` ] && kill `pgrep weechat`)
 
 windows:
-  - setup: (while [ ! `pgrep mysqld` ]; do sleep 1; done; rails s > /dev/null &); exit
-  - setup: (redis-server > /dev/null &); (sleep 1 && rake resque:work > /dev/null &); exit
   - zsh:
   - editor: vim .
   - git:
-      layout: even-vertical
+      layout: even-horizon
       panes:
-        - tig --all
         - gs
+        - tig --all
   - console:
       layout: main-vertical
       panes:
-        - rails c
-        - (pgrep mysqld || startmysql) && rails db
+        -  rails c
+        -  while [ ! `pgrep mysqld` ]; do echo 'waiting...'; sleep 1; done; rails db
   - test:
       layout: even-horizon
       panes:
         - DISABLE_SPRING=1 guard
         - tail -f log/test.log
-  - log:
-      layout: even-horizon
+  - log: tail -f log/development.log
+  - chat:
+      pre:
+        - pgrep weechat && kill -SIGKILL `pgrep weechat`
       panes:
-        - tail -f log/development.log
-        - sleep 1 && pstree -s rails
-  - chat: weechat
+        - weechat
   - mail: mutt
+  - setup:
+    - (pgrep mongod || mongod > /dev/null &)
+    - startredis
+    - spring stop
+    - pgrep mysql || startmysql
+    - while [ ! `pgrep redis-server` ]; do sleep 1; done;
+    - while [ ! `pgrep mysqld` ]; do sleep 1; done;
+    - ([ -f tmp/pids/server.pid ] && (kill -SIGKILL `cat tmp/pids/server.pid`; rm tmp/pids/server.pid))
+    - foreman start
