@@ -1,6 +1,6 @@
 banner=no
 color_patches=no
-plane=darkwhite
+plain=darkwhite
 newtext=darkgreen
 oldtext=darkred
 diffstuff=white
