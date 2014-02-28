@@ -103,7 +103,7 @@ install tree
 # watch
 install watch
 # weechat
-install --with-aspell --with-guile --with-lua --with-perl --with-python --with-ruby weechat
+install --with-perl --with-python --with-ruby weechat
 # wget
 install wget
 # w3m
