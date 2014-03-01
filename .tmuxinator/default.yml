@@ -7,14 +7,13 @@ pre:
 
 windows:
   - zsh:
-  - editor: vim .
   - git:
       layout: even-horizon
       panes:
         - gs
         - tig --all
   - console:
-      layout: main-vertical
+      layout: even-horizon
       panes:
         -  rails c
         -  while [ ! `pgrep mysqld` ]; do echo 'waiting...'; sleep 1; done; rails db
@@ -23,19 +22,17 @@ windows:
       panes:
         - DISABLE_SPRING=1 guard
         - tail -f log/test.log
-  - log: tail -f log/development.log
-  - chat:
-      pre:
-        - pgrep weechat && kill -SIGKILL `pgrep weechat`
+  - server:
+      layout: even-horizon
       panes:
-        - weechat
-  - mail: mutt
-  - setup:
-    - (pgrep mongod || mongod > /dev/null &)
-    - startredis
-    - spring stop
-    - pgrep mysql || startmysql
-    - while [ ! `pgrep redis-server` ]; do sleep 1; done;
-    - while [ ! `pgrep mysqld` ]; do sleep 1; done;
-    - ([ -f tmp/pids/server.pid ] && (kill -SIGKILL `cat tmp/pids/server.pid`; rm tmp/pids/server.pid))
-    - foreman start
+        - setup:
+          - (pgrep mongod || mongod > /dev/null &)
+          - startredis
+          - spring stop
+          - pgrep mysql || startmysql
+          - while [ ! `pgrep redis-server` ]; do sleep 1; done;
+          - while [ ! `pgrep mysqld` ]; do sleep 1; done;
+          - ([ -f tmp/pids/server.pid ] && (kill -SIGKILL `cat tmp/pids/server.pid`; rm tmp/pids/server.pid))
+          - foreman start
+        - log:
+          - tail -f log/development.log
