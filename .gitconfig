@@ -46,3 +46,5 @@ sh = show
 st = stash
 stl = stash list
 stp = stash pop
+[help]
+autocorrect = 1
