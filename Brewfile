@@ -35,6 +35,8 @@ tap homebrew/dupes
 install apple-gcc42
 # colordiff
 install colordiff
+# coreutils
+install coreutils
 # direnv
 install direnv
 # findutils
