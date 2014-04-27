@@ -41,8 +41,15 @@ setup_basic_dots() {
     done
 }
 
+# dircolors
+setup_dircolors_solarized() {
+    echo ".dircolors-solarized"
+    create_symlink $HOME/.dircolors-solarized $HOME/$DOTS_DIR/themes/dircolors-solarized/dircolors.256dark
+}
+
 main() {
     setup_basic_dots
+    setup_dircolors_solarized
 }
 
 main
