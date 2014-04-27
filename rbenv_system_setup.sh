@@ -11,3 +11,5 @@ GEMLIST_TO_SYSTEM=(ruby_gntp weechat terminal-notifier tmuxinator)
 echo ''
 echo '## ruby system ##'
 install_gem_list_if_not_installed ${GEMLIST_TO_SYSTEM[*]}
+
+unset GEM_CMD
