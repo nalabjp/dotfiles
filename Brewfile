@@ -2,11 +2,6 @@
 # Requires manual configuration you run the "brew bundle"
 #
 # before run the "brew bundle":
-#   mutt 1.5.20 (2009-06-14)
-#     $ cd /usr/local
-#     $ git checkout 0476235 Library/Formula/mutt.rb
-#     $ mkdir -p ~/.mutt/cache/headers && mkdir ~/.mutt/cache/bodies && touch ~/.mutt/certificates && touch ~/.mutt/signature
-#
 #   cask env
 #     $ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
 #
@@ -63,14 +58,6 @@ install libxslt
 install --with-lua --override-system-vim macvim
 # mongodb
 install mongodb
-# mutt
-# version 1.5.20
-# '|| true' ignore already installed error
-install gnupg
-install msmtp
-install urlview
-install --sidebar-patch mutt || true
-pin mutt
 # mysql
 install mysql
 # nginx
@@ -104,8 +91,6 @@ install tmux
 install tree
 # watch
 install watch
-# weechat
-install --with-perl --with-python --with-ruby weechat
 # wget
 install wget
 # w3m
