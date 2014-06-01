@@ -1,8 +1,6 @@
 # ----------
 # Display
 # ----------
-# show commit id in main view
-set show-id = yes
 # diff context line number in diff view
 set diff-context = 6
 
@@ -19,7 +17,7 @@ bind generic G move-last-line
 
 # main
 # pull from remote
-bind main ^r !git pull --rebase
+bind main <Ctrl-r> !git pull --rebase
 # checkout 
 bind main C !?git checkout %(commit)
 
