@@ -13,13 +13,6 @@ tags
 .tags
 .bashrc.local
 .zshrc.local
-.muttrc.account
-.weechat/irc.conf
-.weechat/logs/*
-.weechat/*.log
-.weechat/weechat_fifo_*
-.weechat/script/plugins.xml.gz
-.weechat/weeget/plugins.xml.gz
 .envrc
 .tmuxinator/*
 !.tmuxinator/default.yml
