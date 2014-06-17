@@ -1,53 +1,53 @@
 [core]
-excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [difftool "sourcetree"]
-cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
-path = 
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-trustExitCode = true
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+  trustExitCode = true
 [pager]
-# ln -s /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
-log = diff-highlight | less
-show = diff-highlight | less
-diff = diff-highlight | less
+  # ln -s /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
 [merge]
-tool = vimdiff
-conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = diff3
 [push]
-default = simple
+  default = simple
 [alias]
-a = add -v
-aa = add -Av
-au = add -uv
-b = branch
-c = commit -v
-cm = commit -mv
-ch = checkout
-chb = checkout -b
-cp = cherry-pick
-d = diff
-dc = diff --cached
-l = log --stat
-lg = log --graph --decorate --all
-lo = log --oneline
-mg = merge
-mgn = merge --no-ff
-p = push -v
-pl = pull --rebase -v
-r = rm
-rc = rm --cached
-rb = rebase
-rs = reset
-rsh = reset --hard
-rss = reset --soft
-rv = revert
-re = remote
-s = status
-sh = show
-st = stash
-stl = stash list
-stp = stash pop
-delete-merged-local-branches = !git branch --merged | egrep -vw \"\\*|dev|master\" | cut -d \" \" -f3 | xargs -n1 -t -I@ git branch -d @
+  a = add -v
+  aa = add -Av
+  au = add -uv
+  b = branch
+  c = commit -v
+  cm = commit -mv
+  ch = checkout
+  chb = checkout -b
+  cp = cherry-pick
+  d = diff
+  dc = diff --cached
+  l = log --stat
+  lg = log --graph --decorate --all
+  lo = log --oneline
+  mg = merge
+  mgn = merge --no-ff
+  p = push -v
+  pl = pull --rebase -v
+  r = rm
+  rc = rm --cached
+  rb = rebase
+  rs = reset
+  rsh = reset --hard
+  rss = reset --soft
+  rv = revert
+  re = remote
+  s = status
+  sh = show
+  st = stash
+  stl = stash list
+  stp = stash pop
+  delete-merged-local-branches = !git branch --merged | egrep -vw \"\\*|dev|master\" | cut -d \" \" -f3 | xargs -n1 -t -I@ git branch -d @
 [help]
-autocorrect = 1
+  autocorrect = 1
