@@ -51,3 +51,5 @@
   delete-merged-local-branches = !git branch --merged | egrep -vw \"\\*|dev|master\" | cut -d \" \" -f3 | xargs -n1 -t -I@ git branch -d @
 [help]
   autocorrect = 1
+[branch]
+  autosetuprebase = always
