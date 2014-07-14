@@ -48,6 +48,8 @@ install gitsh
 install --default-names gnu-tar
 # htop
 install htop-osx
+# httpie
+install httpie
 # imagemagick
 install imagemagick
 # libxml2
