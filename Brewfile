@@ -52,8 +52,9 @@ install htop-osx
 install httpie
 # imagemagick
 install imagemagick
-# libxml2
+# libxml2 => 2.8.0 for nokogiri
 install libxml2
+pin libxml2
 # libxslt
 install libxslt
 # macvim
