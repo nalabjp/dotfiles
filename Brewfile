@@ -38,6 +38,8 @@ install direnv
 install findutils
 # fontforge
 install fontforge
+# ffmpeg
+install ffmpeg
 # git
 install git
 install hub
