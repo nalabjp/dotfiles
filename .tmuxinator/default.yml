@@ -7,32 +7,21 @@ pre:
 
 windows:
   - zsh:
-  - git:
-      layout: even-horizon
-      panes:
-        - gs
-        - tig --all
   - console:
       layout: even-horizon
       panes:
-        -  rails c
-        -  while [ ! `pgrep mysqld` ]; do echo 'waiting...'; sleep 1; done; rails db
-  - test:
-      layout: even-horizon
-      panes:
-        - DISABLE_SPRING=1 guard
-        - tail -f log/test.log
-  - server:
-      layout: even-horizon
-      panes:
-        - setup:
-          - (pgrep mongod || mongod > /dev/null &)
-          - startredis
+        - console:
+          - rails c
+        - server:
           - spring stop
           - pgrep mysql || startmysql
-          - while [ ! `pgrep redis-server` ]; do sleep 1; done;
           - while [ ! `pgrep mysqld` ]; do sleep 1; done;
           - ([ -f tmp/pids/server.pid ] && (kill -SIGKILL `cat tmp/pids/server.pid`; rm tmp/pids/server.pid))
           - foreman start
-        - log:
-          - tail -f log/development.log
+  - git:
+      layout: even-horizon
+      panes:
+        - gitsh:
+          - gs
+        - guard:
+          - guard
