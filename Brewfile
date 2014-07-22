@@ -126,6 +126,7 @@ cask install teamviewer
 cask install tinkertool
 cask install tinyumbrella
 cask install virtualbox
+cask install vagrant
 
 # Cleanup
 cleanup
