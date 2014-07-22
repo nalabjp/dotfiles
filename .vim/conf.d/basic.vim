@@ -1,6 +1,3 @@
-" シンタックス
-syntax enable
-
 " vi互換off
 set nocompatible
 
