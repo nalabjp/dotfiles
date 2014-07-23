@@ -28,6 +28,7 @@
   cp = cherry-pick
   d = diff
   dc = diff --cached
+  gr = grep
   l = log --stat
   lg = log --graph --decorate --all
   lo = log --oneline
