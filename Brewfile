@@ -79,6 +79,8 @@ install pstree
 install pwgen
 # redis
 install redis
+# rename
+install rename
 # ruby
 install openssl
 install readline
@@ -119,14 +121,15 @@ cask install google-chrome
 cask install iterm2
 cask install limechat
 cask install mysql-workbench
+cask install slack
 cask install skitch
 cask install skype
 cask install sourcetree
 cask install teamviewer
 cask install tinkertool
 cask install tinyumbrella
-cask install virtualbox
 cask install vagrant
+cask install virtualbox
 
 # Cleanup
 cleanup
