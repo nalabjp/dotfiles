@@ -118,6 +118,7 @@ cask install firefox
 cask install gimp
 cask install github
 cask install google-chrome
+cask install google-drive
 cask install iterm2
 cask install limechat
 cask install mysql-workbench
