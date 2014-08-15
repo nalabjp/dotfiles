@@ -48,6 +48,8 @@ tap thoughtbot/formulae
 install gitsh
 # gnu-tar
 install --default-names gnu-tar
+# heroku
+install heroku
 # htop
 install htop-osx
 # httpie
