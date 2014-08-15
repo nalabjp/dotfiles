@@ -27,6 +27,7 @@ runtime! conf.d/plugins/vim-easymotion.vim
 runtime! conf.d/plugins/vim-endwise.vim
 runtime! conf.d/plugins/vim-fugitive.vim
 runtime! conf.d/plugins/vim-markdown.vim
+runtime! conf.d/plugins/vim-multiple-cursors.vim
 runtime! conf.d/plugins/vim-quickrun.vim
 runtime! conf.d/plugins/vim-rails.vim
 runtime! conf.d/plugins/vim-ref-ri.vim
