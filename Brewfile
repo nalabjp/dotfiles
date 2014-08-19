@@ -71,6 +71,8 @@ install mysql
 install nginx
 # nkf
 install nkf
+# nodebrew
+install nodebrew
 # phantomjs
 install phantomjs
 # postgresql
