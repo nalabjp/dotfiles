@@ -126,6 +126,7 @@ cask install github
 cask install google-chrome
 cask install google-drive
 cask install iterm2
+cask install kobito
 cask install limechat
 cask install mysql-workbench
 cask install slack
