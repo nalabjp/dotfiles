@@ -73,6 +73,8 @@ install nginx
 install nkf
 # nodebrew
 install nodebrew
+# pandoc
+install pandoc
 # phantomjs
 install phantomjs
 # postgresql
