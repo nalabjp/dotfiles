@@ -56,6 +56,8 @@ install htop-osx
 install httpie
 # imagemagick
 install imagemagick
+# jq
+install jq
 # libxml2 => 2.8.0 for nokogiri
 install libxml2
 pin libxml2
