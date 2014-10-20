@@ -95,6 +95,8 @@ brew install readline
 brew install rbenv
 brew install ruby-build
 brew install rsense
+# rbenv-default-gems
+brew install rbenv-default-gems
 # source-highlight
 brew install source-highlight
 # sqlite
