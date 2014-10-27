@@ -130,6 +130,7 @@ brew cask install github
 brew cask install google-chrome
 brew cask install google-drive
 brew cask install iterm2
+brew cask install java
 brew cask install kobito
 brew cask install limechat
 brew cask install mysql-workbench
