@@ -3,7 +3,7 @@
 # dot files dir
 DOTS_DIR=.dotfiles
 # basic dot files
-BASIC_DOTS=(.zshrc .oh-my-zsh .gemrc .pryrc .rspec .tmux.conf .tmuxinator .vimrc .gvimrc .vim/conf.d .gitconfig .gitignore .bundle .tigrc .colordiffrc .rbenv/default-gems)
+BASIC_DOTS=(.zshrc .oh-my-zsh .gemrc .pryrc .rspec .tmux.conf .tmuxinator .vimrc .gvimrc .vim/conf.d .gitconfig .gitignore .bundle .tigrc .colordiffrc)
 # backup dir
 BACKUP_DIR=$HOME/.dotfiles_backup/`date +%Y%m%d_%H%M%S`
 
@@ -41,8 +41,19 @@ setup_basic_dots() {
     done
 }
 
+# rbenv-default-gems
+setup_rbenv_default_gems() {
+    echo ""
+    echo "Setup rbenv-default-gems"
+
+    local file=default-gems
+    echo "$file"
+    create_symlink $(brew --prefix rbenv)/$file $HOME/$DOTS_DIR/.rbenv/$file
+}
+
 main() {
     setup_basic_dots
+    setup_rbenv_default_gems
 }
 
 main
