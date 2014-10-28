@@ -25,9 +25,6 @@
 
 # ag
 brew install the_silver_searcher
-# apple-gcc42
-brew tap homebrew/dupes
-brew install apple-gcc42
 # colordiff
 brew install colordiff
 # coreutils
