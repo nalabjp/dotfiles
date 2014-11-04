@@ -76,6 +76,9 @@ brew install nodebrew
 brew install pandoc
 # phantomjs
 brew install phantomjs
+# php55
+brew tap josegonzalez/homebrew-php
+brew install --without-apache --with-fpm --with-mysql php55
 # postgresql
 brew install postgresql
 # pstree
