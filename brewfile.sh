@@ -79,6 +79,8 @@ brew install phantomjs
 # php55
 brew tap josegonzalez/homebrew-php
 brew install --without-apache --with-fpm --with-mysql php55
+# phpunit
+brew install phpunit
 # postgresql
 brew install postgresql
 # pstree
