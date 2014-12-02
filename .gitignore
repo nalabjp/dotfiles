@@ -16,3 +16,4 @@ tags
 .envrc
 .tmuxinator/*
 !.tmuxinator/default.yml
+.idea/
