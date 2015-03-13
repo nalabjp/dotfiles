@@ -117,6 +117,9 @@ brew install w3m
 # zsh
 brew install --disable-etcdir zsh
 
+# for brew versions
+brew tap homebrew/boneyard
+
 # brew-cask
 brew tap phinze/homebrew-cask
 brew install brew-cask
