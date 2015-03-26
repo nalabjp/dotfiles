@@ -74,6 +74,8 @@ brew install nkf
 brew install nodebrew
 # pandoc
 brew install pandoc
+# peco
+brew install peco
 # phantomjs
 brew install phantomjs
 # php55
