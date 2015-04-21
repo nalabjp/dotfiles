@@ -17,3 +17,4 @@ tags
 .tmuxinator/*
 !.tmuxinator/default.yml
 .idea/
+.rake_tasks
