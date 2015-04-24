@@ -1,9 +1,14 @@
 #!/bin/bash
 
-RUBIES=(1.9.3-p484 2.0.0-p353 2.1.0 2.1.1 2.1.2 2.1.4)
+# Only Ruby version 2.2.x
+RUBIES=$(rbenv install --list | awk '
+  match($0,/^\ \ 2\.2\.[0-9]/) {
+    print substr($0, RSTART+2,RLENGTH-2)
+  }
+'| sort | uniq)
 
 # ruby install & gem install to global
-for version in ${RUBIES[@]}
+for version in $RUBIES
 do
     echo ''
     echo '## ruby '$version' ##'
