@@ -1,6 +1,6 @@
 #!/bin/bash
 
-local script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 cd $script_dir
 echo "cd $PWD"
@@ -19,7 +19,7 @@ fi
 
 # install Homebrew
 echo 'brew install'
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 #
 # brewfile.sh
@@ -40,7 +40,7 @@ if [ -f /usr/local/bin/gtar ]; then
     echo 'create symlink for gnu-tar'
     cd /usr/bin
     sudo rm tar
-    sudo ln -s /user/local/bin/gtar tar
+    sudo ln -s /usr/local/bin/gtar tar
     cd $pwd
 fi
 
