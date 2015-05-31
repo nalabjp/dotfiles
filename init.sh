@@ -22,12 +22,12 @@ echo 'brew install'
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
 
 #
-# brew bundle
+# brewfile.sh
 #
 echo ''
-echo 'start brew bundle'
-brew bundle
-echo 'finish brew bundle'
+echo 'start brewfile.sh'
+./brewfile.sh
+echo 'finish brewfile.sh'
 
 #
 # after brew bundle
