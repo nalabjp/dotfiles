@@ -21,11 +21,6 @@ fi
 echo 'brew install'
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
 
-# prepare for homebrew-cask
-echo 'prepare for homebrew-cask'
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
-echo 'finish before brew bundle'
-
 #
 # brew bundle
 #

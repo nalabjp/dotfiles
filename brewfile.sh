@@ -1,10 +1,6 @@
 #!/bin/sh#
 # Requires manual configuration you run the "brew bundle"
 #
-# before run the "brew bundle":
-#   cask env
-#     $ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
-#
 # after run the "brew bundle":
 #   gnu-tar
 #     $ cd /usr/bin
@@ -121,36 +117,6 @@ brew install --disable-etcdir zsh
 
 # for brew versions
 brew tap homebrew/boneyard
-
-# brew-cask
-brew tap phinze/homebrew-cask
-brew install brew-cask
-brew cask install alfred
-brew cask install clamxav
-brew cask install copy
-brew cask install dash
-brew cask install dropbox
-brew cask install evernote
-brew cask install firefox
-brew cask install gimp
-brew cask install github
-brew cask install google-chrome
-brew cask install google-drive
-brew cask install google-japanese-ime
-brew cask install iterm2
-brew cask install java
-brew cask install kobito
-brew cask install limechat
-brew cask install mysql-workbench
-brew cask install slack
-brew cask install skitch
-brew cask install skype
-brew cask install sourcetree
-brew cask install teamviewer
-brew cask install tinkertool
-brew cask install tinyumbrella
-brew cask install vagrant
-brew cask install virtualbox
 
 # Cleanup
 brew cleanup
