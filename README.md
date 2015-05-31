@@ -4,5 +4,5 @@ dotfiles
 ### Mac
 
     $ cd ~
-    $ git clone git@github.com:nalabjp/dotfiles.git .dotfiles
+    $ git clone https://github.com/nalabjp/dotfiles.git .dotfiles
     $ .dotfiles/init.sh
