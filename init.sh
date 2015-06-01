@@ -50,6 +50,12 @@ if [ -f /usr/local/bin/zsh ]; then
     sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells"
     chsh -s /usr/local/bin/zsh
 fi
+
+# create symlink for diff-highlight
+if [ -f /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ]; then
+    echo 'create symlink for diff-highlight'
+    ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
+fi
 echo 'finish after brew bundle'
 
 #
