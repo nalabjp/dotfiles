@@ -2,7 +2,7 @@
 
 # Only Ruby version 2.2.x
 RUBIES=$(rbenv install --list | awk '
-  match($0,/^\ \ 2\.2\.[0-9]/) {
+  match($0,/^\ \ 2\.(1\.[4-9]|2\.[0-9])/) {
     print substr($0, RSTART+2,RLENGTH-2)
   }
 '| sort | uniq)
