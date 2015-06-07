@@ -35,15 +35,6 @@ echo 'finish brewfile.sh'
 echo ''
 echo 'start after brew bundle'
 pwd=$PWD
-# create symlink for gnu-tar
-if [ -f /usr/local/bin/gtar ]; then
-    echo 'create symlink for gnu-tar'
-    cd /usr/bin
-    sudo rm tar
-    sudo ln -s /usr/local/bin/gtar tar
-    cd $pwd
-fi
-
 # change login shell to zsh
 if [ -f /usr/local/bin/zsh ]; then
     echo 'change login shell to /usr/local/bin/zsh'
