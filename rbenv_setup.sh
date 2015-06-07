@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# symlink rbenv-default-gems
+echo ""
+echo "Setup rbenv-default-gems"
+
+file=default-gems
+echo "$file"
+ln -s $(brew --prefix rbenv)/$file $HOME/$DOTS_DIR/.rbenv/$file
+
 # Only Ruby version 2.2.x
 RUBIES=$(rbenv install --list | awk '
   match($0,/^\ \ 2\.(1\.[4-9]|2\.[0-9])/) {

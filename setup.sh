@@ -41,16 +41,6 @@ setup_basic_dots() {
     done
 }
 
-# rbenv-default-gems
-setup_rbenv_default_gems() {
-    echo ""
-    echo "Setup rbenv-default-gems"
-
-    local file=default-gems
-    echo "$file"
-    create_symlink $(brew --prefix rbenv)/$file $HOME/$DOTS_DIR/.rbenv/$file
-}
-
 # themes
 setup_themes() {
     echo ""
@@ -63,7 +53,6 @@ setup_themes() {
 
 main() {
     setup_basic_dots
-    setup_rbenv_default_gems
     setup_themes
 }
 
