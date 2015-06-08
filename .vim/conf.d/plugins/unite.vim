@@ -27,17 +27,3 @@ NeoBundleLazy 'ujihisa/unite-rake', {
   \ 'depends' : 'Shougo/unite.vim' }
 NeoBundleLazy 'basyura/unite-rails', {
   \ 'depends' : 'Shjkougo/unite.vim' }
-NeoBundleLazy 'taichouchou2/unite-rails_best_practices', {
-  \ 'depends' : 'Shougo/unite.vim',
-  \ 'build' : {
-  \    'mac': 'gem install rails_best_practices',
-  \    'unix': 'gem install rails_best_practices',
-  \   }
-  \ }
-NeoBundleLazy 'taichouchou2/unite-reek', {
-  \ 'build' : {
-  \    'mac': 'gem install reek',
-  \    'unix': 'gem install reek',
-  \ },
-  \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] },
-  \ 'depends' : 'Shougo/unite.vim' }

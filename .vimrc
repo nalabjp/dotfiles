@@ -2,12 +2,28 @@ filetype off
 
 " mkdir -p ~/.vim/bundle
 " git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-NeoBundle 'Shougo/neobundle.vim'
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 
 " plugins
 runtime! conf.d/plugins/ag.vim.vim
@@ -17,7 +33,6 @@ runtime! conf.d/plugins/jQuery.vim
 runtime! conf.d/plugins/lightline.vim
 runtime! conf.d/plugins/neocomplcache.vim
 runtime! conf.d/plugins/nerdtree.vim
-runtime! conf.d/plugins/rsense-0.3.vim
 runtime! conf.d/plugins/ruby-matchit.vim
 runtime! conf.d/plugins/switch.vim
 runtime! conf.d/plugins/unite.vim
@@ -53,7 +68,11 @@ runtime! conf.d/search.vim
 " colorschema
 runtime! conf.d/plugins/vim-colors-solarized.vim
 
+call neobundle#end()
+
+" Required:
 filetype plugin indent on
 
-" Installation check.
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck
