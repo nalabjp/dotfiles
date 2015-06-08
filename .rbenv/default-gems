@@ -1,4 +1,4 @@
-bundler
+bundler 1.9.9
 pry
 pry-byebug
 pry-doc
