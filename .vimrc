@@ -1,7 +1,10 @@
 filetype off
 
-" mkdir -p ~/.vim/bundle
-" git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+if !isdirectory(expand("~/.vim/bundle/"))
+  call system("mkdir -p ~/.vim/bundle")
+  call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+endif
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
