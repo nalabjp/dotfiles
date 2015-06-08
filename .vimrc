@@ -65,7 +65,7 @@ runtime! conf.d/misc.vim
 runtime! conf.d/move.vim
 runtime! conf.d/search.vim
 
-" colorschema
+" colorscheme
 runtime! conf.d/plugins/vim-colors-solarized.vim
 
 call neobundle#end()
@@ -76,3 +76,6 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+" colorscheme
+runtime! conf.d/plugins/vim-colors-solarized2.vim
