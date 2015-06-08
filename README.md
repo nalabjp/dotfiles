@@ -5,8 +5,9 @@ dotfiles
 
     $ cd ~
     $ git clone https://github.com/nalabjp/dotfiles.git .dotfiles
+    $ cd .dotfiles
     $ git submodule update --init --recursive
-    $ .dotfiles/init.sh
+    $ ./init.sh
     $ Ctrl+D
     
     re-login
