@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# make dirs
+mkdir -p $HOME/.vim
+mkdir -p $HOME/.rbenv
+
 # dot files dir
 DOTS_DIR=.dotfiles
 # basic dot files
