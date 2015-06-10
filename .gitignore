@@ -18,3 +18,4 @@ tags
 !.tmuxinator/default.yml
 .idea/
 .rake_tasks
+/vendor/bundle
