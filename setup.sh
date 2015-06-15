@@ -45,14 +45,15 @@ setup_basic_dots() {
     done
 }
 
-# themes
-setup_themes() {
+# misc
+setup_misc() {
     echo ""
-    echo "Setup themes"
+    echo "Setup misc"
 
-    local dir=themes
-    echo "$dir"
-    create_symlink $HOME/$dir $HOME/$DOTS_DIR/$dir
+    echo "themes"
+    create_symlink $HOME/themes $HOME/$DOTS_DIR/themes
+    echo "rubymine"
+    create_symlink $HOME/rubymyine $HOME/$DOTS_DIR/rubymine
 }
 
 # prezto
@@ -78,8 +79,8 @@ setup_prezto() {
 
 main() {
     setup_basic_dots
-    setup_themes
     setup_prezto
+    setup_misc
 }
 
 main
