@@ -68,6 +68,8 @@ brew install nginx
 brew install nkf
 # nodebrew
 brew install nodebrew
+# npm
+brew install npm
 # pandoc
 brew install pandoc
 # peco
