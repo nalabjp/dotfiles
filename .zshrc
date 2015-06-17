@@ -45,7 +45,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv tmux z)
+plugins=(git tmux z)
 
 # Modify after to before load oh-my-zsh.sh for homebrew
 export PATH=$HOME/bin:/usr/local/bin:$PATH
