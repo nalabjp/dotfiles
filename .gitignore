@@ -17,5 +17,7 @@ tags
 .tmuxinator/*
 !.tmuxinator/default.yml
 .idea/
+# for rails
 .rake_tasks
 /vendor/bundle
+config/initializers/zzzz_conf.rb
