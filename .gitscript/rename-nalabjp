@@ -1,0 +1,9 @@
+git filter-branch -f --commit-filter '
+    GIT_AUTHOR_NAME="nalabjp"
+    GIT_AUTHOR_EMAIL="nalabjp@gmail.com"
+    GIT_COMMITTER_NAME="nalabjp"
+    GIT_COMMITTER_EMAIL="nalabjp@gmail.com"
+    git commit-tree "$@"
+' HEAD
+
+git update-ref -d refs/original/refs/heads/master
