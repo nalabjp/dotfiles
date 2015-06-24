@@ -7,5 +7,6 @@ pry-stack_explorer
 awesome_print
 tapp
 rubocop
+pre-commit
 tmuxinator
 mailcatcher
