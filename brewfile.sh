@@ -23,6 +23,8 @@
 brew install the_silver_searcher
 # colordiff
 brew install colordiff
+# cmake
+brew install cmake
 # coreutils
 brew install coreutils
 # direnv
