@@ -6,5 +6,3 @@ pry-stack_explorer
 pry-power_assert
 awesome_print
 tapp
-rubocop
-pre-commit
