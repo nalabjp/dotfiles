@@ -36,6 +36,7 @@
   mg = merge
   mgn = merge --no-ff
   p = push -v
+  pl = pull -v
   r = rm
   rc = rm --cached
   rb = rebase
