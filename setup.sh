@@ -54,6 +54,8 @@ setup_misc() {
     create_symlink $HOME/themes $HOME/$DOTS_DIR/themes
     echo "rubymine"
     create_symlink $HOME/rubymyine $HOME/$DOTS_DIR/rubymine
+    echo "iterm2"
+    create_symlink $HOME/iterm2 $HOME/$DOTS_DIR/iterm2
 }
 
 # prezto
