@@ -56,6 +56,8 @@ setup_misc() {
     create_symlink $HOME/rubymyine $HOME/$DOTS_DIR/rubymine
     echo "iterm2"
     create_symlink $HOME/iterm2 $HOME/$DOTS_DIR/iterm2
+    echo "google-ime"
+    create_symlink $HOME/google-ime $HOME/$DOTS_DIR/google-ime
 }
 
 # prezto
