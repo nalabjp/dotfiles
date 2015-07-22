@@ -17,7 +17,7 @@ bind generic G move-last-line
 
 # main
 # pull from remote
-bind main <Ctrl-r> !git pull --rebase
+bind main <Ctrl-r> !git pull
 # checkout 
 bind main C !?git checkout %(commit)
 
