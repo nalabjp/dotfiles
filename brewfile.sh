@@ -60,6 +60,9 @@ brew pin libxml2
 brew install libxslt
 # macvim
 brew install --with-lua --override-system-vim macvim
+# mecab
+brew install mecab
+brew install mecab-ipadic
 # mongodb
 brew install mongodb
 # mysql
