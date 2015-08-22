@@ -256,6 +256,15 @@ function cd() {
     ls -a
 }
 
+# ssh with tmux
+function ssh() {
+  if type tmux > /dev/null 2>&1; then
+    tmux new-window "ssh $1"
+  else
+    builtin ssh $1
+  fi
+}
+
 #################################
 # Configurations
 #################################
