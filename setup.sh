@@ -60,30 +60,8 @@ setup_misc() {
     create_symlink $HOME/google-ime $HOME/$DOTS_DIR/google-ime
 }
 
-# prezto
-setup_prezto() {
-    echo ""
-    echo "Setup prezto"
-
-    echo ".zprezto"
-    create_symlink $HOME/.zprezto $HOME/$DOTS_DIR/.zprezto
-    echo ".zlogin"
-    create_symlink $HOME/.zlogin $HOME/$DOTS_DIR/.zprezto/runcoms/zlogin
-    echo ".zlogout"
-    create_symlink $HOME/.zlogout $HOME/$DOTS_DIR/.zprezto/runcoms/zlogout
-    echo ".zpreztorc"
-    create_symlink $HOME/.zpreztorc $HOME/$DOTS_DIR/.zprezto/runcoms/zpreztorc
-    echo ".zprofile"
-    create_symlink $HOME/.zprofile $HOME/$DOTS_DIR/.zprezto/runcoms/zprofile
-    echo ".zshenv"
-    create_symlink $HOME/.zshenv $HOME/$DOTS_DIR/.zprezto/runcoms/zshenv
-    echo ".zshrc"
-    create_symlink $HOME/.zshrc $HOME/$DOTS_DIR/.zprezto/runcoms/zshrc
-}
-
 main() {
     setup_basic_dots
-    #setup_prezto
     setup_misc
 }
 
