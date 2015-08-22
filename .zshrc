@@ -245,10 +245,10 @@ function google_translate() {
 
 # cd && ls
 # function cd() {builtin cd $@ && ls -a} 
-function cd () {               # ファイルを探して、そのファイルのある場所にcd
-    if [ $# = 0 ]; then        #    % locate something.c
-        builtin cd             #        /usr/local/.../something.c
-    elif [ -f $1 ]; then       #    % cd `!!`
+function cd() {
+    if [ $# = 0 ]; then
+        builtin cd
+    elif [ -f $1 ]; then
         builtin cd $1:h
     else
         builtin cd $*
