@@ -10,9 +10,12 @@ fi
 # dotifiles directory
 DOTFILES=$HOME/.dotfiles
 
-# completion
+# compinit
 autoload -Uz compinit
 compinit
+
+# add-zsh-hook
+autoload -Uz add-zsh-hook
 
 #################################
 # antigen
@@ -278,7 +281,6 @@ fi
 eval "$(rbenv init --no-rehash - zsh)"
 
 # cdr
-autoload -Uz add-zsh-hock
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 
 # show_buffer_stack
