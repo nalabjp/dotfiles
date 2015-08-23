@@ -110,23 +110,6 @@ stack: $LBUFFER"
 zle -N show_buffer_stack
 bindkey '^]' show_buffer_stack
 
-# history with peco
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
-
 # path with peco
 function peco-path() {
   local filepath="$(find . | grep -v '/\.' | peco --prompt 'PATH>')"
