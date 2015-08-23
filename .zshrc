@@ -59,18 +59,18 @@ alias awi='anyframe-widget-insert-git-branch'
 alias awf='anyframe-widget-insert-filename'
 
 # bundler
-alias b="bundle"
-alias bi="bundle install"
-alias be="bundle exec"
-alias bl="bundle list"
-alias bp="bundle package"
-alias bo="bundle open"
-alias bu="bundle update"
-alias bs="bundle show"
+alias b='bundle'
+alias bi='bundle install'
+alias be='bundle exec'
+alias bl='bundle list'
+alias bp='bundle package'
+alias bo='bundle open'
+alias bu='bundle update'
+alias bs='bundle show'
 
 # colordiff
 # color config ~/.colordiffrc
-# require: export LESS="-R"
+# require: export LESS='-R'
 alias diff='colordiff -u'
 
 # gitsh
@@ -116,7 +116,6 @@ stack: $LBUFFER"
   zle push-line-or-edit
 }
 zle -N show_buffer_stack
-bindkey '^]' show_buffer_stack
 
 # path with peco
 function peco-path() {
@@ -134,26 +133,21 @@ function peco-path() {
   CURSOR=$#BUFFER
 }
 zle -N peco-path
-bindkey '^g' peco-path
 
 # ag and vim
 function agvim () {
   vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
-zle -N agvim
 
 # ag -h and vim
 function aghvim () {
   vim $(agh $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
-zle -N aghvim
 
 # git grep and vim
 function ggrvim () {
   vim $(git grep -n $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
-zle -N ggrvim
-
 
 # php dev
 function phpdev() {
@@ -263,7 +257,7 @@ function _anyframe-widget-cdr() {
 }
 
 # anyframe-widget-cd-ghq-repository without enhancd
-_anyframe-widget-cd-ghq-repository() {
+function _anyframe-widget-cd-ghq-repository() {
   unalias cd
   add-zsh-hook chpwd alias_enhancd
   anyframe-widget-cd-ghq-repository
@@ -290,6 +284,12 @@ eval "$(rbenv init --no-rehash - zsh)"
 # cdr
 autoload -Uz add-zsh-hock
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+
+# show_buffer_stack
+bindkey '^]' show_buffer_stack
+
+# peco-path
+bindkey '^g' peco-path
 
 #################################
 # Prompt
