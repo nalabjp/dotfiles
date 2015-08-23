@@ -49,11 +49,12 @@ alias agh='ag --hidden'
 
 # anyframe
 alias aw='anyframe-widget-select-widget'
+alias awg='_anyframe-widget-cd-ghq-repository'
+alias awga='anyframe-widget-git-add'
 alias awgb='anyframe-widget-checkout-git-branch'
 alias awc='_anyframe-widget-cdr'
 alias awr='anyframe-widget-execute-history'
 alias awp='anyframe-widget-put-history'
-alias awg='_anyframe-widget-cd-ghq-repository'
 alias awkl='anyframe-widget-kill'
 alias awi='anyframe-widget-insert-git-branch'
 alias awf='anyframe-widget-insert-filename'
