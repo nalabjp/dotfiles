@@ -29,6 +29,8 @@ antigen bundle git
 antigen bundle tmux
 antigen bundle z
 
+antigen bundle mollifier/anyframe
+
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
@@ -42,6 +44,9 @@ antigen apply
 # ag
 alias ag='ag -S'
 alias agh='ag --hidden'
+
+# anyframe
+alias aw=anyframe-widget-select-widget
 
 # bundler
 alias b="bundle"
