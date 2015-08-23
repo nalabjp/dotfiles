@@ -48,7 +48,15 @@ alias ag='ag -S'
 alias agh='ag --hidden'
 
 # anyframe
-alias aw=anyframe-widget-select-widget
+alias aw='anyframe-widget-select-widget'
+alias awb='anyframe-widget-checkout-git-branch'
+alias awc='_anyframe-widget-cdr'
+alias awr='anyframe-widget-execute-history'
+alias awp='anyframe-widget-put-history'
+alias awg='_anyframe-widget-cd-ghq-repository'
+alias awk='anyframe-widget-kill'
+alias awi='anyframe-widget-insert-git-branch'
+alias awf='anyframe-widget-insert-filename'
 
 # bundler
 alias b="bundle"
@@ -242,6 +250,25 @@ function ssh() {
   fi
 }
 
+# exec alias enhancd
+function alias_enhancd() {
+  alias cd='cd::cd'
+}
+
+# anyframe-widget-cdr without enhancd
+function _anyframe-widget-cdr() {
+  unalias cd
+  add-zsh-hook chpwd alias_enhancd
+  anyframe-widget-cdr
+}
+
+# anyframe-widget-cd-ghq-repository without enhancd
+_anyframe-widget-cd-ghq-repository() {
+  unalias cd
+  add-zsh-hook chpwd alias_enhancd
+  anyframe-widget-cd-ghq-repository
+}
+
 #################################
 # Configurations
 #################################
@@ -263,28 +290,6 @@ eval "$(rbenv init --no-rehash - zsh)"
 # cdr
 autoload -Uz add-zsh-hock
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-
-# anyframe
-bindkey '^xc' anyframe-widget-cdr
-bindkey '^x^c' anyframe-widget-checkout-git-branch
-
-bindkey '^xr' anyframe-widget-execute-history
-bindkey '^x^r' anyframe-widget-execute-history
-
-bindkey '^xp' anyframe-widget-put-history
-bindkey '^x^p' anyframe-widget-put-history
-
-bindkey '^xg' anyframe-widget-cd-ghq-repository
-bindkey '^x^g' anyframe-widget-cd-ghq-repository
-
-bindkey '^xk' anyframe-widget-kill
-bindkey '^x^k' anyframe-widget-kill
-
-bindkey '^xi' anyframe-widget-insert-git-branch
-bindkey '^x^i' anyframe-widget-insert-git-branch
-
-bindkey '^xf' anyframe-widget-insert-filename
-bindkey '^x^f' anyframe-widget-insert-filename
 
 #################################
 # Prompt
