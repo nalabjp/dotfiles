@@ -4,7 +4,7 @@
 
 # zcompile
 if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
-   zcompile ~/.zshrc
+   zcompile $HOME/.zshrc
 fi
 
 # dotifiles directory
