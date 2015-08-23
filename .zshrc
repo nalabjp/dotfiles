@@ -250,19 +250,6 @@ function google_translate() {
   w3m +13 "http://translate.google.com/${opt}"
 }
 
-# cd && ls
-# function cd() {builtin cd $@ && ls -a} 
-function cd() {
-    if [ $# = 0 ]; then
-        builtin cd
-    elif [ -f $1 ]; then
-        builtin cd $1:h
-    else
-        builtin cd $*
-    fi
-    ls -a
-}
-
 # ssh with tmux
 function ssh() {
   if type tmux > /dev/null 2>&1; then
