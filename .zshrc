@@ -29,6 +29,7 @@ antigen bundle git
 antigen bundle tmux
 antigen bundle z
 
+# framework of peco
 antigen bundle mollifier/anyframe
 
 # Syntax highlighting bundle.
