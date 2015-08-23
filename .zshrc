@@ -257,6 +257,9 @@ if type direnv > /dev/null 2>&1; then
   eval "$(direnv hook $SHELL)"
 fi
 
+# rbenv
+eval "$(rbenv init --no-rehash - zsh)"
+
 # cdr
 autoload -Uz add-zsh-hock
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -282,46 +285,6 @@ bindkey '^x^i' anyframe-widget-insert-git-branch
 
 bindkey '^xf' anyframe-widget-insert-filename
 bindkey '^x^f' anyframe-widget-insert-filename
-
-#################################
-# Exports
-#################################
-
-# history config
-export HISTCONTROL=ignoreboth #ignorespace+ignoredups
-export HISTIGNORE="fg*:bg*:history*:cd*:ls*"
-export HISTTIMEFORMAT='%Y-%m-%d %T ';
-
-# less
-export LESS='-gj10 --no-init --quit-if-one-screen -R'
-export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
-
-# Homebrew Cask
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
-
-# EDITOR
-export EDITOR='vim'
-
-# TERM
-export TERM=screen-256color
-
-# nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-# java
-export JAVA_HOME="$(/usr/libexec/java_home)"
-export PATH=$JAVA_HOME:$PATH
-
-# php-fpm
-export PATH="$(brew --prefix)/sbin:$PATH"
-
-# postgresql
-export PGDATA=/usr/local/var/postgres
-
-# rbenv
-export RBENV_ROOT=$(rbenv root)
-export PATH=$RBENV_ROOT/bin:$PATH
-eval "$(rbenv init --no-rehash - zsh)"
 
 #################################
 # Prompt
