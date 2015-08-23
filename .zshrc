@@ -267,11 +267,6 @@ function _anyframe-widget-cd-ghq-repository() {
 # Configurations
 #################################
 
-## カレントディレクトリ中に指定されたディレクトリが見つからなかった場合に移動先を検索するリスト。
-cdpath=(~)
-## ディレクトリが変わったらディレクトリスタックを表示。
-chpwd_functions=($chpwd_functions dirs)
-
 # direnv config
 # https://github.com/zimbatm/direnv
 if type direnv > /dev/null 2>&1; then
