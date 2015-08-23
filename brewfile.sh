@@ -35,6 +35,9 @@ brew install findutils
 brew install fontforge
 # ffmpeg
 brew install ffmpeg
+# ghq
+brew tap motemen/ghq
+brew install ghq
 # git
 brew install git
 brew install hub
