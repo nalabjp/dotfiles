@@ -12,10 +12,6 @@ export HISTCONTROL=ignoreboth #ignorespace+ignoredups
 export HISTIGNORE="fg*:bg*:history*:cd*:ls*"
 export HISTTIMEFORMAT='%Y-%m-%d %T ';
 
-# less
-export LESS='-gj10 --no-init --quit-if-one-screen -R'
-export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
-
 # Homebrew Cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
 
