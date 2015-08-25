@@ -57,4 +57,4 @@
 [branch]
   autosetuprebase = always
 [ghq]
-  root = ~/.ghq
+  root = ~/ghq
