@@ -34,7 +34,7 @@ antigen bundle z
 
 # framework of peco
 antigen bundle mollifier/anyframe
-antigen-bundle b4b4r07/enhancd
+antigen bundle b4b4r07/enhancd
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
