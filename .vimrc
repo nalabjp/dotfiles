@@ -32,6 +32,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 runtime! conf.d/plugins/ag.vim.vim
 runtime! conf.d/plugins/colorswatch.vim
 runtime! conf.d/plugins/dash.vim.vim
+runtime! conf.d/plugins/indentLine.vim
 runtime! conf.d/plugins/jQuery.vim
 runtime! conf.d/plugins/lightline.vim
 runtime! conf.d/plugins/neocomplcache.vim
