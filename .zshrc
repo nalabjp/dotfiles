@@ -75,6 +75,9 @@ alias bo='bundle open'
 alias bu='bundle update'
 alias bs='bundle show'
 
+# ctags
+alias ctags-rails='ctags --exclude="*.js" --exclude=".git*" -R .'
+
 # colordiff
 # color config ~/.colordiffrc
 # require: export LESS='-R'

@@ -27,6 +27,8 @@ brew install colordiff
 brew install cmake
 # coreutils
 brew install coreutils
+# ctags
+brew install ctags
 # direnv
 brew install direnv
 # findutils
