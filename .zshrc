@@ -80,6 +80,9 @@ alias bs='bundle show'
 # require: export LESS='-R'
 alias diff='colordiff -u'
 
+# git
+alias ggr='git grep'
+
 # gitsh
 alias gs='gitsh'
 
