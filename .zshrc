@@ -17,6 +17,9 @@ compinit
 # add-zsh-hook
 autoload -Uz add-zsh-hook
 
+# cdr
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+
 #################################
 # antigen
 #################################
@@ -296,9 +299,6 @@ fi
 # rbenv
 eval "$(rbenv init --no-rehash - zsh)"
 
-# cdr
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-
 # show_buffer_stack
 bindkey '^]' show_buffer_stack
 
@@ -307,6 +307,9 @@ bindkey '^g' peco-path
 
 # peco-select-history
 bindkey '^r' peco-select-history
+
+# cdr
+add-zsh-hook chpwd chpwd_recent_dirs
 
 #################################
 # Export
