@@ -21,7 +21,7 @@ nmap d9 d$
 nmap d0 d^
 
 " カーソル前の文字削除
-inoremap <silent> <C-h> <C-g>u<C-h>
+inoremap <silent> <C-h>h <C-g>u<C-h>
 " カーソル後の文字削除
 inoremap <silent> <C-d> <Del>
 " カーソルから行末まで削除
