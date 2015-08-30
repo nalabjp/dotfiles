@@ -32,7 +32,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 runtime! conf.d/plugins/ag.vim.vim
 runtime! conf.d/plugins/colorswatch.vim
 runtime! conf.d/plugins/dash.vim.vim
-runtime! conf.d/plugins/indentLine.vim
 runtime! conf.d/plugins/jQuery.vim
 runtime! conf.d/plugins/lightline.vim
 runtime! conf.d/plugins/neocomplcache.vim
@@ -46,6 +45,7 @@ runtime! conf.d/plugins/vim-dispatch.vim
 runtime! conf.d/plugins/vim-easymotion.vim
 runtime! conf.d/plugins/vim-endwise.vim
 runtime! conf.d/plugins/vim-fugitive.vim
+runtime! conf.d/plugins/vim-indent-guides.vim
 runtime! conf.d/plugins/vim-markdown.vim
 runtime! conf.d/plugins/vim-multiple-cursors.vim
 runtime! conf.d/plugins/vim-quickrun.vim
