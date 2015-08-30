@@ -28,8 +28,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
-runtime! conf.d/autoload/*.vim
 runtime! conf.d/autoload/plugins/*.vim
+runtime! conf.d/autoload/*.vim
 
 call neobundle#end()
 
