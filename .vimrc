@@ -53,6 +53,7 @@ runtime! conf.d/plugins/vim-ref.vim
 runtime! conf.d/plugins/vim-rspec.vim
 runtime! conf.d/plugins/vim-ruby.vim
 runtime! conf.d/plugins/vim-slim.vim
+runtime! conf.d/plugins/vim-tags.vim
 runtime! conf.d/plugins/vim-surround.vim
 runtime! conf.d/plugins/vimproc.vim
 
