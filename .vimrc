@@ -38,6 +38,7 @@ runtime! conf.d/plugins/neocomplcache.vim
 runtime! conf.d/plugins/nerdtree.vim
 runtime! conf.d/plugins/ruby-matchit.vim
 runtime! conf.d/plugins/switch.vim
+runtime! conf.d/plugins/tcomment_vim.vim
 runtime! conf.d/plugins/unite.vim
 runtime! conf.d/plugins/vim-coffee-script.vim
 runtime! conf.d/plugins/vim-dispatch.vim
