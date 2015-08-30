@@ -26,4 +26,4 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 NeoBundleLazy 'ujihisa/unite-rake', {
   \ 'depends' : 'Shougo/unite.vim' }
 NeoBundleLazy 'basyura/unite-rails', {
-  \ 'depends' : 'Shjkougo/unite.vim' }
+  \ 'depends' : 'Shougo/unite.vim' }
