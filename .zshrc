@@ -130,22 +130,6 @@ stack: $LBUFFER"
 }
 zle -N show_buffer_stack
 
-# history with peco
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
-
 # path with peco
 function peco-path() {
   local filepath="$(find . | grep -v '/\.' | peco --prompt 'PATH>')"
@@ -284,6 +268,7 @@ function _anyframe-widget-cdr() {
   add-zsh-hook chpwd alias_enhancd
   anyframe-widget-cdr
 }
+zle -N _anyframe-widget-cdr
 
 # anyframe-widget-cd-ghq-repository without enhancd
 function _anyframe-widget-cd-ghq-repository() {
@@ -311,8 +296,8 @@ bindkey '^]' show_buffer_stack
 # peco-path
 bindkey '^g' peco-path
 
-# peco-select-history
-bindkey '^r' peco-select-history
+# history
+bindkey '^r' anyframe-widget-put-history
 
 # cdr
 add-zsh-hook chpwd chpwd_recent_dirs
