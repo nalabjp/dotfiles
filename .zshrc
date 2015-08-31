@@ -18,7 +18,10 @@ compinit
 autoload -Uz add-zsh-hook
 
 # cdr
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+autoload -Uz chpwd_recent_dirs cdr
+
+# zmv
+autoload -Uz zmv
 
 #################################
 # antigen
@@ -112,7 +115,6 @@ alias redis-start='redis-server /etc/redis.conf'
 alias tsk='tmux send-keys'
 
 # zmv
-autoload -Uz zmv
 alias zmv_='noglob zmv'
 alias zmv='zmv_ -W'
 alias zcp='zmv_ -C'
