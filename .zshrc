@@ -49,6 +49,12 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 #################################
+# src
+#################################
+# auto bundle exec
+source $DOTFILES/src/zsh-bundle-exec.zsh
+
+#################################
 # aliases
 #################################
 
@@ -329,7 +335,6 @@ RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$terminfo[bold]$fg[magenta]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
-
 
 #################################
 # .zshrc.local
