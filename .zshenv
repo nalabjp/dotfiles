@@ -32,3 +32,7 @@ export PATH="$(brew --prefix)/sbin:$PATH"
 # postgresql
 export PGDATA=/usr/local/var/postgres
 
+# zsh-bundle-exec.zsh
+export BUNDLE_EXEC_GEMFILE_CURRENT_DIR_ONLY=yes
+export BUNDLE_EXEC_COMMANDS='rails rspec spring'
+
