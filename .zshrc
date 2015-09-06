@@ -1,6 +1,8 @@
 #################################
 # Prepare
 #################################
+# tmux launch
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 
 # zcompile
 if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
