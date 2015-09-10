@@ -8,8 +8,6 @@ let g:unite_enable_start_insert=1
 nnoremap <silent> <Leader>ub :<C-u>Unite buffer<CR>
 " ファイル一覧
 nnoremap <silent> <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" レジスタ一覧
-nnoremap <silent> <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
 nnoremap <silent> <Leader>um :<C-u>Unite file_mru<CR>
 " 常用セット
@@ -39,3 +37,17 @@ NeoBundleLazy 'ujihisa/unite-rake', {
   \ 'depends' : 'Shougo/unite.vim' }
 NeoBundleLazy 'basyura/unite-rails', {
   \ 'depends' : 'Shougo/unite.vim' }
+
+noremap <silent> <Leader>urc  :<C-u>Unite rails/controller<CR>
+noremap <silent> <Leader>urm  :<C-u>Unite rails/model<CR>
+noremap <silent> <Leader>urv  :<C-u>Unite rails/view<CR>
+noremap <silent> <Leader>urh  :<C-u>Unite rails/helper<CR>
+noremap <silent> <Leader>urma :<C-u>Unite rails/mailer<CR>
+noremap <silent> <Leader>url  :<C-u>Unite rails/lib<CR>
+noremap <silent> <Leader>urs  :<C-u>Unite rails/stylesheet<CR>
+noremap <silent> <Leader>urj  :<C-u>Unite rails/javascript<CR>
+noremap <silent> <Leader>urr  :<C-u>Unite rails/route<CR>
+noremap <silent> <Leader>urd  :<C-u>Unite rails/db<CR>
+noremap <silent> <Leader>urco :<C-u>Unite rails/config<CR>
+noremap <silent> <Leader>urg  :<C-u>Unite rails/gemfile<CR>
+noremap <silent> <Leader>urt  :<C-u>Unite rails/spec<CR>
