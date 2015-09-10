@@ -2,7 +2,8 @@
 set nocompatible
 
 " リーダー
-nmap ¥ <leader>
+nmap <Space> <leader>
+let mapleader = "\<Space>"
 
 " タイトル
 set notitle
