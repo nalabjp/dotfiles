@@ -89,7 +89,11 @@ function zbe-auto-bundle-exec-accept-line() {
 
     if (( $? == 0 )); then
         if [[ "$BUNDLE_EXEC_EXPAND_ALIASE" == '' ]]; then
-            BUFFER="bundle exec $command$args"
+            if [ -f "./bin/$command" ]; then
+              BUFFER="bin/$command$args"
+            else
+              BUFFER="bundle exec $command$args"
+            fi
         else
             local be_cmd
             be_cmd="$($BUNDLE_EXEC_RUBY_COMMAND -e "$(zbe-bundler-driver)")"
