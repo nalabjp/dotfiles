@@ -297,9 +297,6 @@ if type direnv > /dev/null 2>&1; then
   eval "$(direnv hook $SHELL)"
 fi
 
-# rbenv
-eval "$(rbenv init --no-rehash - zsh)"
-
 # show_buffer_stack
 bindkey '^]' show_buffer_stack
 
