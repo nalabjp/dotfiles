@@ -1,5 +1,6 @@
 " unite.vim
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 
 let g:unite_enable_start_insert=1
 
