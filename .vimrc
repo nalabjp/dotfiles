@@ -373,9 +373,9 @@ let g:EasyMotion_leader_key=";"
 let g:EasyMotion_grouping=1
 
 """"""""""""""""""""""""""""""""""""
-" vim-endwise: if do def やらのブロック閉じる
+" lexima: '' () を良しなにするのとif do def やらのブロック閉じる
 """"""""""""""""""""""""""""""""""""
-NeoBundleLazy 'taichouchou2/vim-endwise', {
+NeoBundleLazy 'cohama/lexima.vim', {
   \ 'autoload' : {
   \   'insert' : 1,
   \ } }
@@ -638,15 +638,6 @@ inoremap <silent> <C-y>0 <Esc>ly0<Insert>
 " カーソルから行末までヤンク
 inoremap <silent> <C-y>$ <Esc>ly$<Insert>
 inoremap <silent> <C-y>9 <Esc>ly$<Insert>
-
-" 引用符, 括弧の設定
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap ` ``<Left>
-inoremap <> <><Left>
 
 """"""""""""""""""""""""""""""""""""
 " encoding
