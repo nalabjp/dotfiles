@@ -494,6 +494,18 @@ let g:yankround_max_history = 100
 nnoremap <Leader><C-p> :<C-u>Unite yankround<CR>
 
 """"""""""""""""""""""""""""""""""""
+" vim-easy-align: 文章整形
+""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'junegunn/vim-easy-align', {
+  \ 'autoload': {
+  \   'commands' : ['EasyAlign'],
+  \   'mappings' : ['<Plug>(EasyAlign)'],
+  \ }}
+
+" vim-easy-align {{{
+vmap <Enter> <Plug>(EasyAlign)
+
+""""""""""""""""""""""""""""""""""""
 " Required:
 """"""""""""""""""""""""""""""""""""
 call neobundle#end()
