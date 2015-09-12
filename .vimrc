@@ -473,13 +473,25 @@ NeoBundle 'szw/vim-tags'
 """"""""""""""""""""""""""""""""""""
 " vimproc: 非同期実行
 """"""""""""""""""""""""""""""""""""
-" 非同期実行
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
   \     'mac' : 'make -f make_mac.mak',
   \     'unix' : 'make -f make_unix.mak',
   \    },
   \ }
+
+""""""""""""""""""""""""""""""""""""
+" yankround.vim: コピペ拡張
+""""""""""""""""""""""""""""""""""""
+NeoBundle 'LeafCage/yankround.vim'
+
+" yankround.vim {{{
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+let g:yankround_max_history = 100
+nnoremap <Leader><C-p> :<C-u>Unite yankround<CR>
 
 """"""""""""""""""""""""""""""""""""
 " Required:
