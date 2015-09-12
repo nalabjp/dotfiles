@@ -331,6 +331,10 @@ noremap <silent> <Leader>urco :<C-u>Unite rails/config<CR>
 noremap <silent> <Leader>urg  :<C-u>Unite rails/gemfile<CR>
 noremap <silent> <Leader>urt  :<C-u>Unite rails/spec<CR>
 
+" codic
+NeoBundleLazy 'rhysd/unite-codic.vim', {
+  \ 'depends' : ['Shougo/unite.vim', 'koron/codic-vim'] }
+
 """"""""""""""""""""""""""""""""""""
 " vim-coffee-script
 """"""""""""""""""""""""""""""""""""
