@@ -93,6 +93,8 @@ brew install phpunit
 brew install postgresql
 # pstree
 brew install pstree
+# pup
+brew install pup
 # pwgen
 brew install pwgen
 # redis

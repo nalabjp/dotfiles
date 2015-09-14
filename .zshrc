@@ -287,6 +287,11 @@ function _anyframe-widget-cd-ghq-repository() {
   anyframe-widget-cd-ghq-repository
 }
 
+# lgtm
+function lgtm() {
+  $DOTFILES/src/lgtm.sh -m | pbcopy
+}
+
 #################################
 # Configurations
 #################################
