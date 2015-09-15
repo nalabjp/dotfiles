@@ -122,6 +122,9 @@ alias redis-start='redis-server /etc/redis.conf'
 # tmux
 alias tsk='tmux send-keys'
 
+# vim
+alias v='vim'
+
 # zmv
 alias zmv_='noglob zmv'
 alias zmv='zmv_ -W'
