@@ -103,7 +103,6 @@ alias gs='gitsh'
 # ls
 # require coreutils
 alias ls='gls --color=auto'
-eval $(gdircolors $DOTFILES/themes/dircolors-solarized/dircolors.256dark)
 
 # mysql
 alias mysql-start='mysql.server start'

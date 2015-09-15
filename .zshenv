@@ -61,3 +61,6 @@ if [ $+commands[rbenv] -ne 0 ]; then
   rbenv_init
   unfunction rbenv_init
 fi
+
+# gdircolors
+eval $(gdircolors $DOTFILES/themes/dircolors-solarized/dircolors.256dark)
