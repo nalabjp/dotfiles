@@ -346,11 +346,6 @@ NeoBundleLazy 'kchmck/vim-coffee-script', {
    \ }
 
 """"""""""""""""""""""""""""""""""""
-" vim-colors-solarized
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'altercation/vim-colors-solarized'
-
-""""""""""""""""""""""""""""""""""""
 " vim-dispatch:
 """"""""""""""""""""""""""""""""""""
 NeoBundle 'tpope/vim-dispatch'
@@ -785,6 +780,4 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""
 syntax enable
 set background=dark
-colorscheme solarized
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+colorscheme base16-solarized
