@@ -30,7 +30,7 @@ autoload -Uz zmv
 #################################
 
 # Load antigen
-source $DOTFILES/antigen/antigen.zsh
+source $DOTFILES/src/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
