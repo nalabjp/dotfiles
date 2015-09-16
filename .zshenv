@@ -8,7 +8,7 @@ DOTFILES=$HOME/.dotfiles
 export EDITOR='vim'
 
 # TERM
-export TERM=screen-256color
+export TERM=xterm-256color
 
 # history config
 export HISTCONTROL=ignoreboth #ignorespace+ignoredups

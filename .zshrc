@@ -9,6 +9,9 @@ if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile $HOME/.zshrc
 fi
 
+BASE16_SHELL=$DOTFILES/src/base16-solarized.dark.sh
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
 # compinit
 autoload -Uz compinit
 compinit
