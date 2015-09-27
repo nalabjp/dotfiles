@@ -6,7 +6,7 @@
 
 # zcompile
 if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
-   zcompile $HOME/.zshrc
+  zcompile $HOME/.zshrc
 fi
 
 BASE16_SHELL=$DOTFILES/src/base16-solarized.dark.sh
