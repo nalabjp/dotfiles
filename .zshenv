@@ -37,7 +37,7 @@ export PGDATA=/usr/local/var/postgres
 
 # zsh-bundle-exec.zsh
 export BUNDLE_EXEC_GEMFILE_CURRENT_DIR_ONLY=yes
-export BUNDLE_EXEC_COMMANDS='rails rspec spring'
+export BUNDLE_EXEC_COMMANDS='rails rake rspec spring'
 
 if [ $+commands[rbenv] -ne 0 ]; then
   rbenv_init(){
