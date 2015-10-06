@@ -4,7 +4,7 @@ Pry.config.editor = "vim"
 
 Pry.config.prompt = proc do |obj, level, _|
   prompt = ""
-  prompt << "#{Rails.version}@" if defined?(Rails)
+  prompt << "#{Rails.version}@" if defined?(Rails) && Rails.respond_to?(:version)
   prompt << "#{RUBY_VERSION}"
   "#{prompt} (#{obj})> "
 end
