@@ -116,7 +116,7 @@ alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias pg-restart='pg-stop && sleep 1 && pg-start'
 
 # redis
-alias redis-start='redis-server /etc/redis.conf'
+alias redis-start='redis-server ~/conf.d/redis.conf'
 
 # tmux
 alias tsk='tmux send-keys'
