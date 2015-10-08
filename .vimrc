@@ -499,6 +499,11 @@ NeoBundleLazy 'junegunn/vim-easy-align', {
 vmap <Enter> <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""""""""
+" vim-tmux-navigator: vimとtmuxをsmartに切り替え
+""""""""""""""""""""""""""""""""""""
+NeoBundle 'christoomey/vim-tmux-navigator'
+
+""""""""""""""""""""""""""""""""""""
 " Required:
 """"""""""""""""""""""""""""""""""""
 call neobundle#end()
