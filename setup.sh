@@ -7,7 +7,7 @@ mkdir -p $HOME/.rbenv
 # dot files dir
 DOTS_DIR=.dotfiles
 # basic dot files
-BASIC_DOTS=(.zshrc .oh-my-zsh .gemrc .pryrc .rspec .tmux.conf .tmuxinator .vimrc .gvimrc .ideavimrc .vim/colors .vim/conf.d .gitconfig .gitignore .gitscript .bundle .tigrc .colordiffrc .rbenv/default-gems)
+BASIC_DOTS=(.zshrc .gemrc .pryrc .rspec .tmux.conf .tmuxinator .vimrc .gvimrc .ideavimrc .vim/colors .vim/conf.d .gitconfig .gitignore .gitscript .bundle .tigrc .colordiffrc .rbenv/default-gems)
 # backup dir
 BACKUP_DIR=$HOME/.dotfiles_backup/`date +%Y%m%d_%H%M%S`
 
