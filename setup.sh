@@ -58,6 +58,10 @@ setup_misc() {
     create_symlink $HOME/iterm2 $HOME/$DOTS_DIR/iterm2
     echo "google-ime"
     create_symlink $HOME/google-ime $HOME/$DOTS_DIR/google-ime
+    if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
+        echo "karabiner"
+        sh $HOME/$DOTS_DIR/src/karabiner-import.sh
+    fi
 }
 
 main() {
