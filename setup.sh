@@ -17,9 +17,9 @@ create_symlink() {
     local target=$1
     local origin=$2
     create_backup $target
-    if [ ! -e $target ]; then
+    if [ ! -e "$target" ]; then
         echo "Create symbolic link: $target -> $origin"
-        ln -s $origin $target
+        ln -s $origin "$target"
     fi
 }
 
@@ -61,6 +61,7 @@ setup_misc() {
     if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
         echo "karabiner"
         sh $HOME/$DOTS_DIR/src/karabiner-import.sh
+        create_symlink "$HOME/Library/Application Support/karabiner/private.xml" $HOME/$DOTS_DIR/karabiner/private.xml
     fi
 }
 
