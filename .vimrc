@@ -636,10 +636,8 @@ nmap d9 d$
 " d0で行頭まで切り取り
 nmap d0 d^
 
-" カーソル前の文字削除
-inoremap <silent> <C-h>h <C-g>u<C-h>
-" カーソル後の文字削除
-inoremap <silent> <C-d> <Del>
+" カーソルから行頭まで削除
+inoremap <silent> <C-d>0 <Esc>lc0
 " カーソルから行末まで削除
 inoremap <silent> <C-d>$ <Esc>lc$
 inoremap <silent> <C-d>9 <Esc>lc$
@@ -737,8 +735,8 @@ nmap 9 $
 " インサートモードでhjklで移動
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
 
 " 対応する括弧に移動
 nnoremap [ %
