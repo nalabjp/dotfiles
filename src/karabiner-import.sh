@@ -6,7 +6,7 @@ $cli set remap.left_option_to_option_forward_delete 1
 /bin/echo -n .
 $cli set repeat.wait 10
 /bin/echo -n .
-$cli set repeat.initial_wait 100
+$cli set repeat.initial_wait 200
 /bin/echo -n .
 $cli set remap.shift_r_to_shift_delete 1
 /bin/echo -n .
