@@ -732,7 +732,7 @@ nmap 1 0
 nmap 0 ^
 nmap 9 $
 
-" インサートモードでhjklで移動
+" インサートモードでjkbfで移動
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-b> <Left>
