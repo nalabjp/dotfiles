@@ -69,6 +69,11 @@ if [ $+commands[rbenv] -ne 0 ]; then
   unfunction rbenv_init
 fi
 
+# karabiner
+if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
+  export PATH=/Applications/Karabiner.app/Contents/Library/bin:$PATH
+fi
+
 # gdircolors
 eval $(gdircolors $DOTFILES/themes/dircolors-solarized/dircolors.256dark)
 
