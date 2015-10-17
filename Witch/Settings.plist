@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Activate Item</key>
+	<true/>
+	<key>Activate On No Modifiers</key>
+	<true/>
+	<key>Always Show Space Badges</key>
+	<false/>
+	<key>Application Name Color</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZoMAAAA/AYY=
+	</data>
+	<key>Application Name Shadow</key>
+	<false/>
+	<key>Applications Sort Order</key>
+	<integer>3</integer>
+	<key>Auto-Enabled Once</key>
+	<true/>
+	<key>Background Color</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZgCDzcxMP4Y=
+	</data>
+	<key>Cancel Item</key>
+	<true/>
+	<key>Cancel Item Mode</key>
+	<integer>1</integer>
+	<key>Cycle All Windows</key>
+	<dict>
+		<key>Backward</key>
+		<dict>
+			<key>Character</key>
+			<string></string>
+			<key>Key Code</key>
+			<string>48</string>
+			<key>Modifiers</key>
+			<string>1179914</string>
+			<key>Visual Representation</key>
+			<string>⇧⌘⇥</string>
+		</dict>
+		<key>Forward</key>
+		<dict>
+			<key>Character</key>
+			<string>	</string>
+			<key>Key Code</key>
+			<string>48</string>
+			<key>Modifiers</key>
+			<string>1048840</string>
+			<key>Visual Representation</key>
+			<string>⌘⇥</string>
+		</dict>
+	</dict>
+	<key>Disable Background Process On Quitting</key>
+	<false/>
+	<key>Hide Current Space Badges</key>
+	<false/>
+	<key>Icon Mode</key>
+	<integer>0</integer>
+	<key>Ignore Non-Standard Windows</key>
+	<true/>
+	<key>Item Height</key>
+	<real>36</real>
+	<key>Keep Cycling</key>
+	<true/>
+	<key>Last Tab</key>
+	<string>other</string>
+	<key>Maximum Width</key>
+	<real>0.30724558234214783</real>
+	<key>Panel Delay</key>
+	<integer>100</integer>
+	<key>Panel Shadow</key>
+	<false/>
+	<key>Preview Border Color</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAYPKIFo/g/9rkT6DmplZP4Y=
+	</data>
+	<key>Selection Border Color</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAYPKIFo/g/9rkT4Bhg==
+	</data>
+	<key>Selection Color</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZgCDMzMzP4Y=
+	</data>
+	<key>Selection Gradient</key>
+	<integer>-20</integer>
+	<key>Selection Window Name Color</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZgEBhg==
+	</data>
+	<key>Show Application Names</key>
+	<false/>
+	<key>Show Document Icon Overlays</key>
+	<false/>
+	<key>Show Previews</key>
+	<false/>
+	<key>Show Shortcut Badges</key>
+	<false/>
+	<key>Step Forward Initially</key>
+	<true/>
+	<key>Suppress Background Process Alert</key>
+	<true/>
+	<key>Switch Across Spaces</key>
+	<true/>
+	<key>Window Exceptions</key>
+	<array>
+		<string>Format*Palet*</string>
+	</array>
+	<key>Window Name Color</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZoMAAEA/AYY=
+	</data>
+	<key>Window Name Shadow</key>
+	<false/>
+</dict>
+</plist>
