@@ -58,8 +58,9 @@ setup_misc() {
     create_symlink $HOME/google-ime $HOME/$DOTS_DIR/google-ime
     if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
         echo "karabiner"
-        sh $HOME/$DOTS_DIR/src/karabiner-import.sh
         create_symlink "$HOME/Library/Application Support/karabiner/private.xml" $HOME/$DOTS_DIR/karabiner/private.xml
+        /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
+        sh $HOME/$DOTS_DIR/src/karabiner-import.sh
     fi
 }
 
