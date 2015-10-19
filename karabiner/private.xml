@@ -4,6 +4,10 @@
         <appname>SLACK</appname>
         <equal>com.tinyspeck.slackmacgap</equal>
     </appdef>
+    <appdef>
+        <appname>CHROME</appname>
+        <equal>com.google.Chrome</equal>
+    </appdef>
     <item>
         <name>For Slack CTRL+N=move next channel, CTRL+P=move previous channel, ALT+A=move unread channel</name>
         <identifier>private.app_slack_move_channel_with_ctrln_ctrlp</identifier>
@@ -27,7 +31,7 @@
     <item>
         <name>For Slack Fn+Return=create snippet, CTRL+Return=post message, Return=new line</name>
         <identifier>private.app_slack_swap_enter_with_command_r</identifier>
-        <only>SLACK</only>
+        <only>SLACK, CHROME</only>
         <autogen>
             __KeyToKey__
             KeyCode::RETURN, ModifierFlag::FN,
