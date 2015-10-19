@@ -10,6 +10,8 @@ $cli set repeat.initial_wait 200
 /bin/echo -n .
 $cli set remap.shift_r_to_shift_delete 1
 /bin/echo -n .
+$cli set remap.doublepresscommandQ 1
+/bin/echo -n .
 $cli set private.app_slack_swap_enter_with_command_r 1
 /bin/echo -n .
 $cli set remap.command_r_delete_to_forward_delete 1
