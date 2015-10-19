@@ -40,17 +40,7 @@
         </autogen>
         <autogen>
             __KeyToKey__
-            KeyCode::JIS_KANA, ModifierFlag::COMMAND_L,
-            KeyCode::RETURN
-        </autogen>
-        <autogen>
-            __KeyToKey__
             KeyCode::RETURN,
-            KeyCode::RETURN, ModifierFlag::OPTION_L
-        </autogen>
-        <autogen>
-            __KeyToKey__
-            KeyCode::JIS_KANA,
             KeyCode::RETURN, ModifierFlag::OPTION_L
         </autogen>
     </item>
