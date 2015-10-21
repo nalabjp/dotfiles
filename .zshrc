@@ -123,6 +123,9 @@ antigen bundle mollifier/anyframe
 # enhanced cd
 antigen bundle b4b4r07/enhancd
 
+# emoji-cli
+antigen bundle b4b4r07/emoji-cli
+
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
