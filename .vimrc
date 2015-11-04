@@ -713,6 +713,9 @@ endif
 nnoremap vy vawy
 " バッファ選択時にリストを開く
 nnoremap B :ls<CR>:b
+" jj or kk でインサートモードを抜ける
+inoremap <silent> jj <ESC>
+inoremap <silent> kk <ESC>
 
 """"""""""""""""""""""""""""""""""""
 " move
