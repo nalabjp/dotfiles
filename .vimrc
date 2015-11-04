@@ -504,6 +504,15 @@ vmap <Enter> <Plug>(EasyAlign)
 NeoBundle 'christoomey/vim-tmux-navigator'
 
 """"""""""""""""""""""""""""""""""""
+" vim-auto-save: auto save
+""""""""""""""""""""""""""""""""""""
+NeoBundle 'vim-scripts/vim-auto-save'
+let g:auto_save = 1
+let g:auto_save_no_updatetime = 1
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_postsave_hook = 'TagsGenerate'
+
+""""""""""""""""""""""""""""""""""""
 " Required:
 """"""""""""""""""""""""""""""""""""
 call neobundle#end()
