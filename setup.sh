@@ -64,9 +64,6 @@ setup_misc() {
         /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
         sh $HOME/$DOTS_DIR/src/karabiner-import.sh
     fi
-    echo 'Witch'
-    create_symlink "$HOME/Library/Application Support/Witch/Settings.plist" $HOME/$DOTS_DIR/Witch/Settings.plist
-    create_symlink "$HOME/Library/Application Support/Witch/Layouts/mydefault.witchlayout" $HOME/$DOTS_DIR/Witch/Layouts/mydefault.witchlayout
 }
 
 main() {
