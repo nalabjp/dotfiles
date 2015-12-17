@@ -352,15 +352,6 @@ function google_translate() {
   w3m +13 "http://translate.google.com/${opt}"
 }
 
-# ssh with tmux
-function ssh() {
-  if type tmux > /dev/null 2>&1; then
-    tmux new-window "ssh $1"
-  else
-    builtin ssh $1
-  fi
-}
-
 # exec alias enhancd
 function alias_enhancd() {
   alias cd='cd::cd'

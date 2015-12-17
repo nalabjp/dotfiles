@@ -78,6 +78,9 @@ brew install nginx
 brew install nkf
 # nodebrew
 brew install nodebrew
+# openvpn
+brew install Caskroom/cask/tuntap
+brew install openvpn
 # pandoc
 brew install pandoc
 # peco
