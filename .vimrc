@@ -382,12 +382,6 @@ NeoBundleLazy 'cohama/lexima.vim', {
 NeoBundle 'tpope/vim-fugitive'
 
 """"""""""""""""""""""""""""""""""""
-" indentLine
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'Yggdroot/indentLine'
-let g:indentLine_char = '︙'
-
-""""""""""""""""""""""""""""""""""""
 " vim-markdown
 """"""""""""""""""""""""""""""""""""
 NeoBundleLazy 'rcmdnk/vim-markdown', {
