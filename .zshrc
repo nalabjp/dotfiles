@@ -2,11 +2,14 @@
 # Prepare
 #################################
 
+# dotifiles directory
+DOTFILES=$HOME/.dotfiles
+
 # Add brew path
 export PATH=/usr/local/bin:$PATH
 
-# dotifiles directory
-DOTFILES=$HOME/.dotfiles
+# Add .dotfiles/bin
+export PATH=$DOTFILES/bin:$PATH
 
 # EDITOR
 export EDITOR='vim'
