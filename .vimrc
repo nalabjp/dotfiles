@@ -513,6 +513,11 @@ let g:auto_save_in_insert_mode = 0
 let g:auto_save_postsave_hook = 'TagsGenerate'
 
 """"""""""""""""""""""""""""""""""""
+" vim-colors-solarized
+""""""""""""""""""""""""""""""""""""
+NeoBundle 'altercation/vim-colors-solarized'
+
+""""""""""""""""""""""""""""""""""""
 " Required:
 """"""""""""""""""""""""""""""""""""
 call neobundle#end()
@@ -793,5 +798,4 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""
 syntax enable
 set background=dark
-let base16colorspace=256
-colorscheme base16-solarized
+colorscheme solarized
