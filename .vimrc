@@ -55,9 +55,10 @@ NeoBundle 'rizzatti/dash.vim'
 " lightline.vim: StatusLineの装飾
 """"""""""""""""""""""""""""""""""""
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'nalabjp/lightline-solarized'
 
 let g:lightline = {
-  \ 'colorscheme': 'Tomorrow_Night_Bright',
+  \ 'colorscheme': 'lightline_solarized',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
