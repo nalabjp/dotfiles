@@ -460,7 +460,13 @@ export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 # Prompt
 #################################
 
-source $DOTFILES/src/pygmalion.zsh-theme
+PROMPT=$'%{$fg[yellow]%}%D{[%I:%M:%S]} %~%{$reset_color%} $(git_prompt_info)\
+%{$fg[magenta]%} %{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}("
+ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}*%{$fg[blue]%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 #################################
 # .zshrc.local
