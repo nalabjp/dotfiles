@@ -505,9 +505,9 @@ let g:auto_save_in_insert_mode = 0
 let g:auto_save_postsave_hook = 'TagsGenerate'
 
 """"""""""""""""""""""""""""""""""""
-" vim-colors-solarized
+" base16-vim
 """"""""""""""""""""""""""""""""""""
-NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'chriskempson/base16-vim'
 
 """"""""""""""""""""""""""""""""""""
 " Required:
@@ -790,4 +790,4 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme base16-solarized
