@@ -52,6 +52,8 @@ setup_misc() {
 
     echo "themes"
     create_symlink $HOME/themes $HOME/$DOTS_DIR/themes
+    echo "peco"
+    create_symlink $HOME/.peco $HOME/$DOTS_DIR/peco
     echo "rubymine"
     create_symlink $HOME/rubymyine $HOME/$DOTS_DIR/rubymine
     echo "iterm2"
