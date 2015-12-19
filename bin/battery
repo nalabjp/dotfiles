@@ -72,7 +72,7 @@ battery_color_tmux() {
     percentage="${1:-$(get_battery)}"
 
     if is_charging; then
-        [[ -n $percentage ]] && echo -e "#[fg=colour46]${percentage}#[default]"
+        [[ -n $percentage ]] && echo -e "#[fg=green]${percentage}#[default]"
     else
         # percentage > BATTERY_DANGER
         if [ "${percentage%%%*}" -ge "$BATTERY_DANGER" ]; then
