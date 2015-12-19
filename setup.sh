@@ -54,12 +54,12 @@ setup_misc() {
     create_symlink $HOME/themes $HOME/$DOTS_DIR/themes
     echo "peco"
     create_symlink $HOME/.peco $HOME/$DOTS_DIR/.peco
-    echo "rubymine"
-    create_symlink $HOME/rubymyine $HOME/$DOTS_DIR/rubymine
-    echo "iterm2"
-    create_symlink $HOME/iterm2 $HOME/$DOTS_DIR/iterm2
-    echo "google-ime"
-    create_symlink $HOME/google-ime $HOME/$DOTS_DIR/google-ime
+    # echo "rubymine"
+    # create_symlink $HOME/rubymyine $HOME/$DOTS_DIR/rubymine
+    # echo "iterm2"
+    # create_symlink $HOME/iterm2 $HOME/$DOTS_DIR/iterm2
+    # echo "google-ime"
+    # create_symlink $HOME/google-ime $HOME/$DOTS_DIR/google-ime
     if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
         echo "karabiner"
         create_symlink "$HOME/Library/Application Support/karabiner/private.xml" $HOME/$DOTS_DIR/karabiner/private.xml
