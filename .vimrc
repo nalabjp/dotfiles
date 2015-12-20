@@ -318,19 +318,19 @@ NeoBundleLazy 'ujihisa/unite-rake', {
 NeoBundleLazy 'basyura/unite-rails', {
   \ 'depends' : 'Shougo/unite.vim' }
 
-noremap <silent> <Leader>urc  :<C-u>Unite rails/controller<CR>
-noremap <silent> <Leader>urm  :<C-u>Unite rails/model<CR>
-noremap <silent> <Leader>urv  :<C-u>Unite rails/view<CR>
-noremap <silent> <Leader>urh  :<C-u>Unite rails/helper<CR>
-noremap <silent> <Leader>urma :<C-u>Unite rails/mailer<CR>
-noremap <silent> <Leader>url  :<C-u>Unite rails/lib<CR>
-noremap <silent> <Leader>urs  :<C-u>Unite rails/stylesheet<CR>
-noremap <silent> <Leader>urj  :<C-u>Unite rails/javascript<CR>
-noremap <silent> <Leader>urr  :<C-u>Unite rails/route<CR>
-noremap <silent> <Leader>urd  :<C-u>Unite rails/db<CR>
-noremap <silent> <Leader>urco :<C-u>Unite rails/config<CR>
-noremap <silent> <Leader>urg  :<C-u>Unite rails/gemfile<CR>
-noremap <silent> <Leader>urt  :<C-u>Unite rails/spec<CR>
+noremap <silent> <Leader>rc  :<C-u>Unite rails/controller<CR>
+noremap <silent> <Leader>rm  :<C-u>Unite rails/model<CR>
+noremap <silent> <Leader>rv  :<C-u>Unite rails/view<CR>
+noremap <silent> <Leader>rh  :<C-u>Unite rails/helper<CR>
+noremap <silent> <Leader>ra  :<C-u>Unite rails/mailer<CR>
+noremap <silent> <Leader>rl  :<C-u>Unite rails/lib<CR>
+noremap <silent> <Leader>rs  :<C-u>Unite rails/stylesheet<CR>
+noremap <silent> <Leader>rj  :<C-u>Unite rails/javascript<CR>
+noremap <silent> <Leader>rr  :<C-u>Unite rails/route<CR>
+noremap <silent> <Leader>rd  :<C-u>Unite rails/db<CR>
+noremap <silent> <Leader>ro  :<C-u>Unite rails/config<CR>
+noremap <silent> <Leader>rg  :<C-u>Unite rails/gemfile<CR>
+noremap <silent> <Leader>rt  :<C-u>Unite rails/spec<CR>
 
 " codic
 NeoBundleLazy 'rhysd/unite-codic.vim', {
@@ -410,6 +410,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 " vim-quickrun
 """"""""""""""""""""""""""""""""""""
 NeoBundle 'thinca/vim-quickrun'
+let g:quickrun_no_default_key_mappings = 1
 
 """"""""""""""""""""""""""""""""""""
 " vim-rails
