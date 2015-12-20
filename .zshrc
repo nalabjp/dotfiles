@@ -5,6 +5,9 @@
 # dotifiles directory
 DOTFILES=$HOME/.dotfiles
 
+# sbin
+export PATH=/sbin:$PATH
+
 # Add brew path
 export PATH=/usr/local/bin:$PATH
 
