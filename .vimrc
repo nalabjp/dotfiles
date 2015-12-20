@@ -283,6 +283,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 
 let g:unite_enable_start_insert=1
+let g:unite_split_rule='botright'
 
 " バッファ一覧
 nnoremap <silent> <Leader>ub :<C-u>Unite buffer<CR>
