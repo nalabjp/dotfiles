@@ -139,6 +139,16 @@ source $DOTFILES/src/zsh-bundle-exec.zsh
 # aliases
 #################################
 
+# Global aliases
+alias -g L='| less'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g GI='| grep -i'
+alias -g GV='| grep -v'
+alias -g P='| peco'
+alias -g X='| xargs'
+
 # ag
 alias ag='ag -S'
 alias agh='ag --hidden'
