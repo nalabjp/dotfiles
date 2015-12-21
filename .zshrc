@@ -465,6 +465,9 @@ fi
 # show_buffer_stack
 bindkey '^]' show_buffer_stack
 
+# peco
+zstyle ":anyframe:selector:peco:" command 'peco --layout=bottom-up'
+
 # peco-path
 bindkey '^g' peco-path
 
