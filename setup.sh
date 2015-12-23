@@ -64,6 +64,7 @@ setup_misc() {
         echo "karabiner"
         create_symlink "$HOME/Library/Application Support/karabiner/private.xml" $HOME/$DOTS_DIR/karabiner/private.xml
         /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
+        karabiner be_careful_to_use__clear_all_values_by_name Default
         sh $HOME/$DOTS_DIR/src/karabiner-import.sh
     fi
 }
