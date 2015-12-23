@@ -390,12 +390,12 @@ function ggrks() {
 }
 
 # w3m でGoogle translate English->Japanese
-function gte() {
+function e2j() {
   google_translate "$*" "en-ja"
 }
 
 # w3m でGoogle translate Japanese->English
-function gtj() {
+function j2e() {
   google_translate "$*" "ja-en"
 }
 
