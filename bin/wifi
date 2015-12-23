@@ -82,7 +82,7 @@ fi
 # |  258F   |  ▏    | LEFT ONE EIGHTH BLOCK      |            |
 # |  2590   |  ▐    | RIGHT HALF BLOCK           |            |
 #
-signals=(▂ ▅ ▇)
+signals=(▁ ▂ ▃ ▅ ▇)
 
 # Get the wifi information and then set it to an info array
 info=( $(eval "$airport_path" --getinfo | grep -E "^ *(agrCtlRSSI|state|lastTxRate|SSID):" | awk '{print $2}') )
@@ -113,11 +113,13 @@ do
     # -100　bad
     if ((  $j == 0 && $rssi > -100 )) ||
         (( $j == 1 && $rssi > -80  )) ||
-        (( $j == 2 && $rssi > -50  )); then
+        (( $j == 2 && $rssi > -70  )) ||
+        (( $j == 3 && $rssi > -60  )) ||
+        (( $j == 4 && $rssi > -50  )); then
         # make signal
-        signal="${signal}${signals[$j]} "
+        signal="${signal}${signals[$j]}"
     else
-        signal="${signal}  "
+        signal="${signal} "
     fi
 done
 
