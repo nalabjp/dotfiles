@@ -142,16 +142,6 @@ source $DOTFILES/src/zsh-bundle-exec.zsh
 # aliases
 #################################
 
-# Global aliases
-alias -g L='| less'
-alias -g H='| head'
-alias -g T='| tail'
-alias -g G='| grep'
-alias -g GI='| grep -i'
-alias -g GV='| grep -v'
-alias -g P='| peco'
-alias -g X='| xargs'
-
 # ag
 alias ag='ag -S'
 alias agh='ag --hidden'
@@ -226,11 +216,16 @@ alias zcp='zmv_ -C'
 alias zln='zmv_ -L'
 
 # Global aliases
-alias -g L='| less'
 alias -g G='| grep'
+alias -g GI='| grep -i'
+alias -g GV='| grep -v'
+alias -g H='| head'
+alias -g L='| less'
+alias -g P='| peco'
+alias -g S="| sort"
+alias -g T='| tail'
 alias -g W='| wc'
 alias -g X='| xargs'
-alias -g S="| sort"
 alias -g N=" >/dev/null 2>&1"
 alias -g N1=" >/dev/null"
 alias -g N2=" 2>/dev/null"
