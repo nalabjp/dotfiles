@@ -383,6 +383,11 @@ NeoBundleLazy 'cohama/lexima.vim', {
 NeoBundle 'tpope/vim-fugitive'
 
 """"""""""""""""""""""""""""""""""""
+" vim-unite-giti
+""""""""""""""""""""""""""""""""""""
+NeoBundle 'kmnk/vim-unite-giti'
+
+""""""""""""""""""""""""""""""""""""
 " vim-markdown
 """"""""""""""""""""""""""""""""""""
 NeoBundleLazy 'rcmdnk/vim-markdown', {
