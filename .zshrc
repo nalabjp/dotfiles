@@ -292,22 +292,22 @@ stack: $LBUFFER"
 }
 zle -N show_buffer_stack
 
-# # path with peco
-# function peco-path() {
-#   local filepath="$(find . | grep -v '/\.' | peco --prompt 'PATH>')"
-#   [ -z "$filepath" ] && return
-#   if [ -n "$LBUFFER" ]; then
-#     BUFFER="$LBUFFER$filepath"
-#   else
-#     if [ -d "$filepath" ]; then
-#       BUFFER="cd $filepath"
-#     elif [ -f "$filepath" ]; then
-#       BUFFER="$EDITOR $filepath"
-#     fi
-#   fi
-#   CURSOR=$#BUFFER
-# }
-# zle -N peco-path
+# # path with fzf
+function fzf-path() {
+  local filepath="$(find . | grep -v '/\.' | fzf --prompt 'PATH>')"
+  [ -z "$filepath" ] && return
+  if [ -n "$LBUFFER" ]; then
+    BUFFER="$LBUFFER$filepath"
+  else
+    if [ -d "$filepath" ]; then
+      BUFFER="cd $filepath"
+    elif [ -f "$filepath" ]; then
+      BUFFER="$EDITOR $filepath"
+    fi
+  fi
+  CURSOR=$#BUFFER
+}
+zle -N fzf-path
 
 # ag and vim
 function agvim () {
@@ -453,8 +453,8 @@ fi
 # show_buffer_stack
 bindkey '^]' show_buffer_stack
 
-# peco-path
-# bindkey '^g' peco-path
+# fzf-path
+bindkey '^g' fzf-path
 
 # history
 bindkey '^r' anyframe-widget-put-history
