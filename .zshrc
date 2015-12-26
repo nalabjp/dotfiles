@@ -5,11 +5,11 @@
 typeset -U path
 
 # dotifiles directory
-DOTFILES=$HOME/.dotfiles
+DOTFILES=~/.dotfiles
 
 # zcompile
 if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
-  zcompile $HOME/.zshrc
+  zcompile ~/.zshrc
 fi
 
 # compinit
@@ -30,7 +30,7 @@ autoload -Uz zmv
 #################################
 
 # Clone zplug if not found
-source $HOME/.zplug/zplug || { curl -fLo $HOME/.zplug/zplug --create-dirs git.io/zplug && source $HOME/.zplug/zplug }
+source ~/.zplug/zplug || { curl -fLo ~/.zplug/zplug --create-dirs git.io/zplug && source ~/.zplug/zplug }
 
 zplug 'junegunn/fzf-bin', from:gh-r, as:command, file:fzf
 zplug 'zsh-users/zsh-syntax-highlighting'
@@ -186,7 +186,7 @@ function tmux_automatically_attach_session()
             if is_osx && is_exists 'reattach-to-user-namespace'; then
                 # on OS X force tmux's default command
                 # to spawn a shell in the user's namespace
-                tmux_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
+                tmux_config=$(cat ~/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
                 tmux -f <(echo "$tmux_config") new-session && echo "$(tmux -V) created new session supported OS X"
             else
                 tmux new-session && echo "tmux created new session"
@@ -356,7 +356,7 @@ if [ $+commands[rbenv] -ne 0 ]; then
         command rbenv "$command" "$@";;
       esac
     }
-    path=($HOME/.rbenv/shims $path)
+    path=(~/.rbenv/shims $path)
   }
   rbenv_init
   unfunction rbenv_init
