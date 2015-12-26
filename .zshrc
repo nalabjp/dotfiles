@@ -434,10 +434,8 @@ bindkey '^r' anyframe-widget-put-history
 add-zsh-hook chpwd chpwd_recent_dirs
 
 # history-substring-search-up
-if zplug check 'zsh-users/zsh-history-substring-search'; then
-  bindkey '^p' history-substring-search-up
-  bindkey '^n' history-substring-search-down
-fi
+bindkey '^p' history-substring-search-up
+bindkey '^n' history-substring-search-down
 
 # anyframe
 bindkey '^g^g' 'anyframe-widget-cd-ghq-repository'
