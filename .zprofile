@@ -46,4 +46,5 @@ export BUNDLE_EXEC_COMMANDS='rails rake rspec spring'
 export LESS='-gj10 --no-init --quit-if-one-screen -R'
 export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
+# enhancd
 export ENHANCD_COMMAND=c
