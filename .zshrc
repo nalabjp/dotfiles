@@ -435,6 +435,11 @@ function lgtm() {
   $DOTFILES/src/lgtm.sh -m | pbcopy
 }
 
+# calc
+function = {
+  echo "$@" | bc -l
+}
+
 #################################
 # Configurations
 #################################
