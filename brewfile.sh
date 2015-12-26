@@ -56,8 +56,6 @@ brew install htop-osx
 brew install httpie
 # imagemagick
 brew install imagemagick
-# jq
-brew install jq
 # libxml2 => 2.8.0 for nokogiri
 brew install libxml2
 brew pin libxml2
@@ -83,8 +81,6 @@ brew install Caskroom/cask/tuntap
 brew install openvpn
 # pandoc
 brew install pandoc
-# peco
-brew install peco
 # phantomjs
 brew install phantomjs
 # php55

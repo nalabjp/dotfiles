@@ -1,6 +1,8 @@
 #################################
 # Prepare
 #################################
+# Remove duplicated path
+typeset -U path
 
 # dotifiles directory
 DOTFILES=$HOME/.dotfiles
@@ -103,40 +105,28 @@ autoload -Uz chpwd_recent_dirs cdr
 autoload -Uz zmv
 
 #################################
-# antigen
+# zplug
 #################################
 
-# Load antigen
-source $DOTFILES/src/antigen.zsh
+# Clone zplug if not found
+source $HOME/.zplug/zplug || { curl -fLo $HOME/.zplug/zplug --create-dirs git.io/zplug && source $HOME/.zplug/zplug }
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+zplug 'junegunn/fzf-bin', from:gh-r, as:command, file:fzf
+zplug 'zsh-users/zsh-syntax-highlighting'
+zplug 'zsh-users/zsh-history-substring-search'
+zplug 'mollifier/anyframe'
+zplug 'b4b4r07/enhancd'
+zplug 'stedolan/jq', from:gh-r, as:command, file:jq, if:'! which jq'
+zplug 'b4b4r07/emoji-cli', if:'which jq'
+zplug "robbyrussell/oh-my-zsh", of:'*.sh'
+zplug "nalabjp/zsh-bundle-exec"
+zplug "djui/alias-tips"
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle tmux
-antigen bundle z
+# install any uninstalled plugins
+zplug check || zplug install
 
-# framework of peco
-antigen bundle mollifier/anyframe
-
-# enhanced cd
-antigen bundle b4b4r07/enhancd
-
-# emoji-cli
-antigen bundle b4b4r07/emoji-cli
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Tell antigen that you're done.
-antigen apply
-
-#################################
-# src
-#################################
-# auto bundle exec
-source $DOTFILES/src/zsh-bundle-exec.zsh
+# load
+zplug load
 
 #################################
 # aliases
@@ -177,6 +167,7 @@ alias ctags-rails='ctags --exclude="*.js" --exclude=".git*" -R .'
 alias diff='colordiff -u'
 
 # git
+alias g='git'
 alias ggr='git grep'
 
 # gitsh
@@ -197,9 +188,6 @@ alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias pg-restart='pg-stop && sleep 1 && pg-start'
 
-# peco
-alias peco='peco --layout=bottom-up'
-
 # redis
 alias redis-start='redis-server ~/conf.d/redis.conf'
 
@@ -216,12 +204,12 @@ alias zcp='zmv_ -C'
 alias zln='zmv_ -L'
 
 # Global aliases
+alias -g F='| fzf'
 alias -g G='| grep'
 alias -g GI='| grep -i'
 alias -g GV='| grep -v'
 alias -g H='| head'
 alias -g L='| less'
-alias -g P='| peco'
 alias -g S="| sort"
 alias -g T='| tail'
 alias -g W='| wc'
@@ -304,36 +292,36 @@ stack: $LBUFFER"
 }
 zle -N show_buffer_stack
 
-# path with peco
-function peco-path() {
-  local filepath="$(find . | grep -v '/\.' | peco --prompt 'PATH>')"
-  [ -z "$filepath" ] && return
-  if [ -n "$LBUFFER" ]; then
-    BUFFER="$LBUFFER$filepath"
-  else
-    if [ -d "$filepath" ]; then
-      BUFFER="cd $filepath"
-    elif [ -f "$filepath" ]; then
-      BUFFER="$EDITOR $filepath"
-    fi
-  fi
-  CURSOR=$#BUFFER
-}
-zle -N peco-path
+# # path with peco
+# function peco-path() {
+#   local filepath="$(find . | grep -v '/\.' | peco --prompt 'PATH>')"
+#   [ -z "$filepath" ] && return
+#   if [ -n "$LBUFFER" ]; then
+#     BUFFER="$LBUFFER$filepath"
+#   else
+#     if [ -d "$filepath" ]; then
+#       BUFFER="cd $filepath"
+#     elif [ -f "$filepath" ]; then
+#       BUFFER="$EDITOR $filepath"
+#     fi
+#   fi
+#   CURSOR=$#BUFFER
+# }
+# zle -N peco-path
 
 # ag and vim
 function agvim () {
-  vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  vim $(ag $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
 # ag -h and vim
 function aghvim () {
-  vim $(agh $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  vim $(agh $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
 # git grep and vim
 function ggrvim () {
-  vim $(git grep -n $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  vim $(git grep -n $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
 # php dev
@@ -460,17 +448,20 @@ fi
 # show_buffer_stack
 bindkey '^]' show_buffer_stack
 
-# peco
-zstyle ":anyframe:selector:peco:" command 'peco --layout=bottom-up'
-
 # peco-path
-bindkey '^g' peco-path
+# bindkey '^g' peco-path
 
 # history
 bindkey '^r' anyframe-widget-put-history
 
 # cdr
 add-zsh-hook chpwd chpwd_recent_dirs
+
+# history-substring-search-up
+if zplug check 'zsh-users/zsh-history-substring-search'; then
+  bindkey -M emacs '^P' history-substring-search-up
+  bindkey -M emacs '^N' history-substring-search-down
+fi
 
 #################################
 # Export
