@@ -115,7 +115,7 @@ zplug 'junegunn/fzf-bin', from:gh-r, as:command, file:fzf
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'mollifier/anyframe'
-zplug 'b4b4r07/enhancd'
+zplug 'b4b4r07/enhancd', of:enhancd.sh
 zplug 'stedolan/jq', from:gh-r, as:command, file:jq, if:'! which jq'
 zplug 'b4b4r07/emoji-cli', if:'which jq'
 zplug "robbyrussell/oh-my-zsh", of:'*.sh'
