@@ -120,7 +120,6 @@ zplug 'stedolan/jq', from:gh-r, as:command, file:jq, if:'! which jq'
 zplug 'b4b4r07/emoji-cli', if:'which jq'
 zplug "robbyrussell/oh-my-zsh", of:'*.sh'
 zplug "nalabjp/zsh-bundle-exec"
-zplug "djui/alias-tips"
 
 # install any uninstalled plugins
 zplug check || zplug install
