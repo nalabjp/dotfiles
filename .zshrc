@@ -435,8 +435,8 @@ add-zsh-hook chpwd chpwd_recent_dirs
 
 # history-substring-search-up
 if zplug check 'zsh-users/zsh-history-substring-search'; then
-  bindkey -M emacs '^P' history-substring-search-up
-  bindkey -M emacs '^N' history-substring-search-down
+  bindkey '^p' history-substring-search-up
+  bindkey '^n' history-substring-search-down
 fi
 
 # anyframe
