@@ -47,4 +47,8 @@ export LESS='-gj10 --no-init --quit-if-one-screen -R'
 export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
 # enhancd
-export ENHANCD_COMMAND=c
+export ENHANCD_COMMAND='c'
+
+# fzf
+export FZF_DEFAULT_COMMAND='ag'
+export FZF_DEFAULT_OPTS='--color dark,hl:33,hl+:37,fg+:235,bg+:136,fg+:254 --color info:254,prompt:37,spinner:108,pointer:235,marker:235'
