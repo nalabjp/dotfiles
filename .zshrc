@@ -401,26 +401,6 @@ function google_translate() {
   w3m +13 "http://translate.google.com/${opt}"
 }
 
-# exec alias enhancd
-function alias_enhancd() {
-  alias cd='cd::cd'
-}
-
-# anyframe-widget-cdr without enhancd
-function _anyframe-widget-cdr() {
-  unalias cd
-  add-zsh-hook chpwd alias_enhancd
-  anyframe-widget-cdr
-}
-zle -N _anyframe-widget-cdr
-
-# anyframe-widget-cd-ghq-repository without enhancd
-function _anyframe-widget-cd-ghq-repository() {
-  unalias cd
-  add-zsh-hook chpwd alias_enhancd
-  anyframe-widget-cd-ghq-repository
-}
-
 # lgtm
 function lgtm() {
   $DOTFILES/src/lgtm.sh -m | pbcopy
@@ -471,6 +451,9 @@ bindkey '^g^k' 'anyframe-widget-kill'
 # less
 export LESS='-gj10 --no-init --quit-if-one-screen -R'
 export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+
+# enhancd
+export ENHANCD_COMMAND=c
 
 #################################
 # Prompt
