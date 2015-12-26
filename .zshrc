@@ -138,15 +138,6 @@ alias agh='ag --hidden'
 
 # anyframe
 alias af='anyframe-widget-select-widget'
-alias afg='_anyframe-widget-cd-ghq-repository'
-alias afga='anyframe-widget-git-add'
-alias afgb='anyframe-widget-checkout-git-branch'
-alias afc='_anyframe-widget-cdr'
-alias afr='anyframe-widget-execute-history'
-alias afp='anyframe-widget-put-history'
-alias afkl='anyframe-widget-kill'
-alias afi='anyframe-widget-insert-git-branch'
-alias aff='anyframe-widget-insert-filename'
 
 # bundler
 alias b='bundle'
@@ -467,6 +458,11 @@ if zplug check 'zsh-users/zsh-history-substring-search'; then
   bindkey -M emacs '^P' history-substring-search-up
   bindkey -M emacs '^N' history-substring-search-down
 fi
+
+# anyframe
+bindkey '^g^g' 'anyframe-widget-cd-ghq-repository'
+bindkey '^g^b' 'anyframe-widget-checkout-git-branch'
+bindkey '^g^k' 'anyframe-widget-kill'
 
 #################################
 # Export
