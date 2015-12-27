@@ -1,1 +1,0 @@
-NeoBundle 'cocopon/colorswatch.vim'
