@@ -5,7 +5,7 @@ export PATH=/sbin:/usr/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 
 # Add .dotfiles/bin
-export PATH=$DOTFILES/bin:$PATH
+export PATH=~/.dotfiles/bin:$PATH
 
 # EDITOR
 export EDITOR='vim'
