@@ -363,7 +363,8 @@ if [ $+commands[rbenv] -ne 0 ]; then
 fi
 
 # karabiner
-if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
+if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ] &&
+  ! which karabiner-export > /dev/null 2>&1; then
   export PATH=/Applications/Karabiner.app/Contents/Library/bin:$PATH
   alias karabiner-export='karabiner export > $DOTFILES/src/karabiner-import.sh'
 fi
