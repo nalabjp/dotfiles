@@ -2,7 +2,7 @@
 # Prepare
 #################################
 # Remove duplicated path
-typeset -U path
+typeset -U path PATH
 
 # dotifiles directory
 DOTFILES=~/.dotfiles

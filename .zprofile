@@ -1,11 +1,14 @@
+# Remove duplicated path
+typeset -U path PATH
+
 # sbin
-export PATH=/sbin:/usr/sbin:$PATH
+path=(/sbin(N-/) /usr/sbin(N-/) $path)
 
 # Add brew path
-export PATH=/usr/local/bin:$PATH
+path=(/usr/local/bin(N-/) $path)
 
 # Add .dotfiles/bin
-export PATH=~/.dotfiles/bin:$PATH
+path=(~/.dotfiles/bin(N-/) $path)
 
 # EDITOR
 export EDITOR='vim'
@@ -23,7 +26,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom
 
 # rbenv
 export RBENV_ROOT=$(rbenv root)
-export PATH=$RBENV_ROOT/bin:$PATH
+path+=($RBENV_ROOT/bin(N-/))
 
 if [ $+commands[rbenv] -ne 0 ]; then
   rbenv_init(){
@@ -45,21 +48,21 @@ if [ $+commands[rbenv] -ne 0 ]; then
         command rbenv "$command" "$@";;
       esac
     }
-    path=(~/.rbenv/shims $path)
+    path+=(~/.rbenv/shims(N-/))
   }
   rbenv_init
   unfunction rbenv_init
 fi
 
 # nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+path+=(~/.nodebrew/current/bin(N-/))
 
 # java
 export JAVA_HOME="$(/usr/libexec/java_home)"
-export PATH=$JAVA_HOME:$PATH
+path+=($JAVA_HOME(N-/))
 
 # php-fpm
-export PATH="$(brew --prefix)/sbin:$PATH"
+path+=($(brew --prefix)/sbin(N-/))
 
 # postgresql
 export PGDATA=/usr/local/var/postgres
@@ -81,6 +84,6 @@ export FZF_DEFAULT_OPTS='--select-1 --exit-0 --multi'
 
 # karabiner
 if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
-  export PATH=/Applications/Karabiner.app/Contents/Library/bin:$PATH
+  path+=(/Applications/Karabiner.app/Contents/Library/bin(N-/))
 fi
 
