@@ -79,7 +79,7 @@ alias diff='colordiff -u'
 
 # git
 alias g='git'
-alias ggr='git grep'
+alias ggr='git grep -n'
 
 # gitsh
 alias gs='gitsh'
