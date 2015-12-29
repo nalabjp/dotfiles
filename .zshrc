@@ -335,37 +335,8 @@ function = {
 # Configurations
 #################################
 
-# rbenv
-if [ $+commands[rbenv] -ne 0 ]; then
-  rbenv_init(){
-    # eval "$(rbenv init - --no-rehash)" is crazy slow (it takes arround 100ms)
-    # below style took ~2ms
-    export RBENV_SHELL=zsh
-    source "$(brew --prefix rbenv)/completions/rbenv.zsh"
-    rbenv() {
-      local command
-      command="$1"
-      if [ "$#" -gt 0 ]; then
-        shift
-      fi
-
-      case "$command" in
-      rehash|shell)
-        eval "`rbenv "sh-$command" "$@"`";;
-      *)
-        command rbenv "$command" "$@";;
-      esac
-    }
-    path=(~/.rbenv/shims $path)
-  }
-  rbenv_init
-  unfunction rbenv_init
-fi
-
 # karabiner
-if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ] &&
-  ! which karabiner-export > /dev/null 2>&1; then
-  export PATH=/Applications/Karabiner.app/Contents/Library/bin:$PATH
+if which karabiner > /dev/null 2>&1; then
   alias karabiner-export='karabiner export > $DOTFILES/src/karabiner-import.sh'
 fi
 

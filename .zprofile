@@ -25,6 +25,32 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom
 export RBENV_ROOT=$(rbenv root)
 export PATH=$RBENV_ROOT/bin:$PATH
 
+if [ $+commands[rbenv] -ne 0 ]; then
+  rbenv_init(){
+    # eval "$(rbenv init - --no-rehash)" is crazy slow (it takes arround 100ms)
+    # below style took ~2ms
+    export RBENV_SHELL=zsh
+    source "$(brew --prefix rbenv)/completions/rbenv.zsh"
+    rbenv() {
+      local command
+      command="$1"
+      if [ "$#" -gt 0 ]; then
+        shift
+      fi
+
+      case "$command" in
+      rehash|shell)
+        eval "`rbenv "sh-$command" "$@"`";;
+      *)
+        command rbenv "$command" "$@";;
+      esac
+    }
+    path=(~/.rbenv/shims $path)
+  }
+  rbenv_init
+  unfunction rbenv_init
+fi
+
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
@@ -52,3 +78,9 @@ export ENHANCD_COMMAND='c'
 # fzf
 export FZF_DEFAULT_COMMAND='ag'
 export FZF_DEFAULT_OPTS='--select-1 --exit-0 --multi'
+
+# karabiner
+if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
+  export PATH=/Applications/Karabiner.app/Contents/Library/bin:$PATH
+fi
+
