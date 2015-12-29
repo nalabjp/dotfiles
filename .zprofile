@@ -71,10 +71,6 @@ export PGDATA=/usr/local/var/postgres
 export BUNDLE_EXEC_GEMFILE_CURRENT_DIR_ONLY=yes
 export BUNDLE_EXEC_COMMANDS='rails rake rspec spring'
 
-# less
-export LESS='-gj10 --no-init --quit-if-one-screen -R'
-export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
-
 # enhancd
 export ENHANCD_COMMAND='c'
 

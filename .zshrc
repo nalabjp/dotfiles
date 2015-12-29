@@ -370,6 +370,11 @@ bindkey '^g^g' 'anyframe-widget-cd-ghq-repository'
 bindkey '^g^b' 'anyframe-widget-checkout-git-branch'
 bindkey '^g^k' 'anyframe-widget-kill'
 
+# less
+# Configure after oh-my-zsh loading
+export LESS='-gj10 --no-init --quit-if-one-screen -R'
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+
 #################################
 # Prompt
 #################################
