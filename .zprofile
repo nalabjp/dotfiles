@@ -80,7 +80,7 @@ export ENHANCD_COMMAND='c'
 
 # fzf
 export FZF_DEFAULT_COMMAND='ag'
-export FZF_DEFAULT_OPTS='--select-1 --exit-0 --multi'
+export FZF_DEFAULT_OPTS='--extended --cycle --select-1 --exit-0 --multi'
 
 # karabiner
 if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
