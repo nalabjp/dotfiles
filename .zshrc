@@ -12,22 +12,8 @@ if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
 fi
 
-# compinit
-autoload -Uz compinit
-compinit
-
-# add-zsh-hook
-autoload -Uz add-zsh-hook
-
-# cdr
-autoload -Uz chpwd_recent_dirs cdr
-
-# zmv
-autoload -Uz zmv
-
-# color
-autoload -Uz colors
-colors
+# emacs mode
+bindkey -e
 
 #################################
 # zplug
@@ -51,6 +37,26 @@ zplug check || zplug install
 
 # load
 zplug load
+
+#################################
+# autoload
+#################################
+# add-zsh-hook
+autoload -Uz add-zsh-hook
+
+# cdr
+autoload -Uz chpwd_recent_dirs cdr
+
+# zmv
+autoload -Uz zmv
+
+# color
+autoload -Uz colors
+colors
+
+# compinit
+autoload -Uz compinit
+compinit
 
 #################################
 # options
@@ -424,9 +430,6 @@ function parse_git_dirty() {
 #################################
 # Configurations
 #################################
-
-# emacs mode
-bindkey -e
 
 # karabiner
 if which karabiner > /dev/null 2>&1; then
