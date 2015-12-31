@@ -151,6 +151,9 @@ alias ctags-rails='ctags --exclude="*.js" --exclude=".git*" -R .'
 # require: export LESS='-R'
 alias diff='colordiff -u'
 
+# edit .zshrc
+alias ez='v ~/.zshrc'
+
 # git
 alias g='git'
 alias ggr='git grep -in'
@@ -189,6 +192,10 @@ alias pg-restart='pg-stop && sleep 1 && pg-start'
 # Push and pop directories on directory stack
 alias pu='pushd'
 alias po='popd'
+
+# reload .zshrc .zprofile
+alias rz='source ~/.zshrc'
+alias rp='source ~/.zprofile'
 
 # rmdir
 alias rd=rmdir
