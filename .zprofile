@@ -17,6 +17,9 @@ export EDITOR='vim'
 export TERM=xterm-256color
 
 # history config
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
 export HISTCONTROL=ignoreboth #ignorespace+ignoredups
 export HISTIGNORE="fg*:bg*:history*:cd*:ls*"
 export HISTTIMEFORMAT='%Y-%m-%d %T ';
@@ -82,4 +85,14 @@ export FZF_DEFAULT_OPTS='--extended --cycle --select-1 --exit-0 --multi'
 if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
   path+=(/Applications/Karabiner.app/Contents/Library/bin(N-/))
 fi
+
+# only define LC_CTYPE if undefined
+if [[ -z "$LC_CTYPE" && -z "$LC_ALL" ]]; then
+  export LC_CTYPE=${LANG%%:*} # pick the first entry from LANG
+fi
+
+# pager
+export PAGER="less"
+export LESS='-gj10 --no-init --quit-if-one-screen -R'
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 

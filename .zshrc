@@ -25,6 +25,10 @@ autoload -Uz chpwd_recent_dirs cdr
 # zmv
 autoload -Uz zmv
 
+# color
+autoload -Uz colors
+colors
+
 #################################
 # zplug
 #################################
@@ -33,13 +37,13 @@ autoload -Uz zmv
 source ~/.zplug/zplug || { curl -fLo ~/.zplug/zplug --create-dirs git.io/zplug && source ~/.zplug/zplug }
 
 zplug 'junegunn/fzf-bin', from:gh-r, as:command, file:fzf
+zplug "zsh-users/zsh-completions"
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'mollifier/anyframe'
 zplug 'b4b4r07/enhancd', of:enhancd.sh
 zplug 'stedolan/jq', from:gh-r, as:command, file:jq, if:'! which jq'
 zplug 'b4b4r07/emoji-cli', if:'which jq'
-zplug "robbyrussell/oh-my-zsh", of:'*.sh'
 zplug "nalabjp/zsh-bundle-exec"
 
 # install any uninstalled plugins
@@ -49,8 +53,70 @@ zplug check || zplug install
 zplug load
 
 #################################
+# options
+#################################
+
+setopt append_history
+setopt auto_cd
+setopt auto_list
+setopt auto_menu
+setopt auto_param_keys
+setopt auto_pushd
+setopt cdablevars
+setopt correct
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt interactivecomments
+setopt long_list_jobs
+setopt magic_equal_subst
+setopt multios
+setopt path_dirs
+setopt print_eight_bit
+setopt prompt_subst
+setopt pushd_ignore_dups
+setopt pushdminus
+setopt share_history
+
+#################################
 # aliases
 #################################
+
+# Global aliases
+alias -g F='| fzf'
+alias -g G='| grep'
+alias -g GI='| grep -i'
+alias -g GV='| grep -v'
+alias -g H='| head'
+alias -g L='| less'
+alias -g S="| sort"
+alias -g T='| tail'
+alias -g W='| wc -l'
+alias -g X='| xargs'
+alias -g N=" >/dev/null 2>&1"
+alias -g N1=" >/dev/null"
+alias -g N2=" 2>/dev/null"
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
+alias _='sudo'
+
+alias -- -='cd -'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
 
 # ag
 alias ag='ag -S'
@@ -84,9 +150,22 @@ alias ggr='git grep -in'
 # gitsh
 alias gs='gitsh'
 
+# grep
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+
+# history
+alias history='fc -l 1'
+
 # ls
 # require coreutils
 alias ls='gls --color=auto'
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+
+# mkdir
+alias md='mkdir -p'
 
 # mysql
 alias mysql-start='mysql.server start'
@@ -98,6 +177,13 @@ alias mysql-restart='mysql.server restart'
 alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias pg-restart='pg-stop && sleep 1 && pg-start'
+
+# Push and pop directories on directory stack
+alias pu='pushd'
+alias po='popd'
+
+# rmdir
+alias rd=rmdir
 
 # redis
 alias redis-start='redis-server ~/conf.d/redis.conf'
@@ -113,21 +199,6 @@ alias zmv_='noglob zmv'
 alias zmv='zmv_ -W'
 alias zcp='zmv_ -C'
 alias zln='zmv_ -L'
-
-# Global aliases
-alias -g F='| fzf'
-alias -g G='| grep'
-alias -g GI='| grep -i'
-alias -g GV='| grep -v'
-alias -g H='| head'
-alias -g L='| less'
-alias -g S="| sort"
-alias -g T='| tail'
-alias -g W='| wc -l'
-alias -g X='| xargs'
-alias -g N=" >/dev/null 2>&1"
-alias -g N1=" >/dev/null"
-alias -g N2=" 2>/dev/null"
 
 #################################
 # functions
@@ -331,6 +402,25 @@ function = {
   echo "$@" | bc -l
 }
 
+# Outputs current branch info in prompt format
+function git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+}
+
+# Checks if working tree is dirty
+function parse_git_dirty() {
+  local STATUS=''
+  local FLAGS
+  FLAGS=('--porcelain')
+  STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
+  if [[ -n $STATUS ]]; then
+    echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+  else
+    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+  fi
+}
+
 #################################
 # Configurations
 #################################
@@ -369,11 +459,6 @@ bindkey '^n' history-substring-search-down
 bindkey '^g^g' 'anyframe-widget-cd-ghq-repository'
 bindkey '^g^b' 'anyframe-widget-checkout-git-branch'
 bindkey '^g^k' 'anyframe-widget-kill'
-
-# less
-# Configure after oh-my-zsh loading
-export LESS='-gj10 --no-init --quit-if-one-screen -R'
-export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
 #################################
 # Prompt
