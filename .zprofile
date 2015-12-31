@@ -29,7 +29,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom
 
 # rbenv
 export RBENV_ROOT=$(rbenv root)
-path+=($RBENV_ROOT/bin(N-/))
+path=($RBENV_ROOT/bin(N-/) $path)
 
 if [ $+commands[rbenv] -ne 0 ]; then
   rbenv_init(){
@@ -51,7 +51,7 @@ if [ $+commands[rbenv] -ne 0 ]; then
         command rbenv "$command" "$@";;
       esac
     }
-    path+=(~/.rbenv/shims(N-/))
+    path=(~/.rbenv/shims(N-/) $path)
   }
   rbenv_init
   unfunction rbenv_init
