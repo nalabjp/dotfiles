@@ -468,6 +468,9 @@ bindkey '^g^k' 'anyframe-widget-kill'
 
 # completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors ''
+zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion:*:*:*:*:*' menu select
 
 #################################
 # Prompt
