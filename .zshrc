@@ -463,6 +463,9 @@ bindkey '^g^g' 'anyframe-widget-cd-ghq-repository'
 bindkey '^g^b' 'anyframe-widget-checkout-git-branch'
 bindkey '^g^k' 'anyframe-widget-kill'
 
+# completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 #################################
 # Prompt
 #################################
