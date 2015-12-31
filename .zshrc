@@ -425,6 +425,9 @@ function parse_git_dirty() {
 # Configurations
 #################################
 
+# emacs mode
+bindkey -e
+
 # karabiner
 if which karabiner > /dev/null 2>&1; then
   alias karabiner-export='karabiner export > $DOTFILES/src/karabiner-import.sh'
