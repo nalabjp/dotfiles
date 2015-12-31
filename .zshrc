@@ -62,6 +62,7 @@ compinit
 # options
 #################################
 
+setopt always_to_end
 setopt append_history
 setopt auto_cd
 setopt auto_list
@@ -69,6 +70,7 @@ setopt auto_menu
 setopt auto_param_keys
 setopt auto_pushd
 setopt cdablevars
+setopt complete_in_word
 setopt correct
 setopt extended_history
 setopt hist_expire_dups_first
