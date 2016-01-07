@@ -53,6 +53,8 @@
   stp = stash pop
   delete-merged-local-branches = !git branch --merged | egrep -vw \"\\*|dev|development|staging|master\" | cut -d \" \" -f3 | xargs -n1 -t -I@ git branch -d @
   rename-nalabjp = !~/.gitscript/rename-nalabjp
+  ignore-gemfile = !git update-index --assume-unchanged Gemfile Gemfile.lock
+  revert-gemfile = !git update-index --no-assume-unchanged Gemfile Gemfile.lock
 [help]
   autocorrect = 1
 [branch]
