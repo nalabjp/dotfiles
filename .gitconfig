@@ -63,11 +63,11 @@
 [ghq]
   root = ~/ghq
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
 [user]
-	name = nalabjp
-	email = nalabjp@gmail.com
+  name = nalabjp
+  email = nalabjp@gmail.com
 [rebase]
-	autostash = true
+  autostash = true
