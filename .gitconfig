@@ -30,7 +30,7 @@
   d = diff
   dc = diff --cached
   f = fetch
-  gr = grep
+  gr = grep -in
   l = log --stat
   lg = log --graph --decorate --all
   lo = log --oneline
