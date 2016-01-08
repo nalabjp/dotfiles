@@ -68,3 +68,5 @@
 [user]
 	name = nalabjp
 	email = nalabjp@gmail.com
+[rebase]
+	autostash = true
