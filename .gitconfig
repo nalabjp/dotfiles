@@ -24,6 +24,7 @@
   c = commit -v
   cm = commit -mv
   co = checkout
+  con = config
   cb = checkout -b
   cp = cherry-pick
   d = diff
