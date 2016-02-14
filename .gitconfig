@@ -15,6 +15,7 @@
 [merge]
   tool = vimdiff
   conflictstyle = diff3
+  ff = false
 [push]
   default = simple
 [alias]
@@ -35,7 +36,6 @@
   lg = log --graph --decorate --all
   lo = log --oneline
   mg = merge
-  mgn = merge --no-ff
   p = push -v
   pl = pull
   r = rm
@@ -71,3 +71,5 @@
   email = nalabjp@gmail.com
 [rebase]
   autostash = true
+[pull]
+  ff = only
