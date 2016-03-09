@@ -26,7 +26,6 @@ zplug 'junegunn/fzf-bin', from:gh-r, as:command, file:fzf
 zplug "zsh-users/zsh-completions"
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'zsh-users/zsh-history-substring-search'
-zplug 'zsh-users/zsh-autosuggestions'
 zplug 'mollifier/anyframe'
 zplug 'b4b4r07/enhancd', of:enhancd.sh
 zplug 'stedolan/jq', from:gh-r, as:command, file:jq, if:'! which jq'
