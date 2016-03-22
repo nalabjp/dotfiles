@@ -46,6 +46,8 @@ brew install hub
 brew install tig
 brew tap thoughtbot/formulae
 brew install gitsh
+# gnu-sed
+brew instal gnu-sed
 # gnu-tar
 brew install --default-names gnu-tar
 # heroku

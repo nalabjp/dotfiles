@@ -226,6 +226,9 @@ alias rd=rmdir
 # redis
 alias redis-start='redis-server ~/conf.d/redis.conf'
 
+# gnu-sed
+alias sed='gsed'
+
 # tmux
 alias tsk='tmux send-keys'
 
