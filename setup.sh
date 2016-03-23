@@ -7,7 +7,7 @@ mkdir -p $HOME/.rbenv
 # dot files dir
 DOTS_DIR=.dotfiles
 # basic dot files
-BASIC_DOTS=(.zprofile .zshrc .gemrc .pryrc .rspec .tmux.conf .vimrc .gvimrc .ideavimrc .vim/colors .vim/conf.d .gitconfig .gitignore .gitscript .bundle .tigrc .colordiffrc .rbenv/default-gems)
+BASIC_DOTS=(.zprofile .zshrc .gemrc .pryrc .rspec .tmux.conf .vimrc .gvimrc .gitconfig .gitignore .gitscript .bundle .tigrc .colordiffrc .rbenv/default-gems)
 # backup dir
 BACKUP_DIR=$HOME/.dotfiles_backup/`date +%Y%m%d_%H%M%S`
 
@@ -52,14 +52,6 @@ setup_misc() {
 
     echo "themes"
     create_symlink $HOME/themes $HOME/$DOTS_DIR/themes
-    # echo "peco"
-    # create_symlink $HOME/.peco $HOME/$DOTS_DIR/.peco
-    # echo "rubymine"
-    # create_symlink $HOME/rubymyine $HOME/$DOTS_DIR/rubymine
-    # echo "iterm2"
-    # create_symlink $HOME/iterm2 $HOME/$DOTS_DIR/iterm2
-    # echo "google-ime"
-    # create_symlink $HOME/google-ime $HOME/$DOTS_DIR/google-ime
     if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
         echo "karabiner"
         create_symlink "$HOME/Library/Application Support/karabiner/private.xml" $HOME/$DOTS_DIR/karabiner/private.xml

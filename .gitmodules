@@ -1,6 +1,0 @@
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = https://github.com/nalabjp/oh-my-zsh.git 
-[submodule ".zprezto"]
-	path = .zprezto
-	url = git://github.com/nalabjp/prezto.git
