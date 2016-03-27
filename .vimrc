@@ -64,7 +64,7 @@ Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
 Plug 'kana/vim-textobj-user' | Plug 'rhysd/vim-textobj-ruby'
 
 " rails
-Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rails', { 'for': ['ruby'] }
 
 " slim
 Plug 'slim-template/vim-slim', { 'for': ['slim'] }
