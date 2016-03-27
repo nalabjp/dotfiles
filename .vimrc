@@ -118,14 +118,6 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""
 " Functions for vim-plug
 """"""""""""""""""""""""""""""""""""
-let s:plug = {
-      \ "plugs": get(g:, 'plugs', {})
-      \ }
-
-function! s:plug.is_installed(name)
-  return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
-endfunction
-
 function! s:plug.check_installation()
   if empty(self.plugs)
     return
@@ -160,6 +152,14 @@ augroup check-plug
   autocmd!
   autocmd VimEnter * if !argc() | call s:plug.check_installation() | endif
 augroup END
+
+let s:plug = {
+      \ "plugs": get(g:, 'plugs', {})
+      \ }
+
+function! s:plug.is_installed(name)
+  return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
+endfunction
 
 """"""""""""""""""""""""""""""""""""
 " Plugin's configurations
