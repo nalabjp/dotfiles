@@ -1,529 +1,477 @@
-""""""""""""""""""""""""""""""""""""
-" Required:
-""""""""""""""""""""""""""""""""""""
-filetype off
-
-if !isdirectory(expand("~/.vim/bundle/"))
-  call system("mkdir -p ~/.vim/bundle")
-  call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
-endif
-
-runtime macros/matchit.vim
-
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
 if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
-
-  """"""""""""""""""""""""""""""""""""
-  " Required:
-  """"""""""""""""""""""""""""""""""""
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set rtp+=~/.vim/plugged/vim-plug
+  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+    echo 'install vim-plug...'
+    call system('mkdir -p ~/.vim/plugged/vim-plug')
+    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+  end
 endif
 
 """"""""""""""""""""""""""""""""""""
-" Required:
+" Plugins
 """"""""""""""""""""""""""""""""""""
-call neobundle#begin(expand('~/.vim/bundle/'))
+call plug#begin('~/.vim/plugged')
 
-""""""""""""""""""""""""""""""""""""
-" Required:
-""""""""""""""""""""""""""""""""""""
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
+" Vim Plugin Manager
+Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
-""""""""""""""""""""""""""""""""""""
-" ag.vim
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'rking/ag.vim'
+" 色見本
+Plug 'cocopon/colorswatch.vim', { 'on': ['ColorSwatchGenerate'] }
 
-""""""""""""""""""""""""""""""""""""
-" colorswatch.vim: 色見本
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'cocopon/colorswatch.vim'
+" StatusLineの装飾
+Plug 'itchyny/lightline.vim'
+Plug 'nalabjp/lightline-solarized'
 
-""""""""""""""""""""""""""""""""""""
-" dash.vim
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'rizzatti/funcoo.vim'
-NeoBundle 'rizzatti/dash.vim'
+" theme
+Plug 'chriskempson/base16-vim'
 
-""""""""""""""""""""""""""""""""""""
-" lightline.vim: StatusLineの装飾
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'nalabjp/lightline-solarized'
+" endに%で移動
+Plug 'ruby-matchit', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
 
-let g:lightline = {
-  \ 'colorscheme': 'lightline_solarized',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component': {
-  \   'readonly': '%{&filetype=="help"?"":&readonly?"x":""}',
-  \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-  \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-  \ },
-  \ 'component_visible_condition': {
-  \   'readonly': '(&filetype!="help"&& &readonly)',
-  \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-  \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-  \ },
-  \ 'separator': { 'left': '', 'right': '' },
-  \ 'subseparator': { 'left': '|', 'right': '|' }
-  \ }
+" キーワード切り替え
+Plug 'AndrewRadev/switch.vim', { 'on': ['Switch'] }
 
-""""""""""""""""""""""""""""""""""""
-" neocomplecache: 補完
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'Shougo/neocomplcache'
+" コメントトグル
+Plug 'tomtom/tcomment_vim'
 
-".vim/bundle/neocomplcache/doc/neocomplcache.txt
-"から、必須設定と書かれている部分をコピペ
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" 移動先をハイライト
+Plug 'Lokaltog/vim-easymotion'
 
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-      \  'default' : '',
-      \  'vimshell' : $HOME.'/.vimshell_hist',
-      \  'scheme' : $HOME.'/.gosh_completions'
-      \}
+" '' () を良しなにするのとif do def やらのブロック閉じる
+Plug 'cohama/lexima.vim'
 
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-  let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+" 複数のテキストを同時編集
+Plug 'terryma/vim-multiple-cursors'
 
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+" 文字列の囲み等
+Plug 'tpope/vim-surround'
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+" コピペ拡張
+Plug 'LeafCage/yankround.vim'
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+" 文章整形
+Plug 'junegunn/vim-easy-align'
 
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" auto save
+Plug 'vim-scripts/vim-auto-save'
 
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'kmnk/vim-unite-giti', { 'on': ['Unite'] }
 
-""""""""""""""""""""""""""""""""""""
-" nerdtree : ツリー型エクスプローラ
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'scrooloose/nerdtree'
-
-nnoremap <silent> <Leader>nt :<C-u>NERDTreeToggle<CR>
-
-""""""""""""""""""""""""""""""""""""
-" ruby-matchit: endに%で移動
-""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'ruby-matchit', {
-  \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml', 'slim'] } }
-
-
-""""""""""""""""""""""""""""""""""""
-" switch.vim: キーワード切り替え
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'AndrewRadev/switch.vim'
-
-nnoremap - :Switch<CR>
-let s:switch_definition = {
-  \ '*': [
-  \   ['is', 'are']
-  \ ],
-  \ 'ruby,eruby,haml,slim' : [
-  \   ['if', 'unless'],
-  \   ['while', 'until'],
-  \   ['.blank?', '.present?'],
-  \   ['include', 'extend'],
-  \   ['class', 'module'],
-  \   ['.inject', '.delete_if'],
-  \   ['.map', '.map!'],
-  \   ['attr_accessor', 'attr_reader', 'attr_writer'],
-  \ ],
-  \ 'Gemfile,Berksfile' : [
-  \   ['=', '<', '<=', '>', '>=', '~>'],
-  \ ],
-  \ 'ruby.application_template' : [
-  \   ['yes?', 'no?'],
-  \   ['lib', 'initializer', 'file', 'vendor', 'rakefile'],
-  \   ['controller', 'model', 'view', 'migration', 'scaffold'],
-  \ ],
-  \ 'erb,html,php' : [
-  \   { '<!--\([a-zA-Z0-9 /]\+\)--></\(div\|ul\|li\|a\)>' : '</\2><!--\1-->' },
-  \ ],
-  \ 'rails' : [
-  \   [100, ':continue', ':information'],
-  \   [101, ':switching_protocols'],
-  \   [102, ':processing'],
-  \   [200, ':ok', ':success'],
-  \   [201, ':created'],
-  \   [202, ':accepted'],
-  \   [203, ':non_authoritative_information'],
-  \   [204, ':no_content'],
-  \   [205, ':reset_content'],
-  \   [206, ':partial_content'],
-  \   [207, ':multi_status'],
-  \   [208, ':already_reported'],
-  \   [226, ':im_used'],
-  \   [300, ':multiple_choices'],
-  \   [301, ':moved_permanently'],
-  \   [302, ':found'],
-  \   [303, ':see_other'],
-  \   [304, ':not_modified'],
-  \   [305, ':use_proxy'],
-  \   [306, ':reserved'],
-  \   [307, ':temporary_redirect'],
-  \   [308, ':permanent_redirect'],
-  \   [400, ':bad_request'],
-  \   [401, ':unauthorized'],
-  \   [402, ':payment_required'],
-  \   [403, ':forbidden'],
-  \   [404, ':not_found'],
-  \   [405, ':method_not_allowed'],
-  \   [406, ':not_acceptable'],
-  \   [407, ':proxy_authentication_required'],
-  \   [408, ':request_timeout'],
-  \   [409, ':conflict'],
-  \   [410, ':gone'],
-  \   [411, ':length_required'],
-  \   [412, ':precondition_failed'],
-  \   [413, ':request_entity_too_large'],
-  \   [414, ':request_uri_too_long'],
-  \   [415, ':unsupported_media_type'],
-  \   [416, ':requested_range_not_satisfiable'],
-  \   [417, ':expectation_failed'],
-  \   [422, ':unprocessable_entity'],
-  \   [423, ':precondition_required'],
-  \   [424, ':too_many_requests'],
-  \   [426, ':request_header_fields_too_large'],
-  \   [500, ':internal_server_error'],
-  \   [501, ':not_implemented'],
-  \   [502, ':bad_gateway'],
-  \   [503, ':service_unavailable'],
-  \   [504, ':gateway_timeout'],
-  \   [505, ':http_version_not_supported'],
-  \   [506, ':variant_also_negotiates'],
-  \   [507, ':insufficient_storage'],
-  \   [508, ':loop_detected'],
-  \   [510, ':not_extended'],
-  \   [511, ':network_authentication_required'],
-  \ ],
-  \ 'rspec': [
-  \   ['describe', 'context', 'specific', 'example'],
-  \   ['before', 'after'],
-  \   ['be_true', 'be_false'],
-  \   ['get', 'post', 'put', 'delete'],
-  \   ['==', 'eql', 'equal'],
-  \   { '\.should_not': '\.should' },
-  \   ['\.to_not', '\.to'],
-  \   { '\([^. ]\+\)\.should\(_not\|\)': 'expect(\1)\.to\2' },
-  \   { 'expect(\([^. ]\+\))\.to\(_not\|\)': '\1.should\2' },
-  \ ],
-  \ 'markdown' : [
-  \   ['[ ]', '[x]']
-  \ ]
-  \ }
-
-
-""""""""""""""""""""""""""""""""""""
-" tcomment_vim: コメントトグル
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'tomtom/tcomment_vim'
-
-""""""""""""""""""""""""""""""""""""
-" unite.vim: ファイラ
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-
-let g:unite_enable_start_insert=1
-let g:unite_split_rule='botright'
-
-" バッファ一覧
-nnoremap <silent> <Leader>ub :<C-u>Unite buffer<CR>
-" ファイル一覧
-nnoremap <silent> <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" 最近使用したファイル一覧
-nnoremap <silent> <Leader>um :<C-u>Unite file_mru<CR>
-" 常用セット
-nnoremap <silent> <Leader>uu :<C-u>Unite buffer file_mru<CR>
-" 全部乗せ
-nnoremap <silent> <Leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
-" ウィンドウを分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-" ウィンドウを縦に分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-
-let g:unite_source_grep_max_candidates = 200
-
-if executable('ag')
-  " Use ag in unite grep source.
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_recursive_opt = 'HRn'
-  let g:unite_source_grep_default_opts =
-  \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-  \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-endif
+" ruby
+Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
 
 " rails
-NeoBundleLazy 'ujihisa/unite-rake', {
-  \ 'depends' : 'Shougo/unite.vim' }
-NeoBundleLazy 'basyura/unite-rails', {
-  \ 'depends' : 'Shougo/unite.vim' }
+Plug 'tpope/vim-rails'
 
-noremap <silent> <Leader>rc  :<C-u>Unite rails/controller<CR>
-noremap <silent> <Leader>rm  :<C-u>Unite rails/model<CR>
-noremap <silent> <Leader>rv  :<C-u>Unite rails/view<CR>
-noremap <silent> <Leader>rh  :<C-u>Unite rails/helper<CR>
-noremap <silent> <Leader>ra  :<C-u>Unite rails/mailer<CR>
-noremap <silent> <Leader>rl  :<C-u>Unite rails/lib<CR>
-noremap <silent> <Leader>rs  :<C-u>Unite rails/stylesheet<CR>
-noremap <silent> <Leader>rj  :<C-u>Unite rails/javascript<CR>
-noremap <silent> <Leader>rr  :<C-u>Unite rails/route<CR>
-noremap <silent> <Leader>rd  :<C-u>Unite rails/db<CR>
-noremap <silent> <Leader>ro  :<C-u>Unite rails/config<CR>
-noremap <silent> <Leader>rg  :<C-u>Unite rails/gemfile<CR>
-noremap <silent> <Leader>rt  :<C-u>Unite rails/spec<CR>
+" slim
+Plug 'slim-template/vim-slim', { 'for': ['slim'] }
+
+" coffee script
+Plug 'kchmck/vim-coffee-script', { 'for': ['coffee'] }
 
 " codic
-NeoBundleLazy 'rhysd/unite-codic.vim', {
-  \ 'depends' : ['Shougo/unite.vim', 'koron/codic-vim'] }
+Plug 'koron/codic-vim', { 'on': ['Codic'] }
+
+" markdown
+Plug 'rcmdnk/vim-markdown', { 'for': ['markdown'] }
+Plug 'tyru/open-browser.vim', { 'for': ['markdown'] }
+Plug 'kannokanno/previm', { 'for': ['markdown'] }
+
+" ctags
+Plug 'szw/vim-tags'
+
+" 非同期実行
+Plug 'tpope/vim-dispatch', { 'on': ['Dispatch'] }
+Plug 'thinca/vim-quickrun'
+Plug 'Shougo/vimproc', { 'do': 'make' }
+
+" ツリー型エクスプローラ
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle'] }
+
+" vimとtmuxをsmartに切り替え
+Plug 'christoomey/vim-tmux-navigator'
+
+" ag
+Plug 'rking/ag.vim', { 'on': ['Ag'] }
+
+" dash
+Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
+
+" ANSIカラーを反映
+Plug 'vim-scripts/AnsiEsc.vim'
+
+" 補完 TODO: deprecatedなので見直す
+Plug 'Shougo/neocomplcache'
+
+" unite
+Plug 'Shougo/unite.vim', { 'on': ['Unite'] }
+Plug 'Shougo/neomru.vim', { 'on': ['Unite'] }
+Plug 'ujihisa/unite-rake', { 'on': ['Unite'] }
+Plug 'basyura/unite-rails', { 'on': ['Unite'] }
+Plug 'rhysd/unite-codic.vim', { 'on': ['Unite'] }
+
+call plug#end()
 
 """"""""""""""""""""""""""""""""""""
-" vim-coffee-script
+" Functions for vim-plug
 """"""""""""""""""""""""""""""""""""
-NeoBundleLazy 'kchmck/vim-coffee-script', {
-   \     'autoload': {
-   \         'filename_patterns': ['.*\.coffee'],
-   \         'filetype': ['coffee'],
-   \     }
-   \ }
+let s:plug = {
+      \ "plugs": get(g:, 'plugs', {})
+      \ }
+
+function! s:plug.is_installed(name)
+  return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
+endfunction
+
+function! s:plug.check_installation()
+  if empty(self.plugs)
+    return
+  endif
+
+  let list = []
+  for [name, spec] in items(self.plugs)
+    if !isdirectory(spec.dir)
+      call add(list, spec.uri)
+    endif
+  endfor
+
+  if len(list) > 0
+    let unplugged = map(list, 'substitute(v:val, "^.*github\.com/\\(.*/.*\\)\.git$", "\\1", "g")')
+
+    " Ask whether installing plugs like NeoBundle
+    echomsg 'Not installed plugs: ' . string(unplugged)
+    if confirm('Install plugs now?', "yes\nNo", 2) == 1
+      PlugInstall
+      " Close window for vim-plug
+      silent! close
+      " Restart vim
+      silent! !vim
+      quit!
+    endif
+
+  endif
+endfunction
+
+" Check installation
+augroup check-plug
+  autocmd!
+  autocmd VimEnter * if !argc() | call s:plug.check_installation() | endif
+augroup END
 
 """"""""""""""""""""""""""""""""""""
-" vim-dispatch:
+" Plugin's configurations
 """"""""""""""""""""""""""""""""""""
-NeoBundle 'tpope/vim-dispatch'
 
-""""""""""""""""""""""""""""""""""""
-" vim-easymotion: 移動先をハイライト
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'Lokaltog/vim-easymotion'
+if s:plug.is_installed('lightline.vim')
+  let g:lightline = {
+    \ 'colorscheme': 'lightline_solarized',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component': {
+    \   'readonly': '%{&filetype=="help"?"":&readonly?"x":""}',
+    \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+    \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+    \ },
+    \ 'component_visible_condition': {
+    \   'readonly': '(&filetype!="help"&& &readonly)',
+    \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+    \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+    \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '|', 'right': '|' }
+    \ }
+endif
 
-let g:EasyMotion_smartcase = 1
-map ;j <Plug>(easymotion-j)
-map ;k <Plug>(easymotion-k)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-" ホームポジションに近いキーを使う
-let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
-" 「;」 + 何かにマッピング
-let g:EasyMotion_leader_key=";"
-" 1 ストローク選択を優先する
-let g:EasyMotion_grouping=1
+if s:plug.is_installed('switch.vim')
+  nnoremap - :Switch<CR>
+  let s:switch_definition = {
+    \ '*': [
+    \   ['is', 'are']
+    \ ],
+    \ 'ruby,eruby,haml,slim' : [
+    \   ['if', 'unless'],
+    \   ['while', 'until'],
+    \   ['.blank?', '.present?'],
+    \   ['include', 'extend'],
+    \   ['class', 'module'],
+    \   ['.inject', '.delete_if'],
+    \   ['.map', '.map!'],
+    \   ['attr_accessor', 'attr_reader', 'attr_writer'],
+    \ ],
+    \ 'Gemfile,Berksfile' : [
+    \   ['=', '<', '<=', '>', '>=', '~>'],
+    \ ],
+    \ 'ruby.application_template' : [
+    \   ['yes?', 'no?'],
+    \   ['lib', 'initializer', 'file', 'vendor', 'rakefile'],
+    \   ['controller', 'model', 'view', 'migration', 'scaffold'],
+    \ ],
+    \ 'erb,html,php' : [
+    \   { '<!--\([a-zA-Z0-9 /]\+\)--></\(div\|ul\|li\|a\)>' : '</\2><!--\1-->' },
+    \ ],
+    \ 'rails' : [
+    \   [100, ':continue', ':information'],
+    \   [101, ':switching_protocols'],
+    \   [102, ':processing'],
+    \   [200, ':ok', ':success'],
+    \   [201, ':created'],
+    \   [202, ':accepted'],
+    \   [203, ':non_authoritative_information'],
+    \   [204, ':no_content'],
+    \   [205, ':reset_content'],
+    \   [206, ':partial_content'],
+    \   [207, ':multi_status'],
+    \   [208, ':already_reported'],
+    \   [226, ':im_used'],
+    \   [300, ':multiple_choices'],
+    \   [301, ':moved_permanently'],
+    \   [302, ':found'],
+    \   [303, ':see_other'],
+    \   [304, ':not_modified'],
+    \   [305, ':use_proxy'],
+    \   [306, ':reserved'],
+    \   [307, ':temporary_redirect'],
+    \   [308, ':permanent_redirect'],
+    \   [400, ':bad_request'],
+    \   [401, ':unauthorized'],
+    \   [402, ':payment_required'],
+    \   [403, ':forbidden'],
+    \   [404, ':not_found'],
+    \   [405, ':method_not_allowed'],
+    \   [406, ':not_acceptable'],
+    \   [407, ':proxy_authentication_required'],
+    \   [408, ':request_timeout'],
+    \   [409, ':conflict'],
+    \   [410, ':gone'],
+    \   [411, ':length_required'],
+    \   [412, ':precondition_failed'],
+    \   [413, ':request_entity_too_large'],
+    \   [414, ':request_uri_too_long'],
+    \   [415, ':unsupported_media_type'],
+    \   [416, ':requested_range_not_satisfiable'],
+    \   [417, ':expectation_failed'],
+    \   [422, ':unprocessable_entity'],
+    \   [423, ':precondition_required'],
+    \   [424, ':too_many_requests'],
+    \   [426, ':request_header_fields_too_large'],
+    \   [500, ':internal_server_error'],
+    \   [501, ':not_implemented'],
+    \   [502, ':bad_gateway'],
+    \   [503, ':service_unavailable'],
+    \   [504, ':gateway_timeout'],
+    \   [505, ':http_version_not_supported'],
+    \   [506, ':variant_also_negotiates'],
+    \   [507, ':insufficient_storage'],
+    \   [508, ':loop_detected'],
+    \   [510, ':not_extended'],
+    \   [511, ':network_authentication_required'],
+    \ ],
+    \ 'rspec': [
+    \   ['describe', 'context', 'specific', 'example'],
+    \   ['before', 'after'],
+    \   ['be_true', 'be_false'],
+    \   ['get', 'post', 'put', 'delete'],
+    \   ['==', 'eql', 'equal'],
+    \   { '\.should_not': '\.should' },
+    \   ['\.to_not', '\.to'],
+    \   { '\([^. ]\+\)\.should\(_not\|\)': 'expect(\1)\.to\2' },
+    \   { 'expect(\([^. ]\+\))\.to\(_not\|\)': '\1.should\2' },
+    \ ],
+    \ 'markdown' : [
+    \   ['[ ]', '[x]']
+    \ ]
+    \ }
+endif
 
-""""""""""""""""""""""""""""""""""""
-" lexima: '' () を良しなにするのとif do def やらのブロック閉じる
-""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'cohama/lexima.vim', {
-  \ 'autoload' : {
-  \   'insert' : 1,
-  \ } }
+if s:plug.is_installed('vim-easymotion')
+  let g:EasyMotion_smartcase = 1
+  map ;j <Plug>(easymotion-j)
+  map ;k <Plug>(easymotion-k)
+  map  / <Plug>(easymotion-sn)
+  omap / <Plug>(easymotion-tn)
+  " ホームポジションに近いキーを使う
+  let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+  " 「;」 + 何かにマッピング
+  let g:EasyMotion_leader_key=";"
+  " 1 ストローク選択を優先する
+  let g:EasyMotion_grouping=1
+endif
 
-""""""""""""""""""""""""""""""""""""
-" vim-fugitive: Git操作
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'tpope/vim-fugitive'
+if s:plug.is_installed('vim-markdown')
+  let g:vim_markdown_folding_disabled=1
+endif
 
-""""""""""""""""""""""""""""""""""""
-" vim-unite-giti
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'kmnk/vim-unite-giti'
+if s:plug.is_installed('vim-quickrun')
+  let g:quickrun_no_default_key_mappings = 1
+endif
 
-""""""""""""""""""""""""""""""""""""
-" vim-markdown
-""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'rcmdnk/vim-markdown', {
-   \     'autoload': {
-   \         'filetypes': ['markdown']
-   \     }
-   \ }
-NeoBundleLazy 'kannokanno/previm', {
-   \     'depends': [
-   \         'open-browser.vim'
-   \     ],
-   \     'autoload': {
-   \         'filetypes': ['markdown']
-   \     }
-   \ }
+if s:plug.is_installed('yankround')
+  " yankround.vim {{{
+  nmap p <Plug>(yankround-p)
+  nmap P <Plug>(yankround-P)
+  nmap <C-p> <Plug>(yankround-prev)
+  nmap <C-n> <Plug>(yankround-next)
+  let g:yankround_max_history = 100
+  nnoremap <Leader><C-p> :<C-u>Unite yankround<CR>
+endif
 
-au BufRead,BufNewFile *.md set filetype=markdown
-let g:vim_markdown_folding_disabled=1
+if s:plug.is_installed('vim-easy-align')
+  " vim-easy-align {{{
+  vmap <Enter> <Plug>(EasyAlign)
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xmap ga <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
+endif
 
-""""""""""""""""""""""""""""""""""""
-" vim-multiple-cursors: 複数のテキストを同時編集
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'terryma/vim-multiple-cursors'
 
-""""""""""""""""""""""""""""""""""""
-" vim-quickrun
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'thinca/vim-quickrun'
-let g:quickrun_no_default_key_mappings = 1
+if s:plug.is_installed('vim-auto-save')
+  let g:auto_save = 1
+  let g:auto_save_no_updatetime = 1
+  let g:auto_save_in_insert_mode = 0
+  let g:auto_save_postsave_hook = 'TagsGenerate'
+endif
 
-""""""""""""""""""""""""""""""""""""
-" vim-rails
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'tpope/vim-rails'
+if s:plug.is_installed('vim-rails')
+  let g:rails_some_option = 1
+  let g:rails_level = 4
+  let g:rails_syntax = 1
+  let g:rails_statusline = 1
+endif
 
-let g:rails_some_option = 1
-let g:rails_level = 4
-let g:rails_syntax = 1
-let g:rails_statusline = 1
+if s:plug.is_installed('vim-tags')
+  let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+  let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
+endif
 
-""""""""""""""""""""""""""""""""""""
-" vim-ref-ri: リファレンス
-""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'taka84u9/vim-ref-ri', {
-  \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
-  \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml', 'slim'] } }
+if s:plug.is_installed('nerdtree')
+  nnoremap <silent> <Leader>nt :<C-u>NERDTreeToggle<CR>
+endif
 
-""""""""""""""""""""""""""""""""""""
-" vim-ruby
-""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'vim-ruby/vim-ruby', {
-  \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml', 'slim'] } }
+if s:plug.is_installed('unite.vim')
+  let g:unite_enable_start_insert=1
+  let g:unite_split_rule='botright'
 
-""""""""""""""""""""""""""""""""""""
-" vim-slim
-""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'slim-template/vim-slim', {
-   \     'autoload': {
-   \         'filetypes': ['slim'],
-   \     }
-   \ }
+  " バッファ一覧
+  nnoremap <silent> <Leader>ub :<C-u>Unite buffer<CR>
+  " ファイル一覧
+  nnoremap <silent> <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+  " 最近使用したファイル一覧
+  nnoremap <silent> <Leader>um :<C-u>Unite file_mru<CR>
+  " 常用セット
+  nnoremap <silent> <Leader>uu :<C-u>Unite buffer file_mru<CR>
+  " 全部乗せ
+  nnoremap <silent> <Leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+  " ウィンドウを分割して開く
+  au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+  au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+  " ウィンドウを縦に分割して開く
+  au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+  au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
 
-""""""""""""""""""""""""""""""""""""
-" vim-surround: 文字列の囲み等
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'tpope/vim-surround'
+  let g:unite_source_grep_max_candidates = 200
 
-""""""""""""""""""""""""""""""""""""
-" vim-tags: ctags
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'szw/vim-tags'
-let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
-let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
+  if executable('ag')
+    " Use ag in unite grep source.
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_recursive_opt = 'HRn'
+    let g:unite_source_grep_default_opts =
+    \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+    \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+  endif
+endif
 
-""""""""""""""""""""""""""""""""""""
-" vimproc: 非同期実行
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-  \     'mac' : 'make -f make_mac.mak',
-  \     'unix' : 'make -f make_unix.mak',
-  \    },
-  \ }
+if s:plug.is_installed('unite-rails')
+  noremap <silent> <Leader>rc  :<C-u>Unite rails/controller<CR>
+  noremap <silent> <Leader>rm  :<C-u>Unite rails/model<CR>
+  noremap <silent> <Leader>rv  :<C-u>Unite rails/view<CR>
+  noremap <silent> <Leader>rh  :<C-u>Unite rails/helper<CR>
+  noremap <silent> <Leader>ra  :<C-u>Unite rails/mailer<CR>
+  noremap <silent> <Leader>rl  :<C-u>Unite rails/lib<CR>
+  noremap <silent> <Leader>rs  :<C-u>Unite rails/stylesheet<CR>
+  noremap <silent> <Leader>rj  :<C-u>Unite rails/javascript<CR>
+  noremap <silent> <Leader>rr  :<C-u>Unite rails/route<CR>
+  noremap <silent> <Leader>rd  :<C-u>Unite rails/db<CR>
+  noremap <silent> <Leader>ro  :<C-u>Unite rails/config<CR>
+  noremap <silent> <Leader>rg  :<C-u>Unite rails/gemfile<CR>
+  noremap <silent> <Leader>rt  :<C-u>Unite rails/spec<CR>
+endif
 
-""""""""""""""""""""""""""""""""""""
-" yankround.vim: コピペ拡張
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'LeafCage/yankround.vim'
+if s:plug.is_installed('neocomplecache')
+  ".vim/bundle/neocomplcache/doc/neocomplcache.txt
+  "から、必須設定と書かれている部分をコピペ
+  " Disable AutoComplPop.
+  let g:acp_enableAtStartup = 0
+  " Use neocomplcache.
+  let g:neocomplcache_enable_at_startup = 1
+  " Use smartcase.
+  let g:neocomplcache_enable_smart_case = 1
+  " Use camel case completion.
+  let g:neocomplcache_enable_camel_case_completion = 1
+  " Use underbar completion.
+  let g:neocomplcache_enable_underbar_completion = 1
+  " Set minimum syntax keyword length.
+  let g:neocomplcache_min_syntax_length = 3
+  let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-" yankround.vim {{{
-nmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
-let g:yankround_max_history = 100
-nnoremap <Leader><C-p> :<C-u>Unite yankround<CR>
+  " Define dictionary.
+  let g:neocomplcache_dictionary_filetype_lists = {
+        \  'default' : '',
+        \  'vimshell' : $HOME.'/.vimshell_hist',
+        \  'scheme' : $HOME.'/.gosh_completions'
+        \}
 
-""""""""""""""""""""""""""""""""""""
-" vim-easy-align: 文章整形
-""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'junegunn/vim-easy-align', {
-  \ 'autoload': {
-  \   'commands' : ['EasyAlign'],
-  \   'mappings' : ['<Plug>(EasyAlign)'],
-  \ }}
+  " Define keyword.
+  if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+  endif
+  let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-" vim-easy-align {{{
-vmap <Enter> <Plug>(EasyAlign)
+  " Plugin key-mappings.
+  inoremap <expr><C-g>     neocomplcache#undo_completion()
+  inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
-""""""""""""""""""""""""""""""""""""
-" vim-tmux-navigator: vimとtmuxをsmartに切り替え
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'christoomey/vim-tmux-navigator'
+  " Recommended key-mappings.
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplcache#smart_close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+  endfunction
+  " <TAB>: completion.
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y>  neocomplcache#close_popup()
+  inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-""""""""""""""""""""""""""""""""""""
-" vim-auto-save: auto save
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'vim-scripts/vim-auto-save'
-let g:auto_save = 1
-let g:auto_save_no_updatetime = 1
-let g:auto_save_in_insert_mode = 0
-let g:auto_save_postsave_hook = 'TagsGenerate'
+  " Enable omni completion.
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
-""""""""""""""""""""""""""""""""""""
-" base16-vim
-""""""""""""""""""""""""""""""""""""
-NeoBundle 'chriskempson/base16-vim'
+  " Enable heavy omni completion.
+  if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+  endif
+  let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+  let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+  let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+  let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-""""""""""""""""""""""""""""""""""""
-" Required:
-""""""""""""""""""""""""""""""""""""
-call neobundle#end()
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+  " For perlomni.vim setting.
+  " https://github.com/c9s/perlomni.vim
+  let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+endif
 
 """"""""""""""""""""""""""""""""""""
 " appearance
@@ -631,6 +579,12 @@ endif
 highlight Search cterm=NONE ctermfg=gray ctermbg=red
 
 """"""""""""""""""""""""""""""""""""
+" colorscheme
+""""""""""""""""""""""""""""""""""""
+set background=dark
+colorscheme base16-solarized
+
+""""""""""""""""""""""""""""""""""""
 " edit
 """"""""""""""""""""""""""""""""""""
 " insertモードを抜けるとIMEオフ
@@ -687,7 +641,9 @@ command! Sjis Cp932
 " filetype
 """"""""""""""""""""""""""""""""""""
 " coffeescript
-au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
+au BufRead,BufNewFile,BufReadPre *.coffee* set filetype=coffee
+" markdown
+au BufRead,BufNewFile *.md set filetype=markdown
 
 """"""""""""""""""""""""""""""""""""
 " indent
@@ -702,28 +658,23 @@ set smartindent
 set tabstop=2 shiftwidth=2 softtabstop=0
 
 " ファイルタイプ毎のインデント設定
-if has('autocmd')
-  "filetype plugin on
-  "filetype indent on
-
-  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType slim       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType markdown   setlocal sw=4 sts=4 ts=4 et
-endif
+autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType slim       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+autocmd FileType markdown   setlocal sw=4 sts=4 ts=4 et
 
 """"""""""""""""""""""""""""""""""""
 " misc
@@ -739,6 +690,9 @@ inoremap <silent> kk <ESC>
 """"""""""""""""""""""""""""""""""""
 " move
 """"""""""""""""""""""""""""""""""""
+" matchitを有効にする
+runtime macros/matchit.vim
+
 " 表示行単位で移動
 nnoremap j gj
 nnoremap k gk
@@ -792,15 +746,3 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 nnoremap <C-i>  :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく
 nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><Enter>
-
-""""""""""""""""""""""""""""""""""""
-" Required:
-""""""""""""""""""""""""""""""""""""
-filetype plugin indent on
-
-""""""""""""""""""""""""""""""""""""
-" colorscheme
-""""""""""""""""""""""""""""""""""""
-syntax enable
-set background=dark
-colorscheme base16-solarized
