@@ -386,22 +386,6 @@ if s:plug.is_installed('unite.vim')
   endif
 endif
 
-if s:plug.is_installed('unite-rails')
-  noremap <silent> <Leader>rc  :<C-u>Unite rails/controller<CR>
-  noremap <silent> <Leader>rm  :<C-u>Unite rails/model<CR>
-  noremap <silent> <Leader>rv  :<C-u>Unite rails/view<CR>
-  noremap <silent> <Leader>rh  :<C-u>Unite rails/helper<CR>
-  noremap <silent> <Leader>ra  :<C-u>Unite rails/mailer<CR>
-  noremap <silent> <Leader>rl  :<C-u>Unite rails/lib<CR>
-  noremap <silent> <Leader>rs  :<C-u>Unite rails/stylesheet<CR>
-  noremap <silent> <Leader>rj  :<C-u>Unite rails/javascript<CR>
-  noremap <silent> <Leader>rr  :<C-u>Unite rails/route<CR>
-  noremap <silent> <Leader>rd  :<C-u>Unite rails/db<CR>
-  noremap <silent> <Leader>ro  :<C-u>Unite rails/config<CR>
-  noremap <silent> <Leader>rg  :<C-u>Unite rails/gemfile<CR>
-  noremap <silent> <Leader>rt  :<C-u>Unite rails/spec<CR>
-endif
-
 if s:plug.is_installed('neocomplete')
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
@@ -421,6 +405,22 @@ if s:plug.is_installed('neocomplete')
   let g:rubycomplete_classes_in_global = 1
   let g:rubycomplete_include_object = 1
   let g:rubycomplete_include_object_space = 1
+endif
+
+if s:plug.is_installed('unite-rails')
+  noremap <silent> <Leader>rc  :<C-u>Unite rails/controller<CR>
+  noremap <silent> <Leader>rm  :<C-u>Unite rails/model<CR>
+  noremap <silent> <Leader>rv  :<C-u>Unite rails/view<CR>
+  noremap <silent> <Leader>rh  :<C-u>Unite rails/helper<CR>
+  noremap <silent> <Leader>ra  :<C-u>Unite rails/mailer<CR>
+  noremap <silent> <Leader>rl  :<C-u>Unite rails/lib<CR>
+  noremap <silent> <Leader>rs  :<C-u>Unite rails/stylesheet<CR>
+  noremap <silent> <Leader>rj  :<C-u>Unite rails/javascript<CR>
+  noremap <silent> <Leader>rr  :<C-u>Unite rails/route<CR>
+  noremap <silent> <Leader>rd  :<C-u>Unite rails/db<CR>
+  noremap <silent> <Leader>ro  :<C-u>Unite rails/config<CR>
+  noremap <silent> <Leader>rg  :<C-u>Unite rails/gemfile<CR>
+  noremap <silent> <Leader>rt  :<C-u>Unite rails/spec<CR>
 endif
 
 """"""""""""""""""""""""""""""""""""
