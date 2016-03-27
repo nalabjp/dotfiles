@@ -61,7 +61,7 @@ Plug 'kmnk/vim-unite-giti', { 'on': ['Unite'] }
 
 " ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
-Plug 'kana/vim-textobj-user' | Plug 'rhysd/vim-textobj-ruby'
+Plug 'kana/vim-textobj-user', { 'for': ['ruby'] } | Plug 'rhysd/vim-textobj-ruby', { 'for': ['ruby'] }
 
 " rails
 Plug 'tpope/vim-rails', { 'for': ['ruby'] }
