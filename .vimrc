@@ -187,6 +187,12 @@ if s:plug.is_installed('lightline.vim')
     \ }
 endif
 
+
+if s:plug.is_installed('base16-vim')
+  set background=dark
+  colorscheme base16-solarized
+endif
+
 if s:plug.is_installed('switch.vim')
   nnoremap - :Switch<CR>
   let s:switch_definition = {
@@ -527,12 +533,6 @@ elseif &term =~ "xterm-color"
 endif
 
 highlight Search cterm=NONE ctermfg=gray ctermbg=red
-
-""""""""""""""""""""""""""""""""""""
-" colorscheme
-""""""""""""""""""""""""""""""""""""
-set background=dark
-colorscheme base16-solarized
 
 """"""""""""""""""""""""""""""""""""
 " edit
