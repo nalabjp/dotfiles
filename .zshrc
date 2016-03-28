@@ -155,7 +155,7 @@ alias diff='colordiff -u'
 alias ez='v ~/.zshrc'
 
 # git
-alias g='git'
+alias g='hub'
 alias ga='g add -v'
 alias gaa='g add -Av'
 alias gb='g branch'
