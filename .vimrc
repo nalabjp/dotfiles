@@ -532,7 +532,7 @@ elseif &term =~ "xterm-color"
   set t_Sb=[4%dm
 endif
 
-highlight Search cterm=NONE ctermfg=gray ctermbg=red
+highlight Search cterm=NONE ctermfg=gray ctermbg=darkgray
 
 """"""""""""""""""""""""""""""""""""
 " edit
