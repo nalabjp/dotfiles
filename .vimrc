@@ -191,6 +191,7 @@ endif
 if s:plug.is_installed('base16-vim')
   set background=dark
   colorscheme base16-solarized
+  highlight Search cterm=NONE ctermfg=gray ctermbg=darkgray
 endif
 
 if s:plug.is_installed('switch.vim')
@@ -531,8 +532,6 @@ elseif &term =~ "xterm-color"
   set t_Sf=[3%dm
   set t_Sb=[4%dm
 endif
-
-highlight Search cterm=NONE ctermfg=gray ctermbg=darkgray
 
 """"""""""""""""""""""""""""""""""""
 " edit
