@@ -57,7 +57,7 @@ Plug 'vim-scripts/vim-auto-save'
 
 " git
 Plug 'tpope/vim-fugitive'
-Plug 'kmnk/vim-unite-giti', { 'on': ['Unite'] }
+Plug 'kmnk/vim-unite-giti'
 
 " ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
@@ -107,11 +107,11 @@ Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'Shougo/neocomplete'
 
 " unite
-Plug 'Shougo/unite.vim', { 'on': ['Unite'] }
-Plug 'Shougo/neomru.vim', { 'on': ['Unite'] }
-Plug 'ujihisa/unite-rake', { 'on': ['Unite'] }
-Plug 'basyura/unite-rails', { 'on': ['Unite'] }
-Plug 'rhysd/unite-codic.vim', { 'on': ['Unite'] }
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'ujihisa/unite-rake', { 'for': ['ruby'] }
+Plug 'basyura/unite-rails', { 'for': ['ruby'] }
+Plug 'rhysd/unite-codic.vim'
 
 call plug#end()
 
