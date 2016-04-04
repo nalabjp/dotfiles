@@ -344,6 +344,16 @@ if s:plug.is_installed('vim-auto-save')
   let g:auto_save_postsave_hook = 'TagsGenerate'
 endif
 
+if s:plug.is_installed('vim-unite-giti')
+  nnoremap <silent> <Leader>ug :<C-u>Unite giti<CR>
+  nnoremap <silent> <Leader>ugb :<C-u>Unite giti/branch<CR>
+  nnoremap <silent> <Leader>ugc :<C-u>Unite giti/config<CR>
+  nnoremap <silent> <Leader>ugg :<C-u>Unite giti/grep<CR>
+  nnoremap <silent> <Leader>ugl :<C-u>Unite giti/log<CR>
+  nnoremap <silent> <Leader>ugr :<C-u>Unite giti/remote<CR>
+  nnoremap <silent> <Leader>ugs :<C-u>Unite giti/status<CR>
+endif
+
 if s:plug.is_installed('vim-rails')
   let g:rails_some_option = 1
   let g:rails_level = 4
