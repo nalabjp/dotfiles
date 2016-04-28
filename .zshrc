@@ -278,6 +278,7 @@ alias la='ls -lAh'
 alias md='mkdir -p'
 
 # mysql
+alias mysql="mysql --pager='less -S -i -F'"
 alias mysql-start='mysql.server start'
 alias mysql-stop='mysql.server stop'
 alias mysql-restart='mysql.server restart'
