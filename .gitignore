@@ -21,3 +21,5 @@ tags
 # for rails
 .rake_tasks
 /vendor/bundle
+# for git worktree
+/gwt-*/
