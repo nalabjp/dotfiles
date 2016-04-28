@@ -256,6 +256,9 @@ alias gst='g stash'
 alias gstc='g stash clear'
 alias gstl='g stash list'
 alias gstp='g stash pop'
+alias gwa='g worktree add'
+alias gwl='g worktree list'
+alias gwp='g worktree prune'
 
 # grep
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
