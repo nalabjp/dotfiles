@@ -98,3 +98,6 @@ export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
 # wordchar
 export WORDCHARS=''
+
+# homebrew analytics
+export HOMEBREW_NO_ANALYTICS=1
