@@ -19,6 +19,7 @@
   rename-nalabjp = !~/.gitscript/rename-nalabjp
   ignore-gemfile = !git update-index --assume-unchanged Gemfile Gemfile.lock
   revert-gemfile = !git update-index --no-assume-unchanged Gemfile Gemfile.lock
+  open-pr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
 [help]
   autocorrect = 1
 [branch]
