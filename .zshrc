@@ -303,7 +303,7 @@ alias rp='source ~/.zprofile'
 alias rd=rmdir
 
 # redis
-alias redis-start='redis-server ~/conf.d/redis.conf'
+alias redis-start='redis-server'
 
 # gnu-sed
 alias sed='gsed'
