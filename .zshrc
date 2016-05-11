@@ -417,49 +417,6 @@ function ggrks() {
   w3m http://www.google.co.jp/$opt
 }
 
-# w3m でGoogle translate English->Japanese
-function e2j() {
-  google_translate "$*" "en-ja"
-}
-
-# w3m でGoogle translate Japanese->English
-function j2e() {
-  google_translate "$*" "ja-en"
-}
-
-# 実行方法
-# google_translate "検索文字列" [翻訳オプション(en-ja 英語->日本語)]
-function google_translate() {
-  local str opt cond
-
-  if [ $# != 0 ]; then
-    str=`echo $1 | sed -e 's/  */+/g'` # 1文字以上の半角空白を+に変換
-    cond=$2
-    if [ $cond = "ja-en" ]; then
-      # ja -> en 翻訳
-      opt='?hl=ja&sl=ja&tl=en&ie=UTF-8&oe=UTF-8'
-    else
-      # en -> ja 翻訳
-      opt='?hl=ja&sl=en&tl=ja&ie=UTF-8&oe=UTF-8'
-    fi
-  else
-    opt='?hl=ja&sl=en&tl=ja&ie=UTF-8&oe=UTF-8'
-  fi
-
-  opt="${opt}&text=${str}"
-  w3m +13 "http://translate.google.com/${opt}"
-}
-
-# lgtm
-function lgtm() {
-  $DOTFILES/src/lgtm.sh -m | pbcopy
-}
-
-# calc
-function = {
-  echo "$@" | bc -l
-}
-
 # Outputs current branch info in prompt format
 function git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
