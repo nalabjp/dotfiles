@@ -2,75 +2,11 @@
 # Prepare
 #################################
 
-# launch tmux
-function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
-function is_osx() { [[ $OSTYPE == darwin* ]]; }
-function is_screen_running() { [ ! -z "$STY" ]; }
-function is_tmux_runnning() { [ ! -z "$TMUX" ]; }
-function is_screen_or_tmux_running() { is_screen_running || is_tmux_runnning; }
-function shell_has_started_interactively() { [ ! -z "$PS1" ]; }
-function is_ssh_running() { [ ! -z "$SSH_CONECTION" ]; }
-
-# tmux
-function tmux_automatically_attach_session()
-{
-    if is_screen_or_tmux_running; then
-        ! is_exists 'tmux' && return 1
-
-        if is_tmux_runnning; then
-            # echo "${fg_bold[red]} _____ __  __ _   ___  __ ${reset_color}"
-            # echo "${fg_bold[red]}|_   _|  \/  | | | \ \/ / ${reset_color}"
-            # echo "${fg_bold[red]}  | | | |\/| | | | |\  /  ${reset_color}"
-            # echo "${fg_bold[red]}  | | | |  | | |_| |/  \  ${reset_color}"
-            # echo "${fg_bold[red]}  |_| |_|  |_|\___//_/\_\ ${reset_color}"
-        elif is_screen_running; then
-            echo "This is on screen."
-        fi
-    else
-        if shell_has_started_interactively && ! is_ssh_running; then
-            if ! is_exists 'tmux'; then
-                echo 'Error: tmux command not found' 2>&1
-                return 1
-            fi
-
-            if tmux has-session >/dev/null 2>&1 && tmux list-sessions | grep -qE '.*]$'; then
-                # detached session exists
-                tmux list-sessions
-                echo -n "Tmux: attach? (y/N/num) "
-                read
-                if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" == '' ]]; then
-                    tmux attach-session
-                    if [ $? -eq 0 ]; then
-                        echo "$(tmux -V) attached session"
-                        return 0
-                    fi
-                elif [[ "$REPLY" =~ ^[0-9]+$ ]]; then
-                    tmux attach -t "$REPLY"
-                    if [ $? -eq 0 ]; then
-                        echo "$(tmux -V) attached session"
-                        return 0
-                    fi
-                fi
-            fi
-
-            if is_osx && is_exists 'reattach-to-user-namespace'; then
-                # on OS X force tmux's default command
-                # to spawn a shell in the user's namespace
-                tmux_config=$(cat ~/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
-                tmux -f <(echo "$tmux_config") new-session && echo "$(tmux -V) created new session supported OS X"
-            else
-                tmux new-session && echo "tmux created new session"
-            fi
-        fi
-    fi
-}
-tmux_automatically_attach_session
+# dotifiles directory
+DOTFILES=~/.dotfiles
 
 # Remove duplicated path
 typeset -U path PATH
-
-# dotifiles directory
-DOTFILES=~/.dotfiles
 
 # zcompile
 if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
@@ -87,6 +23,7 @@ bindkey -e
 # Clone zplug if not found
 source ~/.zplug/zplug || { curl -fLo ~/.zplug/zplug --create-dirs git.io/zplug && source ~/.zplug/zplug }
 
+zplug "$DOTFILES/src", from:local
 zplug 'junegunn/fzf-bin', from:gh-r, as:command, file:fzf
 zplug "zsh-users/zsh-completions"
 zplug 'zsh-users/zsh-syntax-highlighting'
@@ -319,122 +256,6 @@ alias zmv_='noglob zmv'
 alias zmv='zmv_ -W'
 alias zcp='zmv_ -C'
 alias zln='zmv_ -L'
-
-#################################
-# functions
-#################################
-
-# command line stack
-show_buffer_stack() {
-  POSTDISPLAY="
-stack: $LBUFFER"
-  zle push-line-or-edit
-}
-zle -N show_buffer_stack
-
-# # path with fzf
-function fzf-path() {
-  local filepath="$(find . | grep -v '/\.' | fzf --prompt 'PATH>')"
-  [ -z "$filepath" ] && return
-  if [ -n "$LBUFFER" ]; then
-    BUFFER="$LBUFFER$filepath"
-  else
-    if [ -d "$filepath" ]; then
-      BUFFER="cd $filepath"
-    elif [ -f "$filepath" ]; then
-      BUFFER="$EDITOR $filepath"
-    fi
-  fi
-  CURSOR=$#BUFFER
-}
-zle -N fzf-path
-
-# ag and vim
-function agvim () {
-  vim $(ag $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-}
-
-# ag -h and vim
-function aghvim () {
-  vim $(agh $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-}
-
-# git grep and vim
-function ggrvim () {
-  vim $(git grep -n $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-}
-
-# php dev
-function phpdev() {
-  mysql.server start
-  php-fpm -D
-  nginx
-}
-
-# rake
-_cachefile_updated_at() {
-  echo $(stat -f%m .rake_tasks)
-}
-
-_rakefile_updated_at() {
-  echo $(stat -f%m Rakefile)
-}
-
-_gemfile_updated_at() {
-  echo $(stat -f%m Gemfile)
-}
-
-_generate_cachefile() {
-  rake --silent --tasks 2> /dev/null | cut  -f 2 -d " " > .rake_tasks
-}
-
-_rake() {
-  if [ -f Rakefile ]; then
-    if [ ! -f .rake_tasks ] || \
-       [ "`cat .rake_tasks | wc -l`" = "0" ] || \
-       [ `_cachefile_updated_at` -lt `_rakefile_updated_at` ] || \
-       [ -f Gemfile -a `_cachefile_updated_at` -lt `_gemfile_updated_at` ]; then
-      _generate_cachefile
-    fi
-    compadd `cat .rake_tasks`
-  fi
-}
-
-compdef _rake rake
-
-# w3m config
-# w3m google search
-function ggrks() {
-  local str opt
-  if [ $ != 0 ]; then
-    for i in $*; do
-      str="$str+$i"
-    done
-    str=`echo $str | sed 's/^\+//'`
-    opt='search?num=50&h1=ja&lr=lang_ja'
-    opt="${opt}&q=${str}"
-  fi
-  w3m http://www.google.co.jp/$opt
-}
-
-# Outputs current branch info in prompt format
-function git_prompt_info() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-}
-
-# Checks if working tree is dirty
-function parse_git_dirty() {
-  local STATUS=''
-  local FLAGS
-  FLAGS=('--porcelain')
-  STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
-  if [[ -n $STATUS ]]; then
-    echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
-  else
-    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
-  fi
-}
 
 #################################
 # Configurations
