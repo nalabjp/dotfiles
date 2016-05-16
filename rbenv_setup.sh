@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Enable Ruby version 2.1.4 ~ 2.2.x
+# Enable Ruby version 2.2.x ~ 2.3.x
 RUBIES=$(rbenv install --list | awk '
-  match($0,/^\ \ 2\.(1\.[4-9]|2\.[0-9]|3\.[0-9])/) {
+  match($0,/^\ \ 2\.(2\.[0-9]|3\.[0-9])/) {
     print substr($0, RSTART+2,RLENGTH-2)
   }
 '| sort | uniq)
@@ -12,7 +12,7 @@ for version in $RUBIES
 do
     echo ''
     echo '## ruby '$version' ##'
-    if [ ! -d $(brew --prefix rbenv)/versions/$version ]; then
+    if [ ! -d $RBENV_ROOT/versions/$version ]; then
         rbenv install $version
         echo 'installed!'
     fi
