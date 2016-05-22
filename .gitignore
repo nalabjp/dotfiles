@@ -23,3 +23,5 @@ tags
 /vendor/bundle
 # for git worktree
 /gwt-*/
+# bundle cache
+/.bundle/cache
