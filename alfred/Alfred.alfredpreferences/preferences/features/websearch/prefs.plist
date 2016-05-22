@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>1DB77B55-B9BB-4151-B45E-6F99BA5DC252</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>hub</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Search Github repository for '{query}'</string>
+			<key>url</key>
+			<string>https://github.com/search?utf8=✓&amp;q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>9AE9AE4C-20C0-45D1-A476-28B6266453BF</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>chatwork</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Open chatwork</string>
+			<key>url</key>
+			<string>https://www.chatwork.com/#!rid33508721</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>B6FE0CB6-D34B-471B-8676-D984215E79F5</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>inbox</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Open Inbox</string>
+			<key>url</key>
+			<string>https://inbox.google.com/</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>B819133A-99CE-4022-B82E-6A47230CDE5C</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>gem</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Search Gem for '{query}'</string>
+			<key>url</key>
+			<string>https://rubygems.org/search?utf8=✓&amp;query={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>CC9117CB-BA6D-41B2-8B9B-D3BC39FBC8D4</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>gcal</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Open Google Calendar</string>
+			<key>url</key>
+			<string>https://www.google.com/calendar/</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>onlyShowEnabledInPrefs</key>
+	<true/>
+</dict>
+</plist>
