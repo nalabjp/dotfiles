@@ -52,6 +52,8 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string>com.google.Chrome</string>
 				<key>searcher</key>
 				<integer>1635215215</integer>
 			</dict>
