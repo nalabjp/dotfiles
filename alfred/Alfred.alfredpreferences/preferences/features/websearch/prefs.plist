@@ -34,21 +34,6 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
-		<key>B819133A-99CE-4022-B82E-6A47230CDE5C</key>
-		<dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyword</key>
-			<string>gem</string>
-			<key>plusSpaces</key>
-			<false/>
-			<key>text</key>
-			<string>Search Gem for '{query}'</string>
-			<key>url</key>
-			<string>https://rubygems.org/search?utf8=✓&amp;query={query}</string>
-			<key>utf8</key>
-			<true/>
-		</dict>
 		<key>CC9117CB-BA6D-41B2-8B9B-D3BC39FBC8D4</key>
 		<dict>
 			<key>enabled</key>
