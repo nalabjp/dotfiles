@@ -33,3 +33,4 @@ tags
 !/alfred/Alfred.alfredpreferences/preferences/features
 /alfred/Alfred.alfredpreferences/preferences/features/*
 !/alfred/Alfred.alfredpreferences/preferences/features/websearch
+!/alfred/Alfred.alfredpreferences/preferences/features/defaultresults
