@@ -4,21 +4,6 @@
 <dict>
 	<key>customSites</key>
 	<dict>
-		<key>1DB77B55-B9BB-4151-B45E-6F99BA5DC252</key>
-		<dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyword</key>
-			<string>hub</string>
-			<key>plusSpaces</key>
-			<false/>
-			<key>text</key>
-			<string>Search Github repository for '{query}'</string>
-			<key>url</key>
-			<string>https://github.com/search?utf8=✓&amp;q={query}</string>
-			<key>utf8</key>
-			<true/>
-		</dict>
 		<key>9AE9AE4C-20C0-45D1-A476-28B6266453BF</key>
 		<dict>
 			<key>enabled</key>
