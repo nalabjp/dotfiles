@@ -12,6 +12,4 @@ $cli set remap.jis_kana2return 1
 /bin/echo -n .
 $cli set remap.jis_eisuu2delete 1
 /bin/echo -n .
-$cli set remap.jis_commandSpace2toggle_kana_eisuu 1
-/bin/echo -n .
 /bin/echo
