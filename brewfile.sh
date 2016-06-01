@@ -53,7 +53,7 @@ brew install --default-names gnu-tar
 # heroku
 brew install heroku
 # htop
-brew install htop-osx
+brew install htop
 # httpie
 brew install httpie
 # imagemagick
