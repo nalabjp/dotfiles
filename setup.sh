@@ -52,12 +52,18 @@ setup_misc() {
 
     echo "themes"
     create_symlink $HOME/themes $HOME/$DOTS_DIR/themes
+
     if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
         echo "karabiner"
         create_symlink "$HOME/Library/Application Support/karabiner/private.xml" $HOME/$DOTS_DIR/karabiner/private.xml
         /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
         karabiner be_careful_to_use__clear_all_values_by_name Default
         sh $HOME/$DOTS_DIR/src/karabiner-import.sh
+    fi
+
+    if [ ! -f $HOME/.hushlogin ]; then
+        echo 'create ~/.hushlogin'
+        touch $HOME/.hushlogin
     fi
 }
 
