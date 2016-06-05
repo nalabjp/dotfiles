@@ -453,13 +453,13 @@ set expandtab
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデント
 set smarttab
 
-" y9で行末までヤンク
-nmap y9 y$
+" y-で行末までヤンク
+nmap y- y$
 " y0で行頭までヤンク
 nmap y0 y^
 
-" d9で行末まで切り取り
-nmap d9 d$
+" d-で行末まで切り取り
+nmap d- d$
 " d0で行頭まで切り取り
 nmap d0 d^
 
