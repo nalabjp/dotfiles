@@ -376,10 +376,6 @@ set cursorline
 " vi互換off↲
 set nocompatible
 
-" リーダー↲
-nmap <Space> <Leader>
-let mapleader = "\<Space>"
-
 " タイトル↲
 set notitle
 
