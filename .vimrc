@@ -593,8 +593,3 @@ set hlsearch
 
 " Escの2回押しでハイライトを消去
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
-
-" Ctrl-iでヘルプ
-nnoremap <C-i>  :<C-u>help<Space>
-" カーソル下のキーワードをヘルプでひく
-nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><Enter>
