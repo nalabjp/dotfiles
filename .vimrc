@@ -276,6 +276,8 @@ if s:plug.is_installed('unite.vim')
   nnoremap <silent> <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
   " 最近使用したファイル一覧
   nnoremap <silent> <Space>um :<C-u>Unite file_mru<CR>
+  " ジャンプリスト一覧
+  nnoremap <silent> <Space>uj :<C-u>Unite jump<CR>
   " 常用セット
   nnoremap <silent> <Space>uu :<C-u>Unite buffer file_mru<CR>
   " 全部乗せ
