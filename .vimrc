@@ -256,10 +256,8 @@ if s:plug.is_installed('vim-rails')
 endif
 
 if s:plug.is_installed('vim-tags')
-  let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -f .tags -R . 2>/dev/null"
-  let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R -f .Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
-  set tags+=.tags
-  set tags+=.Gemfile.lock.tags
+  let g:vim_tags_ctags_binary = '/usr/local/bin/ctags'
+  let g:vim_tags_use_vim_dispatch = 1
 endif
 
 if s:plug.is_installed('nerdtree')
