@@ -193,14 +193,12 @@ endif
 
 if s:plug.is_installed('vim-easymotion')
   let g:EasyMotion_smartcase = 1
-  map ;j <Plug>(easymotion-j)
-  map ;k <Plug>(easymotion-k)
+  map <Leader>j <Plug>(easymotion-j)
+  map <Leader>k <Plug>(easymotion-k)
   map  / <Plug>(easymotion-sn)
   omap / <Plug>(easymotion-tn)
   " ホームポジションに近いキーを使う
   let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
-  " 「;」 + 何かにマッピング
-  let g:EasyMotion_leader_key=";"
   " 1 ストローク選択を優先する
   let g:EasyMotion_grouping=1
 endif
@@ -524,11 +522,17 @@ autocmd FileType markdown   setlocal sw=4 sts=4 ts=4 et
 """"""""""""""""""""""""""""""""""""
 " カーソル位置の単語をyank
 nnoremap vy vawy
+
 " バッファ選択時にリストを開く
 nnoremap B :ls<CR>:b
+
 " jj or kk でインサートモードを抜ける
 inoremap <silent> jj <ESC>
 inoremap <silent> kk <ESC>
+
+" コロンとセミコロンの入れ替え
+nnoremap : ;
+nnoremap ; :
 
 """"""""""""""""""""""""""""""""""""
 " move
