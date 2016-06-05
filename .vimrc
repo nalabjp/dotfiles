@@ -561,6 +561,11 @@ inoremap <C-f> <Right>
 nnoremap [ %
 nnoremap ] %
 
+" バッファ移動
+nnoremap <Space>bp :bp<CR>
+nnoremap <Space>bn :bn<CR>
+nnoremap <Space>bb :b#<CR>
+
 " ジャンプ先が複数ある場合は候補一覧を表示
 nnoremap <C-]> g<C-]>
 
