@@ -559,6 +559,9 @@ inoremap <C-f> <Right>
 nnoremap [ %
 nnoremap ] %
 
+" ジャンプ先が複数ある場合は候補一覧を表示
+nnoremap <C-]> g<C-]>
+
 " 画面端でスクロースする際の余裕
 set scrolloff=5
 
