@@ -239,13 +239,13 @@ if s:plug.is_installed('vim-auto-save')
 endif
 
 if s:plug.is_installed('vim-unite-giti')
-  nnoremap <silent> <Leader>ug :<C-u>Unite giti<CR>
-  nnoremap <silent> <Leader>ugb :<C-u>Unite giti/branch<CR>
-  nnoremap <silent> <Leader>ugc :<C-u>Unite giti/config<CR>
-  nnoremap <silent> <Leader>ugg :<C-u>Unite giti/grep<CR>
-  nnoremap <silent> <Leader>ugl :<C-u>Unite giti/log<CR>
-  nnoremap <silent> <Leader>ugr :<C-u>Unite giti/remote<CR>
-  nnoremap <silent> <Leader>ugs :<C-u>Unite giti/status<CR>
+  nnoremap <silent> <Space>g :<C-u>Unite giti<CR>
+  nnoremap <silent> <Space>gb :<C-u>Unite giti/branch<CR>
+  nnoremap <silent> <Space>gc :<C-u>Unite giti/config<CR>
+  nnoremap <silent> <Space>gg :<C-u>Unite giti/grep<CR>
+  nnoremap <silent> <Space>gl :<C-u>Unite giti/log<CR>
+  nnoremap <silent> <Space>gr :<C-u>Unite giti/remote<CR>
+  nnoremap <silent> <Space>gs :<C-u>Unite giti/status<CR>
 endif
 
 if s:plug.is_installed('vim-rails')
@@ -263,7 +263,7 @@ if s:plug.is_installed('vim-tags')
 endif
 
 if s:plug.is_installed('nerdtree')
-  nnoremap <silent> <Leader>nt :<C-u>NERDTreeToggle<CR>
+  nnoremap <silent> <Space>nt :<C-u>NERDTreeToggle<CR>
 endif
 
 if s:plug.is_installed('unite.vim')
@@ -271,15 +271,15 @@ if s:plug.is_installed('unite.vim')
   let g:unite_split_rule='botright'
 
   " バッファ一覧
-  nnoremap <silent> <Leader>ub :<C-u>Unite buffer<CR>
+  nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
   " ファイル一覧
-  nnoremap <silent> <Leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+  nnoremap <silent> <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
   " 最近使用したファイル一覧
-  nnoremap <silent> <Leader>um :<C-u>Unite file_mru<CR>
+  nnoremap <silent> <Space>um :<C-u>Unite file_mru<CR>
   " 常用セット
-  nnoremap <silent> <Leader>uu :<C-u>Unite buffer file_mru<CR>
+  nnoremap <silent> <Space>uu :<C-u>Unite buffer file_mru<CR>
   " 全部乗せ
-  nnoremap <silent> <Leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+  nnoremap <silent> <Space>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
   " ウィンドウを分割して開く
   au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
   au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
@@ -321,19 +321,19 @@ if s:plug.is_installed('neocomplete')
 endif
 
 if s:plug.is_installed('unite-rails')
-  noremap <silent> <Leader>urc  :<C-u>Unite rails/controller<CR>
-  noremap <silent> <Leader>urm  :<C-u>Unite rails/model<CR>
-  noremap <silent> <Leader>urv  :<C-u>Unite rails/view<CR>
-  noremap <silent> <Leader>urh  :<C-u>Unite rails/helper<CR>
-  noremap <silent> <Leader>ura  :<C-u>Unite rails/mailer<CR>
-  noremap <silent> <Leader>url  :<C-u>Unite rails/lib<CR>
-  noremap <silent> <Leader>urs  :<C-u>Unite rails/stylesheet<CR>
-  noremap <silent> <Leader>urj  :<C-u>Unite rails/javascript<CR>
-  noremap <silent> <Leader>urr  :<C-u>Unite rails/route<CR>
-  noremap <silent> <Leader>urd  :<C-u>Unite rails/db<CR>
-  noremap <silent> <Leader>uro  :<C-u>Unite rails/config<CR>
-  noremap <silent> <Leader>urg  :<C-u>Unite rails/gemfile<CR>
-  noremap <silent> <Leader>urt  :<C-u>Unite rails/spec<CR>
+  noremap <silent> <Space>rc  :<C-u>Unite rails/controller<CR>
+  noremap <silent> <Space>rm  :<C-u>Unite rails/model<CR>
+  noremap <silent> <Space>rv  :<C-u>Unite rails/view<CR>
+  noremap <silent> <Space>rh  :<C-u>Unite rails/helper<CR>
+  noremap <silent> <Space>ra  :<C-u>Unite rails/mailer<CR>
+  noremap <silent> <Space>rl  :<C-u>Unite rails/lib<CR>
+  noremap <silent> <Space>rs  :<C-u>Unite rails/stylesheet<CR>
+  noremap <silent> <Space>rj  :<C-u>Unite rails/javascript<CR>
+  noremap <silent> <Space>rr  :<C-u>Unite rails/route<CR>
+  noremap <silent> <Space>rd  :<C-u>Unite rails/db<CR>
+  noremap <silent> <Space>ro  :<C-u>Unite rails/config<CR>
+  noremap <silent> <Space>rg  :<C-u>Unite rails/gemfile<CR>
+  noremap <silent> <Space>rt  :<C-u>Unite rails/spec<CR>
 endif
 
 """"""""""""""""""""""""""""""""""""
