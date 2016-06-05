@@ -12,6 +12,7 @@
 *.sh.cache
 tags
 .tags
+.Gemfile.lock.tags
 .bashrc.local
 .zshrc.local
 .envrc
