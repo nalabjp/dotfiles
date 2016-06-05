@@ -1,47 +1,27 @@
 <?xml version="1.0"?>
 <root>
-    <appdef>
-        <appname>SLACK</appname>
-        <equal>com.tinyspeck.slackmacgap</equal>
-    </appdef>
+  <devicevendordef>
+    <vendorname>TopreCorporation</vendorname>
+    <vendorid>0x0853</vendorid>
+  </devicevendordef>
+ 
+  <item>
+    <name>For Topre Keyboards</name>
+
     <item>
-        <name>For Slack CTRL+N=move next channel, CTRL+P=move previous channel, ALT+A=move unread channel</name>
-        <identifier>private.app_slack_move_channel_with_ctrln_ctrlp</identifier>
-        <only>SLACK</only>
-        <autogen>
-            __KeyToKey__
-            KeyCode::N, ModifierFlag::CONTROL_L,
-            KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L
-        </autogen>
-        <autogen>
-            __KeyToKey__
-            KeyCode::P, ModifierFlag::CONTROL_L,
-            KeyCode::CURSOR_UP, ModifierFlag::OPTION_L
-        </autogen>
-        <autogen>
-            __KeyToKey__
-            KeyCode::A, ModifierFlag::OPTION_L,
-            KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L, ModifierFlag::SHIFT_L
-        </autogen>
+      <name>Set Command to Option</name>
+      <identifier>private.topre.set_command_to_option</identifier>
+      <device_only>DeviceVendor::TopreCorporation</device_only>
+      <autogen>__KeyToKey__ KeyCode::COMMAND_L, KeyCode::OPTION_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::COMMAND_R, KeyCode::OPTION_R</autogen>
     </item>
+
     <item>
-        <name>For Slack Fn+Return=create snippet, CTRL+Return=post message, Return=new line</name>
-        <identifier>private.app_slack_swap_enter_with_command_r</identifier>
-        <only>SLACK</only>
-        <autogen>
-            __KeyToKey__
-            KeyCode::RETURN, ModifierFlag::FN,
-            KeyCode::RETURN, ModifierFlag::COMMAND_R
-        </autogen>
-        <autogen>
-            __KeyToKey__
-            KeyCode::RETURN, ModifierFlag::COMMAND_R,
-            KeyCode::RETURN
-        </autogen>
-        <autogen>
-            __KeyToKey__
-            KeyCode::RETURN,
-            KeyCode::RETURN, ModifierFlag::OPTION_L
-        </autogen>
+      <name>Set Option to Command and EISUU/KANA</name>
+      <identifier>private.topre.set_option_to_command_and_eisuu_kana</identifier>
+      <device_only>DeviceVendor::TopreCorporation</device_only>
+      <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, KeyCode::COMMAND_L, KeyCode::JIS_EISUU</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_R, KeyCode::COMMAND_R, KeyCode::JIS_KANA</autogen>
     </item>
+  </item>
 </root>
