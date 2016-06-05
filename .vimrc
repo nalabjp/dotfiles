@@ -463,17 +463,6 @@ nmap d- d$
 " d0で行頭まで切り取り
 nmap d0 d^
 
-" カーソルから行頭まで削除
-inoremap <silent> <C-d>0 <Esc>lc0
-" カーソルから行末まで削除
-inoremap <silent> <C-d>$ <Esc>lc$
-inoremap <silent> <C-d>9 <Esc>lc$
-" カーソルから行頭までヤンク
-inoremap <silent> <C-y>0 <Esc>ly0<Insert>
-" カーソルから行末までヤンク
-inoremap <silent> <C-y>$ <Esc>ly$<Insert>
-inoremap <silent> <C-y>9 <Esc>ly$<Insert>
-
 """"""""""""""""""""""""""""""""""""
 " encoding
 """"""""""""""""""""""""""""""""""""
