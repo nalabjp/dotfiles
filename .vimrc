@@ -439,7 +439,7 @@ endif
 set noimdisable
 set iminsert=0 imsearch=0
 set noimcmdline
-inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+inoremap <silent> <ESC> <ESC>;set iminsert=0<CR>
 
 " Tabキーを空白に変換
 set expandtab
@@ -581,4 +581,4 @@ set smartcase
 set hlsearch
 
 " Escの2回押しでハイライトを消去
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+nmap <Esc><Esc> ;nohlsearch<CR><Esc>
