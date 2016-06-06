@@ -313,7 +313,7 @@ if s:plug.is_installed('neocomplete')
     let g:neocomplete#force_omni_input_patterns = {}
   endif
   let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-  let g:rubycomplete_rails = 0
+  let g:rubycomplete_rails = 1
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_classes_in_global = 1
   let g:rubycomplete_include_object = 1
