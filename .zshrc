@@ -243,6 +243,9 @@ alias rd=rmdir
 # redis
 alias redis-start='redis-server'
 
+# restore zcompdump
+alias restore-zcompdump='rm ~/.zcompdump && exec zsh'
+
 # gnu-sed
 alias sed='gsed'
 
