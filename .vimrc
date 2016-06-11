@@ -298,9 +298,6 @@ endif
 if s:plug.is_installed('nerdtree')
   nnoremap <silent> <Space>nt :<C-u>NERDTreeToggle<CR>
 endif
-if s:plug.is_installed('vim-rooter')
-  let g:rooter_change_directory_for_non_project_files = 'current'
-endif
 
 if s:plug.is_installed('unite.vim')
   let g:unite_enable_start_insert=1
