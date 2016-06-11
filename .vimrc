@@ -64,6 +64,7 @@ Plug 'kmnk/vim-unite-giti'
 " ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
 Plug 'rhysd/vim-textobj-ruby', { 'for': ['ruby'] }
+Plug 'rhysd/unite-ruby-require.vim'
 
 " rails
 Plug 'tpope/vim-rails', { 'for': ['ruby'] }
@@ -272,6 +273,11 @@ if s:plug.is_installed('vim-ruby')
   let g:rubycomplete_classes_in_global = 1
   let g:rubycomplete_include_object = 1
   let g:rubycomplete_include_object_space = 1
+endif
+
+
+if s:plug.is_installed('unite-ruby-require.vim')
+  let g:unite_source_ruby_require_cmd = '\$HOME/.rbenv/shims/ruby'
 endif
 
 if s:plug.is_installed('vim-rails')
