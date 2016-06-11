@@ -248,6 +248,14 @@ if s:plug.is_installed('vim-unite-giti')
   nnoremap <silent> <Space>gs :<C-u>Unite giti/status<CR>
 endif
 
+if s:plug.is_installed('vim-ruby')
+  let g:rubycomplete_rails = 1
+  let g:rubycomplete_buffer_loading = 1
+  let g:rubycomplete_classes_in_global = 1
+  let g:rubycomplete_include_object = 1
+  let g:rubycomplete_include_object_space = 1
+endif
+
 if s:plug.is_installed('vim-rails')
   let g:rails_some_option = 1
   let g:rails_level = 4
@@ -306,18 +314,34 @@ if s:plug.is_installed('neocomplete')
   let g:neocomplete#enable_at_startup = 1
   " Use smartcase.
   let g:neocomplete#enable_smart_case = 1
+  " Use camel case completion.
+  let g:neocomplete#enable_camel_case = 1
+  " buffer file name pattern that locks neocomplete. e.g. ku.vim or fuzzyfinder
+  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+  let g:neocomplete#auto_completion_start_length = 4
+  let g:neocomplete#manual_completion_start_length = 0
+  let g:neocomplete#sources#syntax#min_keyword_length = 4
+  let g:neocomplete#min_keyword_length = 4
+
+  " <CR>: close popup and save indent.
+  inoremap <expr><CR> neocomplete#smart_close_popup() . "\<CR>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
+
 
   autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
-  if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
+  if !exists('g:neocomplete#keyword_patterns')
+      let g:neocomplete#keyword_patterns = {}
   endif
-  let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-  let g:rubycomplete_rails = 1
-  let g:rubycomplete_buffer_loading = 1
-  let g:rubycomplete_classes_in_global = 1
-  let g:rubycomplete_include_object = 1
-  let g:rubycomplete_include_object_space = 1
+  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+  if !exists('g:neocomplete#sources#omni_input_patterns')
+    let g:neocomplete#sources#omni_input_patterns = {}
+  endif
+  let g:neocomplete#sources#omni_input_patterns.ruby = '[^. *\t]\.h\w*\|\h\w*::'
 endif
 
 if s:plug.is_installed('unite-rails')
