@@ -578,6 +578,9 @@ inoremap <silent> kk <ESC>
 nnoremap : ;
 nnoremap ; :
 
+" ?を区切り文字として認識させない
+autocmd FileType ruby setl iskeyword+=?
+
 """"""""""""""""""""""""""""""""""""
 " move
 """"""""""""""""""""""""""""""""""""
