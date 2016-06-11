@@ -109,6 +109,9 @@ Plug 'vim-scripts/AnsiEsc.vim'
 " 補完
 Plug 'Shougo/neocomplete'
 
+" auto cd to project root
+Plug 'airblade/vim-rooter'
+
 " unite
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
@@ -294,6 +297,9 @@ endif
 
 if s:plug.is_installed('nerdtree')
   nnoremap <silent> <Space>nt :<C-u>NERDTreeToggle<CR>
+endif
+if s:plug.is_installed('vim-rooter')
+  let g:rooter_change_directory_for_non_project_files = 'current'
 endif
 
 if s:plug.is_installed('unite.vim')
