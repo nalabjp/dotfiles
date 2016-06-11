@@ -40,8 +40,13 @@ Plug 'cohama/lexima.vim'
 " 複数のテキストを同時編集
 Plug 'terryma/vim-multiple-cursors'
 
-" 文字列の囲み等
-Plug 'tpope/vim-surround'
+" operator
+Plug 'kana/vim-operator-user'
+Plug 'rhysd/vim-operator-surround'
+
+" text object
+Plug 'kana/vim-textobj-user'
+Plug 'osyo-manga/vim-textobj-multiblock'
 
 " コピペ拡張
 Plug 'LeafCage/yankround.vim'
@@ -58,7 +63,7 @@ Plug 'kmnk/vim-unite-giti'
 
 " ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
-Plug 'kana/vim-textobj-user', { 'for': ['ruby'] } | Plug 'rhysd/vim-textobj-ruby', { 'for': ['ruby'] }
+Plug 'rhysd/vim-textobj-ruby', { 'for': ['ruby'] }
 
 " rails
 Plug 'tpope/vim-rails', { 'for': ['ruby'] }
@@ -209,6 +214,19 @@ endif
 
 if s:plug.is_installed('vim-quickrun')
   let g:quickrun_no_default_key_mappings = 1
+endif
+
+if s:plug.is_installed('vim-operator-surround')
+  " 括弧を追加する
+  map <silent> sa <Plug>(operator-surround-append)
+  " 括弧を削除する
+  map <silent> sd <Plug>(operator-surround-delete)
+  " 括弧を入れ替える
+  map <silent> sr <Plug>(operator-surround-replace)
+  " カーソル位置から一番近い括弧を削除する
+  nmap <silent> sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
+  " カーソル位置から一番近い括弧を変更する
+  nmap <silent> srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
 endif
 
 if s:plug.is_installed('yankround')
