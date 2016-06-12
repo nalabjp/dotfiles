@@ -222,15 +222,15 @@ endif
 
 if s:plug.is_installed('vim-operator-surround')
   " 括弧を追加する
-  map <silent> sa <Plug>(operator-surround-append)
+  map <silent> <Space>sa <Plug>(operator-surround-append)
   " 括弧を削除する
-  map <silent> sd <Plug>(operator-surround-delete)
+  map <silent> <Space>sd <Plug>(operator-surround-delete)
   " 括弧を入れ替える
-  map <silent> sr <Plug>(operator-surround-replace)
+  map <silent> <Space>sr <Plug>(operator-surround-replace)
   " カーソル位置から一番近い括弧を削除する
-  nmap <silent> sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
+  nmap <silent> <Space>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
   " カーソル位置から一番近い括弧を変更する
-  nmap <silent> srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
+  nmap <silent> <Space>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
 endif
 
 if s:plug.is_installed('yankround')
