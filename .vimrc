@@ -586,6 +586,8 @@ inoremap <silent> kk <ESC>
 " コロンとセミコロンの入れ替え
 nnoremap : ;
 nnoremap ; :
+vnoremap : ;
+vnoremap ; :
 
 " ?を区切り文字として認識させない
 autocmd FileType ruby setl iskeyword+=?
