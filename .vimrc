@@ -607,7 +607,7 @@ noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
 " 行頭、行末
-nmap - $
+nnoremap - $
 
 " インサートモードでjkbfで移動
 inoremap <C-j> <Down>
