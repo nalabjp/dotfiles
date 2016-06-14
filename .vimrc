@@ -60,6 +60,7 @@ Plug 'vim-scripts/vim-auto-save'
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'kmnk/vim-unite-giti'
+Plug 'jreybert/vimagit'
 
 " ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
@@ -268,6 +269,14 @@ if s:plug.is_installed('vim-unite-giti')
   nnoremap <silent> <Space>gl :<C-u>Unite giti/log<CR>
   nnoremap <silent> <Space>gr :<C-u>Unite giti/remote<CR>
   nnoremap <silent> <Space>gs :<C-u>Unite giti/status<CR>
+endif
+
+if s:plug.is_installed('vimagit')
+  nnoremap <silent> <Space>m :Magit<CR>
+  let g:magit_show_help = 0
+  let g:magit_default_show_all_files = 2
+  let g:magit_default_fold_level = 2
+  let g:magit_default_sections = ['global_help', 'info', 'unstaged', 'staged', 'commit']
 endif
 
 if s:plug.is_installed('vim-ruby')
