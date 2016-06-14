@@ -40,3 +40,5 @@
   ff = only
 [rerere]
   enabled = true
+[diff]
+  compactionHeuristic = true
