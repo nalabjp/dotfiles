@@ -55,7 +55,7 @@ Plug 'LeafCage/yankround.vim'
 Plug 'junegunn/vim-easy-align'
 
 " auto save
-Plug 'vim-scripts/vim-auto-save'
+" Plug 'vim-scripts/vim-auto-save'
 
 " git
 Plug 'tpope/vim-fugitive'
