@@ -61,6 +61,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-fugitive'
 Plug 'kmnk/vim-unite-giti'
 Plug 'jreybert/vimagit'
+Plug 'cohama/agit.vim'
 
 " ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
