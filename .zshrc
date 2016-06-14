@@ -310,8 +310,7 @@ zstyle ':completion:*:*:*:*:*' menu select
 # Prompt
 #################################
 
-GOTO_BOTTOM=$(tput cup "$LINES")
-PROMPT=$GOTO_BOTTOM$'%{$fg[yellow]%}%D{[%H:%M:%S]} %~%{$reset_color%} $(git_prompt_info)\
+PROMPT=$'%{$fg[yellow]%}%D{[%H:%M:%S]} %~%{$reset_color%} $(git_prompt_info)\
 %{$fg_bold[cyan]%} %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}("
