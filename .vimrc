@@ -57,6 +57,9 @@ Plug 'junegunn/vim-easy-align'
 " auto save
 " Plug 'vim-scripts/vim-auto-save'
 
+" diff
+Plug 'lambdalisue/vim-unified-diff'
+
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'kmnk/vim-unite-giti'
@@ -260,6 +263,10 @@ if s:plug.is_installed('vim-auto-save')
   let g:auto_save_no_updatetime = 1
   let g:auto_save_in_insert_mode = 0
   let g:auto_save_postsave_hook = 'TagsGenerate'
+endif
+
+if s:plug.is_installed('vim-unified-diff')
+  set diffexpr=unified_diff#diffexpr()
 endif
 
 if s:plug.is_installed('vim-unite-giti')
