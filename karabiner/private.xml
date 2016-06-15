@@ -4,7 +4,7 @@
     <vendorname>TopreCorporation</vendorname>
     <vendorid>0x0853</vendorid>
   </devicevendordef>
- 
+
   <item>
     <name>For Topre Keyboards</name>
 
@@ -22,6 +22,26 @@
       <device_only>DeviceVendor::TopreCorporation</device_only>
       <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, KeyCode::COMMAND_L, KeyCode::JIS_EISUU</autogen>
       <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_R, KeyCode::COMMAND_R, KeyCode::JIS_KANA</autogen>
+    </item>
+  </item>
+
+  <devicevendordef>
+    <vendorname>Logitech</vendorname>
+    <vendorid>0x046d</vendorid>
+  </devicevendordef>
+  <deviceproductdef>
+    <productname>M570t</productname>
+    <productid>0x1028</productid>
+  </deviceproductdef>
+
+  <item>
+    <name>For Logitech M570t wireless mouse</name>
+
+    <item>
+      <name>Reverse mouse scroll</name>
+      <identifier>private.remap.reverse_mouse_scroll</identifier>
+      <device_only>DeviceVendor::Logitech, DeviceProduct::M570t</device_only>
+      <autogen>__FlipScrollWheel__ Option::FLIPSCROLLWHEEL_VERTICAL</autogen>
     </item>
   </item>
 </root>
