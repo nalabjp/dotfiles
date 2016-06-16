@@ -283,7 +283,7 @@ fi
 bindkey '^]' show_buffer_stack
 
 # fzf-path
-bindkey '^g' fzf-path
+bindkey '^v' fzf-path
 
 # history
 bindkey '^r' anyframe-widget-put-history
@@ -296,9 +296,9 @@ bindkey '^p' history-substring-search-up
 bindkey '^n' history-substring-search-down
 
 # anyframe
-bindkey '^g^g' 'anyframe-widget-cd-ghq-repository'
-bindkey '^g^b' 'anyframe-widget-checkout-git-branch'
-bindkey '^g^k' 'anyframe-widget-kill'
+bindkey '^v^v' 'anyframe-widget-cd-ghq-repository'
+bindkey '^v^b' 'anyframe-widget-checkout-git-branch'
+bindkey '^v^k' 'anyframe-widget-kill'
 
 # completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
