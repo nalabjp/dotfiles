@@ -31,6 +31,8 @@ brew install coreutils
 brew install ctags
 # direnv
 brew install direnv
+# emojify
+brew install emojify
 # findutils
 brew install findutils
 # fontforge
