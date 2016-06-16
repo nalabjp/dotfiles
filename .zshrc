@@ -283,22 +283,22 @@ fi
 bindkey '^]' show_buffer_stack
 
 # fzf-path
-bindkey '^v' fzf-path
+bindkey '^V' fzf-path
 
 # history
-bindkey '^r' anyframe-widget-put-history
+bindkey '^R' anyframe-widget-put-history
 
 # cdr
 add-zsh-hook chpwd chpwd_recent_dirs
 
 # history-substring-search-up
-bindkey '^p' history-substring-search-up
-bindkey '^n' history-substring-search-down
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down
 
 # anyframe
-bindkey '^v^v' 'anyframe-widget-cd-ghq-repository'
-bindkey '^v^b' 'anyframe-widget-checkout-git-branch'
-bindkey '^v^k' 'anyframe-widget-kill'
+bindkey '^V^V' 'anyframe-widget-cd-ghq-repository'
+bindkey '^V^B' 'anyframe-widget-checkout-git-branch'
+bindkey '^V^K' 'anyframe-widget-kill'
 
 # completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
