@@ -22,12 +22,12 @@ echo 'brew install'
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 #
-# brewfile.sh
+# run brew bundle
 #
 echo ''
-echo 'start brewfile.sh'
-./brewfile.sh
-echo 'finish brewfile.sh'
+echo 'start brew brewfile'
+brew bundle
+echo 'finish brew brewfile'
 
 #
 # after brew bundle
