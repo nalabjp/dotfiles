@@ -17,7 +17,7 @@
 # for brew bundle
 tap 'homebrew/bundle'
 # for brew versions
-tap 'homebrew/boneyard'
+tap 'homebrew/versions'
 # for ghq
 tap 'motemen/ghq'
 # for gitsh
@@ -60,16 +60,22 @@ brew 'gnu-sed'
 brew 'gnu-tar', args: ['with-default-names']
 # heroku
 brew 'heroku'
+# highlight
+brew 'highlight'
 # htop
 brew 'htop'
 # httpie
 brew 'httpie'
 # imagemagick
 brew 'imagemagick'
+# jq
+brew 'jq'
 # libxml2
 brew 'libxml2'
 # libxslt
 brew 'libxslt'
+# lua
+brew 'lua'
 # macvim
 brew 'macvim', args: ['with-lua', 'override-system-vim']
 # mecab
