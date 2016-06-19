@@ -26,6 +26,8 @@ tap 'thoughtbot/formulae'
 tap 'caskroom/cask'
 # for php55
 tap 'josegonzalez/homebrew-php'
+# for xpdf
+tap 'homebrew/x11'
 
 # ag
 brew 'the_silver_searcher'
@@ -60,8 +62,6 @@ brew 'gnu-sed'
 brew 'gnu-tar', args: ['with-default-names']
 # heroku
 brew 'heroku'
-# highlight
-brew 'highlight'
 # htop
 brew 'htop'
 # httpie
@@ -110,6 +110,16 @@ brew 'pstree'
 brew 'pup'
 # pwgen
 brew 'pwgen'
+# ranger
+brew 'ranger'
+brew 'lynx'
+brew 'atool'
+brew 'mediainfo'
+brew 'highlight'
+brew 'w3m'
+brew 'xpdf'     # require xquartz in Brewfile_sudo
+brew 'libcaca'  # require xquartz in Brewfile_sudo
+brew 'imlib2'   # require xquartz in Brewfile_sudo
 # redis
 brew 'redis'
 # rename
@@ -135,7 +145,5 @@ brew 'tree'
 brew 'watch'
 # wget
 brew 'wget'
-# w3m
-brew 'w3m'
 # zsh
 brew 'zsh', args: ['without-etcdir']

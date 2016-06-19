@@ -1,0 +1,4 @@
+# for xquartz
+tap 'caskroom/cask'
+
+cask 'xquartz'
