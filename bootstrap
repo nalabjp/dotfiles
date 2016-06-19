@@ -1,0 +1,102 @@
+#!/bin/bash
+
+SRC=$HOME/.dotfiles/src
+source $SRC/utils.sh
+
+init_brew() {
+    # brew exist?
+    if [ -x "`which brew`" ]; then
+        log_warn 'brew already exists!'
+        setup_brew
+    else
+        install_brew
+        setup_brew
+        post_setup_brew
+    fi
+}
+
+install_brew() {
+    log_echo ''
+    log_echo 'Install homebrew'
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
+
+setup_brew() {
+    log_echo ''
+    log_echo 'Run brew bundle'
+    brew bundle
+}
+
+post_setup_brew() {
+    log_echo ''
+    log_echo 'Run post brew bundle'
+    # change login shell to zsh
+    if [ -f /usr/local/bin/zsh ]; then
+        log_info 'change login shell to /usr/local/bin/zsh'
+        sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells"
+        chsh -s /usr/local/bin/zsh
+    fi
+
+    # create symlink for diff-highlight
+    if [ -f /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ]; then
+        log_info 'create symlink for diff-highlight'
+        ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
+    fi
+}
+
+setup_dotfiles() {
+    log_echo ''
+    log_echo 'Setup dotfiles'
+    $SRC/dotfiles.sh
+}
+
+setup_rbenv() {
+    log_echo ''
+    log_echo 'Install Ruby with rbenv'
+    $SRC/rbenv.sh
+}
+
+init() {
+    log_echo ''
+    log_echo 'Run init'
+    init_brew
+    setup_dotfiles
+    setup_rbenv
+}
+
+update() {
+    log_echo ''
+    log_echo 'Run update'
+    setup_brew
+    setup_dotfiles
+    setup_rbenv
+}
+
+usage() {
+    log_error >&2 "Usage: $0 <init|update|brew|dotfiles|rbenv|>"
+    exit 1
+}
+
+case $1 in
+init)
+    init
+    ;;
+update)
+    update
+    ;;
+brew)
+    setup_brew
+    ;;
+dotfiles)
+    setup_dotfiles
+    ;;
+rbenv)
+    setup_rbenv
+    ;;
+*)
+    usage
+    ;;
+esac
+
+log_echo ''
+log_pass "$0: Finish!!"

@@ -7,16 +7,17 @@ Installation
 
     $ cd ~
     $ git clone https://github.com/nalabjp/dotfiles.git .dotfiles
-    $ cd .dotfiles
-    $ ./init.sh
+    $ ~/.dotfiles/bootstrap init
     $ Ctrl+D
 
-Setup ruby
+Setup Ruby
 
-    $ cd ~
-    $ .dotfiles/rbenv_setup.sh
+    $ ~/.dotfiles/bootstrap rbenv
+
+Setup Homebrew
+
+    $ ~/.dotfiles/bootstrap brew
 
 Update configuration
 
-    $ cd ~
-    $ .dotfiles/dotfiles_setup.sh
+    $ ~/.dotfiles/bootstrap dotfiles

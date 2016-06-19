@@ -135,6 +135,13 @@ alias agh='ag --hidden'
 # anyframe
 alias af='anyframe-widget-select-widget'
 
+# bootstrap
+alias bst='~/.dotfiles/bootstrap'
+alias bstb='bst brew'
+alias bstd='bst dotfiles'
+alias bstr='bst rbenv'
+alias bstu='bst update'
+
 # bundler
 alias b='bundle'
 alias bi='bundle install'
