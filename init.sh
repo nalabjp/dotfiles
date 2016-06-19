@@ -50,9 +50,9 @@ fi
 echo 'finish after brew bundle'
 
 #
-# setup.sh
+# dotfiles_setup.sh
 #
 echo ''
-echo 'start setup.sh'
-./setup.sh
-echo 'finish setup.sh'
+echo 'start dotfiles_setup.sh'
+./dotfiles_setup.sh
+echo 'finish dotfiles_setup.sh'

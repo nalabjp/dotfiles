@@ -19,4 +19,4 @@ Setup ruby
 Update configuration
 
     $ cd ~
-    $ .dotfiles/setup.sh
+    $ .dotfiles/dotfiles_setup.sh
