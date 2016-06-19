@@ -267,7 +267,7 @@ alias zln='zmv_ -L'
 
 # karabiner
 if which karabiner > /dev/null 2>&1; then
-  alias karabiner-export='karabiner export > $DOTFILES/src/karabiner-import.sh'
+  alias karabiner-export='karabiner export > $DOTFILES/karabiner/import.sh'
 fi
 
 # gdircolors
