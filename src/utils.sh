@@ -91,3 +91,16 @@ log_info() {
 log_echo() {
     logging TITLE "$1"
 }
+
+ask_sudo_password() {
+    log_warn 'Insert the "sudo" password now (will not be echoed).'
+    until sudo -n true 2> /dev/null; do # if password is wrong, keep asking
+        read -s -p "Password:" sudo_password
+        echo
+        renew_sudo
+    done
+}
+
+renew_sudo() {
+    sudo -S -v <<< "${sudo_password}" 2> /dev/null
+}

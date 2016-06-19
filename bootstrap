@@ -1,15 +1,18 @@
 #!/bin/bash
 
-SRC=$HOME/.dotfiles/src
+DOTFILES=$HOME/.dotfiles
+SRC=$DOTFILES/src
 source $SRC/utils.sh
 
 init_brew() {
     # brew exist?
     if [ -x "`which brew`" ]; then
         log_warn 'brew already exists!'
+        setup_sudo_brew
         setup_brew
     else
         install_brew
+        setup_sudo_brew
         setup_brew
         post_setup_brew
     fi
@@ -21,10 +24,14 @@ install_brew() {
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
+setup_sudo_brew() {
+    sudo -S brew bundle --file=$DOTFILES/Brewfile_sudo
+}
+
 setup_brew() {
     log_echo ''
     log_echo 'Run brew bundle'
-    brew bundle
+    brew bundle --file=$DOTFILES/Brewfile
 }
 
 post_setup_brew() {
@@ -59,6 +66,7 @@ setup_rbenv() {
 init() {
     log_echo ''
     log_echo 'Run init'
+    ask_sudo_password
     init_brew
     setup_dotfiles
     setup_rbenv
@@ -92,6 +100,10 @@ dotfiles)
     ;;
 rbenv)
     setup_rbenv
+    ;;
+sudo-brew)
+    ask_sudo_password
+    setup_sudo_brew
     ;;
 *)
     usage
