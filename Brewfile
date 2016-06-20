@@ -24,8 +24,6 @@ tap 'motemen/ghq'
 tap 'thoughtbot/formulae'
 # for tuntap
 tap 'caskroom/cask'
-# for php55
-tap 'josegonzalez/homebrew-php'
 # for xpdf
 tap 'homebrew/x11'
 
@@ -98,10 +96,6 @@ brew 'openvpn'
 brew 'pandoc'
 # phantomjs
 brew 'phantomjs'
-# php55
-brew 'php55', args: ['without-apache']
-# phpunit
-brew 'phpunit'
 # postgresql
 brew 'postgresql'
 # pstree

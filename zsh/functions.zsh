@@ -38,13 +38,6 @@ function ggrvim () {
   vim $(git grep -n $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
-# php dev
-function phpdev() {
-  mysql.server start
-  php-fpm -D
-  nginx
-}
-
 # rake
 _cachefile_updated_at() {
   echo $(stat -f%m .rake_tasks)

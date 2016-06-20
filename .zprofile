@@ -64,9 +64,6 @@ path+=(~/.nodebrew/current/bin(N-/))
 export JAVA_HOME="$(/usr/libexec/java_home)"
 path+=($JAVA_HOME(N-/))
 
-# php-fpm
-path+=($(brew --prefix)/sbin(N-/))
-
 # postgresql
 export PGDATA=/usr/local/var/postgres
 
