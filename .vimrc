@@ -198,7 +198,6 @@ if s:plug.is_installed('lightline.vim')
     \ }
 endif
 
-
 if s:plug.is_installed('base16-vim')
   set background=dark
   colorscheme base16-solarized

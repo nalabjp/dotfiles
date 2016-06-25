@@ -66,6 +66,8 @@ brew 'htop'
 brew 'httpie'
 # imagemagick
 brew 'imagemagick'
+# iterm2 v3
+cask 'Caskroom/versions/iterm2-beta'
 # jq
 brew 'jq'
 # libxml2
