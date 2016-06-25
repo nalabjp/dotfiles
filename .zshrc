@@ -310,7 +310,7 @@ bindkey '^V^K' 'anyframe-widget-kill'
 
 # completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*:*:*:*:*' menu select
 
