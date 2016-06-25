@@ -70,6 +70,7 @@ setopt auto_cd
 setopt auto_list
 setopt auto_menu
 setopt auto_param_keys
+setopt auto_param_slash
 setopt auto_pushd
 setopt cdablevars
 setopt complete_in_word
