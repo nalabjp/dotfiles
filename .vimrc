@@ -608,6 +608,10 @@ vnoremap ; :
 " ?を区切り文字として認識させない
 autocmd FileType ruby setl iskeyword+=?
 
+" ファイルを開く際のリスト表示
+set wildmenu
+set wildmode=list:full
+
 """"""""""""""""""""""""""""""""""""
 " move
 """"""""""""""""""""""""""""""""""""
