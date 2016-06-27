@@ -89,7 +89,10 @@ Plug 'tyru/open-browser.vim', { 'for': ['markdown'] }
 Plug 'kannokanno/previm', { 'for': ['markdown'] }
 
 " ctags
-Plug 'szw/vim-tags'
+" Plug 'szw/vim-tags'
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-easytags'
+Plug 'soramugi/auto-ctags.vim'
 
 " 非同期実行
 Plug 'tpope/vim-dispatch', { 'on': ['Dispatch'] }
@@ -309,6 +312,19 @@ endif
 if s:plug.is_installed('vim-tags')
   let g:vim_tags_ctags_binary = '/usr/local/bin/ctags'
   let g:vim_tags_use_vim_dispatch = 1
+endif
+
+if s:plug.is_installed('vim-easytags')
+  let g:easytags_cmd = '/usr/local/bin/ctags'
+  let g:easytags_async = 1
+endif
+
+if s:plug.is_installed('auto-ctags.vim')
+  let g:auto_ctags = 1
+  let g:auto_ctags_directory_list = ['.git']
+  " let g:auto_ctags_filetype_mode = 1
+  let g:auto_ctags_bin_path = '/usr/local/bin/ctags'
+  set tags+=.git/tags
 endif
 
 if s:plug.is_installed('nerdtree')
