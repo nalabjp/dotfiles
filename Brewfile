@@ -26,6 +26,8 @@ tap 'thoughtbot/formulae'
 tap 'caskroom/cask'
 # for xpdf
 tap 'homebrew/x11'
+# for tmux21
+tap 'nalabjp/formula'
 
 # ag
 brew 'the_silver_searcher'
@@ -134,7 +136,7 @@ brew 'source-highlight'
 brew 'sqlite'
 # tmux
 brew 'reattach-to-user-namespace'
-brew 'tmux'
+brew 'tmux21'
 # tree
 brew 'tree'
 # watch
