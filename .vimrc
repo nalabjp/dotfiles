@@ -296,37 +296,43 @@ if s:plug.is_installed('vim-quickrun')
     \ 'hook/close_buffer/enable_empty_data' : 1,
     \ 'outputter' : 'multi:buffer:quickfix',
     \ 'outputter/buffer/split' : ':belowright',
+    \ 'outputter/quickfix/open_cmd' : 'copen 32'
     \ }
   let g:quickrun_config._.debug = 'qr_session'
 
   autocmd FileType qf nnoremap <silent><buffer>q :quit<CR>
-  autocmd FileType quickrun AnsiEsc
+  autocmd FileType qf,quickrun AnsiEsc
 
   let g:quickrun_no_default_key_mappings = 1
-  nnoremap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+  nnoremap <Space>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
   nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
   " Run RSpec
-  let g:quickrun_config['ruby.rspec'] = {
-    \ 'hook/close_buffer/enable_exit' : 1,
-    \ 'exec'   : "bundle exec rspec %s %o",
-    \ 'cmdopt' : '-c --tty'
-    \}
-  let g:quickrun_config['ruby.rspec_line'] = {
-    \ 'hook/close_buffer/enable_exit' : 1,
-    \ 'exec'   : "bundle exec rspec %s:%{line('.')} %o",
-    \ 'cmdopt' : '-c --tty'
-    \}
-  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
-  nnoremap <Leader>lr :<C-u>QuickRun ruby.rspec_line<CR>
+  autocmd BufReadPost *_spec.rb call SetRSpecQRun()
+  function! SetRSpecQRun()
+    nnoremap <Space>t  :call QRunRSpec()<CR>
+    nnoremap <Space>tl :call QRunRSpecCurrent()<CR>
+  endfunction
+  function! QRunRSpec()
+    exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rspec %s %o' -cmdopt '-c --tty'"
+  endfunction
+  function! QRunRSpecCurrent()
+    let line = line('.')
+    exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rspec %s%o' -cmdopt ':". line ." -c --tty'"
+  endfunction
 
   " Run test-unit
-  let g:quickrun_config['ruby.test-unit'] = {
-    \ 'hook/close_buffer/enable_exit' : 1,
-    \ 'exec'   : 'bundle exec rake test TEST="%s" %o',
-    \ 'cmdopt' : '--tty'
-    \}
-  autocmd BufWinEnter,BufNewFile *_test.rb set filetype=ruby.test-unit
+  autocmd BufReadPost *_test.rb call SetTestUnitQRun()
+  function! SetTestUnitQRun()
+    nnoremap <Space>t  :call QRunTestUnit()<CR>
+    nnoremap <Space>tl :call QRunTestUnitCurrent()<CR>
+  endfunction
+  function! QRunTestUnit()
+    exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rake test TEST=%s %o' -cmdopt '--tty'"
+  endfunction
+  function! QRunTestUnitCurrent()
+    " TODO
+  endfunction
 endif
 
 if s:plug.is_installed('nerdtree')
@@ -595,7 +601,7 @@ set wildmenu
 set wildmode=longest,list:full
 
 " Generate tags (ctags)
-nnoremap <Space>t :call Gentags()<CR>
+nnoremap <Leader>t :call Gentags()<CR>
 
 """"""""""""""""""""""""""""""""""""
 " move
