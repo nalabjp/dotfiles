@@ -87,6 +87,7 @@ Plug 'kannokanno/previm', { 'for': ['markdown'] }
 " 非同期実行
 Plug 'tpope/vim-dispatch', { 'on': ['Dispatch'] }
 Plug 'thinca/vim-quickrun'
+Plug 'osyo-manga/shabadou.vim'
 Plug 'Shougo/vimproc', { 'do': 'make' }
 
 " ツリー型エクスプローラ
@@ -302,13 +303,14 @@ endif
 if s:plug.is_installed('vim-quickrun')
   let g:quickrun_config = get(g:, 'quickrun_config', {})
   let g:quickrun_config._ = {
-    \ 'runner'    : 'vimproc',
+    \ 'runner' : 'vimproc',
     \ 'runner/vimproc/updatetime' : 60,
-    \ 'outputter' : 'error',
-    \ 'outputter/error/success' : 'buffer',
-    \ 'outputter/error/error'   : 'quickfix',
-    \ 'outputter/buffer/split'  : ':rightbelow 16sp',
-    \ 'outputter/buffer/close_on_empty' : 1,
+    \ 'hook/close_quickfix/enable_hook_loaded' : 1,
+    \ 'hook/close_quickfix/enable_success' : 1,
+    \ 'hook/close_buffer/enable_failure' : 1,
+    \ 'hook/close_buffer/enable_empty_data' : 1,
+    \ 'outputter' : 'multi:buffer:quickfix',
+    \ 'outputter/buffer/split' : ':belowright',
     \ }
   let g:quickrun_config._.debug = 'qr_session'
 
@@ -320,25 +322,26 @@ if s:plug.is_installed('vim-quickrun')
   nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
   " Run RSpec
-  let g:quickrun_config['rspec/bundle'] = {
-    \ 'type': 'rspec/bundle',
-    \ 'exec': 'bundle exec rspec --color %s'
+  let g:quickrun_config['ruby.rspec'] = {
+    \ 'hook/close_buffer/enable_exit' : 1,
+    \ 'exec'   : "bundle exec rspec %s %o",
+    \ 'cmdopt' : '-c --tty'
     \}
-  function! RSpecQuickrun()
-    let b:quickrun_config = {'type' : 'rspec/bundle'}
-    nnoremap <expr> <Leader>lr "<Esc>:QuickRun -cmdopt:" . line(".") . "<CR>"
-  endfunction
-  autocmd BufWinEnter,BufNewFile *_spec.rb call RSpecQuickrun()
+  let g:quickrun_config['ruby.rspec_line'] = {
+    \ 'hook/close_buffer/enable_exit' : 1,
+    \ 'exec'   : "bundle exec rspec %s:%{line('.')} %o",
+    \ 'cmdopt' : '-c --tty'
+    \}
+  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+  nnoremap <Leader>lr :<C-u>QuickRun ruby.rspec_line<CR>
 
   " Run test-unit
-  let g:quickrun_config['test-unit/bundle'] = {
-    \ 'type': 'test-unit/bundle',
-    \ 'exec': 'bundle exec rake test TEST="%s"'
+  let g:quickrun_config['ruby.test-unit'] = {
+    \ 'hook/close_buffer/enable_exit' : 1,
+    \ 'exec'   : 'bundle exec rake test TEST="%s" %o',
+    \ 'cmdopt' : '--tty'
     \}
-  function! TestUnitQuickrun()
-    let b:quickrun_config = {'type' : 'test-unit/bundle'}
-  endfunction
-  autocmd BufWinEnter,BufNewFile *_test.rb call TestUnitQuickrun()
+  autocmd BufWinEnter,BufNewFile *_test.rb set filetype=ruby.test-unit
 endif
 
 if s:plug.is_installed('nerdtree')
