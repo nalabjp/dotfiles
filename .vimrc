@@ -20,8 +20,7 @@ Plug 'cocopon/colorswatch.vim', { 'on': ['ColorSwatchGenerate'] }
 
 " StatusLineの装飾
 Plug 'itchyny/lightline.vim'
-Plug 'taohex/lightline-solarized'
-Plug 'tpope/vim-fugitive'
+Plug 'taohex/lightline-solarized' | Plug 'tpope/vim-fugitive'
 
 " theme
 Plug 'chriskempson/base16-vim'
