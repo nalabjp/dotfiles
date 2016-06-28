@@ -327,6 +327,12 @@ ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}*%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 #################################
+# travis.sh
+#################################
+
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+
+#################################
 # .zshrc.local
 #################################
 
