@@ -161,7 +161,9 @@ alias ctags-rails='ctags --exclude="*.js" --exclude=".git*" -R .'
 # require: export LESS='-R'
 alias diff='colordiff -u'
 
-# edit .zshrc
+# edit .dotfiles
+alias eg='v ~/.gitconfig'
+alias ev='v ~/.vimrc'
 alias ez='v ~/.zshrc'
 
 # git
