@@ -117,11 +117,11 @@ Plug 'fuenor/qfixgrep'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " unite
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/neomru.vim'
-Plug 'ujihisa/unite-rake', { 'for': ['ruby'] }
-Plug 'basyura/unite-rails', { 'for': ['ruby'] }
-Plug 'rhysd/unite-codic.vim'
+" Plug 'Shougo/unite.vim'
+" Plug 'Shougo/neomru.vim'
+" Plug 'ujihisa/unite-rake', { 'for': ['ruby'] }
+" Plug 'basyura/unite-rails', { 'for': ['ruby'] }
+" Plug 'rhysd/unite-codic.vim'
 
 call plug#end()
 
