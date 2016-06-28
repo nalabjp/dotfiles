@@ -88,9 +88,6 @@ Plug 'rcmdnk/vim-markdown', { 'for': ['markdown'] }
 Plug 'tyru/open-browser.vim', { 'for': ['markdown'] }
 Plug 'kannokanno/previm', { 'for': ['markdown'] }
 
-" ctags
-Plug 'soramugi/auto-ctags.vim'
-
 " 非同期実行
 Plug 'tpope/vim-dispatch', { 'on': ['Dispatch'] }
 Plug 'thinca/vim-quickrun'
@@ -310,12 +307,6 @@ if s:plug.is_installed('vim-rails')
   let g:rails_level = 4
   let g:rails_syntax = 1
   let g:rails_statusline = 1
-endif
-
-if s:plug.is_installed('auto-ctags.vim')
-  let g:auto_ctags = 1
-  let g:auto_ctags_directory_list = ['.git']
-  let g:auto_ctags_bin_path = '/usr/local/bin/ctags'
 endif
 
 if s:plug.is_installed('nerdtree')
