@@ -95,9 +95,6 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle'] }
 " vimとtmuxをsmartに切り替え
 Plug 'christoomey/vim-tmux-navigator'
 
-" ag
-Plug 'rking/ag.vim', { 'on': ['Ag'] }
-
 " dash
 Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
 
