@@ -171,6 +171,12 @@ augroup check-plug
   autocmd VimEnter * if !argc() | call s:plug.check_installation() | endif
 augroup END
 
+" Generate ctags
+function! Gentags()
+  silent! execute '!taggen'
+  redraw!
+endfunction
+
 """"""""""""""""""""""""""""""""""""
 " Plugin's configurations
 """"""""""""""""""""""""""""""""""""
@@ -601,6 +607,9 @@ autocmd FileType ruby setl iskeyword+=?
 " ファイルを開く際のリスト表示
 set wildmenu
 set wildmode=list:full
+
+" Generate tags (ctags)
+nnoremap <Space>t :call Gentags()<CR>
 
 """"""""""""""""""""""""""""""""""""
 " move
