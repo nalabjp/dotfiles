@@ -207,6 +207,10 @@ if s:plug.is_installed('base16-vim')
   highlight LineNr ctermbg=black ctermfg=darkgray
   highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
   highlight CursorLineNr ctermbg=black ctermfg=yellow
+  hi Pmenu ctermbg=black
+  hi PmenuSel ctermbg=blue
+  hi PmenuSbar ctermbg=green
+  hi PmenuThumb ctermfg=yellow
 endif
 
 if s:plug.is_installed('vim-easymotion')
