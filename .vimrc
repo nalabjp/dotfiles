@@ -113,6 +113,9 @@ Plug 'vim-scripts/buftabs'
 " grep
 Plug 'fuenor/qfixgrep'
 
+" Ctrl-P
+Plug 'ctrlpvim/ctrlp.vim'
+
 " unite
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
@@ -353,6 +356,13 @@ endif
 if s:plug.is_installed('qfixgrep')
   let MyGrep_KeyB = ''
   let MyGrep_DefaultSearchWord = 1
+endif
+
+if s:plug.is_installed('ctrlp.vim')
+  if executable('ag')
+    let g:ctrlp_use_caching = 0
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
+  endif
 endif
 
 if s:plug.is_installed('unite.vim')
