@@ -203,10 +203,10 @@ endif
 if s:plug.is_installed('base16-vim')
   set background=dark
   colorscheme base16-solarized
-  highlight Search cterm=NONE ctermfg=white ctermbg=darkblue
-  highlight LineNr ctermbg=black ctermfg=darkgray
-  highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
-  highlight CursorLineNr ctermbg=black ctermfg=yellow
+  hi Search cterm=NONE ctermfg=white ctermbg=darkblue
+  hi LineNr ctermbg=black ctermfg=darkgray
+  hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
+  hi CursorLineNr ctermbg=black ctermfg=yellow
   hi Pmenu ctermbg=black
   hi PmenuSel ctermbg=blue
   hi PmenuSbar ctermbg=green
