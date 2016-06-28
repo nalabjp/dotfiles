@@ -64,7 +64,6 @@ Plug 'cohama/agit.vim'
 " ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
 Plug 'rhysd/vim-textobj-ruby', { 'for': ['ruby'] }
-Plug 'rhysd/unite-ruby-require.vim'
 
 " rails
 Plug 'tpope/vim-rails', { 'for': ['ruby'] }
@@ -115,13 +114,6 @@ Plug 'fuenor/qfixgrep'
 
 " Ctrl-P
 Plug 'ctrlpvim/ctrlp.vim'
-
-" unite
-" Plug 'Shougo/unite.vim'
-" Plug 'Shougo/neomru.vim'
-" Plug 'ujihisa/unite-rake', { 'for': ['ruby'] }
-" Plug 'basyura/unite-rails', { 'for': ['ruby'] }
-" Plug 'rhysd/unite-codic.vim'
 
 call plug#end()
 
@@ -255,7 +247,6 @@ if s:plug.is_installed('yankround')
   nmap <C-p> <Plug>(yankround-prev)
   nmap <C-n> <Plug>(yankround-next)
   let g:yankround_max_history = 100
-  nnoremap <Leader><C-p> :<C-u>Unite yankround<CR>
 endif
 
 if s:plug.is_installed('vim-easy-align')
@@ -285,11 +276,6 @@ if s:plug.is_installed('vim-ruby')
   let g:rubycomplete_classes_in_global = 1
   let g:rubycomplete_include_object = 1
   let g:rubycomplete_include_object_space = 1
-endif
-
-
-if s:plug.is_installed('unite-ruby-require.vim')
-  let g:unite_source_ruby_require_cmd = '\$HOME/.rbenv/shims/ruby'
 endif
 
 if s:plug.is_installed('vim-rails')
@@ -400,57 +386,6 @@ if s:plug.is_installed('ctrlp.vim')
     let g:ctrlp_use_caching = 0
     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
   endif
-endif
-
-if s:plug.is_installed('unite.vim')
-  let g:unite_enable_start_insert=1
-  let g:unite_split_rule='botright'
-
-  " バッファ一覧
-  nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
-  " ファイル一覧
-  nnoremap <silent> <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-  " 最近使用したファイル一覧
-  nnoremap <silent> <Space>um :<C-u>Unite file_mru<CR>
-  " ジャンプリスト一覧
-  nnoremap <silent> <Space>uj :<C-u>Unite jump<CR>
-  " 常用セット
-  nnoremap <silent> <Space>uu :<C-u>Unite buffer file_mru<CR>
-  " 全部乗せ
-  nnoremap <silent> <Space>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
-  " ウィンドウを分割して開く
-  au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-  au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-  " ウィンドウを縦に分割して開く
-  au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-  au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-
-  let g:unite_source_grep_max_candidates = 200
-
-  if executable('ag')
-    " Use ag in unite grep source.
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_recursive_opt = 'HRn'
-    let g:unite_source_grep_default_opts =
-    \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-    \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-  endif
-endif
-
-if s:plug.is_installed('unite-rails')
-  noremap <silent> <Space>rc  :<C-u>Unite rails/controller<CR>
-  noremap <silent> <Space>rm  :<C-u>Unite rails/model<CR>
-  noremap <silent> <Space>rv  :<C-u>Unite rails/view<CR>
-  noremap <silent> <Space>rh  :<C-u>Unite rails/helper<CR>
-  noremap <silent> <Space>ra  :<C-u>Unite rails/mailer<CR>
-  noremap <silent> <Space>rl  :<C-u>Unite rails/lib<CR>
-  noremap <silent> <Space>rs  :<C-u>Unite rails/stylesheet<CR>
-  noremap <silent> <Space>rj  :<C-u>Unite rails/javascript<CR>
-  noremap <silent> <Space>rr  :<C-u>Unite rails/route<CR>
-  noremap <silent> <Space>rd  :<C-u>Unite rails/db<CR>
-  noremap <silent> <Space>ro  :<C-u>Unite rails/config<CR>
-  noremap <silent> <Space>rg  :<C-u>Unite rails/gemfile<CR>
-  noremap <silent> <Space>rt  :<C-u>Unite rails/spec<CR>
 endif
 
 """"""""""""""""""""""""""""""""""""
