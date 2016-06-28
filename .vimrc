@@ -310,8 +310,8 @@ endif
 
 if s:plug.is_installed('buftabs')
   let g:buftabs_only_basename=1
-  noremap <Tab> :bnext<CR>
-  noremap <S-Tab> :bprev<CR>
+  noremap <silent> <Tab> :bnext<CR>
+  noremap <silent> <S-Tab> :bprev<CR>
 endif
 
 if s:plug.is_installed('unite.vim')
