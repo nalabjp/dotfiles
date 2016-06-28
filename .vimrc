@@ -198,10 +198,10 @@ if s:plug.is_installed('base16-vim')
   set background=dark
   colorscheme base16-solarized
   hi Search cterm=NONE ctermbg=darkgreen ctermfg=white
-  hi LineNr ctermbg=black ctermfg=darkgray
+  hi LineNr ctermbg=NONE ctermfg=darkgray
   hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
-  hi CursorLineNr ctermbg=black ctermfg=yellow
-  hi Pmenu ctermbg=black
+  hi CursorLineNr ctermbg=NONE ctermfg=yellow
+  hi Pmenu ctermbg=NONE
   hi PmenuSel ctermbg=blue
   hi PmenuSbar ctermbg=green
   hi PmenuThumb ctermfg=yellow
