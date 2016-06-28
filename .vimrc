@@ -62,7 +62,6 @@ Plug 'lambdalisue/vim-unified-diff'
 
 " git
 Plug 'tpope/vim-fugitive'
-Plug 'kmnk/vim-unite-giti'
 Plug 'jreybert/vimagit'
 Plug 'cohama/agit.vim'
 
@@ -269,16 +268,6 @@ endif
 
 if s:plug.is_installed('vim-unified-diff')
   set diffexpr=unified_diff#diffexpr()
-endif
-
-if s:plug.is_installed('vim-unite-giti')
-  nnoremap <silent> <Space>g :<C-u>Unite giti<CR>
-  nnoremap <silent> <Space>gb :<C-u>Unite giti/branch<CR>
-  nnoremap <silent> <Space>gc :<C-u>Unite giti/config<CR>
-  nnoremap <silent> <Space>gg :<C-u>Unite giti/grep<CR>
-  nnoremap <silent> <Space>gl :<C-u>Unite giti/log<CR>
-  nnoremap <silent> <Space>gr :<C-u>Unite giti/remote<CR>
-  nnoremap <silent> <Space>gs :<C-u>Unite giti/status<CR>
 endif
 
 if s:plug.is_installed('vimagit')
