@@ -117,6 +117,9 @@ Plug 'Shougo/neocomplete'
 " auto cd to project root
 Plug 'airblade/vim-rooter'
 
+" バッファをタブで開く
+Plug 'vim-scripts/buftabs'
+
 " unite
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
@@ -317,6 +320,12 @@ endif
 
 if s:plug.is_installed('nerdtree')
   nnoremap <silent> <Space>nt :<C-u>NERDTreeToggle<CR>
+endif
+
+if s:plug.is_installed('buftabs')
+  let g:buftabs_only_basename=1
+  noremap <Tab> :bnext<CR>
+  noremap <S-Tab> :bprev<CR>
 endif
 
 if s:plug.is_installed('unite.vim')
