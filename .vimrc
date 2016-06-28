@@ -20,7 +20,7 @@ Plug 'cocopon/colorswatch.vim', { 'on': ['ColorSwatchGenerate'] }
 
 " StatusLineの装飾
 Plug 'itchyny/lightline.vim'
-Plug 'nalabjp/lightline-solarized'
+Plug 'taohex/lightline-solarized'
 
 " theme
 Plug 'chriskempson/base16-vim'
@@ -201,7 +201,10 @@ endif
 if s:plug.is_installed('base16-vim')
   set background=dark
   colorscheme base16-solarized
-  highlight Search cterm=NONE ctermfg=gray ctermbg=darkgray
+  highlight Search cterm=NONE ctermfg=white ctermbg=darkblue
+  highlight LineNr ctermbg=black ctermfg=darkgray
+  highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
+  highlight CursorLineNr ctermbg=black ctermfg=yellow
 endif
 
 if s:plug.is_installed('vim-easymotion')
@@ -416,9 +419,6 @@ set listchars=eol:↲,tab:>.,trail:-,extends:»,precedes:«
 
 " 印字不可能文字
 set display=uhex
-
-" 常にタブを表示
-set showtabline=2
 
 " 常にステータスラインを表示
 set laststatus=2
