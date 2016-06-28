@@ -316,7 +316,7 @@ if s:plug.is_installed('vim-quickrun')
   autocmd FileType quickrun AnsiEsc
 
   let g:quickrun_no_default_key_mappings = 1
-  nnoremap <Space>qr :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+  nnoremap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
   nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
   " Run RSpec
@@ -326,7 +326,7 @@ if s:plug.is_installed('vim-quickrun')
     \}
   function! RSpecQuickrun()
     let b:quickrun_config = {'type' : 'rspec/bundle'}
-    nnoremap <expr><silent> <Space>qlr "<Esc>:QuickRun -cmdopt:" . line(".") . "<CR>"
+    nnoremap <expr> <Leader>lr "<Esc>:QuickRun -cmdopt:" . line(".") . "<CR>"
   endfunction
   autocmd BufWinEnter,BufNewFile *_spec.rb call RSpecQuickrun()
 
