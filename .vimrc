@@ -55,9 +55,6 @@ Plug 'LeafCage/yankround.vim'
 " 文章整形
 Plug 'junegunn/vim-easy-align'
 
-" auto save
-" Plug 'vim-scripts/vim-auto-save'
-
 " diff
 Plug 'lambdalisue/vim-unified-diff'
 
@@ -262,14 +259,6 @@ if s:plug.is_installed('vim-easy-align')
   xmap ga <Plug>(EasyAlign)
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
-endif
-
-
-if s:plug.is_installed('vim-auto-save')
-  let g:auto_save = 1
-  let g:auto_save_no_updatetime = 1
-  let g:auto_save_in_insert_mode = 0
-  let g:auto_save_postsave_hook = 'TagsGenerate'
 endif
 
 if s:plug.is_installed('vim-unified-diff')
