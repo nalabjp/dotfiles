@@ -84,8 +84,7 @@ Plug 'kannokanno/previm', { 'for': ['markdown'] }
 
 " 非同期実行
 Plug 'tpope/vim-dispatch', { 'on': ['Dispatch'] }
-Plug 'thinca/vim-quickrun'
-Plug 'osyo-manga/shabadou.vim'
+Plug 'thinca/vim-quickrun' | Plug 'osyo-manga/shabadou.vim'
 Plug 'Shougo/vimproc', { 'do': 'make' }
 
 " ツリー型エクスプローラ
