@@ -161,11 +161,6 @@ alias ctags-rails='ctags --exclude="*.js" --exclude=".git*" -R .'
 # require: export LESS='-R'
 alias diff='colordiff -u'
 
-# edit .dotfiles
-alias eg='v ~/.gitconfig'
-alias ev='v ~/.vimrc'
-alias ez='v ~/.zshrc'
-
 # git
 alias g='hub'
 alias ga='g add -v'
@@ -265,6 +260,11 @@ alias tsk='tmux send-keys'
 
 # vim
 alias v='vim'
+
+# edit .dotfiles
+alias vg='v ~/.gitconfig'
+alias vv='v ~/.vimrc'
+alias vz='v ~/.zshrc'
 
 # zmv
 alias zmv_='noglob zmv'
