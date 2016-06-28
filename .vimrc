@@ -211,6 +211,7 @@ if s:plug.is_installed('base16-vim')
   hi PmenuSel ctermbg=blue
   hi PmenuSbar ctermbg=green
   hi PmenuThumb ctermfg=yellow
+  hi Visual ctermbg=cyan ctermfg=white
 endif
 
 if s:plug.is_installed('vim-easymotion')
