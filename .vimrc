@@ -311,12 +311,12 @@ if s:plug.is_installed('vim-quickrun')
   autocmd BufReadPost *_spec.rb call SetRSpecQRun()
   function! SetRSpecQRun()
     nnoremap <Space>t  :call QRunRSpec()<CR>
-    nnoremap <Space>tl :call QRunRSpecCurrent()<CR>
+    nnoremap <Space>tl :call QRunRSpecWithLine()<CR>
   endfunction
   function! QRunRSpec()
     exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rspec %s %o' -cmdopt '-c --tty'"
   endfunction
-  function! QRunRSpecCurrent()
+  function! QRunRSpecWithLine()
     let line = line('.')
     exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rspec %s%o' -cmdopt ':". line ." -c --tty'"
   endfunction
@@ -325,12 +325,12 @@ if s:plug.is_installed('vim-quickrun')
   autocmd BufReadPost *_test.rb call SetTestUnitQRun()
   function! SetTestUnitQRun()
     nnoremap <Space>t  :call QRunTestUnit()<CR>
-    nnoremap <Space>tl :call QRunTestUnitCurrent()<CR>
+    nnoremap <Space>tl :call QRunTestUnitWithLine()<CR>
   endfunction
   function! QRunTestUnit()
     exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rake test TEST=%s %o' -cmdopt '--tty'"
   endfunction
-  function! QRunTestUnitCurrent()
+  function! QRunTestUnitWithLine()
     " TODO
   endfunction
 endif
