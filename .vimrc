@@ -602,6 +602,9 @@ set wildmode=longest,list:full
 
 " Generate tags (ctags)
 nnoremap <Leader>t :call Gentags()<CR>
+" tags
+set tags+=.git/tags
+set tags+=.git/Gemfile.lock.tags
 
 """"""""""""""""""""""""""""""""""""
 " move
