@@ -160,7 +160,7 @@ alias restore-zcompdump='rm ~/.zcompdump && exec zsh'
 alias sed='gsed'
 
 # ctags
-alias taggen='ctags -f .git/tags -R . 2>/dev/null &'
+alias taggen="sh -c 'ctags -f .git/tags -R . 2>/dev/null' &; sh -c 'ctags -f .git/Gemfile.lock.tags -R \$(bundle show --paths) 2>/dev/null' &"
 
 # tmux
 alias tsk='tmux send-keys'
