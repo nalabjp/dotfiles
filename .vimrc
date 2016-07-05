@@ -606,6 +606,9 @@ nnoremap <Leader>t :call Gentags()<CR>
 set tags+=.git/tags
 set tags+=.git/Gemfile.lock.tags
 
+" grep to QuickFix
+autocmd QuickFixCmdPost *grep* cwindow
+
 """"""""""""""""""""""""""""""""""""
 " move
 """"""""""""""""""""""""""""""""""""
