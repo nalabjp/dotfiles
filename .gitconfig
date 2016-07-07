@@ -44,3 +44,5 @@
   compactionHeuristic = true
 [interactive]
   diffFilter = diff-highlight
+[commit]
+  template = ~/.commit_template
