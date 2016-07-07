@@ -114,6 +114,9 @@ Plug 'fuenor/qfixgrep'
 " Ctrl-P
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Calc
+Plug 'gregsexton/VimCalc'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
