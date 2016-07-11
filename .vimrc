@@ -117,6 +117,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Calc
 Plug 'gregsexton/VimCalc'
 
+" https://github.com/Shougo/neocomplete.vim/issues/536
+Plug 'Konfekt/FastFold'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
