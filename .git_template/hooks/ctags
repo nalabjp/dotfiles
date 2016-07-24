@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+cd "$(dirname "${BASH_SOURCE:-$0}")"; cd ../../
+trap "rm -f .git/tags.$$; rm -f .git/Gemfile.lock.tags.$$" EXIT
+ctags --tag-relative -f .git/tags.$$ -R . --exclude=.git
+ctags --tag-relative -f .git/Gemfile.lock.tags.$$ -R $(bundle show --paths) --exclude=.git
+mv .git/tags.$$ .git/tags
+mv .git/Gemfile.lock.tags.$$ .git/Gemfile.lock.tags
