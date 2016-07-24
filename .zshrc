@@ -50,6 +50,7 @@ autoload -Uz colors
 colors
 autoload -Uz compinit
 compinit
+autoload -Uz vcs_info
 
 #################################
 # options
@@ -132,13 +133,16 @@ zstyle ':completion:*:*:*:*:*' menu select
 # Prompt
 #################################
 
-PROMPT=$'%{$fg[yellow]%}%D{[%H:%M:%S]} %~%{$reset_color%} $(git_prompt_info)\
-%{$fg_bold[cyan]%} %{$reset_color%}'
+precmd () { vcs_info }
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}("
-ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}*%{$fg[blue]%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{cyan}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{blue}%c%u(%b)%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+
+PROMPT=$'%F{yellow}%D{[%H:%M:%S]} %~ ${vcs_info_msg_0_}\
+%F{magenta} %f'
 
 #################################
 # travis.sh
