@@ -43,20 +43,11 @@ zplug load
 #################################
 # autoload
 #################################
-# add-zsh-hook
 autoload -Uz add-zsh-hook
-
-# cdr
 autoload -Uz chpwd_recent_dirs cdr
-
-# zmv
 autoload -Uz zmv
-
-# color
 autoload -Uz colors
 colors
-
-# compinit
 autoload -Uz compinit
 compinit
 
