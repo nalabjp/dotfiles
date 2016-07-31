@@ -357,10 +357,10 @@ if s:plug.is_installed('neocomplete')
   " buffer file name pattern that locks neocomplete. e.g. ku.vim or fuzzyfinder
   let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-  let g:neocomplete#auto_completion_start_length = 4
+  let g:neocomplete#auto_completion_start_length = 3
   let g:neocomplete#manual_completion_start_length = 0
-  let g:neocomplete#sources#syntax#min_keyword_length = 4
-  let g:neocomplete#min_keyword_length = 4
+  let g:neocomplete#sources#syntax#min_keyword_length = 3
+  let g:neocomplete#min_keyword_length = 3
 
   " <CR>: close popup and save indent.
   inoremap <expr><CR> neocomplete#smart_close_popup() . "\<CR>"
