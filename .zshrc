@@ -17,6 +17,18 @@ fi
 bindkey -e
 
 #################################
+# autoload
+#################################
+autoload -Uz add-zsh-hook
+autoload -Uz chpwd_recent_dirs cdr
+autoload -Uz zmv
+autoload -Uz colors
+colors
+autoload -Uz compinit
+compinit
+autoload -Uz vcs_info
+
+#################################
 # zplug
 #################################
 source $(brew --prefix zplug)/init.zsh
@@ -37,18 +49,6 @@ zplug check || zplug install
 
 # load
 zplug load
-
-#################################
-# autoload
-#################################
-autoload -Uz add-zsh-hook
-autoload -Uz chpwd_recent_dirs cdr
-autoload -Uz zmv
-autoload -Uz colors
-colors
-autoload -Uz compinit
-compinit
-autoload -Uz vcs_info
 
 #################################
 # options
