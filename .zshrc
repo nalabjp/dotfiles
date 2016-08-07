@@ -22,13 +22,13 @@ bindkey -e
 source $(brew --prefix zplug)/init.zsh
 
 zplug "$DOTFILES/zsh", from:local
-zplug 'junegunn/fzf-bin', from:gh-r, as:command, file:fzf
+zplug 'junegunn/fzf-bin', from:gh-r, as:command, rename-to:fzf
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'mollifier/anyframe'
-zplug 'b4b4r07/enhancd', of:enhancd.sh
-zplug 'stedolan/jq', from:gh-r, as:command, file:jq, if:'! which jq'
+zplug 'b4b4r07/enhancd', use:enhancd.sh
+zplug 'stedolan/jq', from:gh-r, as:command, rename-to:jq, if:'! which jq'
 zplug 'b4b4r07/emoji-cli', if:'which jq'
 zplug 'nalabjp/zsh-bundle-exec'
 
