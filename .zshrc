@@ -26,7 +26,6 @@ autoload -Uz colors
 colors
 autoload -Uz compinit
 compinit
-autoload -Uz vcs_info
 
 #################################
 # zplug
@@ -127,20 +126,17 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*:*:*:*:*' menu select
 
+# cache git status
+precmd () {
+  [ -d .git ] && git status &>/dev/null
+}
+
 #################################
 # Prompt
 #################################
 
-precmd () { vcs_info }
-
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{cyan}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{blue}%c%u(%b)%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-
-PROMPT=$'%F{yellow}%D{[%H:%M:%S]} %~ ${vcs_info_msg_0_}\
-%F{magenta} %f'
+PROMPT=$'%F{blue}%D{[%H:%M:%S]} %~\
+%F{green} %f'
 
 #################################
 # travis.sh
