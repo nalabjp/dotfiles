@@ -23,7 +23,7 @@ bindkey -e
 # Clone zplug if not found
 source ~/.zplug/zplug || { curl -fLo ~/.zplug/zplug --create-dirs git.io/zplug && source ~/.zplug/zplug }
 
-zplug '$DOTFILES/zsh', from:local
+zplug "$DOTFILES/zsh", from:local
 zplug 'junegunn/fzf-bin', from:gh-r, as:command, file:fzf
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting'
