@@ -5,7 +5,7 @@ typeset -U path PATH
 path=(/sbin(N-/) /usr/sbin(N-/) $path)
 
 # Add brew path
-path=(/usr/local/bin(N-/) $path)
+path=(/usr/local/bin(N-/) /usr/local/sbin(N-/) $path)
 
 # Add .dotfiles/bin
 path=(~/.dotfiles/bin(N-/) $path)
