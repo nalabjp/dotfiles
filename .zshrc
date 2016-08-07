@@ -19,9 +19,7 @@ bindkey -e
 #################################
 # zplug
 #################################
-
-# Clone zplug if not found
-source ~/.zplug/zplug || { curl -fLo ~/.zplug/zplug --create-dirs git.io/zplug && source ~/.zplug/zplug }
+source $(brew --prefix zplug)/init.zsh
 
 zplug "$DOTFILES/zsh", from:local
 zplug 'junegunn/fzf-bin', from:gh-r, as:command, file:fzf

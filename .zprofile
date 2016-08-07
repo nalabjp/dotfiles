@@ -98,3 +98,6 @@ export HOMEBREW_NO_ANALYTICS=1
 
 # emoji-cli
 export EMOJI_CLI_KEYBIND='^Y'
+
+# zplug
+export ZPLUG_CLONE_DEPTH=1

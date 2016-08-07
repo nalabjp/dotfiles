@@ -143,5 +143,7 @@ brew 'tree'
 brew 'watch'
 # wget
 brew 'wget'
+# zplug
+brew 'zplug'
 # zsh
 brew 'zsh', args: ['without-etcdir']
