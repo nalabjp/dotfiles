@@ -83,3 +83,8 @@ function ggrks() {
   fi
   w3m http://www.google.co.jp/$opt
 }
+
+# cache git status
+function cache_git_status () {
+  [ -d .git ] && git status &>/dev/null
+}

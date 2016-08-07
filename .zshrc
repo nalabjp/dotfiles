@@ -126,10 +126,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*:*:*:*:*' menu select
 
-# cache git status
-precmd () {
-  [ -d .git ] && git status &>/dev/null
-}
+# register cache git status
+add-zsh-hook precmd cache_git_status
 
 #################################
 # Prompt
