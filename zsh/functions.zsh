@@ -88,3 +88,9 @@ function ggrks() {
 function cache_git_status () {
   [ -d .git ] && git status &>/dev/null
 }
+
+function re-prompt() {
+    zle .reset-prompt
+    zle .accept-line
+}
+zle -N accept-line re-prompt
