@@ -135,8 +135,8 @@ precmd () {
 # Prompt
 #################################
 
-PROMPT=$'%F{blue}%D{[%H:%M:%S]} %~\
-%F{green} %f'
+PROMPT=$'%F{yellow}%D{[%H:%M:%S]} %~\
+%F{blue} %f'
 
 #################################
 # travis.sh
