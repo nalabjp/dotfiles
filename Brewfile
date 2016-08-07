@@ -60,6 +60,8 @@ brew 'gitsh'
 brew 'gnu-sed'
 # gnu-tar
 brew 'gnu-tar', args: ['with-default-names']
+# go
+brew 'go'
 # heroku
 brew 'heroku'
 # htop
