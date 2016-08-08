@@ -64,6 +64,9 @@ alias bs='bundle show'
 # require: export LESS='-R'
 alias diff='colordiff -u'
 
+# esa
+alias ev='esa view'
+
 # git
 alias g='hub'
 alias ga='g add -v'
