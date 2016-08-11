@@ -128,7 +128,7 @@ zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*:*:*:*:*' menu select
 
 # register cache git status
-add-zsh-hook precmd cache_git_status
+add-zsh-hook chpwd cache_git_status
 
 #################################
 # Prompt
