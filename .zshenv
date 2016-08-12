@@ -65,7 +65,7 @@ alias bs='bundle show'
 alias diff='colordiff -u'
 
 # esa
-alias ev='esa view'
+alias ev='esa view --per-page 50 --auto-reload 15'
 
 # git
 alias g='hub'
