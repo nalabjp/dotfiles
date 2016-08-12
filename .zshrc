@@ -42,7 +42,7 @@ zplug 'b4b4r07/enhancd', use:enhancd.sh
 zplug 'stedolan/jq', from:gh-r, as:command, rename-to:jq, if:'! which jq'
 zplug 'b4b4r07/emoji-cli', if:'which jq'
 zplug 'nalabjp/zsh-bundle-exec'
-zplug 'nalabjp/esa-cli', as:command, use:esa, rename-to:esa, at:v0.0.1, hook-build:'bundle install'
+zplug 'nalabjp/esa-cli', as:command, use:esa, rename-to:esa, at:v0.0.2, hook-build:'bundle install'
 
 # install any uninstalled plugins
 zplug check || zplug install
