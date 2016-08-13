@@ -103,9 +103,6 @@ fi
 # show_buffer_stack
 bindkey '^]' show_buffer_stack
 
-# fzf-path
-bindkey '^V' fzf-path
-
 # history
 bindkey '^R' anyframe-widget-put-history
 
