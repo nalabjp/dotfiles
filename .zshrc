@@ -117,7 +117,6 @@ bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
 # anyframe
-bindkey '^V^V' 'anyframe-widget-cd-ghq-repository'
 bindkey '^V^B' 'anyframe-widget-checkout-git-branch'
 bindkey '^V^K' 'anyframe-widget-kill'
 
