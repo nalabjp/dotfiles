@@ -68,8 +68,8 @@ alias cg='c -g'
 alias diff='colordiff -u'
 
 # esa
-alias ev='esa view -r --per-page 50 --auto-reload 15'
-alias evq='esa view -r --per-page 50 -q '
+alias ev='esa view --per-page 50 --auto-reload 15'
+alias evq='esa view --per-page 50 -q '
 
 # git
 alias g='hub'
