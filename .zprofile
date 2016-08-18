@@ -87,7 +87,7 @@ fi
 
 # pager
 export PAGER="less"
-export LESS='-gj10 --no-init -F -R'
+export LESS='-gj10 -X -F -R'
 export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
 # wordchar
