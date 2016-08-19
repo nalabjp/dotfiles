@@ -74,6 +74,9 @@ Plug 'slim-template/vim-slim', { 'for': ['slim'] }
 " coffee script
 Plug 'kchmck/vim-coffee-script', { 'for': ['coffee'] }
 
+" golang
+Plug 'fatih/vim-go'
+
 " codic
 Plug 'koron/codic-vim', { 'on': ['Codic'] }
 
