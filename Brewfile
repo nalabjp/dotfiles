@@ -62,6 +62,7 @@ brew 'gnu-sed'
 brew 'gnu-tar', args: ['with-default-names']
 # go
 brew 'go'
+brew 'glide'
 # heroku
 brew 'heroku'
 # htop
