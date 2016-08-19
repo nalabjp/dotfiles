@@ -294,6 +294,17 @@ if s:plug.is_installed('vim-rails')
   let g:rails_statusline = 1
 endif
 
+if s:plug.is_installed('vim-go')
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_types = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+  let g:go_fmt_command = 'goimports'
+  let g:go_fmt_fail_silently = 1
+endif
+
 if s:plug.is_installed('vim-quickrun')
   let g:quickrun_config = get(g:, 'quickrun_config', {})
   let g:quickrun_config._ = {
