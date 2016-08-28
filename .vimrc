@@ -123,6 +123,9 @@ Plug 'gregsexton/VimCalc'
 " https://github.com/Shougo/neocomplete.vim/issues/536
 Plug 'Konfekt/FastFold'
 
+" for ctags
+Plug 'majutsushi/tagbar', { 'for': ['ruby', 'go'] }
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
@@ -414,6 +417,9 @@ if s:plug.is_installed('ctrlp.vim')
   endif
 endif
 
+if s:plug.is_installed('tagbar')
+  let g:tagbar_autofocus = 1
+endif
 """"""""""""""""""""""""""""""""""""
 " appearance
 """"""""""""""""""""""""""""""""""""
