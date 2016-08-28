@@ -531,8 +531,6 @@ set smarttab
 " 0と^を入れ替え
 nnoremap 0 ^
 nnoremap ^ 0
-vnoremap 0 ^
-vnoremap ^ 0
 
 " y-で行末までヤンク
 nmap y- y$
@@ -616,8 +614,6 @@ inoremap <silent> kk <ESC>
 " コロンとセミコロンの入れ替え
 nnoremap : ;
 nnoremap ; :
-vnoremap : ;
-vnoremap ; :
 
 " ?を区切り文字として認識させない
 autocmd FileType ruby setl iskeyword+=?
