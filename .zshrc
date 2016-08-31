@@ -43,6 +43,7 @@ zplug 'stedolan/jq', from:gh-r, as:command, rename-to:jq, if:'! which jq'
 zplug 'b4b4r07/emoji-cli', if:'which jq'
 zplug 'nalabjp/zsh-bundle-exec'
 zplug 'nalabjp/esa-cli', as:command, use:esa, rename-to:esa, hook-build:'bundle install'
+zplug 'zsh-users/zsh-autosuggestions'
 
 # install any uninstalled plugins
 zplug check || zplug install
