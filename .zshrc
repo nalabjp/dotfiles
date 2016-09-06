@@ -84,15 +84,6 @@ setopt share_history
 # load functions
 [ -f $DOTFILES/zsh/functions.zsh ] && source $DOTFILES/zsh/functions.zsh
 
-# gdircolors
-eval $(gdircolors $DOTFILES/themes/dircolors-solarized/dircolors.256dark)
-
-# direnv config
-if type direnv > /dev/null 2>&1; then
-  eval "$(direnv hook $SHELL)"
-  export DIRENV_LOG_FORMAT=
-fi
-
 # show_buffer_stack
 bindkey '^]' show_buffer_stack
 

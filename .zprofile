@@ -98,3 +98,12 @@ export EMOJI_CLI_KEYBIND='^Y'
 
 # zplug
 export ZPLUG_CLONE_DEPTH=1
+
+# gdircolors
+eval $(gdircolors ~/.dotfiles/themes/dircolors-solarized/dircolors.256dark)
+
+# direnv config
+if type direnv > /dev/null 2>&1; then
+  eval "$(direnv hook $SHELL)"
+  export DIRENV_LOG_FORMAT=
+fi
