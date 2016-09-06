@@ -8,6 +8,9 @@ DOTFILES=~/.dotfiles
 # Remove duplicated path
 typeset -U path PATH
 
+# tmux attach
+[ -f $DOTFILES/zsh/tmux_attach.zsh ] && source $DOTFILES/zsh/tmux_attach.zsh
+
 # zcompile
 if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
@@ -30,7 +33,6 @@ compinit -C
 #################################
 source $(brew --prefix zplug)/init.zsh
 
-zplug "$DOTFILES/zsh", from:local
 zplug 'junegunn/fzf-bin', from:gh-r, as:command, rename-to:fzf
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting'
@@ -80,6 +82,9 @@ setopt share_history
 #################################
 # Configurations
 #################################
+
+# load functions
+[ -f $DOTFILES/zsh/functions.zsh ] && source $DOTFILES/zsh/functions.zsh
 
 # karabiner
 if which karabiner > /dev/null 2>&1; then
