@@ -23,7 +23,7 @@ autoload -Uz add-zsh-hook
 autoload -Uz chpwd_recent_dirs cdr
 autoload -Uz zmv
 autoload -Uz compinit
-compinit
+compinit -C
 
 #################################
 # zplug
