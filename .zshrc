@@ -42,9 +42,6 @@ zplug 'nalabjp/zsh-bundle-exec'
 zplug 'nalabjp/esa-cli', as:command, use:esa, rename-to:esa, hook-build:'bundle install'
 zplug 'zsh-users/zsh-autosuggestions'
 
-# install any uninstalled plugins
-zplug check || zplug install
-
 # load
 zplug load
 
