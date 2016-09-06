@@ -22,8 +22,6 @@ bindkey -e
 autoload -Uz add-zsh-hook
 autoload -Uz chpwd_recent_dirs cdr
 autoload -Uz zmv
-autoload -Uz colors
-colors
 autoload -Uz compinit
 compinit
 
