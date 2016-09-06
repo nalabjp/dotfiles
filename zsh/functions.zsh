@@ -86,7 +86,7 @@ function ggrks() {
 
 # cache git status
 function cache_git_status () {
-  [ -d .git ] && git status &>/dev/null
+  [ -d .git ] && (git status &>/dev/null &)
 }
 
 function re-prompt() {
