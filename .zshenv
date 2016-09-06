@@ -124,6 +124,11 @@ alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 # history
 alias history='fc -l 1'
 
+# karabiner
+if which karabiner > /dev/null 2>&1; then
+  alias karabiner-export='karabiner export > $DOTFILES/karabiner/import.sh'
+fi
+
 # ls
 # require coreutils
 alias ls='gls --color=auto'

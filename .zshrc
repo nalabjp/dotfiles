@@ -84,11 +84,6 @@ setopt share_history
 # load functions
 [ -f $DOTFILES/zsh/functions.zsh ] && source $DOTFILES/zsh/functions.zsh
 
-# karabiner
-if which karabiner > /dev/null 2>&1; then
-  alias karabiner-export='karabiner export > $DOTFILES/karabiner/import.sh'
-fi
-
 # gdircolors
 eval $(gdircolors $DOTFILES/themes/dircolors-solarized/dircolors.256dark)
 
