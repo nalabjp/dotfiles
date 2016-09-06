@@ -114,6 +114,7 @@ bindkey '^N' history-substring-search-down
 # anyframe
 bindkey '^V^B' 'anyframe-widget-checkout-git-branch'
 bindkey '^V^K' 'anyframe-widget-kill'
+bindkey '^V^V' 'anyframe-widget-cd-ghq-repository'
 
 # completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
