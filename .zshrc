@@ -127,6 +127,9 @@ zstyle ':completion:*:*:*:*:*' menu select
 # register cache git status
 add-zsh-hook chpwd cache_git_status
 
+# clear suggestion
+bindkey '^ ' autosuggest-clear
+
 #################################
 # Prompt
 #################################
