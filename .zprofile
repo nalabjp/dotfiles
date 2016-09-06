@@ -68,9 +68,6 @@ export PGDATA=/usr/local/var/postgres
 export BUNDLE_EXEC_GEMFILE_CURRENT_DIR_ONLY=yes
 export BUNDLE_EXEC_COMMANDS='rails rake rspec spring'
 
-# enhancd
-export ENHANCD_COMMAND='c'
-
 # fzf
 export FZF_DEFAULT_COMMAND='ag'
 export FZF_DEFAULT_OPTS='--extended --cycle --select-1 --exit-0 --multi'

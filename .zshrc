@@ -36,7 +36,6 @@ zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'mollifier/anyframe'
-zplug 'b4b4r07/enhancd', use:init.sh
 zplug 'stedolan/jq', from:gh-r, as:command, rename-to:jq, if:'! which jq'
 zplug 'b4b4r07/emoji-cli', if:'which jq'
 zplug 'nalabjp/zsh-bundle-exec'
