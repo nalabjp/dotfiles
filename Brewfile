@@ -82,7 +82,7 @@ brew 'libxslt'
 # lua
 brew 'lua'
 # macvim
-brew 'macvim', args: ['with-lua', 'override-system-vim']
+brew 'macvim', args: ['with-lua', 'with-override-system-vim']
 # mecab
 brew 'mecab'
 brew 'mecab-ipadic'
