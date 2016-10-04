@@ -18,9 +18,11 @@ Gemfile.lock.tags
 .tmuxinator/*
 !.tmuxinator/default.yml
 .idea/
+.bundle/
 # for rails
 .rake_tasks
 /vendor/bundle
+tmp
 # for git worktree
 /gwt-*/
 # bundle cache
