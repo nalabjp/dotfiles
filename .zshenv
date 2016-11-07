@@ -59,9 +59,6 @@ alias bo='bundle open'
 alias bu='bundle update'
 alias bs='bundle show'
 
-# enhancd
-alias cg='c -g'
-
 # colordiff
 # color config ~/.colordiffrc
 # require: export LESS='-R'
