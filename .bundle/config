@@ -1,7 +1,6 @@
 ---
 BUNDLE_JOBS: '16'
-BUNDLE_BUILD__NOKOGIRI: "--use-system-libraries --with-xml2-config=/usr/local/opt/libxml2/bin/xml2-config
-  --with-xslt-config=/usr/local/opt/libxslt/bin/xslt-config"
+BUNDLE_BUILD__NOKOGIRI: "--use-system-libraries"
 BUNDLE_GEM__MIT: 'true'
 BUNDLE_GEM__TEST: minitest
 BUNDLE_GEM__COC: 'false'
