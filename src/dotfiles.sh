@@ -19,21 +19,9 @@ BACKUP_DIR=$HOME/.dotfiles_backup/`date +%Y%m%d_%H%M%S`
 create_symlink() {
     local target=$1
     local origin=$2
-    create_backup $target
     if [ ! -e "$target" ]; then
         log_pass "Create symbolic link: $target -> $origin"
         ln -s $origin "$target"
-    fi
-}
-
-# Backup
-create_backup() {
-    local target=$1
-    if [ -e $target ]; then
-        log_warn "Already exists: $target"
-        log_warn "Back up to $BACKUP_DIR"
-        mkdir -p $BACKUP_DIR
-        mv $target $BACKUP_DIR/${target##*/}
     fi
 }
 
