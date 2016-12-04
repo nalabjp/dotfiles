@@ -27,7 +27,6 @@ create_symlink() {
 
 # Basic dot files only symbolic link
 setup_basic_dots() {
-    log_echo ""
     log_echo "Setup basic dot files"
     for file in ${BASIC_DOTS[@]}
     do
