@@ -68,6 +68,11 @@ setup_misc() {
         karabiner be_careful_to_use__clear_all_values_by_name Default
         sh $HOME/$DOTS_DIR/karabiner/import.sh
     fi
+
+    if [ -e /Applications/Karabiner-Elements.app ]; then
+        log_echo "Karabiner-Elements"
+        create_symlink $HOME/.karabiner.d/configuration/karabiner.json $HOME/$DOTS_DIR/.karabiner.d/configuration/karabiner.json
+    fi
 }
 
 main() {
