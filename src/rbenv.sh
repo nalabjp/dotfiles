@@ -3,9 +3,9 @@
 SRC=$HOME/.dotfiles/src
 source $SRC/utils.sh
 
-# Enable Ruby version 2.2.x ~ 2.3.x
+# Enable Ruby version 2.3.x
 RUBIES=$(rbenv install --list | awk '
-  match($0,/^\ \ 2\.(2\.[0-9]|3\.[0-9])/) {
+  match($0,/^\ \ 2\.(3\.[0-9])/) {
     print substr($0, RSTART+2,RLENGTH-2)
   }
 '| sort | uniq)
