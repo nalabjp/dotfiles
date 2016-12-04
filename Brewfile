@@ -111,20 +111,6 @@ brew 'pstree'
 brew 'pup'
 # pwgen
 brew 'pwgen'
-# ranger
-brew 'ranger'
-brew 'lynx'
-brew 'atool'
-brew 'mediainfo'
-brew 'highlight'
-brew 'w3m'
-brew 'elinks'
-brew 'poppler'
-brew 'transmission'
-brew 'exiftool'
-brew 'xpdf'     # require xquartz in Brewfile_sudo
-brew 'libcaca'  # require xquartz in Brewfile_sudo
-brew 'imlib2'   # require xquartz in Brewfile_sudo
 # redis
 brew 'redis'
 # rename
