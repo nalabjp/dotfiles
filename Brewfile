@@ -92,6 +92,7 @@ brew 'mongodb'
 brew 'mysql'
 # nginx
 brew 'nginx'
+brew 'openssl@1.1'
 # nkf
 brew 'nkf'
 # nodebrew
