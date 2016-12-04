@@ -21,7 +21,7 @@ create_symlink() {
     local origin=$2
     create_backup $target
     if [ ! -e "$target" ]; then
-        log_info "Create symbolic link: $target -> $origin"
+        log_pass "Create symbolic link: $target -> $origin"
         ln -s $origin "$target"
     fi
 }
@@ -43,7 +43,7 @@ setup_basic_dots() {
     log_echo "Setup basic dot files"
     for file in ${BASIC_DOTS[@]}
     do
-        log_echo "$file"
+        log_info "$file"
         create_symlink $HOME/$file $HOME/$DOTS_DIR/$file
     done
 }
@@ -53,7 +53,7 @@ setup_misc() {
     log_echo ""
     log_echo "Setup misc"
 
-    log_echo "themes"
+    log_info "themes"
     create_symlink $HOME/themes $HOME/$DOTS_DIR/themes
 
     if [ ! -f $HOME/.hushlogin ]; then
@@ -62,7 +62,7 @@ setup_misc() {
     fi
 
     if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
-        log_echo "karabiner"
+        log_info "karabiner"
         create_symlink "$HOME/Library/Application Support/karabiner/private.xml" $HOME/$DOTS_DIR/karabiner/private.xml
         /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
         karabiner be_careful_to_use__clear_all_values_by_name Default
@@ -70,7 +70,7 @@ setup_misc() {
     fi
 
     if [ -e /Applications/Karabiner-Elements.app ]; then
-        log_echo "Karabiner-Elements"
+        log_info "Karabiner-Elements"
         create_symlink $HOME/.karabiner.d/configuration/karabiner.json $HOME/$DOTS_DIR/.karabiner.d/configuration/karabiner.json
     fi
 }
