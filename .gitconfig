@@ -50,3 +50,5 @@
   template = ~/.commit_template
 [init]
   templatedir = ~/.git_template
+[grep]
+  lineNumber = true
