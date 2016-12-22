@@ -6,3 +6,4 @@ pry-stack_explorer
 pry-power_assert
 awesome_print
 tapp
+benchmark-ips
