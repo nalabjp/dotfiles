@@ -22,7 +22,7 @@ tap 'homebrew/versions'
 tap 'motemen/ghq'
 # for gitsh
 tap 'thoughtbot/formulae'
-# for tuntap
+# for itemr2
 tap 'caskroom/cask'
 # for xpdf
 tap 'homebrew/x11'
