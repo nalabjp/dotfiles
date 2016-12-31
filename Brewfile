@@ -26,8 +26,6 @@ tap 'thoughtbot/formulae'
 tap 'caskroom/cask'
 # for xpdf
 tap 'homebrew/x11'
-# for tmux21
-tap 'nalabjp/formula'
 
 # python3
 brew 'python3'
@@ -130,7 +128,7 @@ brew 'source-highlight'
 brew 'sqlite'
 # tmux
 brew 'reattach-to-user-namespace'
-brew 'tmux21'
+brew 'tmux'
 # tree
 brew 'tree'
 # watch
