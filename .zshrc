@@ -25,6 +25,8 @@ bindkey -e
 autoload -Uz add-zsh-hook
 autoload -Uz chpwd_recent_dirs cdr
 autoload -Uz zmv
+autoload -U promptinit; promptinit
+prompt pure
 
 #################################
 # zplug
@@ -113,13 +115,6 @@ add-zsh-hook chpwd cache_git_status
 
 # autosuggest
 bindkey '^ ' autosuggest-clear
-
-#################################
-# Prompt
-#################################
-
-PROMPT=$'%F{yellow}%D{[%H:%M:%S]} %~\
-%F{blue} %f'
 
 #################################
 # travis.sh

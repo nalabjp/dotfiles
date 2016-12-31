@@ -10,6 +10,9 @@ path=(/usr/local/bin(N-/) /usr/local/sbin(N-/) $path)
 # Add .dotfiles/bin
 path=(~/.dotfiles/bin(N-/) $path)
 
+# zfunctions
+fpath=(~/.dotfiles/zfunctions(N-/) $fpath)
+
 # EDITOR
 export EDITOR='vim'
 
