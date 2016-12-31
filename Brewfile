@@ -100,7 +100,6 @@ brew 'nkf'
 # nodebrew
 brew 'nodebrew'
 # openvpn
-cask 'tuntap'
 brew 'openvpn'
 # pandoc
 brew 'pandoc'
