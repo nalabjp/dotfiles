@@ -8,11 +8,9 @@ init_brew() {
     # brew exist?
     if [ -x "`which brew`" ]; then
         log_warn 'brew already exists!'
-        setup_sudo_brew
         setup_brew
     else
         install_brew
-        setup_sudo_brew
         setup_brew
         post_setup_brew
     fi
@@ -22,10 +20,6 @@ install_brew() {
     log_echo ''
     log_echo 'Install homebrew'
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-}
-
-setup_sudo_brew() {
-    sudo -S brew bundle --file=$DOTFILES/Brewfile_sudo
 }
 
 setup_brew() {
@@ -100,10 +94,6 @@ dotfiles)
     ;;
 rbenv)
     setup_rbenv
-    ;;
-sudo-brew)
-    ask_sudo_password
-    setup_sudo_brew
     ;;
 *)
     usage

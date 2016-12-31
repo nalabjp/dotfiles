@@ -1,7 +1,0 @@
-# Example
-#
-# If you want to install `xquartz`, you write as below
-#
-# tap 'caskroom/cask'
-#
-# cask 'xquartz'
