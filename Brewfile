@@ -57,7 +57,6 @@ brew 'ghq'
 brew 'git'
 brew 'hub'
 brew 'tig'
-brew 'gitsh'
 # gnu-sed
 brew 'gnu-sed'
 # gnu-tar
