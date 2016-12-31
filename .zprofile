@@ -99,9 +99,6 @@ export HOMEBREW_NO_ANALYTICS=1
 # emoji-cli
 export EMOJI_CLI_KEYBIND='^Y'
 
-# zplug
-export ZPLUG_CLONE_DEPTH=1
-
 # gdircolors
 eval $(gdircolors ~/.dotfiles/themes/dircolors-solarized/dircolors.256dark)
 
