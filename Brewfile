@@ -29,6 +29,8 @@ tap 'homebrew/x11'
 # for tmux21
 tap 'nalabjp/formula'
 
+# python3
+brew 'python3'
 # ag
 brew 'the_silver_searcher'
 # colordiff
