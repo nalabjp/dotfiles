@@ -68,29 +68,3 @@ _rake() {
 }
 
 compdef _rake rake
-
-# w3m config
-# w3m google search
-function ggrks() {
-  local str opt
-  if [ $ != 0 ]; then
-    for i in $*; do
-      str="$str+$i"
-    done
-    str=`echo $str | sed 's/^\+//'`
-    opt='search?num=50&h1=ja&lr=lang_ja'
-    opt="${opt}&q=${str}"
-  fi
-  w3m http://www.google.co.jp/$opt
-}
-
-# cache git status
-function cache_git_status () {
-  [ -d .git ] && (git status &>/dev/null &)
-}
-
-function re-prompt() {
-    zle .reset-prompt
-    zle .accept-line
-}
-zle -N accept-line re-prompt

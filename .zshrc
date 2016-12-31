@@ -110,9 +110,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*:*:*:*:*' menu select
 
-# register cache git status
-add-zsh-hook chpwd cache_git_status
-
 # autosuggest
 bindkey '^ ' autosuggest-clear
 
