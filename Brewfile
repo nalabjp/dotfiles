@@ -71,7 +71,7 @@ brew 'httpie'
 # imagemagick
 brew 'imagemagick'
 # iterm2 v3
-cask 'Caskroom/cask/iterm2'
+cask 'iterm2'
 # jq
 brew 'jq'
 # libxml2
