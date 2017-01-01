@@ -81,9 +81,6 @@ Plug 'Shougo/vimproc', { 'do': 'make' }
 " ツリー型エクスプローラ
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle'] }
 
-" vimとtmuxをsmartに切り替え
-Plug 'christoomey/vim-tmux-navigator'
-
 " dash
 Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
 
