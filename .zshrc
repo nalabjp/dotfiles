@@ -45,6 +45,9 @@ zplug 'zsh-users/zsh-autosuggestions'
 
 # load
 zplug load
+# for zplug load
+# @see https://github.com/zplug/zplug/issues/322
+setopt monitor
 
 #################################
 # options
