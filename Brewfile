@@ -80,8 +80,6 @@ brew 'libxml2'
 brew 'libxslt'
 # lua
 brew 'lua'
-# macvim
-brew 'macvim', args: ['with-lua', 'with-python3', 'with-override-system-vim']
 # mecab
 brew 'mecab'
 brew 'mecab-ipadic'
@@ -89,6 +87,8 @@ brew 'mecab-ipadic'
 brew 'mongodb'
 # mysql
 brew 'mysql'
+# neovim
+brew 'neovim/neovim/neovim'
 # nginx
 brew 'nginx'
 brew 'openssl@1.1'

@@ -452,7 +452,7 @@ set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 
 " OSのクリップボードを使用
-set clipboard=unnamed,autoselect
+set clipboard=unnamed
 
 " swapファイル
 silent execute '!mkdir -p $HOME/.vimswap'

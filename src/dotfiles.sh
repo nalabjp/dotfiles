@@ -61,6 +61,11 @@ setup_misc() {
         mkdir -p $HOME/.karabiner.d/configuration
         create_symlink $HOME/.karabiner.d/configuration/karabiner.json $HOME/$DOTS_DIR/.karabiner.d/configuration/karabiner.json
     fi
+
+    log_info "neovim"
+    mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+    create_symlink $XDG_CONFIG_HOME/nvim ~/.vim
+    create_symlink $XDG_CONFIG_HOME/nvim/init.vim ~/.vimrc
 }
 
 main() {

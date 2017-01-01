@@ -183,8 +183,8 @@ alias tailf='LESSOPEN= less +F'
 # tmux
 alias tsk='tmux send-keys'
 
-# vim
-alias v='vim'
+# nvim
+alias v='nvim'
 
 # edit .dotfiles
 alias vg='v ~/.gitconfig'

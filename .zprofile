@@ -107,3 +107,6 @@ if type direnv > /dev/null 2>&1; then
   eval "$(direnv hook $SHELL)"
   export DIRENV_LOG_FORMAT=
 fi
+
+# XDG_CONFIG_HOME
+export XDG_CONFIG_HOME=~/.config
