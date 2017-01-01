@@ -92,6 +92,8 @@ Plug 'vim-scripts/AnsiEsc.vim'
 
 " 補完
 Plug 'Shougo/neocomplete'
+" https://github.com/Shougo/neocomplete.vim/issues/536
+Plug 'Konfekt/FastFold'
 
 " auto cd to project root
 Plug 'airblade/vim-rooter'
@@ -107,9 +109,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " Calc
 Plug 'gregsexton/VimCalc'
-
-" https://github.com/Shougo/neocomplete.vim/issues/536
-Plug 'Konfekt/FastFold'
 
 " for ctags
 Plug 'majutsushi/tagbar', { 'for': ['ruby', 'go'] }
