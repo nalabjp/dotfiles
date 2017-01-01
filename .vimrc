@@ -15,9 +15,6 @@ call plug#begin('~/.vim/plugged')
 " Vim Plugin Manager
 Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
-" 色見本
-Plug 'cocopon/colorswatch.vim', { 'on': ['ColorSwatchGenerate'] }
-
 " StatusLineの装飾
 Plug 'itchyny/lightline.vim'
 Plug 'taohex/lightline-solarized' | Plug 'tpope/vim-fugitive'
@@ -48,14 +45,8 @@ Plug 'rhysd/vim-operator-surround'
 Plug 'kana/vim-textobj-user'
 Plug 'osyo-manga/vim-textobj-multiblock'
 
-" コピペ拡張
-Plug 'LeafCage/yankround.vim'
-
 " 文章整形
 Plug 'junegunn/vim-easy-align'
-
-" diff
-Plug 'lambdalisue/vim-unified-diff'
 
 " git
 Plug 'jreybert/vimagit'
@@ -76,9 +67,6 @@ Plug 'kchmck/vim-coffee-script', { 'for': ['coffee'] }
 
 " golang
 Plug 'fatih/vim-go'
-
-" codic
-Plug 'koron/codic-vim', { 'on': ['Codic'] }
 
 " markdown
 Plug 'rcmdnk/vim-markdown', { 'for': ['markdown'] }
@@ -252,15 +240,6 @@ if s:plug.is_installed('vim-operator-surround')
   nmap <silent> <Space>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
 endif
 
-if s:plug.is_installed('yankround')
-  " yankround.vim {{{
-  nmap p <Plug>(yankround-p)
-  nmap P <Plug>(yankround-P)
-  nmap <C-p> <Plug>(yankround-prev)
-  nmap <C-n> <Plug>(yankround-next)
-  let g:yankround_max_history = 100
-endif
-
 if s:plug.is_installed('vim-easy-align')
   " vim-easy-align {{{
   vmap <Enter> <Plug>(EasyAlign)
@@ -268,10 +247,6 @@ if s:plug.is_installed('vim-easy-align')
   xmap ga <Plug>(EasyAlign)
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
-endif
-
-if s:plug.is_installed('vim-unified-diff')
-  set diffexpr=unified_diff#diffexpr()
 endif
 
 if s:plug.is_installed('vimagit')
@@ -356,10 +331,6 @@ if s:plug.is_installed('vim-quickrun')
   function! QRunTestUnitWithLine()
     " TODO
   endfunction
-endif
-
-if s:plug.is_installed('nerdtree')
-  nnoremap <silent> <Space>nt :<C-u>NERDTreeToggle<CR>
 endif
 
 if s:plug.is_installed('neocomplete')
