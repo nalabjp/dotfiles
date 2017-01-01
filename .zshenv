@@ -49,6 +49,7 @@ alias af='anyframe-widget-select-widget'
 alias bst='~/.dotfiles/bootstrap'
 alias bstb='bst brew'
 alias bstd='bst dotfiles'
+alias bstp='bst pip3'
 alias bstr='bst rbenv'
 alias bstu='bst update'
 

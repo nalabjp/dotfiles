@@ -91,9 +91,8 @@ Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
 Plug 'vim-scripts/AnsiEsc.vim'
 
 " 補完
-Plug 'Shougo/neocomplete'
-" https://github.com/Shougo/neocomplete.vim/issues/536
-Plug 'Konfekt/FastFold'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'fishbullet/deoplete-ruby'
 
 " auto cd to project root
 Plug 'airblade/vim-rooter'
@@ -332,41 +331,8 @@ if s:plug.is_installed('vim-quickrun')
   endfunction
 endif
 
-if s:plug.is_installed('neocomplete')
-  " Disable AutoComplPop.
-  let g:acp_enableAtStartup = 0
-  " Use neocomplete.
-  let g:neocomplete#enable_at_startup = 1
-  " Use smartcase.
-  let g:neocomplete#enable_smart_case = 1
-  " Use camel case completion.
-  let g:neocomplete#enable_camel_case = 1
-  " buffer file name pattern that locks neocomplete. e.g. ku.vim or fuzzyfinder
-  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-  let g:neocomplete#auto_completion_start_length = 3
-  let g:neocomplete#manual_completion_start_length = 0
-  let g:neocomplete#sources#syntax#min_keyword_length = 3
-  let g:neocomplete#min_keyword_length = 3
-
-  " <CR>: close popup and save indent.
-  inoremap <expr><CR> neocomplete#smart_close_popup() . "\<CR>"
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
-
-
-  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-  if !exists('g:neocomplete#keyword_patterns')
-      let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-  if !exists('g:neocomplete#sources#omni_input_patterns')
-    let g:neocomplete#sources#omni_input_patterns = {}
-  endif
-  let g:neocomplete#sources#omni_input_patterns.ruby = '[^. *\t]\.h\w*\|\h\w*::'
+if s:plug.is_installed('deoplete.nvim')
+  let g:deoplete#enable_at_startup = 1
 endif
 
 if s:plug.is_installed('buftabs')
