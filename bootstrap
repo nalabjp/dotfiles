@@ -57,6 +57,12 @@ setup_rbenv() {
     $SRC/rbenv.sh
 }
 
+setup_pip3() {
+    log_echo ''
+    log_echo 'Install Python libraries with pip3'
+    $SRC/pip3.sh
+}
+
 init() {
     log_echo ''
     log_echo 'Run init'
@@ -64,6 +70,7 @@ init() {
     init_brew
     setup_dotfiles
     setup_rbenv
+    setup_pip3
 }
 
 update() {
@@ -72,10 +79,11 @@ update() {
     setup_brew
     setup_dotfiles
     setup_rbenv
+    setup_pip3
 }
 
 usage() {
-    log_error >&2 "Usage: $0 <init|update|brew|dotfiles|rbenv|>"
+    log_error >&2 "Usage: $0 <init|update|brew|dotfiles|rbenv|pip3>"
     exit 1
 }
 
@@ -94,6 +102,9 @@ dotfiles)
     ;;
 rbenv)
     setup_rbenv
+    ;;
+pip3)
+    setup_pip3
     ;;
 *)
     usage

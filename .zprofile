@@ -69,7 +69,7 @@ export PGDATA=/usr/local/var/postgres
 
 # zsh-bundle-exec.zsh
 export BUNDLE_EXEC_GEMFILE_CURRENT_DIR_ONLY=yes
-export BUNDLE_EXEC_COMMANDS='rails rake rspec spring'
+export BUNDLE_EXEC_COMMANDS='ruby rails rake rspec spring'
 
 # fzf
 export FZF_DEFAULT_COMMAND='ag'
@@ -107,3 +107,6 @@ if type direnv > /dev/null 2>&1; then
   eval "$(direnv hook $SHELL)"
   export DIRENV_LOG_FORMAT=
 fi
+
+# XDG_CONFIG_HOME
+export XDG_CONFIG_HOME=~/.config

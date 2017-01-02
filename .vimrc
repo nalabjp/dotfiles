@@ -88,9 +88,8 @@ Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
 Plug 'vim-scripts/AnsiEsc.vim'
 
 " 補完
-Plug 'Shougo/neocomplete'
-" https://github.com/Shougo/neocomplete.vim/issues/536
-Plug 'Konfekt/FastFold'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'fishbullet/deoplete-ruby'
 
 " auto cd to project root
 Plug 'airblade/vim-rooter'
@@ -109,6 +108,10 @@ Plug 'gregsexton/VimCalc'
 
 " for ctags
 Plug 'majutsushi/tagbar', { 'for': ['ruby', 'go'] }
+
+if has('nvim')
+  Plug 'nalabjp/neoterm', { 'branch': 'default-test-lib' }
+endif
 
 call plug#end()
 
@@ -299,70 +302,10 @@ if s:plug.is_installed('vim-quickrun')
   let g:quickrun_no_default_key_mappings = 1
   nnoremap <Space>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
   nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
-
-  " Run RSpec
-  autocmd BufReadPost *_spec.rb call SetRSpecQRun()
-  function! SetRSpecQRun()
-    nnoremap <Space>t  :call QRunRSpec()<CR>
-    nnoremap <Space>tl :call QRunRSpecWithLine()<CR>
-  endfunction
-  function! QRunRSpec()
-    exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rspec %s %o' -cmdopt '-c --tty'"
-  endfunction
-  function! QRunRSpecWithLine()
-    let line = line('.')
-    exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rspec %s%o' -cmdopt ':". line ." -c --tty'"
-  endfunction
-
-  " Run test-unit
-  autocmd BufReadPost *_test.rb call SetTestUnitQRun()
-  function! SetTestUnitQRun()
-    nnoremap <Space>t  :call QRunTestUnit()<CR>
-    nnoremap <Space>tl :call QRunTestUnitWithLine()<CR>
-  endfunction
-  function! QRunTestUnit()
-    exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rake test TEST=%s %o' -cmdopt '--tty'"
-  endfunction
-  function! QRunTestUnitWithLine()
-    " TODO
-  endfunction
 endif
 
-if s:plug.is_installed('neocomplete')
-  " Disable AutoComplPop.
-  let g:acp_enableAtStartup = 0
-  " Use neocomplete.
-  let g:neocomplete#enable_at_startup = 1
-  " Use smartcase.
-  let g:neocomplete#enable_smart_case = 1
-  " Use camel case completion.
-  let g:neocomplete#enable_camel_case = 1
-  " buffer file name pattern that locks neocomplete. e.g. ku.vim or fuzzyfinder
-  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-  let g:neocomplete#auto_completion_start_length = 3
-  let g:neocomplete#manual_completion_start_length = 0
-  let g:neocomplete#sources#syntax#min_keyword_length = 3
-  let g:neocomplete#min_keyword_length = 3
-
-  " <CR>: close popup and save indent.
-  inoremap <expr><CR> neocomplete#smart_close_popup() . "\<CR>"
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
-
-
-  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-  if !exists('g:neocomplete#keyword_patterns')
-      let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-  if !exists('g:neocomplete#sources#omni_input_patterns')
-    let g:neocomplete#sources#omni_input_patterns = {}
-  endif
-  let g:neocomplete#sources#omni_input_patterns.ruby = '[^. *\t]\.h\w*\|\h\w*::'
+if s:plug.is_installed('deoplete.nvim')
+  let g:deoplete#enable_at_startup = 1
 endif
 
 if s:plug.is_installed('buftabs')
@@ -385,6 +328,24 @@ endif
 
 if s:plug.is_installed('tagbar')
   let g:tagbar_autofocus = 1
+endif
+
+if s:plug.is_installed('neoterm')
+  let g:neoterm_repl_ruby = 'pry'
+  " Use rake on test
+  let g:neoterm_test_lib = 'rake'
+  tnoremap <silent> <ESC> <C-\><C-n>
+  " hide/close terminal
+  nnoremap <silent> <Space>th :call neoterm#close()<cr>
+  " clear terminal
+  nnoremap <silent> <Space>tc :call neoterm#clear()<cr>
+  " kills the current job (send a <c-c>)
+  nnoremap <silent> <Space>tk :call neoterm#kill()<cr>
+  " for test
+  nnoremap <silent> <Space>ra :call neoterm#test#run('all')<cr>
+  nnoremap <silent> <Space>rf :call neoterm#test#run('file')<cr>
+  nnoremap <silent> <Space>rc :call neoterm#test#run('current')<cr>
+  nnoremap <silent> <Space>rr :call neoterm#testt#rerun()<cr>
 endif
 """"""""""""""""""""""""""""""""""""
 " appearance
@@ -448,7 +409,7 @@ set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 
 " OSのクリップボードを使用
-set clipboard=unnamed,autoselect
+set clipboard=unnamed
 
 " swapファイル
 silent execute '!mkdir -p $HOME/.vimswap'
