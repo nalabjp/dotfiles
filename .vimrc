@@ -112,6 +112,10 @@ Plug 'gregsexton/VimCalc'
 " for ctags
 Plug 'majutsushi/tagbar', { 'for': ['ruby', 'go'] }
 
+if has('nvim')
+  Plug 'nalabjp/neoterm', { 'branch': 'default-test-lib' }
+endif
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
@@ -302,33 +306,6 @@ if s:plug.is_installed('vim-quickrun')
   let g:quickrun_no_default_key_mappings = 1
   nnoremap <Space>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
   nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
-
-  " Run RSpec
-  autocmd BufReadPost *_spec.rb call SetRSpecQRun()
-  function! SetRSpecQRun()
-    nnoremap <Space>t  :call QRunRSpec()<CR>
-    nnoremap <Space>tl :call QRunRSpecWithLine()<CR>
-  endfunction
-  function! QRunRSpec()
-    exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rspec %s %o' -cmdopt '-c --tty'"
-  endfunction
-  function! QRunRSpecWithLine()
-    let line = line('.')
-    exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rspec %s%o' -cmdopt ':". line ." -c --tty'"
-  endfunction
-
-  " Run test-unit
-  autocmd BufReadPost *_test.rb call SetTestUnitQRun()
-  function! SetTestUnitQRun()
-    nnoremap <Space>t  :call QRunTestUnit()<CR>
-    nnoremap <Space>tl :call QRunTestUnitWithLine()<CR>
-  endfunction
-  function! QRunTestUnit()
-    exe ":QuickRun -hook/close_buffer/enable_exit 1 -exec 'bundle exec rake test TEST=%s %o' -cmdopt '--tty'"
-  endfunction
-  function! QRunTestUnitWithLine()
-    " TODO
-  endfunction
 endif
 
 if s:plug.is_installed('deoplete.nvim')
@@ -355,6 +332,24 @@ endif
 
 if s:plug.is_installed('tagbar')
   let g:tagbar_autofocus = 1
+endif
+
+if s:plug.is_installed('neoterm')
+  let g:neoterm_repl_ruby = 'pry'
+  " Use rake on test
+  let g:neoterm_test_lib = 'rake'
+  tnoremap <silent> <ESC> <C-\><C-n>
+  " hide/close terminal
+  nnoremap <silent> <Space>th :call neoterm#close()<cr>
+  " clear terminal
+  nnoremap <silent> <Space>tc :call neoterm#clear()<cr>
+  " kills the current job (send a <c-c>)
+  nnoremap <silent> <Space>tk :call neoterm#kill()<cr>
+  " for test
+  nnoremap <silent> <Space>ra :call neoterm#test#run('all')<cr>
+  nnoremap <silent> <Space>rf :call neoterm#test#run('file')<cr>
+  nnoremap <silent> <Space>rc :call neoterm#test#run('current')<cr>
+  nnoremap <silent> <Space>rr :call neoterm#testt#rerun()<cr>
 endif
 """"""""""""""""""""""""""""""""""""
 " appearance
