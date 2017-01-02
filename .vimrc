@@ -74,7 +74,6 @@ Plug 'tyru/open-browser.vim', { 'for': ['markdown'] }
 Plug 'kannokanno/previm', { 'for': ['markdown'] }
 
 " 非同期実行
-Plug 'tpope/vim-dispatch', { 'on': ['Dispatch'] }
 Plug 'Shougo/vimproc', { 'do': 'make' }
 
 " ツリー型エクスプローラ
