@@ -75,7 +75,6 @@ Plug 'kannokanno/previm', { 'for': ['markdown'] }
 
 " 非同期実行
 Plug 'tpope/vim-dispatch', { 'on': ['Dispatch'] }
-Plug 'thinca/vim-quickrun' | Plug 'osyo-manga/shabadou.vim'
 Plug 'Shougo/vimproc', { 'do': 'make' }
 
 " ツリー型エクスプローラ
@@ -276,29 +275,6 @@ if s:plug.is_installed('vim-go')
   let g:go_highlight_build_constraints = 1
   let g:go_fmt_command = 'goimports'
   let g:go_fmt_fail_silently = 1
-endif
-
-if s:plug.is_installed('vim-quickrun')
-  let g:quickrun_config = get(g:, 'quickrun_config', {})
-  let g:quickrun_config._ = {
-    \ 'runner' : 'vimproc',
-    \ 'runner/vimproc/updatetime' : 60,
-    \ 'hook/close_quickfix/enable_hook_loaded' : 1,
-    \ 'hook/close_quickfix/enable_success' : 1,
-    \ 'hook/close_buffer/enable_failure' : 1,
-    \ 'hook/close_buffer/enable_empty_data' : 1,
-    \ 'outputter' : 'multi:buffer:quickfix',
-    \ 'outputter/buffer/split' : ':belowright',
-    \ 'outputter/quickfix/open_cmd' : 'copen 32'
-    \ }
-  let g:quickrun_config._.debug = 'qr_session'
-
-  autocmd FileType qf nnoremap <silent><buffer>q :quit<CR>
-  autocmd FileType qf,quickrun AnsiEsc
-
-  let g:quickrun_no_default_key_mappings = 1
-  nnoremap <Space>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
-  nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 endif
 
 if s:plug.is_installed('deoplete.nvim')
