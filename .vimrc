@@ -97,9 +97,6 @@ Plug 'airblade/vim-rooter'
 " バッファをタブで開く
 Plug 'vim-scripts/buftabs'
 
-" grep
-Plug 'fuenor/qfixgrep'
-
 " Ctrl-P
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -312,11 +309,6 @@ if s:plug.is_installed('buftabs')
   let g:buftabs_only_basename=1
   noremap <silent> <Tab> :bnext<CR>
   noremap <silent> <S-Tab> :bprev<CR>
-endif
-
-if s:plug.is_installed('qfixgrep')
-  let MyGrep_KeyB = ''
-  let MyGrep_DefaultSearchWord = 1
 endif
 
 if s:plug.is_installed('ctrlp.vim')
