@@ -156,6 +156,9 @@ augroup check-plug
   autocmd VimEnter * if !argc() | call s:plug.check_installation() | endif
 augroup END
 
+""""""""""""""""""""""""""""""""""""
+" Functions for others
+""""""""""""""""""""""""""""""""""""
 " Generate ctags
 function! Gentags()
   silent! execute '!taggen'
