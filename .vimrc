@@ -314,6 +314,7 @@ if s:plug.is_installed('neoterm')
   nnoremap <silent> <Space>rc :call neoterm#test#run('current')<cr>
   nnoremap <silent> <Space>rr :call neoterm#testt#rerun()<cr>
 endif
+
 """"""""""""""""""""""""""""""""""""
 " appearance
 """"""""""""""""""""""""""""""""""""
