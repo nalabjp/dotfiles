@@ -103,6 +103,7 @@ Plug 'gregsexton/VimCalc'
 
 " for ctags
 Plug 'majutsushi/tagbar', { 'for': ['ruby', 'go'] }
+Plug 'szw/vim-tags'
 
 if has('nvim')
   Plug 'nalabjp/neoterm', { 'branch': 'default-test-lib' }
@@ -298,6 +299,10 @@ endif
 
 if s:plug.is_installed('tagbar')
   let g:tagbar_autofocus = 1
+endif
+
+if s:plug.is_installed('vim-tags')
+  let g:vim_tags_project_tags_command = "{CTAGS} -R -a {OPTIONS} {DIRECTORY} 2>/dev/null"
 endif
 
 if s:plug.is_installed('neoterm')
