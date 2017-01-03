@@ -304,6 +304,7 @@ if s:plug.is_installed('neoterm')
   let g:neoterm_repl_ruby = 'pry'
   " Use rake on test
   let g:neoterm_test_lib = 'rake'
+  let g:neoterm_focus_when_tests_fail = 1
   tnoremap <silent> <ESC> <C-\><C-n>
   " hide/close terminal
   nnoremap <silent> <Space>th :call neoterm#close()<cr>
