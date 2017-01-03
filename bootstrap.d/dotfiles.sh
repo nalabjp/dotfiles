@@ -1,7 +1,6 @@
 #!/bin/bash
 
-SRC=$HOME/.dotfiles/src
-source $SRC/utils.sh
+source $HOME/.dotfiles/bootstrap.d/utils.sh
 
 # make dirs
 mkdir -p $HOME/.vim

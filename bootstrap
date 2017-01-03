@@ -1,8 +1,8 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-SRC=$DOTFILES/src
-source $SRC/utils.sh
+BSTD=$DOTFILES/bootstrap.d
+source $BSTD/utils.sh
 
 init_brew() {
     # brew exist?
@@ -48,19 +48,19 @@ post_setup_brew() {
 setup_dotfiles() {
     log_echo ''
     log_echo 'Setup dotfiles'
-    $SRC/dotfiles.sh
+    $BSTD/dotfiles.sh
 }
 
 setup_rbenv() {
     log_echo ''
     log_echo 'Install Ruby with rbenv'
-    $SRC/rbenv.sh
+    $BSTD/rbenv.sh
 }
 
 setup_pip3() {
     log_echo ''
     log_echo 'Install Python libraries with pip3'
-    $SRC/pip3.sh
+    $BSTD/pip3.sh
 }
 
 init() {
