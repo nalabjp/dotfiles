@@ -105,9 +105,8 @@ Plug 'gregsexton/VimCalc'
 Plug 'majutsushi/tagbar', { 'for': ['ruby', 'go'] }
 Plug 'szw/vim-tags'
 
-if has('nvim')
-  Plug 'nalabjp/neoterm', { 'branch': 'default-test-lib' }
-endif
+" neoterm
+Plug 'nalabjp/neoterm', { 'branch': 'default-test-lib' }
 
 call plug#end()
 
