@@ -2,7 +2,7 @@
   ui = true
 [core]
   excludesfile = ~/.gitignore
-  editor = vim
+  editor = nvim
 [pager]
   # ln -s /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
   log = diff-highlight | less
