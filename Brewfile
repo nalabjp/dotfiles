@@ -26,6 +26,8 @@ tap 'thoughtbot/formulae'
 tap 'caskroom/cask'
 # for xpdf
 tap 'homebrew/x11'
+# neovim
+tap 'neovim/neovim'
 
 # python3
 brew 'python3'
