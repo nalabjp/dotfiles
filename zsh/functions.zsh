@@ -24,22 +24,22 @@ function fzf-path() {
 zle -N fzf-path
 
 # ag and nvim
-function agvim () {
+function av () {
   nvim $(ag $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
 # ag -h and nvim
-function aghvim () {
+function ahv () {
   nvim $(agh $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
 # git grep and nvim
-function ggrvim () {
+function gv () {
   nvim $(git grep -n $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
 # mdfind and nvim
-function ffvim () {
+function fv () {
   nvim $(mdfind "kMDItemDisplayName == *$@*" | fzf --query "$LBUFFER")
 }
 
