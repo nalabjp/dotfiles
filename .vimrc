@@ -105,7 +105,7 @@ Plug 'gregsexton/VimCalc'
 Plug 'majutsushi/tagbar', { 'for': ['ruby', 'go'] }
 
 " neoterm
-Plug 'nalabjp/neoterm', { 'branch': 'default-test-lib' }
+Plug 'kassio/neoterm'
 
 call plug#end()
 
@@ -301,8 +301,6 @@ endif
 
 if s:plug.is_installed('neoterm')
   let g:neoterm_repl_ruby = 'pry'
-  " Use rake on test
-  let g:neoterm_test_lib_primary = 'rake'
   let g:neoterm_focus_when_tests_fail = 1
   tnoremap <silent> <ESC> <C-\><C-n>
   " hide/close terminal
