@@ -23,19 +23,19 @@ function fzf-path() {
 }
 zle -N fzf-path
 
-# ag and vim
+# ag and nvim
 function agvim () {
-  vim $(ag $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  nvim $(ag $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
-# ag -h and vim
+# ag -h and nvim
 function aghvim () {
-  vim $(agh $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  nvim $(agh $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
-# git grep and vim
+# git grep and nvim
 function ggrvim () {
-  vim $(git grep -n $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  nvim $(git grep -n $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
 # mdfind and nvim
