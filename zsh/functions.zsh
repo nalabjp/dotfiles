@@ -38,6 +38,11 @@ function ggrvim () {
   vim $(git grep -n $@ | fzf --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
+# mdfind and nvim
+function ffvim () {
+  nvim $(mdfind "kMDItemDisplayName == *$@*" | fzf --query "$LBUFFER")
+}
+
 # rake
 _cachefile_updated_at() {
   echo $(stat -f%m .rake_tasks)
