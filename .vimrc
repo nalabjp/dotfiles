@@ -107,6 +107,9 @@ Plug 'majutsushi/tagbar', { 'for': ['ruby', 'go'] }
 " neoterm
 Plug 'kassio/neoterm'
 
+" vimtest
+Plug 'janko-m/vim-test'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
@@ -309,11 +312,15 @@ if s:plug.is_installed('neoterm')
   nnoremap <silent> <Space>tc :call neoterm#clear()<cr>
   " kills the current job (send a <c-c>)
   nnoremap <silent> <Space>tk :call neoterm#kill()<cr>
-  " for test
-  nnoremap <silent> <Space>ra :call neoterm#test#run('all')<cr>
-  nnoremap <silent> <Space>rf :call neoterm#test#run('file')<cr>
-  nnoremap <silent> <Space>rc :call neoterm#test#run('current')<cr>
-  nnoremap <silent> <Space>rr :call neoterm#testt#rerun()<cr>
+endif
+
+if s:plug.is_installed('vim-test')
+  let test#strategy = 'neoterm'
+  nmap <silent> <Space>tn :TestNearest<CR>
+  nmap <silent> <Space>tf :TestFile<CR>
+  nmap <silent> <Space>ts :TestSuite<CR>
+  nmap <silent> <Space>tl :TestLast<CR>
+  nmap <silent> <Space>tv :TestVisit<CR>
 endif
 
 """"""""""""""""""""""""""""""""""""
