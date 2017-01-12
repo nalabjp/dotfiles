@@ -207,6 +207,7 @@ if s:plug.is_installed('base16-vim')
   hi WildMenu cterm=BOLD ctermbg=darkgreen ctermfg=white
   hi StatusLine ctermbg=darkgray ctermfg=white
   hi Todo cterm=BOLD ctermbg=yellow ctermfg=black
+  hi VertSplit ctermbg=NONE ctermfg=darkgray
 endif
 
 if s:plug.is_installed('vim-easymotion')
