@@ -112,4 +112,4 @@ fi
 export XDG_CONFIG_HOME=~/.config
 
 # enhancd
-export ENHANCD_COMMAND=ed
+export ENHANCD_COMMAND=e
