@@ -89,5 +89,5 @@ gwac() {
   local branch=$1
   local base=${2:-upstream/release}
   git branch $branch $base
-  _gwa $branch
+  gwa $branch
 }
