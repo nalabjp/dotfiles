@@ -308,6 +308,10 @@ if s:plug.is_installed('neoterm')
   let g:neoterm_repl_ruby = 'pry'
   let g:neoterm_focus_when_tests_fail = 1
   tnoremap <silent> <ESC> <C-\><C-n>
+  " open new terminal
+  nnoremap <silent> <Space>tt :call neoterm#tnew()<cr>
+  " open existing terminal
+  nnoremap <silent> <Space>to :call neoterm#open()<cr>
   " hide/close terminal
   nnoremap <silent> <Space>th :call neoterm#close()<cr>
   " clear terminal
