@@ -91,3 +91,12 @@ gwac() {
   git branch $branch $base
   gwa $branch
 }
+
+# tag generate
+taggen() {
+  if ! [ -d .ctags.d ]; then
+    mkdir -p .ctags.d
+  fi
+  sh -c "ctags --tag-relative -f .ctags.d/tags -R . 2>/dev/null" &
+  sh -c "ctags --tag-relative -f .ctags.d/Gemfile.lock.tags -R \$(bundle show --paths) 2>/dev/null" &
+}

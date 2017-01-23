@@ -170,9 +170,6 @@ alias restore-zcompdump='rm ~/.zcompdump && exec zsh'
 # gnu-sed
 alias sed='gsed'
 
-# ctags
-alias taggen="sh -c 'ctags  --tag-relative -f .git/tags -R . 2>/dev/null' &; sh -c 'ctags --tag-relative -f .git/Gemfile.lock.tags -R \$(bundle show --paths) 2>/dev/null' &"
-
 # less +F
 alias tailf='LESSOPEN= less +F'
 
