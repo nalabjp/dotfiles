@@ -322,11 +322,11 @@ endif
 
 if s:plug.is_installed('vim-test')
   let test#strategy = 'neoterm'
-  nmap <silent> <Space>tn :TestNearest<CR>
-  nmap <silent> <Space>tf :TestFile<CR>
-  nmap <silent> <Space>ts :TestSuite<CR>
-  nmap <silent> <Space>tl :TestLast<CR>
-  nmap <silent> <Space>tv :TestVisit<CR>
+  nnoremap <silent> <Space>tn :TestNearest<CR>
+  nnoremap <silent> <Space>tf :TestFile<CR>
+  nnoremap <silent> <Space>ts :TestSuite<CR>
+  nnoremap <silent> <Space>tl :TestLast<CR>
+  nnoremap <silent> <Space>tv :TestVisit<CR>
 endif
 
 """"""""""""""""""""""""""""""""""""
