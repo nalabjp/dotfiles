@@ -116,6 +116,7 @@ zstyle ':completion:*:*:*:*:*' menu select
 
 # autosuggest
 bindkey '^ ' autosuggest-clear
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 
 #################################
 # travis.sh
