@@ -46,10 +46,6 @@ zplug 'zsh-users/zsh-autosuggestions'
 
 # load
 zplug load
-# for zplug load v2.4.0
-# now fixed v2.1.0
-# @see https://github.com/zplug/zplug/issues/322
-# setopt monitor
 
 #################################
 # options
