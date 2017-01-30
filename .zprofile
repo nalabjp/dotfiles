@@ -113,3 +113,7 @@ export XDG_CONFIG_HOME=~/.config
 
 # enhancd
 export ENHANCD_COMMAND=e
+
+# zplug
+export ZPLUG_HOME=~/.zplug
+path=($ZPLUB_HOME/bin(N-/) $path)
