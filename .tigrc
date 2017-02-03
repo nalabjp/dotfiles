@@ -28,3 +28,7 @@ bind branch n !git checkout -b %(prompt) %(branch)
 bind branch D !?git branch -D %(branch)
 # remove branch
 bind branch d !?git branch -d %(branch)
+
+# status
+# commit -v
+bind status C !git commit -v
