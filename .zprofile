@@ -14,7 +14,8 @@ path=(~/.dotfiles/bin(N-/) $path)
 fpath=(~/.dotfiles/zfunctions(N-/) $fpath)
 
 # EDITOR
-export EDITOR='vim'
+export EDITOR='nvim'
+export GIT_EDITOR=$EDITOR
 
 # TERM
 export TERM=xterm-256color
