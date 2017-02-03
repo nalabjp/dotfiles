@@ -46,8 +46,6 @@
   compactionHeuristic = true
 [interactive]
   diffFilter = diff-highlight
-[commit]
-  template = ~/.commit_template
 [init]
   templatedir = ~/.git_template
 [grep]
