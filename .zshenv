@@ -170,6 +170,14 @@ alias restore-zcompdump='rm ~/.zcompdump && exec zsh'
 # gnu-sed
 alias sed='gsed'
 
+# tig
+alias t='tig'
+alias ta='tig --all'
+alias tb='tig blame'
+alias tl='tig log'
+alias tg='tig grep'
+alias ts='tig status'
+
 # less +F
 alias tailf='LESSOPEN= less +F'
 
