@@ -164,9 +164,6 @@ alias rd=rmdir
 # redis
 alias redis-start='redis-server'
 
-# restore zcompdump
-alias restore-zcompdump='rm ~/.zcompdump && exec zsh'
-
 # gnu-sed
 alias sed='gsed'
 
@@ -180,9 +177,6 @@ alias ts='tig status'
 
 # less +F
 alias tailf='LESSOPEN= less +F'
-
-# tmux
-alias tsk='tmux send-keys'
 
 # nvim
 alias v='nvim'
