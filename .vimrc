@@ -109,7 +109,7 @@ Plug 'kassio/neoterm'
 
 " vimtest
 Plug 'janko-m/vim-test'
-Plug 'christoomey/vim-tmux-runner'
+Plug 'benmills/vimux'
 
 call plug#end()
 
@@ -322,7 +322,7 @@ if s:plug.is_installed('neoterm')
 endif
 
 if s:plug.is_installed('vim-test')
-  let test#strategy = 'vtr'
+  let test#strategy = 'vimux'
   nnoremap <silent> <Space>tn :TestNearest<CR>
   nnoremap <silent> <Space>tf :TestFile<CR>
   nnoremap <silent> <Space>ts :TestSuite<CR>
