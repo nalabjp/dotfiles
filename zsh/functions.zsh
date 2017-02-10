@@ -73,21 +73,3 @@ _rake() {
 }
 
 compdef _rake rake
-
-# git worktree add
-gwa() {
-  local branch=$1
-  git worktree add gwt-$branch $branch
-  cd gwt-$branch/vendor
-  ln -s ../../vendor/bundle bundle
-  bundle install --path=vendor/bundle
-  cd ..
-}
-
-# git worktree add and create git branch
-gwac() {
-  local branch=$1
-  local base=${2:-upstream/release}
-  git branch $branch $base
-  gwa $branch
-}
