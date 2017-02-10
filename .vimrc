@@ -164,7 +164,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""
 " Generate ctags
 function! Gentags()
-  silent! execute '!taggen'
+  silent! execute '!ctaggen'
   redraw!
 endfunction
 
