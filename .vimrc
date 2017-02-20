@@ -404,6 +404,9 @@ silent execute '!mkdir -p $HOME/.vimbackup'
 set backup
 set backupdir=~/.vimbackup
 
+" 自動的にファイルのディレクトリに移動
+set autochdir
+
 """"""""""""""""""""""""""""""""""""
 " color
 """"""""""""""""""""""""""""""""""""
