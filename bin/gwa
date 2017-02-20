@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -eu
+
+# git worktree add
+branch=$1
+git worktree add gwt-$branch $branch
+pushd gwt-$branch/vendor > /dev/null
+ln -s ../../vendor/bundle bundle
+bundle install --path=vendor/bundle
+popd > /dev/null

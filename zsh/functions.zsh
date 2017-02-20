@@ -73,30 +73,3 @@ _rake() {
 }
 
 compdef _rake rake
-
-# git worktree add
-gwa() {
-  local branch=$1
-  git worktree add gwt-$branch $branch
-  cd gwt-$branch/vendor
-  ln -s ../../vendor/bundle bundle
-  bundle install --path=vendor/bundle
-  cd ..
-}
-
-# git worktree add and create git branch
-gwac() {
-  local branch=$1
-  local base=${2:-upstream/release}
-  git branch $branch $base
-  gwa $branch
-}
-
-# tag generate
-taggen() {
-  if ! [ -d .ctags.d ]; then
-    mkdir -p .ctags.d
-  fi
-  sh -c "ctags --tag-relative -f .ctags.d/tags -R . 2>/dev/null" &
-  sh -c "ctags --tag-relative -f .ctags.d/Gemfile.lock.tags -R \$(bundle show --paths) 2>/dev/null" &
-}
