@@ -18,7 +18,7 @@ export EDITOR='nvim'
 export GIT_EDITOR=$EDITOR
 
 # TERM
-export TERM=xterm-256color
+export TERM=screen-256color
 
 # history config
 export HISTFILE=~/.zsh_history
