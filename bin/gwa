@@ -4,7 +4,6 @@ set -eu
 # git worktree add
 branch=$1
 git worktree add gwt-$branch $branch
-pushd gwt-$branch/vendor > /dev/null
+cd gwt-$branch/vendor
 ln -s ../../vendor/bundle bundle
 bundle install --path=vendor/bundle
-popd > /dev/null
