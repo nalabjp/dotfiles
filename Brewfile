@@ -18,6 +18,8 @@
 tap 'homebrew/bundle'
 # for brew versions
 tap 'homebrew/versions'
+# for ergodox
+tap 'osx-cross/avr'
 # for ghq
 tap 'motemen/ghq'
 # for gitsh
@@ -45,6 +47,10 @@ brew 'ctags'
 brew 'direnv'
 # emojify
 brew 'emojify'
+# ergodox
+brew 'teensy_loader_cli'
+brew 'avr-libc'
+brew 'dfu-programmer'
 # findutils
 brew 'findutils'
 # fontforge
