@@ -1,4 +1,9 @@
 {
+    "global": {
+        "check_for_updates_on_startup": true,
+        "show_in_menu_bar": true,
+        "show_profile_name_in_menu_bar": false
+    },
     "profiles": [
         {
             "devices": [
@@ -12,6 +17,16 @@
                     },
                     "ignore": true,
                     "keyboard_type": 0
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 4871,
+                        "vendor_id": 65261
+                    },
+                    "ignore": true
                 }
             ],
             "fn_function_keys": {
@@ -33,6 +48,10 @@
             "simple_modifications": {
                 "caps_lock": "left_control",
                 "left_control": "caps_lock"
+            },
+            "virtual_hid_keyboard": {
+                "caps_lock_delay_milliseconds": 0,
+                "keyboard_type": "ansi"
             }
         }
     ]
