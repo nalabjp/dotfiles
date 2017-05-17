@@ -49,6 +49,21 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>E303BB11-E660-43FF-B81D-453EB92B27E6</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>keymap</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Open ergodox-ez keymap</string>
+			<key>url</key>
+			<string>https://github.com/nalabjp/qmk_firmware/blob/master/keyboards/ergodox/keymaps/nalabjp/keymap.c</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 	</dict>
 	<key>onlyShowEnabledInPrefs</key>
 	<true/>
