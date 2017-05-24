@@ -3,6 +3,8 @@
 # ----------
 # diff context line number in diff view
 set diff-context = 6
+set vertical-split = no
+set split-view-height = 80%
 
 # ----------
 # key bind
