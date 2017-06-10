@@ -68,6 +68,9 @@ Plug 'kchmck/vim-coffee-script', { 'for': ['coffee'] }
 " golang
 Plug 'fatih/vim-go'
 
+" rust
+Plug 'rust-lang/rust.vim'
+
 " markdown
 Plug 'rcmdnk/vim-markdown', { 'for': ['markdown'] }
 Plug 'tyru/open-browser.vim', { 'for': ['markdown'] }
@@ -281,6 +284,10 @@ if s:plug.is_installed('vim-go')
   let g:go_highlight_build_constraints = 1
   let g:go_fmt_command = 'goimports'
   let g:go_fmt_fail_silently = 1
+endif
+
+if s:plug.is_installed('rust.vim')
+  let g:rustfmt_autosave = 1
 endif
 
 if s:plug.is_installed('deoplete.nvim')
