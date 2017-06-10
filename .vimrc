@@ -114,6 +114,9 @@ Plug 'kassio/neoterm'
 Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 
+" webapi
+Plug 'mattn/webapi-vim'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
