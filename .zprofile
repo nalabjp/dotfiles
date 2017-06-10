@@ -117,4 +117,4 @@ export ENHANCD_COMMAND=e
 
 # zplug
 export ZPLUG_HOME=~/.zplug
-path=($ZPLUB_HOME/bin(N-/) $path)
+path+=($ZPLUB_HOME/bin(N-/))
