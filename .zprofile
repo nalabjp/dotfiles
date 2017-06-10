@@ -118,3 +118,7 @@ export ENHANCD_COMMAND=e
 # zplug
 export ZPLUG_HOME=~/.zplug
 path+=($ZPLUB_HOME/bin(N-/))
+
+# Rust with cargo
+path+=(~/.cargo/bin(N-/))
+export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/
