@@ -325,9 +325,9 @@ if s:plug.is_installed('neoterm')
   let g:neoterm_repl_ruby = 'pry'
   let g:neoterm_focus_when_tests_fail = 1
 
-  if &buftype!="quickfix"
-    tnoremap <silent> <ESC> <C-\><C-n>
-  endif
+  " if &buftype!="quickfix"
+  "   tnoremap <silent> <ESC> <C-\><C-n>
+  " endif
 
   " open new terminal
   nnoremap <silent> <Space>tt :call neoterm#tnew()<cr>
