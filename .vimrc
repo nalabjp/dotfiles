@@ -457,7 +457,7 @@ nmap d- d$
 nmap d0 d^
 
 " 置換時に変更箇所をsplit表示
-set inccommand=split
+"set inccommand=split
 
 """"""""""""""""""""""""""""""""""""
 " encoding
