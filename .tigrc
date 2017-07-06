@@ -22,6 +22,10 @@ bind generic G move-last-line
 bind main <Ctrl-r> !git pull
 # checkout 
 bind main C !?git checkout %(commit)
+# commit --fixup
+bind main F ?!git commit --fixup %(commit)
+# commit --suqash
+bind main S ?!git commit --squash %(commit)
 
 # branch
 # make new branch
@@ -34,3 +38,19 @@ bind branch d !?git branch -d %(branch)
 # status
 # commit -v
 bind status C !git commit -v
+
+# diff
+# commit --fixup
+bind diff F ?!git commit --fixup %(commit)
+# commit --suqash
+bind diff S ?!git commit --squash %(commit)
+# browse
+bind diff B @hub browse -- commit/%(commit)
+
+# blog
+# browse
+bind blob B @hub browse -- tree/%(commit)/%(file)
+
+# tree
+# browse
+bind tree B @hub browse -- tree/%(commit)/%(directory)
