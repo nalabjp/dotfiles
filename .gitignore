@@ -28,6 +28,8 @@ tmp
 /gwt-*/
 # bundle cache
 /.bundle/cache
+# for capistrano
+config/deploy/mac.rb
 # alfred
 /alfred/Alfred.alfredpreferences/*
 !/alfred/Alfred.alfredpreferences/workflows
