@@ -127,7 +127,10 @@ if which karabiner > /dev/null 2>&1; then
   alias karabiner-export='karabiner export > $DOTFILES/karabiner/import.sh'
 fi
 
-# ls
+# gnu-ln
+alias ln='gln'
+
+# gnu-ls
 # require coreutils
 alias ls='gls --color=auto'
 alias lsa='ls -lah'
@@ -167,6 +170,9 @@ alias redis-start='redis-server'
 
 # gnu-sed
 alias sed='gsed'
+
+# gnu-tar
+alias tar='gtar'
 
 # tig
 alias t='tig'
