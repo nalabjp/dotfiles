@@ -73,3 +73,5 @@ _rake() {
 }
 
 compdef _rake rake
+
+function _vim() {nvim ${${=*/:/ +}/:*}}

@@ -186,7 +186,7 @@ alias ts='tig status'
 alias tailf='LESSOPEN= less +F'
 
 # nvim
-alias v='nvim'
+alias v='_vim'
 
 # edit .dotfiles
 alias vg='v ~/.gitconfig'
