@@ -105,6 +105,8 @@ brew 'openssl@1.1'
 brew 'nkf'
 # nodebrew
 brew 'nodebrew'
+# noti
+brew 'noti'
 # openvpn
 brew 'openvpn'
 # pandoc
