@@ -137,6 +137,7 @@ alias lsa='ls -lah'
 alias l='ls -lah'
 alias ll='ls -lh'
 alias la='ls -lAh'
+alias latr='ls -lAhtr'
 
 # mkdir
 alias md='mkdir -p'
