@@ -122,3 +122,10 @@ path+=($ZPLUB_HOME/bin(N-/))
 # Rust with cargo
 path+=(~/.cargo/bin(N-/))
 export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/
+
+# Perl5
+path+=(~/perl5(N-/))
+path+=(~/perl5/bin(N-/))
+path+=(~/perl5/lib/perl5(N-/))
+export PERL_MB_OPT="--install_base \"~/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=~/perl5"
