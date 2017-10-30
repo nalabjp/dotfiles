@@ -53,8 +53,10 @@ function tmux_automatically_attach_session()
                 # to spawn a shell in the user's namespace
                 tmux_config=$(cat ~/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
                 tmux -f <(echo "$tmux_config") new-session && echo "$(tmux -V) created new session supported OS X"
+                exit;
             else
                 tmux new-session && echo "tmux created new session"
+                exit;
             fi
         fi
     fi
