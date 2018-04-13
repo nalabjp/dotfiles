@@ -15,7 +15,7 @@ tags
 Gemfile.lock.tags
 .bashrc.local
 .zshrc.local
-.envrc
+.envrc*
 .tmuxinator/*
 !.tmuxinator/default.yml
 .idea/
