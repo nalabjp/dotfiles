@@ -49,8 +49,7 @@ setup_misc() {
 
     if [ -e /Applications/Karabiner-Elements.app ]; then
         log_info "Karabiner-Elements"
-        mkdir -p $HOME/.karabiner.d/configuration
-        create_symlink $HOME/.karabiner.d/configuration/karabiner.json $HOME/$DOTS_DIR/.karabiner.d/configuration/karabiner.json
+        cp -r $HOME/$DOTS_DIR/karabiner $HOME/.config/
     fi
 
     log_info "neovim"
