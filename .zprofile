@@ -76,11 +76,6 @@ export BUNDLE_EXEC_COMMANDS='ruby rails rake rspec spring'
 export FZF_DEFAULT_COMMAND='ag'
 export FZF_DEFAULT_OPTS='--extended --cycle --select-1 --exit-0 --multi'
 
-# karabiner
-if [ -f /Applications/Karabiner.app/Contents/Library/bin/karabiner ]; then
-  path+=(/Applications/Karabiner.app/Contents/Library/bin(N-/))
-fi
-
 # only define LC_CTYPE if undefined
 if [[ -z "$LC_CTYPE" && -z "$LC_ALL" ]]; then
   export LC_CTYPE=${LANG%%:*} # pick the first entry from LANG
