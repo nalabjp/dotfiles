@@ -112,7 +112,7 @@ export ENHANCD_COMMAND=e
 
 # zplug
 export ZPLUG_HOME=~/.zplug
-path+=($ZPLUB_HOME/bin(N-/))
+path+=($ZPLUG_HOME/bin(N-/))
 
 # Rust with cargo
 path+=(~/.cargo/bin(N-/))
