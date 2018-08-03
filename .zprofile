@@ -124,3 +124,6 @@ path+=(~/perl5/bin(N-/))
 path+=(~/perl5/lib/perl5(N-/))
 export PERL_CPANM_OPT=--local-lib=~/extlib
 export PERL5LIB=$HOME/extlib/lib/perl5:$PERL5LIB
+
+# MySQL
+path=(/usr/local/opt/mysql/bin(N-/) $path)
