@@ -16,18 +16,12 @@
 # tap
 # for brew bundle
 tap 'homebrew/bundle'
-# for brew versions
-tap 'homebrew/versions'
 # for ergodox
 tap 'osx-cross/avr'
-# for ghq
-tap 'motemen/ghq'
 # for gitsh
 tap 'thoughtbot/formulae'
 # for itemr2
 tap 'caskroom/cask'
-# for xpdf
-tap 'homebrew/x11'
 # neovim
 tap 'neovim/neovim'
 
@@ -49,7 +43,7 @@ brew 'direnv'
 brew 'emojify'
 # ergodox
 brew 'teensy_loader_cli'
-brew 'avr-libc'
+brew 'avr-gcc'
 brew 'dfu-programmer'
 # findutils
 brew 'findutils'
@@ -67,7 +61,7 @@ brew 'gist'
 # gnu-sed
 brew 'gnu-sed'
 # gnu-tar
-brew 'gnu-tar', args: ['with-default-names']
+brew 'gnu-tar'
 # go
 brew 'go'
 brew 'glide'
@@ -94,8 +88,8 @@ brew 'mecab'
 brew 'mecab-ipadic'
 # mongodb
 brew 'mongodb'
-# mysql
-brew 'mysql'
+# mysql5.7
+brew 'mysql@5.7'
 # neovim
 brew 'neovim/neovim/neovim'
 # nginx
@@ -130,7 +124,6 @@ brew 'openssl'
 brew 'readline'
 brew 'rbenv'
 brew 'ruby-build'
-brew 'rsense'
 # rbenv-default-gems
 brew 'rbenv-default-gems'
 # source-highlight
@@ -147,6 +140,6 @@ brew 'watch'
 # wget
 brew 'wget'
 # zplug
-#brew 'zplug'
+brew 'zplug'
 # zsh
 brew 'zsh', args: ['without-etcdir']
