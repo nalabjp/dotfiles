@@ -1,6 +1,71 @@
 Changelog
 =========
 
+Version 1.6.2 – 2018-02-13
+--------------------------
+
+### Bugfixes
+
+* Api pagination didn't work correctly any more (missing results from page > 2)
+
+
+Version 1.6.1 – 2017-09-23
+--------------------------
+
+### Bugfixes
+
+* Support for macOS 10.13 High Sierra
+* Commit search results had wrong urls on GitHub Enterprise (@beparker)
+
+
+Version 1.6 – 2017-05-07
+------------------------
+
+### Features
+
+* new command `gh user/repo projects` (@dagio)
+* new command `gh my pulls review requested` (@AeroEchelon)
+* better sorting for issues (most recently updated on top) and commits (most recent on top) (@danielma)
+
+### Bugfixes
+
+* On macOS 10.12.5 Beta URLs didn't opened in browser anymore
+
+
+Version 1.5 – 2016-12-13
+------------------------
+
+### Features
+
+* new commands for searching repos and users globally in GitHub (`gh s repo` and `gh s @user`)
+* new command `gh my repos` (@jacobkossman)
+* new command `gh > delete database`
+* source repos with higher priority than forks
+
+### Bugfixes
+
+* in some situations private repos were missing (@lxynox)
+* after saving GitHub Enterprise url the workflow didn't reopen correctly
+* updated user sub commands ("Activity" tab does not exist any more on GitHub)
+
+
+Version 1.4.1 – 2016-22-07
+--------------------------
+
+* fixed reading environment variables (important for hotkey support)
+
+
+Version 1.4 – 2016-22-07
+------------------------
+
+* Hotkey support
+* use native update mechanism of Alfred (to keep your hotkeys)
+* new command `gh user/repo releases` (@altern8tif)
+* cache warmup after login
+* lower cpu usage in multi curl
+* fixed autocomplete values in GitHub Enterprise
+
+
 Version 1.3 – 2016-17-07
 ------------------------
 

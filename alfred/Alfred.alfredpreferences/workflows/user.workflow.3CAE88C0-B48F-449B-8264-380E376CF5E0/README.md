@@ -1,17 +1,29 @@
-GitHub Workflow for [Alfred 2](http://www.alfredapp.com)
+GitHub Workflow for [Alfred 3](http://www.alfredapp.com)
 ==============================
 
 [![Gitter](https://badges.gitter.im/gharlan/alfred-github-workflow.svg)](https://gitter.im/gharlan/alfred-github-workflow?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-It works similar to the original (and removed) [GitHub command bar](https://github.com/blog/1264-introducing-the-command-bar) and to its [update](https://github.com/blog/1461-a-smarter-more-complete-y-search-bar), the keyword is "gh" (example: `gh github/gollum issues`).
+You can search through GitHub (`gh`) and your GitHub Enterprise instance (`ghe`).
 
 You have to login (`gh > login`) before you can use the workflow. The login uses OAuth, so you do not have to enter your credentials.
 
-You can search through your GitHub Enterprise instance by using the `ghe` keyword instead of `gh`.
+**[DOWNLOAD](https://github.com/gharlan/alfred-github-workflow/releases)**
 
-**[DOWNLOAD](http://gh01.de/alfred/github/github.alfredworkflow)**
+![Workflow Screenshot](screenshot.png)
 
-![Workflow Screenshot](http://gh01.de/alfred/github/workflow.png)
+Setup
+-----
+
+### For github.com
+
+In Alfred type (`gh > login`) to authenticate against your account. The login uses OAuth, so you do not have to enter your credentials.
+
+### For github enterprise
+
+1. In Alfred type (`ghe > url https://github.mycompany.com`)
+2. Create a new Personal Access Token (`ghe > generate token` or `https://github.mycompany.com/settings/applications`). It only needs access to your repos. Copy this token to your clipboard.
+3. In Alfred type (`ghe > login <paste token here>`)
+4. You can now `ghe your_enterprise_repo_name`
 
 Key Combinations
 ----------------
@@ -43,18 +55,25 @@ To search through your GitHub Enterprise instance replace `gh` by `ghe`.
 * `gh user/repo network`
 * `gh user/repo new issue`
 * `gh user/repo new pull`
+* `gh user/repo projects`
 * `gh user/repo pulls`
 * `gh user/repo pulse`
+* `gh user/repo releases`
 * `gh user/repo wiki`
+* `gh user/repo projects`
 
 ### User commands
 
 * `gh @user`
-* `gh @user contributions`
+* `gh @user overview`
 * `gh @user repositories`
-* `gh @user activity`
 * `gh @user stars`
 * `gh @user gists`
+
+### Search commands
+
+* `gh s repo`
+* `gh s @user`
 
 ### "My" commands
 
@@ -69,6 +88,8 @@ To search through your GitHub Enterprise instance replace `gh` by `ghe`.
 * `gh my pulls created`
 * `gh my pulls assigned`
 * `gh my pulls mentioned`
+* `gh my pulls review requested`
+* `gh my repos`
 * `gh my settings`
 * `gh my stars`
 * `gh my gists`
@@ -78,6 +99,7 @@ To search through your GitHub Enterprise instance replace `gh` by `ghe`.
 * `gh > login`
 * `gh > logout`
 * `gh > delete cache`
+* `gh > delete database`
 * `gh > update`
 * `gh > activate autoupdate`
 * `gh > deactivate autoupdate`
@@ -86,3 +108,5 @@ To search through your GitHub Enterprise instance replace `gh` by `ghe`.
 * `ghe > url` (GitHub Enterprise only)
 * `ghe > generate token` (GitHub Enterprise only)
 * `ghe > enterprise reset` (GitHub Enterprise only)
+
+
