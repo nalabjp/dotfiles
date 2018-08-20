@@ -4,6 +4,34 @@
 <dict>
 	<key>customSites</key>
 	<dict>
+		<key>074CD6B2-6B26-4F01-AA0F-841CBF14C0F7</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>esa</string>
+			<key>spaces</key>
+			<string>%20</string>
+			<key>text</key>
+			<string>Open esa post</string>
+			<key>url</key>
+			<string>https://mf.esa.io/posts/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>7FE4C416-2F65-43C5-8408-2BBCEF0E2154</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>issue</string>
+			<key>text</key>
+			<string>Open GitHub Issues</string>
+			<key>url</key>
+			<string>https://github.com/issues</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>9AE9AE4C-20C0-45D1-A476-28B6266453BF</key>
 		<dict>
 			<key>enabled</key>
@@ -31,6 +59,19 @@
 			<string>Open Inbox</string>
 			<key>url</key>
 			<string>https://inbox.google.com/</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>BB93FD61-DEF3-419E-80F4-2D7AE2A0BCA9</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>pr</string>
+			<key>text</key>
+			<string>Open Github Pull requests</string>
+			<key>url</key>
+			<string>https://github.com/pulls</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
