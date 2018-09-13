@@ -115,6 +115,8 @@ brew 'postgresql'
 brew 'pstree'
 # pup
 brew 'pup'
+# pt(the_platinum_searcher)
+brew 'pt'
 # pwgen
 brew 'pwgen'
 # redis
