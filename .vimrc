@@ -319,6 +319,7 @@ endif
 
 if s:plug.is_installed('tagbar')
   let g:tagbar_autofocus = 1
+  nnoremap <silent> <Space>ba :TagbarToggle<CR>
 endif
 
 if s:plug.is_installed('neoterm')
