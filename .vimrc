@@ -255,6 +255,8 @@ if s:plug.is_installed('vim-ruby')
   let g:rubycomplete_classes_in_global = 1
   let g:rubycomplete_include_object = 1
   let g:rubycomplete_include_object_space = 1
+  let g:rubycomplete_load_gemfile = 1
+  let g:rubycomplete_use_bundler = 1
 endif
 
 if s:plug.is_installed('vim-rails')
