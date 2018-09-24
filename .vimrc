@@ -107,8 +107,9 @@ Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 
 " Language server client
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
 
 call plug#end()
 
