@@ -1,0 +1,22 @@
+---
+include:
+- "app/**/*.rb"
+- "lib/**/*.rb"
+exclude:
+- config/**/*
+- db/**/*
+- spec/**/*
+- test/**/*
+- vendor/**/*
+- log/**/*
+- tmp/**/*
+- ".bundle/**/*"
+require: []
+domains: []
+reporters:
+- rubocop
+- require_not_found
+plugins:
+- runtime
+require_paths: []
+max_files: 0
