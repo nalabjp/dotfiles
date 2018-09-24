@@ -111,6 +111,9 @@ Plug 'benmills/vimux'
 " Plug 'prabirshrestha/vim-lsp'
 Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
 
+" undo
+Plug 'mbbill/undotree'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
