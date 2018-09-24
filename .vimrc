@@ -283,12 +283,8 @@ endif
 
 if s:plug.is_installed('deoplete.nvim')
   let g:deoplete#enable_at_startup = 1
-  " TODO: Remove if fixed neovim bug
-  "       https://github.com/neovim/neovim/issues/5204
-  " let g:deoplete#ignore_sources = {}
-  " let g:deoplete#ignore_sources.ruby = ['omni']
-  " let g:deoplete#omni#input_patterns = {}
-  " let g:deoplete#omni#input_patterns.ruby = ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
+  let g:deoplete#omni#input_patterns = {}
+  let g:deoplete#omni#input_patterns.ruby = ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
 endif
 
 if s:plug.is_installed('buftabs')
