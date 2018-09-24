@@ -97,9 +97,6 @@ Plug 'vim-scripts/buftabs'
 " Ctrl-P
 Plug 'ctrlpvim/ctrlp.vim'
 
-" Calc
-Plug 'gregsexton/VimCalc'
-
 " for ctags
 Plug 'majutsushi/tagbar', { 'for': ['ruby', 'go'] }
 
