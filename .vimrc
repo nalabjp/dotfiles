@@ -48,10 +48,6 @@ Plug 'osyo-manga/vim-textobj-multiblock'
 " 文章整形
 Plug 'junegunn/vim-easy-align'
 
-" git
-Plug 'jreybert/vimagit'
-Plug 'cohama/agit.vim'
-
 " ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
 Plug 'rhysd/vim-textobj-ruby', { 'for': ['ruby'] }
@@ -255,14 +251,6 @@ if s:plug.is_installed('vim-easy-align')
   nmap ga <Plug>(EasyAlign)
 endif
 
-if s:plug.is_installed('vimagit')
-  nnoremap <silent> <Space>m :Magit<CR>
-  let g:magit_show_help = 0
-  let g:magit_default_show_all_files = 2
-  let g:magit_default_fold_level = 2
-  let g:magit_default_sections = ['global_help', 'info', 'unstaged', 'staged', 'commit']
-endif
-
 if s:plug.is_installed('vim-ruby')
   let g:rubycomplete_rails = 1
   let g:rubycomplete_buffer_loading = 1
@@ -297,8 +285,8 @@ if s:plug.is_installed('deoplete.nvim')
   let g:deoplete#enable_at_startup = 1
   " TODO: Remove if fixed neovim bug
   "       https://github.com/neovim/neovim/issues/5204
-  let g:deoplete#ignore_sources = {}
-  let g:deoplete#ignore_sources.ruby = ['omni']
+  " let g:deoplete#ignore_sources = {}
+  " let g:deoplete#ignore_sources.ruby = ['omni']
   " let g:deoplete#omni#input_patterns = {}
   " let g:deoplete#omni#input_patterns.ruby = ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
 endif
