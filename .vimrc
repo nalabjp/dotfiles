@@ -86,7 +86,6 @@ Plug 'vim-scripts/AnsiEsc.vim'
 
 " 補完
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'fishbullet/deoplete-ruby'
 
 " auto cd to project root
 Plug 'airblade/vim-rooter'
