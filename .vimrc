@@ -17,13 +17,13 @@ Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 " StatusLineの装飾
 Plug 'itchyny/lightline.vim'
-Plug 'taohex/lightline-solarized' | Plug 'tpope/vim-fugitive'
+Plug 'taohexxx/lightline-solarized' | Plug 'tpope/vim-fugitive'
 
 " theme
 Plug 'chriskempson/base16-vim'
 
 " endに%で移動
-Plug 'ruby-matchit', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
+Plug 'vim-scripts/ruby-matchit', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
 
 " コメントトグル
 Plug 'tomtom/tcomment_vim'
