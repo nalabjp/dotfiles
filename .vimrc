@@ -114,6 +114,9 @@ Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
 " undo
 Plug 'mbbill/undotree'
 
+" vim-illuminate
+Plug 'RRethy/vim-illuminate'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
