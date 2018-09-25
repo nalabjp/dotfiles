@@ -143,6 +143,8 @@ brew 'tree'
 brew 'watch'
 # wget
 brew 'wget'
+# yarn
+brew 'yarn'
 # zplug
 brew 'zplug'
 # zsh
