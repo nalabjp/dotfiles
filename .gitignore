@@ -30,6 +30,8 @@ tmp
 /.bundle/cache
 # for capistrano
 config/deploy/mac.rb
+# for solargraph
+.solargraph.yml
 # alfred
 /alfred/Alfred.alfredpreferences/*
 !/alfred/Alfred.alfredpreferences/workflows
