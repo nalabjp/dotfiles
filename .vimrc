@@ -51,6 +51,7 @@ Plug 'junegunn/vim-easy-align'
 " ruby
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
 Plug 'rhysd/vim-textobj-ruby', { 'for': ['ruby'] }
+Plug 'tpope/vim-bundler'
 
 " rails
 Plug 'tpope/vim-rails', { 'for': ['ruby'] }
