@@ -161,6 +161,9 @@ alias rz='source ~/.zshrc'
 alias rze='source ~/.zshenv'
 alias rzp='source ~/.zprofile'
 
+# rails
+alias rr='bin/rails'
+
 # rmdir
 alias rd=rmdir
 
