@@ -110,7 +110,7 @@ Plug 'benmills/vimux'
 " Language server client
 " Plug 'prabirshrestha/async.vim'
 " Plug 'prabirshrestha/vim-lsp'
-Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
+" Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
 
 " undo
 Plug 'mbbill/undotree'
