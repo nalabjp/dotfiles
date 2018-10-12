@@ -32,8 +32,7 @@ export HISTTIMEFORMAT='%Y-%m-%d %T ';
 export RBENV_ROOT=$(rbenv root)
 path=($RBENV_ROOT/bin(N-/) $path)
 
-if [ $+commands[rbenv] -ne 0 ]; then
-  rbenv_init(){
+if [ $+commands[rbenv] -ne 0 ]; then rbenv_init(){
     # eval "$(rbenv init - --no-rehash)" is crazy slow (it takes arround 100ms)
     # below style took ~2ms
     export RBENV_SHELL=zsh
@@ -127,3 +126,6 @@ export PERL5LIB=$HOME/extlib/lib/perl5:$PERL5LIB
 
 # MySQL
 path=(/usr/local/opt/mysql/bin(N-/) $path)
+
+# For pkg-config to find libxml2 on nokogiri.gem installation
+export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
