@@ -32,7 +32,8 @@ export HISTTIMEFORMAT='%Y-%m-%d %T ';
 export RBENV_ROOT=$(rbenv root)
 path=($RBENV_ROOT/bin(N-/) $path)
 
-if [ $+commands[rbenv] -ne 0 ]; then rbenv_init(){
+if [ $+commands[rbenv] -ne 0 ]; then
+  rbenv_init(){
     # eval "$(rbenv init - --no-rehash)" is crazy slow (it takes arround 100ms)
     # below style took ~2ms
     export RBENV_SHELL=zsh
