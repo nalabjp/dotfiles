@@ -41,16 +41,6 @@ default_command_set = Pry::CommandSet.new do
 end
 Pry.config.commands.import default_command_set
 
-## Below others cooperation
-# refs: https://github.com/pry/pry/wiki/FAQ#wiki-awesome_print
-begin
-  require 'awesome_print'
-  #Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output) }
-  Pry.config.print = proc { |output, value| output.puts value.ai } #ページングなし
-rescue LoadError => err
-  puts "no awesome_print :("
-end
-
 # refs: https://github.com/pry/pry/wiki/FAQ#wiki-hirb
 if defined? Hirb
   Hirb::View.instance_eval do
