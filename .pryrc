@@ -9,6 +9,7 @@ Pry.config.prompt = proc do |obj, level, _|
   "#{prompt} (#{obj})> "
 end
 
+Pry.config.pager = false
 
 ## Alias
 #Pry.config.commands.alias_command "lM", "ls -M"
