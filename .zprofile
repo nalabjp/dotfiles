@@ -126,7 +126,16 @@ export PERL_CPANM_OPT=--local-lib=~/extlib
 export PERL5LIB=$HOME/extlib/lib/perl5:$PERL5LIB
 
 # MySQL
-path=(/usr/local/opt/mysql/bin(N-/) $path)
+path=(/usr/local/opt/mysql@5.7/bin(N-/) $path)
+export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib:$LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include:$CPPFLAGS"
+export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # For pkg-config to find libxml2 on nokogiri.gem installation
-export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+# OpenSSL
+path=(/usr/local/opt/openssl/bin(N-/) $path)
+export LDFLAGS="-L/usr/local/opt/openssl/lib:$LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/openssl/include:$CPPFLAGS"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
