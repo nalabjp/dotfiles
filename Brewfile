@@ -69,6 +69,7 @@ brew 'go'
 brew 'glide'
 # heroku
 brew 'heroku'
+brew 'heroku/brew/heroku'
 # htop
 brew 'htop'
 # httpie
