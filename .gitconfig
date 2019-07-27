@@ -32,9 +32,10 @@
 [ghq]
   root = ~/ghq
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
   required = true
+	process = git-lfs filter-process
 [user]
   name = nalabjp
   email = nalabjp@gmail.com
