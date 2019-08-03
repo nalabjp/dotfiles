@@ -53,3 +53,5 @@
   templatedir = ~/.git_template
 [grep]
   lineNumber = true
+[credential]
+	helper = osxkeychain
