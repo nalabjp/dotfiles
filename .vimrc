@@ -59,9 +59,6 @@ Plug 'tpope/vim-rails', { 'for': ['ruby'] }
 " slim
 Plug 'slim-template/vim-slim', { 'for': ['slim'] }
 
-" coffee script
-Plug 'kchmck/vim-coffee-script', { 'for': ['coffee'] }
-
 " golang
 Plug 'fatih/vim-go'
 
