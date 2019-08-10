@@ -37,7 +37,7 @@ if [ $+commands[rbenv] -ne 0 ]; then
     # eval "$(rbenv init - --no-rehash)" is crazy slow (it takes arround 100ms)
     # below style took ~2ms
     export RBENV_SHELL=zsh
-    source "$(brew --prefix rbenv)/completions/rbenv.zsh"
+    source /usr/local/opt/rbenv/completions/rbenv.zsh
     rbenv() {
       local command
       command="$1"

@@ -31,7 +31,7 @@ prompt pure
 #################################
 # zplug
 #################################
-source $(brew --prefix zplug)/init.zsh
+source /usr/local/opt/zplug/init.zsh
 
 zplug 'junegunn/fzf-bin', from:gh-r, as:command, rename-to:fzf
 zplug 'zsh-users/zsh-completions'
