@@ -76,9 +76,6 @@ Plug 'Shougo/vimproc', { 'do': 'make' }
 " ツリー型エクスプローラ
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle'] }
 
-" dash
-Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
-
 " ANSIカラーを反映
 Plug 'vim-scripts/AnsiEsc.vim'
 
