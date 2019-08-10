@@ -108,9 +108,6 @@ Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 
 " Language server client
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
-" Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
 
 " undo
 Plug 'mbbill/undotree'
@@ -340,19 +337,6 @@ if s:plug.is_installed('vim-test')
   nnoremap <silent> <Space>tv :TestVisit<CR>
 endif
 
-if s:plug.is_installed('vim-lsp')
-    " let g:lsp_log_verbose = 1
-    " let g:lsp_log_file = expand('~/vim-lsp.log')
-    if executable('solargraph')
-      " gem install solargraph
-      au User lsp_setup call lsp#register_server({
-        \ 'name': 'solargraph',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-        \ 'initialization_options': {"diagnostics": "true"},
-        \ 'whitelist': ['ruby'],
-        \ })
-    endif
-endif
 
 """"""""""""""""""""""""""""""""""""
 " appearance
