@@ -91,9 +91,6 @@ Plug 'vim-scripts/buftabs'
 " Ctrl-P
 Plug 'ctrlpvim/ctrlp.vim'
 
-" for ctags
-Plug 'majutsushi/tagbar', { 'for': ['ruby', 'go'] }
-
 " neoterm
 Plug 'kassio/neoterm'
 
@@ -156,15 +153,6 @@ augroup check-plug
   autocmd!
   autocmd VimEnter * if !argc() | call s:plug.check_installation() | endif
 augroup END
-
-""""""""""""""""""""""""""""""""""""
-" Functions for others
-""""""""""""""""""""""""""""""""""""
-" Generate ctags
-function! Gentags()
-  silent! execute '!ctaggen'
-  redraw!
-endfunction
 
 """"""""""""""""""""""""""""""""""""
 " Plugin's configurations
@@ -516,12 +504,6 @@ autocmd FileType ruby setl iskeyword+=?
 " ファイルを開く際のリスト表示
 set wildmenu
 set wildmode=longest,list:full
-
-" Generate tags (ctags)
-nnoremap <Leader>t :call Gentags()<CR>
-" tags
-set tags+=.ctags.d/tags
-set tags+=.ctags.d/Gemfile.lock.tags
 
 " grep to QuickFix
 autocmd QuickFixCmdPost *grep* cwindow

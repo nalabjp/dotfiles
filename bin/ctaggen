@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -e
-if ! [ -d .ctags.d ]; then
-  mkdir -p .ctags.d
-fi
-trap "rm -f .ctags.d/tags.$$; rm -f .ctags.d/Gemfile.lock.tags.$$" EXIT
-sh -c "ctags --tag-relative -f .ctags.d/tags.$$ -R . --exclude=.git 2>/dev/null && mv .ctags.d/tags.$$ .ctags.d/tags" &
-sh -c "ctags --tag-relative -f .ctags.d/Gemfile.lock.tags.$$ -R \$(bundle show --paths) --exclude=.git 2>/dev/null && mv .ctags.d/Gemfile.lock.tags.$$ .ctags.d/Gemfile.lock.tags" &

@@ -10,9 +10,6 @@
 .DS_Store
 *.sw[po]
 *.sh.cache
-.ctags.d/
-tags
-Gemfile.lock.tags
 .bashrc.local
 .zshrc.local
 .envrc*

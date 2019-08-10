@@ -23,7 +23,6 @@
   revert-gemfile = !git update-index --no-assume-unchanged Gemfile Gemfile.lock
   open-pr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
   open-pr2 = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...upstream/master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
-  ctags = !.git/hooks/ctags
   branches = "!git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);(%(color:green)%(committerdate:relative)%(color:reset));%(authorname);%(contents:subject)' | column -t -s ';'"
 [help]
   autocorrect = 1

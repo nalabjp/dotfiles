@@ -37,8 +37,6 @@ brew 'colordiff'
 brew 'cmake'
 # coreutils
 brew 'coreutils'
-# ctags
-brew 'ctags'
 # direnv
 brew 'direnv'
 # emojify
