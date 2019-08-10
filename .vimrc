@@ -59,6 +59,9 @@ Plug 'tpope/vim-rails', { 'for': ['ruby'] }
 " slim
 Plug 'slim-template/vim-slim', { 'for': ['slim'] }
 
+" haml
+Plug 'tpope/vim-haml', { 'for': ['slim'] }
+
 " golang
 Plug 'fatih/vim-go'
 
