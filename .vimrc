@@ -81,6 +81,7 @@ Plug 'vim-scripts/AnsiEsc.vim'
 
 " 補完
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
 " auto cd to project root
 Plug 'airblade/vim-rooter'
