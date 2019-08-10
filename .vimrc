@@ -99,6 +99,10 @@ Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 
 " Language server client
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " undo
 Plug 'mbbill/undotree'
@@ -269,6 +273,8 @@ endif
 
 if s:plug.is_installed('deoplete.nvim')
   let g:deoplete#enable_at_startup = 1
+  inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
+  inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
 endif
 
 if s:plug.is_installed('buftabs')
@@ -319,7 +325,14 @@ if s:plug.is_installed('vim-test')
   nnoremap <silent> <Space>tv :TestVisit<CR>
 endif
 
+if s:plug.is_installed('LanguageClient-neovim')
+  let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ }
 
+  nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+endif
 """"""""""""""""""""""""""""""""""""
 " appearance
 """"""""""""""""""""""""""""""""""""
