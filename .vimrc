@@ -299,11 +299,6 @@ if s:plug.is_installed('ctrlp.vim')
   endif
 endif
 
-if s:plug.is_installed('tagbar')
-  let g:tagbar_autofocus = 1
-  nnoremap <silent> <Space>ba :TagbarToggle<CR>
-endif
-
 if s:plug.is_installed('neoterm')
   let g:neoterm_repl_ruby = 'pry'
   let g:neoterm_focus_when_tests_fail = 1
