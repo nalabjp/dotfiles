@@ -281,8 +281,6 @@ endif
 
 if s:plug.is_installed('deoplete.nvim')
   let g:deoplete#enable_at_startup = 1
-  inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
-  inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
 endif
 
 if s:plug.is_installed('buftabs')
