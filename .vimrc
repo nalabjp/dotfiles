@@ -37,13 +37,8 @@ Plug 'cohama/lexima.vim'
 " 複数のテキストを同時編集
 Plug 'terryma/vim-multiple-cursors'
 
-" operator
-Plug 'kana/vim-operator-user'
-Plug 'rhysd/vim-operator-surround'
-
 " text object
 Plug 'kana/vim-textobj-user'
-Plug 'osyo-manga/vim-textobj-multiblock'
 
 " 文章整形
 Plug 'junegunn/vim-easy-align'
@@ -223,19 +218,6 @@ endif
 
 if s:plug.is_installed('vim-markdown')
   let g:vim_markdown_folding_disabled=1
-endif
-
-if s:plug.is_installed('vim-operator-surround')
-  " 括弧を追加する
-  map <silent> <Space>sa <Plug>(operator-surround-append)
-  " 括弧を削除する
-  map <silent> <Space>sd <Plug>(operator-surround-delete)
-  " 括弧を入れ替える
-  map <silent> <Space>sr <Plug>(operator-surround-replace)
-  " カーソル位置から一番近い括弧を削除する
-  nmap <silent> <Space>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
-  " カーソル位置から一番近い括弧を変更する
-  nmap <silent> <Space>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
 endif
 
 if s:plug.is_installed('vim-easy-align')
