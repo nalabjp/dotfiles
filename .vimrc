@@ -39,6 +39,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 " text object
 Plug 'kana/vim-textobj-user' " for vim-textobj-ruby
+Plug 'tpope/vim-surround'
 
 " 文章整形
 Plug 'junegunn/vim-easy-align'
