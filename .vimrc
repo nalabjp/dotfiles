@@ -86,6 +86,10 @@ Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
+" スニペット
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " auto cd to project root
 Plug 'airblade/vim-rooter'
 
@@ -337,6 +341,15 @@ if s:plug.is_installed('LanguageClient-neovim')
 
   nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 endif
+
+if s:plug.is_installed('ultisnips')
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+  " If you want :UltiSnipsEdit to split your window.
+  let g:UltiSnipsEditSplit="vertical"
+endif
+
 """"""""""""""""""""""""""""""""""""
 " appearance
 """"""""""""""""""""""""""""""""""""
