@@ -134,7 +134,6 @@ brew 'source-highlight'
 # sqlite
 brew 'sqlite'
 # tmux
-brew 'reattach-to-user-namespace'
 brew 'tmux'
 # tree
 brew 'tree'
