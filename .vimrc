@@ -289,11 +289,13 @@ if s:plug.is_installed('neoterm')
   endif
 
   " open new terminal
-  nnoremap <silent> <Space>tt :call neoterm#tnew()<cr>
+  nnoremap <silent> <Space>tn :call neoterm#tnew()<cr>
   " open existing terminal
   nnoremap <silent> <Space>to :call neoterm#open()<cr>
   " hide/close terminal
   nnoremap <silent> <Space>th :call neoterm#close()<cr>
+  " toggle terminal
+  nnoremap <silent> <Space>tt :call neoterm#toggle()<cr>
   " clear terminal
   nnoremap <silent> <Space>tc :call neoterm#clear()<cr>
   " kills the current job (send a <c-c>)
