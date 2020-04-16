@@ -122,3 +122,8 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 #################################
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# zprof
+#if (which zprof > /dev/null 2>&1) ;then
+#  zprof
+#fi
