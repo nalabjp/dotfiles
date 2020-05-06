@@ -21,7 +21,7 @@ tap 'osx-cross/avr'
 # for gitsh
 tap 'thoughtbot/formulae'
 # for itemr2, chromedriver
-tap 'caskroom/cask'
+tap 'homebrew/cask-cask'
 # neovim
 tap 'neovim/neovim'
 
@@ -30,7 +30,7 @@ brew 'python3'
 # ag
 brew 'the_silver_searcher'
 # chromedriver
-brew chromedriver
+brew 'chromedriver'
 # colordiff
 brew 'colordiff'
 # cmake
