@@ -58,6 +58,7 @@ brew 'git'
 brew 'hub'
 brew 'tig'
 brew 'gist'
+brew 'git-now', args: ['zsh-completion']
 # gnu-sed
 brew 'gnu-sed'
 # gnu-tar
