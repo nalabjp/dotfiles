@@ -321,7 +321,9 @@ if s:plug.is_installed('LanguageClient-neovim')
 endif
 
 if s:plug.is_installed('ultisnips')
-  let g:UltiSnipsExpandTrigger="<tab>"
+  " Temp changing trigger
+  " But, doesn't work now?
+  let g:UltiSnipsExpandTrigger="<c-s>"
   let g:UltiSnipsJumpForwardTrigger="<c-b>"
   let g:UltiSnipsJumpBackwardTrigger="<c-z>"
   " If you want :UltiSnipsEdit to split your window.
