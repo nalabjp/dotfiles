@@ -197,7 +197,7 @@ alias vi='v'
 
 # edit .dotfiles
 alias vg='v ~/.gitconfig'
-alias vv='v ~/.vimrc'
+alias vv='v ~/.config/nvim/init.vim'
 alias vz='v ~/.zshrc'
 alias vze='v ~/.zshenv'
 alias vzp='v ~/.zprofile'
