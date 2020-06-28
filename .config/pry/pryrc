@@ -2,11 +2,8 @@
 Pry.config.color = true
 Pry.config.editor = "nvim"
 
-Pry.config.prompt = proc do |obj, level, _|
-  prompt = ""
-  prompt << "#{Rails.version}@" if defined?(Rails) && Rails.respond_to?(:version)
-  prompt << "#{RUBY_VERSION}"
-  "#{prompt} (#{obj})> "
+if Pry::Prompt[:rails]
+  Pry.config.prompt = Pry::Prompt[:rails]
 end
 
 Pry.config.pager = false
@@ -44,7 +41,7 @@ Pry.config.commands.import default_command_set
 
 # Hit Enter to repeat last command
 Pry::Commands.command /^$/, "repeat last command" do
-  _pry_.run_command Pry.history.to_a.last
+  pry_instance.run_command Pry.history.to_a.last
 end
 
 if defined?(PryByebug)
@@ -58,8 +55,7 @@ if defined?(PryStackExplorer)
   Pry.commands.alias_command 'bt', 'show-stack'
 end
 
-# refs: https://gist.github.com/pinzolo/54cf22c9d50c6547becc#file-gistfile1-rb
-Pry::DEFAULT_HOOKS.add_hook(:before_session, :gem_auto_require) do |out, target, _pry_|
+Pry::Hooks.new.add_hook(:before_session, :gem_auto_require) do |out, target, _pry|
   dir = `pwd`.chomp
   gem_name = File.basename(dir)
   if File.exist?(File.join(dir, "#{gem_name}.gemspec"))
