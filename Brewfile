@@ -20,17 +20,17 @@ tap 'homebrew/bundle'
 tap 'osx-cross/avr'
 # for gitsh
 tap 'thoughtbot/formulae'
-# for itemr2, chromedriver
-tap 'homebrew/cask-cask'
 # neovim
 tap 'neovim/neovim'
+# mongodb
+tap 'mongodb/brew'
 
 # python3
 brew 'python3'
 # ag
 brew 'the_silver_searcher'
 # chromedriver
-brew 'chromedriver'
+cask 'chromedriver'
 # colordiff
 brew 'colordiff'
 # cmake
@@ -58,7 +58,7 @@ brew 'git'
 brew 'hub'
 brew 'tig'
 brew 'gist'
-brew 'git-now', args: ['zsh-completion']
+brew 'git-now'
 # gnu-sed
 brew 'gnu-sed'
 # gnu-tar
@@ -68,7 +68,7 @@ brew 'go'
 brew 'glide'
 # heroku
 brew 'heroku'
-brew 'heroku/brew/heroku'
+brew 'heroku/brew'
 # htop
 brew 'htop'
 # httpie
@@ -89,11 +89,11 @@ brew 'lua'
 brew 'mecab'
 brew 'mecab-ipadic'
 # mongodb
-brew 'mongodb'
+brew 'mongodb-community'
 # mysql5.7
 brew 'mysql@5.7'
 # neovim
-brew 'neovim/neovim/neovim'
+brew 'neovim'
 # nginx
 brew 'nginx'
 brew 'openssl@1.1'
@@ -108,7 +108,7 @@ brew 'openvpn'
 # pandoc
 brew 'pandoc'
 # phantomjs
-brew 'phantomjs'
+cask 'phantomjs'
 # postgresql
 brew 'postgresql'
 # pstree
@@ -147,4 +147,4 @@ brew 'yarn'
 # zplug
 brew 'zplug'
 # zsh
-brew 'zsh', args: ['without-etcdir']
+brew 'zsh', args: ['ignore-dependencies']
