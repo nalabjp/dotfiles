@@ -134,6 +134,8 @@ brew 'rbenv-default-gems'
 brew 'source-highlight'
 # sqlite
 brew 'sqlite'
+# terraform
+brew 'tfenv'
 # tmux
 brew 'tmux'
 # tree
