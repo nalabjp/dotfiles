@@ -88,6 +88,8 @@ brew 'lua'
 # mecab
 brew 'mecab'
 brew 'mecab-ipadic'
+# minikube
+brew 'minikube'
 # mongodb
 brew 'mongodb-community'
 # mysql5.7
