@@ -79,6 +79,8 @@ brew 'imagemagick'
 cask 'iterm2'
 # jq
 brew 'jq'
+# kustomize
+brew 'kustomize'
 # libxml2
 brew 'libxml2'
 # libxslt
