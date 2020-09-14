@@ -102,12 +102,6 @@ Plug 'kassio/neoterm'
 Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 
-" Language server client
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
 " undo
 Plug 'mbbill/undotree'
 
@@ -309,15 +303,6 @@ if s:plug.is_installed('vim-test')
   nnoremap <silent> <Space>ts :TestSuite<CR>
   nnoremap <silent> <Space>tl :TestLast<CR>
   nnoremap <silent> <Space>tv :TestVisit<CR>
-endif
-
-if s:plug.is_installed('LanguageClient-neovim')
-  let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-    \ }
-
-  nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 endif
 
 if s:plug.is_installed('ultisnips')
