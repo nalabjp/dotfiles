@@ -134,6 +134,8 @@ brew 'ruby-build'
 brew 'rbenv-default-gems'
 # source-highlight
 brew 'source-highlight'
+# starship
+brew 'starship'
 # sqlite
 brew 'sqlite'
 # terraform
