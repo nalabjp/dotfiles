@@ -25,8 +25,8 @@ bindkey -e
 autoload -Uz add-zsh-hook
 autoload -Uz chpwd_recent_dirs cdr
 autoload -Uz zmv
-autoload -U promptinit; promptinit
-prompt pure
+#autoload -U promptinit; promptinit
+#prompt pure
 
 #################################
 # zplug
