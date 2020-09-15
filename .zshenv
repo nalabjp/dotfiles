@@ -210,6 +210,14 @@ alias zln='zmv_ -L'
 
 # minikube
 alias mk='minikube'
+alias mks='mk start'
 
 # kubectl
 alias k='kubectl'
+alias ka='k apply'
+alias kc='k create'
+alias kd='k diff'
+alias kde='k delete'
+alias kg='k get'
+alias kl='k logs'
+alias kp='k port-forward'
