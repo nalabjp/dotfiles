@@ -210,3 +210,6 @@ alias zln='zmv_ -L'
 
 # minikube
 alias mk='minikube'
+
+# kubectl
+alias k='kubectl'
