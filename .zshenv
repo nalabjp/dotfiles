@@ -208,3 +208,5 @@ alias zmv='zmv_ -W'
 alias zcp='zmv_ -C'
 alias zln='zmv_ -L'
 
+# minikube
+alias mk='minikube'
