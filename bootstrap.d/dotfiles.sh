@@ -14,7 +14,7 @@ DOTS_DIR=.dotfiles
 BASIC_DOTS=(.zprofile .zshenv .zshrc .gemrc .rspec .tmux.conf .gvimrc .gitconfig .gitignore .gitscript .bundle .tigrc .colordiffrc .rbenv/default-gems)
 XDG_CONFIGS_DIR=.config
 # XDG config files
-XDG_CONFIGS=(nvim/init.vim pry/pryrc)
+XDG_CONFIGS=(nvim/init.vim pry/pryrc starship.toml)
 # backup dir
 BACKUP_DIR=$HOME/.dotfiles_backup/`date +%Y%m%d_%H%M%S`
 
