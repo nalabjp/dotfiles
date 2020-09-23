@@ -67,7 +67,7 @@ export NVM_DIR="$HOME/.nvm"
 #[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
 
 # java
-export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 path+=($JAVA_HOME(N-/))
 
 # postgresql
