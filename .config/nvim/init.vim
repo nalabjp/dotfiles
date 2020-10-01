@@ -108,6 +108,9 @@ Plug 'mbbill/undotree'
 " vim-illuminate
 Plug 'RRethy/vim-illuminate'
 
+" terraform
+Plug 'hashivim/vim-terraform'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
@@ -313,6 +316,11 @@ if s:plug.is_installed('ultisnips')
   let g:UltiSnipsJumpBackwardTrigger="<c-z>"
   " If you want :UltiSnipsEdit to split your window.
   let g:UltiSnipsEditSplit="vertical"
+endif
+
+if s:plug.is_installed('vim-terraform')
+  let g:terraform_align=1
+  let g:terraform_fold_sections=1
 endif
 
 """"""""""""""""""""""""""""""""""""
