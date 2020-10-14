@@ -223,3 +223,7 @@ alias kg='k get'
 alias kk='k kustomize'
 alias kl='k logs'
 alias kp='k port-forward'
+
+# kustomize
+alias kz='kustomize'
+alias kzb='kz build'
