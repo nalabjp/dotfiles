@@ -3,7 +3,7 @@
 #################################
 
 # dotifiles directory
-DOTFILES=~/.dotfiles
+DOTFILES=~/dotfiles
 
 # Remove duplicated path
 typeset -U path PATH

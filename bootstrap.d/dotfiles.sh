@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HOME/.dotfiles/bootstrap.d/utils.sh
+source $HOME/dotfiles/bootstrap.d/utils.sh
 
 # make dirs
 mkdir -p $HOME/.vim
@@ -9,7 +9,7 @@ mkdir -p $XDG_CONFIG_HOME/nvim
 mkdir -p $XDG_CONFIG_HOME/pry
 
 # dot files dir
-DOTS_DIR=.dotfiles
+DOTS_DIR=dotfiles
 # basic dot files
 BASIC_DOTS=(.zprofile .zshenv .zshrc .gemrc .rspec .tmux.conf .gvimrc .gitconfig .gitignore .gitscript .bundle .tigrc .colordiffrc .rbenv/default-gems)
 XDG_CONFIGS_DIR=.config

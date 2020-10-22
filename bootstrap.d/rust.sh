@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HOME/.dotfiles/bootstrap.d/utils.sh
+source $HOME/dotfiles/bootstrap.d/utils.sh
 
 if [ `which rustc` ]; then
     log_echo 'Update Rust'

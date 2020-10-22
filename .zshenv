@@ -46,7 +46,7 @@ alias agh='ag --hidden'
 alias af='anyframe-widget-select-widget'
 
 # bootstrap
-alias bst='~/.dotfiles/bootstrap'
+alias bst='~/dotfiles/bootstrap'
 alias bstb='bst brew'
 alias bstd='bst dotfiles'
 alias bstp='bst pip3'
@@ -195,7 +195,7 @@ alias tailf='LESSOPEN= less +F'
 alias v='_vim'
 alias vi='v'
 
-# edit .dotfiles
+# edit dotfiles
 alias vg='v ~/.gitconfig'
 alias vv='v ~/.config/nvim/init.vim'
 alias vz='v ~/.zshrc'

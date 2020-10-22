@@ -7,11 +7,11 @@ path=(/sbin(N-/) /usr/sbin(N-/) $path)
 # Add brew path
 path=(/usr/local/bin(N-/) /usr/local/sbin(N-/) $path)
 
-# Add .dotfiles/bin
-path=(~/.dotfiles/bin(N-/) $path)
+# Add dotfiles/bin
+path=(~/dotfiles/bin(N-/) $path)
 
 # zfunctions
-fpath=(~/.dotfiles/zfunctions(N-/) $fpath)
+fpath=(~/dotfiles/zfunctions(N-/) $fpath)
 
 # EDITOR
 export EDITOR='nvim'
@@ -101,7 +101,7 @@ export HOMEBREW_NO_ANALYTICS=1
 export EMOJI_CLI_KEYBIND='^Y'
 
 # gdircolors
-eval $(gdircolors ~/.dotfiles/themes/dircolors-solarized/dircolors.256dark)
+eval $(gdircolors ~/dotfiles/themes/dircolors-solarized/dircolors.256dark)
 
 # direnv config
 if type direnv > /dev/null 2>&1; then

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES=$HOME/.dotfiles
+DOTFILES=$HOME/dotfiles
 BSTD=$DOTFILES/bootstrap.d
 source $BSTD/utils.sh
 
