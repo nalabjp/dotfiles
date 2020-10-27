@@ -320,7 +320,6 @@ endif
 
 if s:plug.is_installed('vim-terraform')
   let g:terraform_align=1
-  let g:terraform_fold_sections=1
 endif
 
 """"""""""""""""""""""""""""""""""""
