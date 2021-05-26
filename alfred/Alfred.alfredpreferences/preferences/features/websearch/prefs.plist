@@ -32,6 +32,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>9A84CB6E-58E3-4AE4-8A70-498D7622F9EC</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>r</string>
+			<key>text</key>
+			<string>Search from api.rubyonrails.org</string>
+			<key>url</key>
+			<string>https://google.com/search?q=site:api.rubyonrails.org {query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>9AE9AE4C-20C0-45D1-A476-28B6266453BF</key>
 		<dict>
 			<key>enabled</key>
