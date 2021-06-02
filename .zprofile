@@ -145,6 +145,3 @@ export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib:$LDFLAGS"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include:$CPPFLAGS"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
-# starship
-eval "$(starship init zsh)"

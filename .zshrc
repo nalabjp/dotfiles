@@ -127,3 +127,6 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 #if (which zprof > /dev/null 2>&1) ;then
 #  zprof
 #fi
+
+# starship
+eval "$(starship init zsh)"
