@@ -111,6 +111,9 @@ Plug 'RRethy/vim-illuminate'
 " terraform
 Plug 'hashivim/vim-terraform'
 
+" editorconfig
+Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
