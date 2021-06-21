@@ -45,33 +45,16 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
-		<key>9AE9AE4C-20C0-45D1-A476-28B6266453BF</key>
+		<key>A33149C7-C013-4204-914F-015ECF8BFB1E</key>
 		<dict>
 			<key>enabled</key>
 			<true/>
 			<key>keyword</key>
-			<string>chatwork</string>
-			<key>plusSpaces</key>
-			<false/>
+			<string>kibe</string>
 			<key>text</key>
-			<string>Open chatwork</string>
+			<string>Open kibela</string>
 			<key>url</key>
-			<string>https://www.chatwork.com/#!rid33508721</string>
-			<key>utf8</key>
-			<true/>
-		</dict>
-		<key>B6FE0CB6-D34B-471B-8676-D984215E79F5</key>
-		<dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyword</key>
-			<string>inbox</string>
-			<key>plusSpaces</key>
-			<false/>
-			<key>text</key>
-			<string>Open Inbox</string>
-			<key>url</key>
-			<string>https://inbox.google.com/</string>
+			<string>https://moneyforward.kibe.la/</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
@@ -100,6 +83,19 @@
 			<string>Open Google Calendar</string>
 			<key>url</key>
 			<string>https://www.google.com/calendar/</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>D9C3A0D0-D501-4C7F-AE71-D97E45B89A35</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>kibe</string>
+			<key>text</key>
+			<string>Search Kibela for '{query}'</string>
+			<key>url</key>
+			<string>https://moneyforward.kibe.la/search?query={query}</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
