@@ -177,10 +177,6 @@
 			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
@@ -223,7 +219,7 @@
 			<key>config</key>
 			<dict>
 				<key>concurrently</key>
-				<true/>
+				<false/>
 				<key>escaping</key>
 				<integer>36</integer>
 				<key>script</key>
@@ -315,10 +311,6 @@
 			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
