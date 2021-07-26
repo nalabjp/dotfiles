@@ -59,6 +59,7 @@ brew 'hub'
 brew 'tig'
 brew 'gist'
 brew 'git-now'
+brew 'git-lfs'
 # gnu-sed
 brew 'gnu-sed'
 # gnu-tar
