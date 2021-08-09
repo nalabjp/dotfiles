@@ -54,3 +54,5 @@
   lineNumber = true
 [credential]
 	helper = osxkeychain
+[url "git@github.com:"]
+	insteadOf = https://github.com/
