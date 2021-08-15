@@ -4,21 +4,6 @@
 <dict>
 	<key>customSites</key>
 	<dict>
-		<key>074CD6B2-6B26-4F01-AA0F-841CBF14C0F7</key>
-		<dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyword</key>
-			<string>esa</string>
-			<key>spaces</key>
-			<string>%20</string>
-			<key>text</key>
-			<string>Open esa post</string>
-			<key>url</key>
-			<string>https://mf.esa.io/posts/{query}</string>
-			<key>utf8</key>
-			<true/>
-		</dict>
 		<key>7FE4C416-2F65-43C5-8408-2BBCEF0E2154</key>
 		<dict>
 			<key>enabled</key>
