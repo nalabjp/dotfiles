@@ -2,7 +2,7 @@
 Pry.config.color = true
 Pry.config.editor = "nvim"
 
-if Pry::Prompt[:rails]
+if Pry::VERSION >= '0.13.0' && Pry::Prompt[:rails]
   Pry.config.prompt = Pry::Prompt[:rails]
 end
 
