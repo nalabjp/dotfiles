@@ -4,6 +4,19 @@
 <dict>
 	<key>customSites</key>
 	<dict>
+		<key>7BD03BD9-FB0C-43C8-95D9-BB4A66FC2F12</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>t</string>
+			<key>text</key>
+			<string>Transalte '{query}' with DeepL</string>
+			<key>url</key>
+			<string>https://www.deepl.com/ja/translator#ja/en/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>7FE4C416-2F65-43C5-8408-2BBCEF0E2154</key>
 		<dict>
 			<key>enabled</key>
