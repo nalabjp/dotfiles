@@ -195,6 +195,7 @@ alias tailf='LESSOPEN= less +F'
 # nvim
 alias v='_vim'
 alias vi='v'
+alias vr='v -R'
 
 # edit dotfiles
 alias vg='v ~/.gitconfig'
