@@ -111,6 +111,11 @@ zstyle ':completion:*:*:*:*:*' menu select
 bindkey '^ ' autosuggest-clear
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 
+# kubecolor
+# make completion work with kubecolor
+source <(kubectl completion zsh)
+compdef kubecolor=kubectl
+
 #################################
 # travis.sh
 #################################

@@ -215,7 +215,8 @@ alias mk='minikube'
 alias mks='mk start'
 
 # kubectl
-alias k='kubectl'
+alias _k='kubectl'
+alias k='kubecolor'
 alias ka='k apply'
 alias kc='k config'
 alias kd='k describe'

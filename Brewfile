@@ -82,6 +82,8 @@ cask 'iterm2'
 brew 'jq'
 # krew
 brew 'krew'
+# kubecolor
+brew 'dty1er/tap/kubecolor'
 # kustomize
 brew 'kustomize'
 # libxml2
