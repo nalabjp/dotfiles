@@ -29,6 +29,8 @@ tap 'mongodb/brew'
 brew 'python3'
 # ag
 brew 'the_silver_searcher'
+# awscli
+brew 'awscli'
 # chromedriver
 cask 'chromedriver'
 # colordiff
