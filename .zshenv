@@ -173,7 +173,8 @@ alias rr='bin/rails'
 alias rd=rmdir
 
 # redis
-alias redis-start='redis-server --daemonize yes'
+alias redis-start='redis-server --daemonize yes --dir ~/'
+alias redis-stop='redis-cli shutdown'
 
 # gnu-sed
 alias sed='gsed'
