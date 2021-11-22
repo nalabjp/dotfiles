@@ -1,3 +1,10 @@
+# arm64?
+if [ $(uname -m) = 'arm64' ]; then
+  export HOMEBREW_HOME=/opt/homebrew
+else
+  export HOMEBREW_HOME=/usr/local
+fi
+
 # Remove duplicated path
 typeset -U path PATH
 
@@ -5,7 +12,7 @@ typeset -U path PATH
 path=(/sbin(N-/) /usr/sbin(N-/) $path)
 
 # Add brew path
-path=(/usr/local/bin(N-/) /usr/local/sbin(N-/) $path)
+path=($HOMEBREW_HOME/bin(N-/) $HOMEBREW_HOME/sbin(N-/) $path)
 
 # Add dotfiles/bin
 path=(~/dotfiles/bin(N-/) $path)
@@ -37,7 +44,7 @@ if [ $+commands[rbenv] -ne 0 ]; then
     # eval "$(rbenv init - --no-rehash)" is crazy slow (it takes arround 100ms)
     # below style took ~2ms
     export RBENV_SHELL=zsh
-    source /usr/local/opt/rbenv/completions/rbenv.zsh
+    source $HOMEBREW_HOME/opt/rbenv/completions/rbenv.zsh
     rbenv() {
       local command
       command="$1"
@@ -64,7 +71,7 @@ path+=(~/.nodebrew/current/bin(N-/))
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # for update
-#[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+#[ -s "$HOMEBREW_HOME/opt/nvm/nvm.sh" ] && . "$HOMEBREW_HOME/opt/nvm/nvm.sh"
 
 # java
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
@@ -131,20 +138,34 @@ export PERL_CPANM_OPT=--local-lib=~/extlib
 export PERL5LIB=$HOME/extlib/lib/perl5:$PERL5LIB
 
 # MySQL
-path=(/usr/local/opt/mysql@5.7/bin(N-/) $path)
-export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib:$LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include:$CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig:$PKG_CONFIG_PATH"
+path=($HOMEBREW_HOME/opt/mysql@5.7/bin(N-/) $path)
+export LDFLAGS="-L$HOMEBREW_HOME/opt/mysql@5.7/lib:$LDFLAGS"
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/mysql@5.7/include:$CPPFLAGS"
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/mysql@5.7/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # For pkg-config to find libxml2 on nokogiri.gem installation
-export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # OpenSSL
-path=(/usr/local/opt/openssl@1.1/bin(N-/) $path)
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib:$LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include:$CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
+path=($HOMEBREW_HOME/opt/openssl@1.1/bin(N-/) $path)
+export LDFLAGS="-L$HOMEBREW_HOME/opt/openssl@1.1/lib:$LDFLAGS"
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/openssl@1.1/include:$CPPFLAGS"
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+# OpenJDK
+path=($HOMEBREW_HOME/opt/openjdk/bin(N-/) $path)
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/openjdk/include"
 
 # krew
 path+=(~/.krew/bin(N-/))
+
+# diff-highlight
+if [[ ! -e $HOMEBREW_HOME/bin/diff-highlight ]]; then
+  ln -s $HOMEBREW_HOME/opt/git/share/git-core/contrib/diff-highlight/diff-highlight $HOMEBREW_HOME/bin
+fi
+
+# For configuration files where environment variables are not available
+if [[ ! -e /usr/local/opt ]]; then
+  echo Run \'sudo ln -s $HOMEBREW_HOME/opt /usr/local/opt\'
+fi

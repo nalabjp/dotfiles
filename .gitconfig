@@ -5,7 +5,6 @@
   editor = nvim
 	commentchar = auto
 [pager]
-  # ln -s /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
   log = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less
