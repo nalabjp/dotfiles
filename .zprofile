@@ -169,3 +169,6 @@ fi
 if [[ ! -e /usr/local/opt ]]; then
   echo Run \'sudo ln -s $HOMEBREW_HOME/opt /usr/local/opt\'
 fi
+if [[ ! -e /usr/local/var ]]; then
+  echo Run \'sudo ln -s $HOMEBREW_HOME/var /usr/local/var\'
+fi
