@@ -11,6 +11,15 @@ typeset -U path PATH
 # tmux attach
 [ -f $DOTFILES/zsh/tmux_attach.zsh ] && source $DOTFILES/zsh/tmux_attach.zsh
 
+# homebrew completions
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # zcompile
 if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
