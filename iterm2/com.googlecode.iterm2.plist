@@ -659,7 +659,7 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>1299 710 841 470 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1776 152 1393 1015 0 0 3440 1417 </string>
+	<string>27 58 1204 1338 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>564 870 745 502 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1520,14 +1520,14 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {3440, 1440}}</string>
 		<key>topLeft</key>
-		<string>{1496, 933}</string>
+		<string>{1133, 677}</string>
 	</dict>
 	<key>NoSyncHaveUsedCopyMode</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>75DEF156-2115-424E-AD4B-6D06E8A3D2E6</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>34</integer>
+	<integer>46</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2364,6 +2364,8 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
