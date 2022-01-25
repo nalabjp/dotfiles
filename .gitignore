@@ -42,3 +42,6 @@ alfred/Alfred.alfredpreferences/workflows/user.workflow.8FE53511-C7B5-4D73-8EB8-
 
 # localignore
 localignore/
+
+# asdf
+.tool-versions

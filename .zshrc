@@ -132,6 +132,11 @@ compdef kubecolor=kubectl
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 #################################
+# asdf.sh
+#################################
+[ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
+
+#################################
 # .zshrc.local
 #################################
 
