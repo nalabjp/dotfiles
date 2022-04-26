@@ -76,6 +76,10 @@ export NVM_DIR="$HOME/.nvm"
 # java
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 path+=($JAVA_HOME(N-/))
+# OpenJDK
+# path=($HOMEBREW_HOME/opt/openjdk/bin(N-/) $path)
+# export CPPFLAGS="-I$HOMEBREW_HOME/opt/openjdk/include"
+
 
 # postgresql
 export PGDATA=/usr/local/var/postgres
@@ -152,10 +156,6 @@ export LDFLAGS="-L$HOMEBREW_HOME/opt/openssl@1.1/lib:$LDFLAGS"
 export CPPFLAGS="-I$HOMEBREW_HOME/opt/openssl@1.1/include:$CPPFLAGS"
 export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
-# OpenJDK
-path=($HOMEBREW_HOME/opt/openjdk/bin(N-/) $path)
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/openjdk/include"
 
 # krew
 path+=(~/.krew/bin(N-/))
