@@ -111,8 +111,8 @@ brew 'nginx'
 brew 'openssl@1.1'
 # nkf
 brew 'nkf'
-# nodebrew
-brew 'nodebrew'
+# nodenv
+brew 'nodenv'
 # noti
 brew 'noti'
 # openvpn
