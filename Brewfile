@@ -24,6 +24,8 @@ tap 'thoughtbot/formulae'
 tap 'neovim/neovim'
 # mongodb
 tap 'mongodb/brew'
+# heroku
+tap 'heroku/brew'
 
 # python3
 brew 'python3'
@@ -71,7 +73,6 @@ brew 'go'
 brew 'glide'
 # heroku
 brew 'heroku'
-brew 'heroku/brew'
 # htop
 brew 'htop'
 # httpie
