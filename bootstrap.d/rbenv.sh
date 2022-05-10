@@ -4,7 +4,7 @@ source $HOME/dotfiles/bootstrap.d/utils.sh
 
 # Enable Ruby version 2.3.x
 RUBIES=$(rbenv install --list | awk '
-  match($0,/^2\.([6-7]\.[0-9])/) {
+  match($0,/^2\.[7]\..+|^3\.[0-9]\..+/) {
     print $0
   }
 '| sort | uniq)
