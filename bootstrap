@@ -63,35 +63,26 @@ setup_pip3() {
     $BSTD/pip3.sh
 }
 
-setup_rust() {
-    log_echo ''
-    log_echo 'Install Rust with rustup'
-    $BSTD/rust.sh
-}
-
 init() {
     log_echo ''
     log_echo 'Run init'
     ask_sudo_password
     init_brew
-    setup_dotfiles
     setup_rbenv
     setup_pip3
-    setup_rust
 }
 
 update() {
     log_echo ''
     log_echo 'Run update'
     setup_brew
-    setup_dotfiles
     setup_rbenv
     setup_pip3
-    setup_rust
+    setup_dotfiles
 }
 
 usage() {
-    log_error >&2 "Usage: $0 <init|update|brew|dotfiles|rbenv|pip3|rust>"
+    log_error >&2 "Usage: $0 <init|update|brew|dotfiles|rbenv|pip3>"
     exit 1
 }
 
@@ -113,9 +104,6 @@ rbenv)
     ;;
 pip3)
     setup_pip3
-    ;;
-rust)
-    setup_rust
     ;;
 *)
     usage
