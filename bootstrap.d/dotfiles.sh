@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 
 source $HOME/dotfiles/bootstrap.d/utils.sh
+
+XDG_CONFIG_HOME=$HOME/.config
 
 # make dirs
 mkdir -p $HOME/.vim
@@ -69,9 +71,6 @@ setup_misc() {
     log_info "neovim"
     # mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
     create_symlink $XDG_CONFIG_HOME/nvim ~/.vim
-
-    log_info "zplug"
-    zplug install
 }
 
 main() {
