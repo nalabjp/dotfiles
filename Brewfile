@@ -115,6 +115,8 @@ brew 'nkf'
 brew 'nodenv'
 # noti
 brew 'noti'
+# openjdk
+brew 'openjdk'
 # openvpn
 brew 'openvpn'
 # pandoc

@@ -74,11 +74,11 @@ export NVM_DIR="$HOME/.nvm"
 #[ -s "$HOMEBREW_HOME/opt/nvm/nvm.sh" ] && . "$HOMEBREW_HOME/opt/nvm/nvm.sh"
 
 # java
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-path+=($JAVA_HOME(N-/))
+# export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+# path+=($JAVA_HOME(N-/))
 # OpenJDK
-# path=($HOMEBREW_HOME/opt/openjdk/bin(N-/) $path)
-# export CPPFLAGS="-I$HOMEBREW_HOME/opt/openjdk/include"
+path=($HOMEBREW_HOME/opt/openjdk/bin(N-/) $path)
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/openjdk/include"
 
 
 # postgresql
