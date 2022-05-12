@@ -31,6 +31,8 @@ tap 'heroku/brew'
 brew 'python3'
 # ag
 brew 'the_silver_searcher'
+# asdf
+brew 'asdf'
 # awscli
 brew 'awscli'
 # chromedriver
