@@ -160,6 +160,10 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # krew
 path+=(~/.krew/bin(N-/))
 
+# Go
+export GOPATH=$HOME/go
+path=($GOPATH/bin(N-/) $path)
+
 # diff-highlight
 if [[ ! -e $HOMEBREW_HOME/bin/diff-highlight ]]; then
   ln -s $HOMEBREW_HOME/opt/git/share/git-core/contrib/diff-highlight/diff-highlight $HOMEBREW_HOME/bin
