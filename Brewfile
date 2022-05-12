@@ -43,6 +43,8 @@ brew 'cmake'
 brew 'coreutils'
 # direnv
 brew 'direnv'
+#docker
+cask 'docker'
 # emojify
 brew 'emojify'
 # ergodox
