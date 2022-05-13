@@ -162,6 +162,8 @@ brew 'tmux'
 brew 'tree'
 # watch
 brew 'watch'
+# webpack
+brew 'webpack'
 # wget
 brew 'wget'
 # yarn
