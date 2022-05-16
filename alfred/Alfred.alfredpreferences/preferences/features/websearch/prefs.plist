@@ -52,7 +52,7 @@
 			<key>text</key>
 			<string>Open kibela</string>
 			<key>url</key>
-			<string>https://moneyforward.kibe.la/</string>
+			<string>https://linkers.kibe.la/</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
@@ -93,20 +93,7 @@
 			<key>text</key>
 			<string>Search Kibela for '{query}'</string>
 			<key>url</key>
-			<string>https://moneyforward.kibe.la/search?query={query}</string>
-			<key>utf8</key>
-			<true/>
-		</dict>
-		<key>E2B64C8B-908C-47E9-901F-E10D43E9B9E3</key>
-		<dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyword</key>
-			<string>sso</string>
-			<key>text</key>
-			<string>Open MF SSO</string>
-			<key>url</key>
-			<string>https://a.moneyforward.co.jp</string>
+			<string>https://linkers.kibe.la/search?query={query}</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
