@@ -173,7 +173,7 @@ alias rr='bin/rails'
 alias rd=rmdir
 
 # redis
-alias redis-start='redis-server --daemonize yes --dir ~/'
+alias redis-start='redis-server /opt/homebrew/etc/redis.conf --daemonize yes'
 alias redis-stop='redis-cli shutdown'
 
 # gnu-sed
