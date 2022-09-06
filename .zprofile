@@ -80,10 +80,6 @@ export NVM_DIR="$HOME/.nvm"
 path=($HOMEBREW_HOME/opt/openjdk/bin(N-/) $path)
 export CPPFLAGS="-I$HOMEBREW_HOME/opt/openjdk/include"
 
-
-# postgresql
-export PGDATA=/usr/local/var/postgres
-
 # zsh-bundle-exec.zsh
 export BUNDLE_EXEC_GEMFILE_CURRENT_DIR_ONLY=yes
 export BUNDLE_EXEC_COMMANDS='ruby rails rake rspec spring'
@@ -146,6 +142,13 @@ path=($HOMEBREW_HOME/opt/mysql@5.7/bin(N-/) $path)
 export LDFLAGS="-L$HOMEBREW_HOME/opt/mysql@5.7/lib:$LDFLAGS"
 export CPPFLAGS="-I$HOMEBREW_HOME/opt/mysql@5.7/include:$CPPFLAGS"
 export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/mysql@5.7/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+# postgresql
+export PGDATA=/usr/local/var/postgresql@11
+path=($HOMEBREW_HOME/opt/postgresql@11/bin(N-/) $path)
+export LDFLAGS="-L$HOMEBREW_HOME/opt/postgresql@11/lib:$LDFLAGS"
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/postgresql@11/include:$CPPFLAGS"
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/postgresql@11/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # For pkg-config to find libxml2 on nokogiri.gem installation
 export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
