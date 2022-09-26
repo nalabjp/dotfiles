@@ -101,8 +101,9 @@ export LESSOPEN='| /opt/homebrew/bin/src-hilite-lesspipe.sh %s'
 # wordchar
 export WORDCHARS=''
 
-# homebrew analytics
+# homebrew
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # emoji-cli
 export EMOJI_CLI_KEYBIND='^Y'
