@@ -18,8 +18,6 @@
 tap 'homebrew/bundle'
 # for ergodox
 tap 'osx-cross/avr'
-# for gitsh
-tap 'thoughtbot/formulae'
 # neovim
 tap 'neovim/neovim'
 # mongodb
