@@ -1,57 +1,57 @@
 [color]
-  ui = true
+	ui = true
 [core]
-  excludesfile = ~/.gitignore
-  editor = nvim
+	excludesfile = ~/.gitignore
+	editor = nvim
 	commentchar = auto
 [pager]
-  log = diff-highlight | less
-  show = diff-highlight | less
-  diff = diff-highlight | less
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
 [merge]
-  tool = vimdiff
-  conflictstyle = diff3
-  prompt = false
-  ff = false
+	tool = vimdiff
+	conflictstyle = diff3
+	prompt = false
+	ff = false
 [push]
-  default = simple
+	default = simple
 [alias]
-  delete-merged-local-branches = !git branch --merged | egrep -vw \"\\*|dev|development|staging|release|master\" | cut -d \" \" -f3 | xargs -n1 -t -I@ git branch -d @
-  rename-nalabjp = !~/.gitscript/rename-nalabjp
-  ignore-gemfile = !git update-index --assume-unchanged Gemfile Gemfile.lock
-  revert-gemfile = !git update-index --no-assume-unchanged Gemfile Gemfile.lock
-  open-pr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
-  open-pr2 = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...upstream/master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
-  branches = "!git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);(%(color:green)%(committerdate:relative)%(color:reset));%(authorname);%(contents:subject)' | column -t -s ';'"
+	delete-merged-local-branches = !git branch --merged | egrep -vw \"\\*|dev|development|staging|release|master\" | cut -d \" \" -f3 | xargs -n1 -t -I@ git branch -d @
+	rename-nalabjp = !~/.gitscript/rename-nalabjp
+	ignore-gemfile = !git update-index --assume-unchanged Gemfile Gemfile.lock
+	revert-gemfile = !git update-index --no-assume-unchanged Gemfile Gemfile.lock
+	open-pr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
+	open-pr2 = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...upstream/master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
+	branches = "!git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);(%(color:green)%(committerdate:relative)%(color:reset));%(authorname);%(contents:subject)' | column -t -s ';'"
 [help]
-  autocorrect = 1
+	autocorrect = 1
 [branch]
-  autosetuprebase = always
+	autosetuprebase = always
 [ghq]
-  root = ~/ghq
+	root = ~/ghq
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-  required = true
+	required = true
 	process = git-lfs filter-process
 [user]
-  name = nalabjp
-  email = nalabjp@gmail.com
+	name = nalabjp
+	email = nalabjp@gmail.com
 [rebase]
-  autostash = true
+	autostash = true
 [pull]
-  ff = only
+	ff = only
 [rerere]
-  enabled = true
+	enabled = true
 [diff]
-  compactionHeuristic = true
+	compactionHeuristic = true
 [interactive]
-  diffFilter = diff-highlight
+	diffFilter = diff-highlight
 [init]
-  templatedir = ~/.git_template
-  defaultBranch = main
+	templatedir = ~/.git_template
+	defaultBranch = main
 [grep]
-  lineNumber = true
+	lineNumber = true
 [credential]
 	helper = osxkeychain
 [url "git@github.com:"]
