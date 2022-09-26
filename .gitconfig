@@ -49,6 +49,7 @@
   diffFilter = diff-highlight
 [init]
   templatedir = ~/.git_template
+  defaultBranch = main
 [grep]
   lineNumber = true
 [credential]
