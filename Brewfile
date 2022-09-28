@@ -66,6 +66,7 @@ brew 'tig'
 brew 'gist'
 brew 'git-now'
 brew 'git-lfs'
+brew 'git-filter-repo'
 # gnu-sed
 brew 'gnu-sed'
 # gnu-tar
