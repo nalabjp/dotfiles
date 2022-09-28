@@ -130,6 +130,26 @@ alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 # history
 alias history='fc -l 1'
 
+# kubectl
+alias _k='kubectl'
+alias k='kubecolor'
+alias ka='k apply'
+alias kat='k attach'
+alias kc='k config'
+alias kd='k describe'
+alias kde='k debug'
+alias kdi='k diff'
+alias ke='k exec'
+alias kg='k get'
+alias kk='k kustomize'
+alias kl='k logs'
+alias kp='k port-forward'
+alias krm='k delete'
+
+# kustomize
+alias kz='kustomize'
+alias kzb='kz build'
+
 # gnu-ln
 alias ln='gln'
 
@@ -144,6 +164,10 @@ alias latr='ls -lAhtr'
 
 # mkdir
 alias md='mkdir -p'
+
+# minikube
+alias mk='minikube'
+alias mks='mk start'
 
 # mysql
 alias mysql="mysql --pager='less -S -i -F'"
@@ -179,6 +203,9 @@ alias redis-stop='redis-cli shutdown'
 # gnu-sed
 alias sed='gsed'
 
+# less +F
+alias tailf='LESSOPEN= less +F'
+
 # gnu-tar
 alias tar='gtar'
 
@@ -192,9 +219,6 @@ alias ts='tig status'
 
 # tmux
 alias tmuxa='[ -f $DOTFILES/zsh/tmux_attach.zsh ] && source $DOTFILES/zsh/tmux_attach.zsh'
-
-# less +F
-alias tailf='LESSOPEN= less +F'
 
 # nvim
 alias v='_vim'
@@ -213,27 +237,3 @@ alias zmv_='noglob zmv'
 alias zmv='zmv_ -W'
 alias zcp='zmv_ -C'
 alias zln='zmv_ -L'
-
-# minikube
-alias mk='minikube'
-alias mks='mk start'
-
-# kubectl
-alias _k='kubectl'
-alias k='kubecolor'
-alias ka='k apply'
-alias kat='k attach'
-alias kc='k config'
-alias kd='k describe'
-alias kde='k debug'
-alias kdi='k diff'
-alias ke='k exec'
-alias kg='k get'
-alias kk='k kustomize'
-alias kl='k logs'
-alias kp='k port-forward'
-alias krm='k delete'
-
-# kustomize
-alias kz='kustomize'
-alias kzb='kz build'
