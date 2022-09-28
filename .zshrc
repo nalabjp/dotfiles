@@ -9,7 +9,8 @@ DOTFILES=~/dotfiles
 typeset -U path PATH
 
 # tmux attach
-[ -f $DOTFILES/zsh/tmux_attach.zsh ] && source $DOTFILES/zsh/tmux_attach.zsh
+# temporally disable
+#[ -f $DOTFILES/zsh/tmux_attach.zsh ] && source $DOTFILES/zsh/tmux_attach.zsh
 
 # homebrew completions
 if type brew &>/dev/null

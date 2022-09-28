@@ -190,6 +190,9 @@ alias tl='tig log'
 alias tg='tig grep'
 alias ts='tig status'
 
+# tmux
+alias tmuxa='[ -f $DOTFILES/zsh/tmux_attach.zsh ] && source $DOTFILES/zsh/tmux_attach.zsh'
+
 # less +F
 alias tailf='LESSOPEN= less +F'
 
