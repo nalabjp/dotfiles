@@ -75,3 +75,7 @@ _rake() {
 compdef _rake rake
 
 function _vim() {nvim ${${=*/:/ +}/:*}}
+
+function _memo() {
+  touch `date '+%y%m%d'`.md && v `date '+%y%m%d'`.md
+}

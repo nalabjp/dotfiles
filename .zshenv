@@ -163,7 +163,7 @@ alias la='ls -lAh'
 alias latr='ls -lAhtr'
 
 # memo
-alias memo="touch `date '+%y%m%d'`.md && v `date '+%y%m%d'`.md"
+alias memo=_memo
 
 # mkdir
 alias md='mkdir -p'
