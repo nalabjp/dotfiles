@@ -12,6 +12,7 @@ alias -g GI='| grep -i'
 alias -g GV='| grep -v'
 alias -g H='| head'
 alias -g L='| less'
+alias -g PC='| pbcopy'
 alias -g S="| sort"
 alias -g T='| tail'
 alias -g W='| wc -l'
