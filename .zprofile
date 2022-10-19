@@ -112,7 +112,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export EMOJI_CLI_KEYBIND='^Y'
 
 # gdircolors
-eval $(gdircolors ~/dotfiles/themes/dircolors-solarized/dircolors.256dark)
+eval $(gdircolors ~/ghq/github.com/nalabjp/dotfiles/themes/dircolors-solarized/dircolors.256dark)
 
 # direnv config
 if type direnv > /dev/null 2>&1; then
