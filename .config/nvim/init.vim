@@ -114,6 +114,9 @@ Plug 'hashivim/vim-terraform'
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
 
+" ansible
+Plug 'pearofducks/ansible-vim'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
