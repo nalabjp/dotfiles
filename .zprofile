@@ -5,6 +5,9 @@ else
   export HOMEBREW_HOME=/usr/local
 fi
 
+# Homebrew no auto update
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # Remove duplicated path
 typeset -U path PATH
 
