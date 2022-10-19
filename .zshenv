@@ -70,6 +70,9 @@ alias bs='bundle show'
 # require: export LESS='-R'
 alias diff='colordiff -u'
 
+# dotfiles
+alias dotfiles='cd ~/dotfiles'
+
 # esa
 alias ev='esa view --per-page 50 --auto-reload 15'
 alias evq='esa view --per-page 50 -q '
