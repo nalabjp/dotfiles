@@ -47,6 +47,10 @@ zplug 'mollifier/anyframe'
 zplug 'nalabjp/zsh-bundle-exec'
 zplug 'zsh-users/zsh-autosuggestions'
 
+if ! zplug check; then
+  zplug install
+fi
+
 # load
 zplug load
 
