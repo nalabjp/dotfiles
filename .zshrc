@@ -127,12 +127,6 @@ source <(kubectl completion zsh)
 compdef kubecolor=kubectl
 
 #################################
-# travis.sh
-#################################
-
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-
-#################################
 # asdf.sh
 #################################
 [ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
@@ -142,11 +136,6 @@ compdef kubecolor=kubectl
 #################################
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-# zprof
-#if (which zprof > /dev/null 2>&1) ;then
-#  zprof
-#fi
 
 # starship
 eval "$(starship init zsh)"
