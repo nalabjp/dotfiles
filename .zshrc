@@ -3,14 +3,10 @@
 #################################
 
 # dotifiles directory
-DOTFILES=~/dotfiles
+DOTFILES=~/ghq/github.com/nalabjp/dotfiles
 
 # Remove duplicated path
 typeset -U path PATH
-
-# tmux attach
-# temporally disable
-#[ -f $DOTFILES/zsh/tmux_attach.zsh ] && source $DOTFILES/zsh/tmux_attach.zsh
 
 # homebrew completions
 if type brew &>/dev/null

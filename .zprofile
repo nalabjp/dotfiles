@@ -112,7 +112,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export EMOJI_CLI_KEYBIND='^Y'
 
 # gdircolors
-eval $(gdircolors ~/dotfiles/themes/dircolors-solarized/dircolors.256dark)
+eval $(gdircolors ~/ghq/github.com/nalabjp/dotfiles/themes/dircolors-solarized/dircolors.256dark)
 
 # direnv config
 if type direnv > /dev/null 2>&1; then
@@ -148,7 +148,7 @@ export CPPFLAGS="-I$HOMEBREW_HOME/opt/mysql@5.7/include:$CPPFLAGS"
 export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/mysql@5.7/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # postgresql
-export PGDATA=/usr/local/var/postgresql@11
+export PGDATA=$HOMEBREW_HOME/var/postgresql@11
 path=($HOMEBREW_HOME/opt/postgresql@11/bin(N-/) $path)
 export LDFLAGS="-L$HOMEBREW_HOME/opt/postgresql@11/lib:$LDFLAGS"
 export CPPFLAGS="-I$HOMEBREW_HOME/opt/postgresql@11/include:$CPPFLAGS"
