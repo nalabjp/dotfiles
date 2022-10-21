@@ -118,7 +118,7 @@ zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*:*:*:*:*' menu select
 
 # autosuggest
-bindkey '^ ' autosuggest-clear
+bindkey '^[' autosuggest-clear
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 
 # kubecolor
