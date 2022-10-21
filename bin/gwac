@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -eu
-
-# git worktree add and create git branch
-branch=$1
-base=${2:-upstream/release}
-git branch $branch $base
-gwa $branch
