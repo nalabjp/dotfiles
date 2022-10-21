@@ -127,7 +127,7 @@ export XDG_CONFIG_HOME=~/.config
 export ENHANCD_COMMAND=e
 
 # zplug
-export ZPLUG_HOME=~/.zplug
+export ZPLUG_HOME=$HOMEBREW_HOME/opt/zplug
 path+=($ZPLUG_HOME/bin(N-/))
 
 # Rust with cargo
