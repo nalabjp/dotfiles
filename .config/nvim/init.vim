@@ -117,6 +117,9 @@ Plug 'editorconfig/editorconfig-vim'
 " ansible
 Plug 'pearofducks/ansible-vim'
 
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""

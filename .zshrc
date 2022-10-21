@@ -39,7 +39,6 @@ autoload -Uz zmv
 #################################
 source $ZPLUG_HOME/init.zsh
 
-zplug 'junegunn/fzf'
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'zsh-users/zsh-history-substring-search'
