@@ -1,9 +1,8 @@
 dotfiles
 ========
 
-### Mac
+# Installation
+See https://github.com/nalabjp/mac#installation
 
-Installation
-
-    $ cd ~
-    $ git clone https://github.com/nalabjp/dotfiles.git dotfiles
+# Edit .zshrc.local
+ansible-vault edit .zshrc.local.enc
