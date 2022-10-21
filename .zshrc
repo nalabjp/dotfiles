@@ -39,7 +39,7 @@ autoload -Uz zmv
 #################################
 source $HOMEBREW_HOME/opt/zplug/init.zsh
 
-zplug 'junegunn/fzf-bin', from:gh-r, as:command, rename-to:fzf
+zplug 'junegunn/fzf'
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'zsh-users/zsh-history-substring-search'
