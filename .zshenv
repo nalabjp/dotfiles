@@ -47,7 +47,7 @@ alias agh='ag --hidden'
 alias af='anyframe-widget-select-widget'
 
 # bootstrap
-alias bst='~/dotfiles/bootstrap'
+alias bst='$DOTFILES/bootstrap'
 alias bstb='bst brew'
 alias bstd='bst dotfiles'
 alias bstp='bst pip3'
@@ -71,7 +71,7 @@ alias bs='bundle show'
 alias diff='colordiff -u'
 
 # dotfiles
-alias dotfiles='cd ~/dotfiles'
+alias dotfiles='cd $DOTFILES'
 
 # esa
 alias ev='esa view --per-page 50 --auto-reload 15'

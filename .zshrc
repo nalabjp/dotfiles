@@ -3,7 +3,7 @@
 #################################
 
 # dotifiles directory
-DOTFILES=~/dotfiles
+DOTFILES=~/ghq/github.com/nalabjp/dotfiles
 
 # Remove duplicated path
 typeset -U path PATH
