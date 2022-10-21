@@ -1,9 +1,5 @@
-# arm64?
-if [ $(uname -m) = 'arm64' ]; then
-  export HOMEBREW_HOME=/opt/homebrew
-else
-  export HOMEBREW_HOME=/usr/local
-fi
+# arm64
+export HOMEBREW_HOME=/opt/homebrew
 
 # Homebrew no auto update
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -174,12 +170,4 @@ path=($GOPATH/bin(N-/) $path)
 # diff-highlight
 if [[ ! -e $HOMEBREW_HOME/bin/diff-highlight ]]; then
   ln -s $HOMEBREW_HOME/opt/git/share/git-core/contrib/diff-highlight/diff-highlight $HOMEBREW_HOME/bin
-fi
-
-# For configuration files where environment variables are not available
-if [[ ! -e /usr/local/opt ]]; then
-  echo Run \'sudo ln -s $HOMEBREW_HOME/opt /usr/local/opt\'
-fi
-if [[ ! -e /usr/local/var ]]; then
-  echo Run \'sudo ln -s $HOMEBREW_HOME/var /usr/local/var\'
 fi
