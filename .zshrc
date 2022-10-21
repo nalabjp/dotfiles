@@ -152,4 +152,4 @@ compdef kubecolor=kubectl
 eval "$(starship init zsh)"
 
 # nodenv
-eval "$(nodenv init -)"
+[ -d /opt/homebrew/opt/nodenv ] && eval "$(nodenv init -)"
