@@ -121,7 +121,9 @@ zstyle ':completion:*:*:*:*:*' menu select
 bindkey '^[' autosuggest-clear
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 
+#################################
 # kubecolor
+#################################
 # make completion work with kubecolor
 source <(kubectl completion zsh)
 compdef kubecolor=kubectl
@@ -137,8 +139,12 @@ compdef kubecolor=kubectl
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
+#################################
 # starship
+#################################
 eval "$(starship init zsh)"
 
+#################################
 # nodenv
+#################################
 [ -d /opt/homebrew/opt/nodenv ] && eval "$(nodenv init -)"
