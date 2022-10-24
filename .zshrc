@@ -421,7 +421,7 @@ alias tg='tig grep'
 alias ts='tig status'
 
 # tmux
-alias tmuxa='[ -f $DOTFILES/zsh/tmux_attach.zsh ] && source $DOTFILES/zsh/tmux_attach.zsh'
+alias tmuxa='tmux_automatically_attach_session'
 
 # nvim
 alias v='_vim'
@@ -486,7 +486,7 @@ eval "$(starship init zsh)"
 [ -d /opt/homebrew/opt/nodenv ] && eval "$(nodenv init -)"
 
 # load functions
-[ -f $DOTFILES/zsh/functions.zsh ] && source $DOTFILES/zsh/functions.zsh
+[ -f ~/.zfunctions ] && source ~/.zfunctions
 
 # Remove duplicated path
 typeset -U path PATH
