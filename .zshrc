@@ -100,7 +100,7 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 # gdircolors
-eval $(gdircolors ~/ghq/github.com/nalabjp/dotfiles/themes/dircolors-solarized/dircolors.256dark)
+eval $(gdircolors ~/ghq/github.com/nalabjp/mac/themes/dircolors-solarized/dircolors.256dark)
 
 # direnv config
 if type direnv > /dev/null 2>&1; then
