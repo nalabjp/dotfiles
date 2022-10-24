@@ -1,3 +1,6 @@
+# ASAP source zsh-autocomplete
+source ~/ghq/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # dotifiles directory
 DOTFILES=~/ghq/github.com/nalabjp/dotfiles
 
@@ -198,9 +201,6 @@ bindkey -e
 
 # show_buffer_stack
 bindkey '^]' show_buffer_stack
-
-# history
-bindkey '^R' anyframe-widget-put-history
 
 # cdr
 add-zsh-hook chpwd chpwd_recent_dirs
@@ -431,12 +431,8 @@ alias vv='v ~/.config/nvim/init.vim'
 alias vz='v ~/.zshrc'
 
 # homebrew completions
-if type brew &>/dev/null
-then
+if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
 fi
 
 # zplug
