@@ -16,9 +16,6 @@ path=($HOMEBREW_HOME/bin(N-/) $HOMEBREW_HOME/sbin(N-/) $path)
 # Add dotfiles/bin
 path=(~/dotfiles/bin(N-/) $path)
 
-# zfunctions
-fpath=(~/dotfiles/zfunctions(N-/) $fpath)
-
 # EDITOR
 export EDITOR='nvim'
 export GIT_EDITOR=$EDITOR
