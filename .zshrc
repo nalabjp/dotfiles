@@ -421,7 +421,7 @@ alias ts='tig status'
 alias tmuxa='tmux_automatically_attach_session'
 
 # nvim
-alias v='_vim'
+alias v='nvim'
 alias vi='v'
 alias vr='v -R'
 
