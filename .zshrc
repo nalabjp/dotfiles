@@ -77,10 +77,6 @@ export NVM_DIR="$HOME/.nvm"
 path=($HOMEBREW_HOME/opt/openjdk/bin(N-/) $path)
 export CPPFLAGS="-I$HOMEBREW_HOME/opt/openjdk/include"
 
-# zsh-bundle-exec.zsh
-export BUNDLE_EXEC_GEMFILE_CURRENT_DIR_ONLY=yes
-export BUNDLE_EXEC_COMMANDS='ruby rails rake rspec spring'
-
 # fzf
 export FZF_DEFAULT_COMMAND='ag'
 export FZF_DEFAULT_OPTS='--extended --cycle --select-1 --exit-0 --multi'
@@ -442,7 +438,6 @@ zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'mollifier/anyframe'
-zplug 'nalabjp/zsh-bundle-exec'
 zplug 'zsh-users/zsh-autosuggestions'
 
 if ! zplug check; then
