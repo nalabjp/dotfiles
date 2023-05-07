@@ -212,6 +212,13 @@ alias agh='ag --hidden'
 # asdf.sh
 [ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
 
+# base16 shell
+BASE16_SHELL="$XDG_CONFIG_HOME/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        source "$BASE16_SHELL/profile_helper.sh"
+base16_solarized-dark
+
 # bundler
 alias b='bundle'
 alias bi='bundle install'
