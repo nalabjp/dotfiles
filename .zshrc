@@ -175,7 +175,7 @@ alias tar='gtar'
 alias rz='source ~/.zshrc'
 alias vg='v ~/.gitconfig'
 alias vv='v ~/.config/nvim/init.vim'
-alias vz='v ~/.zshrc'
+alias vz='v ~/.zshrc $XDG_CONFIG_HOME/sheldon/plugins.toml'
 
 # completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
