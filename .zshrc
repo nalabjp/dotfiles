@@ -427,6 +427,10 @@ if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
+# zsh-autocomplete
+zstyle ':autocomplete:*' insert-unambiguous yes
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 # diff-highlight
 if [[ ! -e $HOMEBREW_HOME/bin/diff-highlight ]]; then
