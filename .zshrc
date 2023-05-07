@@ -2,6 +2,16 @@
 # General
 ########################
 
+# homebrew
+export HOMEBREW_HOME=/opt/homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+path=($HOMEBREW_HOME/bin(N-/) $HOMEBREW_HOME/sbin(N-/) $path)
+if type brew &>/dev/null; then
+  # completions
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
 # package manager
 eval "$(sheldon source)"
 
@@ -189,16 +199,6 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 ########################
 # Specific
 ########################
-
-# homebrew
-export HOMEBREW_HOME=/opt/homebrew
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_AUTO_UPDATE=1
-path=($HOMEBREW_HOME/bin(N-/) $HOMEBREW_HOME/sbin(N-/) $path)
-if type brew &>/dev/null; then
-  # completions
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
 
 # anyframe
 bindkey '^V^B' 'anyframe-widget-checkout-git-branch'
