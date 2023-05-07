@@ -242,9 +242,6 @@ fi
 export FZF_DEFAULT_COMMAND='ag'
 export FZF_DEFAULT_OPTS='--extended --cycle --select-1 --exit-0 --multi'
 
-# gdircolors
-eval $(gdircolors ~/ghq/github.com/nalabjp/mac/themes/dircolors-solarized/dircolors.256dark)
-
 # git
 alias g='hub'
 alias ga='g add -v'
