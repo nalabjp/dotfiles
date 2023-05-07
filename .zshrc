@@ -1,5 +1,5 @@
-# ASAP source zsh-autocomplete
-source ~/ghq/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# sheldon
+eval "$(sheldon source)"
 
 # dotifiles directory
 DOTFILES=~/ghq/github.com/nalabjp/dotfiles
@@ -112,10 +112,6 @@ export XDG_CONFIG_HOME=~/.config
 
 # enhancd
 export ENHANCD_COMMAND=e
-
-# zplug
-export ZPLUG_HOME=$HOMEBREW_HOME/opt/zplug
-path+=($ZPLUG_HOME/bin(N-/))
 
 # Rust with cargo
 path+=(~/.cargo/bin(N-/))
@@ -431,21 +427,6 @@ if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
-# zplug
-source $ZPLUG_HOME/init.zsh
-
-zplug 'zsh-users/zsh-completions'
-zplug 'zsh-users/zsh-syntax-highlighting'
-zplug 'zsh-users/zsh-history-substring-search'
-zplug 'mollifier/anyframe'
-zplug 'zsh-users/zsh-autosuggestions'
-
-if ! zplug check; then
-  zplug install
-fi
-
-# load
-zplug load
 
 # diff-highlight
 if [[ ! -e $HOMEBREW_HOME/bin/diff-highlight ]]; then
