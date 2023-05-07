@@ -174,7 +174,7 @@ alias tar='gtar'
 # dotfiles
 alias rz='source ~/.zshrc'
 alias vg='v ~/.gitconfig'
-alias vv='v ~/.config/nvim/init.vim'
+alias vv='v $XDG_CONFIG_HOME/nvim/init.vim'
 alias vz='v ~/.zshrc $XDG_CONFIG_HOME/sheldon/plugins.toml'
 
 # completion
