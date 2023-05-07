@@ -1,23 +1,12 @@
-# sheldon
+########################
+# General
+########################
+
+# package manager
 eval "$(sheldon source)"
 
-# dotifiles directory
-DOTFILES=~/ghq/github.com/nalabjp/dotfiles
-
-# arm64
-export HOMEBREW_HOME=/opt/homebrew
-
-# Homebrew no auto update
-export HOMEBREW_NO_AUTO_UPDATE=1
-
-# sbin
-path=(/sbin(N-/) /usr/sbin(N-/) $path)
-
-# Add brew path
-path=($HOMEBREW_HOME/bin(N-/) $HOMEBREW_HOME/sbin(N-/) $path)
-
-# Add dotfiles/bin
-path=(~/dotfiles/bin(N-/) $path)
+# Remove duplicated path
+typeset -U path PATH
 
 # EDITOR
 export EDITOR='nvim'
@@ -34,53 +23,6 @@ export HISTCONTROL=ignoreboth #ignorespace+ignoredups
 export HISTIGNORE="fg*:bg*:history*:cd*:ls*"
 export HISTTIMEFORMAT='%Y-%m-%d %T ';
 
-# rbenv
-export RBENV_ROOT=$(rbenv root)
-path=($RBENV_ROOT/bin(N-/) $path)
-
-if [ $+commands[rbenv] -ne 0 ]; then
-  rbenv_init(){
-    # eval "$(rbenv init - --no-rehash)" is crazy slow (it takes arround 100ms)
-    # below style took ~2ms
-    export RBENV_SHELL=zsh
-    source $HOMEBREW_HOME/opt/rbenv/completions/rbenv.zsh
-    rbenv() {
-      local command
-      command="$1"
-      if [ "$#" -gt 0 ]; then
-        shift
-      fi
-
-      case "$command" in
-      rehash|shell)
-        eval "`rbenv "sh-$command" "$@"`";;
-      *)
-        command rbenv "$command" "$@";;
-      esac
-    }
-    path=(~/.rbenv/shims(N-/) $path)
-  }
-  rbenv_init
-  unfunction rbenv_init
-fi
-
-# nodebrew
-path+=(~/.nodebrew/current/bin(N-/))
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-
-# java
-# export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-# path+=($JAVA_HOME(N-/))
-# OpenJDK
-path=($HOMEBREW_HOME/opt/openjdk/bin(N-/) $path)
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/openjdk/include"
-
-# fzf
-export FZF_DEFAULT_COMMAND='ag'
-export FZF_DEFAULT_OPTS='--extended --cycle --select-1 --exit-0 --multi'
-
 # only define LC_CTYPE if undefined
 if [[ -z "$LC_CTYPE" && -z "$LC_ALL" ]]; then
   export LC_CTYPE=${LANG%%:*} # pick the first entry from LANG
@@ -89,70 +31,30 @@ fi
 # pager
 export PAGER="less"
 export LESS='-gj10 -X -F -R'
-export LESSOPEN='| /opt/homebrew/bin/src-hilite-lesspipe.sh %s'
+export LESSOPEN='| src-hilite-lesspipe.sh %s'
 
 # wordchar
 export WORDCHARS=''
 
-# homebrew
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_AUTO_UPDATE=1
-
-# gdircolors
-eval $(gdircolors ~/ghq/github.com/nalabjp/mac/themes/dircolors-solarized/dircolors.256dark)
-
-# direnv config
-if type direnv > /dev/null 2>&1; then
-  eval "$(direnv hook $SHELL)"
-  export DIRENV_LOG_FORMAT=
-fi
-
 # XDG_CONFIG_HOME
 export XDG_CONFIG_HOME=~/.config
 
-# enhancd
-export ENHANCD_COMMAND=e
+# sbin
+path=(/sbin(N-/) /usr/sbin(N-/) $path)
 
-# Rust with cargo
-path+=(~/.cargo/bin(N-/))
-export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/
+# Add dotfiles/bin
+path=(~/dotfiles/bin(N-/) $path)
 
-# Perl5
-path+=(~/perl5(N-/))
-path+=(~/perl5/bin(N-/))
-path+=(~/perl5/lib/perl5(N-/))
-export PERL_CPANM_OPT=--local-lib=~/extlib
-export PERL5LIB=$HOME/extlib/lib/perl5:$PERL5LIB
+# .zshrc.local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
-# MySQL
-path=($HOMEBREW_HOME/opt/mysql@5.7/bin(N-/) $path)
-export LDFLAGS="-L$HOMEBREW_HOME/opt/mysql@5.7/lib:$LDFLAGS"
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/mysql@5.7/include:$CPPFLAGS"
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/mysql@5.7/lib/pkgconfig:$PKG_CONFIG_PATH"
+# load functions
+[ -f ~/.zfunctions ] && source ~/.zfunctions
 
-# postgresql
-export PGDATA=$HOMEBREW_HOME/var/postgresql@11
-path=($HOMEBREW_HOME/opt/postgresql@11/bin(N-/) $path)
-export LDFLAGS="-L$HOMEBREW_HOME/opt/postgresql@11/lib:$LDFLAGS"
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/postgresql@11/include:$CPPFLAGS"
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/postgresql@11/lib/pkgconfig:$PKG_CONFIG_PATH"
-
-# For pkg-config to find libxml2 on nokogiri.gem installation
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
-
-# OpenSSL
-path=($HOMEBREW_HOME/opt/openssl@1.1/bin(N-/) $path)
-export LDFLAGS="-L$HOMEBREW_HOME/opt/openssl@1.1/lib:$LDFLAGS"
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/openssl@1.1/include:$CPPFLAGS"
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
-# krew
-path+=(~/.krew/bin(N-/))
-
-# Go
-export GOPATH=$HOME/go
-path=($GOPATH/bin(N-/) $path)
+# zcompile
+if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
+  zcompile ~/.zshrc
+fi
 
 # autoload
 autoload -Uz add-zsh-hook
@@ -197,21 +99,6 @@ bindkey '^]' show_buffer_stack
 # cdr
 add-zsh-hook chpwd chpwd_recent_dirs
 
-# history-substring-search-up
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
-
-# anyframe
-bindkey '^V^B' 'anyframe-widget-checkout-git-branch'
-bindkey '^V^K' 'anyframe-widget-kill'
-bindkey '^V^V' 'anyframe-widget-cd-ghq-repository'
-
-# completion
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion:*:*:*:*:*' menu select
-
 # Global aliases
 alias -g F='| fzf'
 alias -g G='| grep'
@@ -247,9 +134,83 @@ alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
 
+# grep
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+
+# history
+alias history='fc -l 1'
+
+# gnu-ln
+alias ln='gln'
+
+# gnu-ls
+# require coreutils
+alias ls='gls --color=auto'
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias latr='ls -lAhtr'
+
+# mkdir
+alias md='mkdir -p'
+
+# Push and pop directories on directory stack
+alias pu='pushd'
+alias po='popd'
+
+# rmdir
+alias rd=rmdir
+
+# gnu-sed
+alias sed='gsed'
+
+# less +F
+alias tailf='LESSOPEN= less +F'
+
+# gnu-tar
+alias tar='gtar'
+
+# dotfiles
+alias rz='source ~/.zshrc'
+alias vg='v ~/.gitconfig'
+alias vv='v ~/.config/nvim/init.vim'
+alias vz='v ~/.zshrc'
+
+# completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion:*:*:*:*:*' menu select
+
+# zsh-autosuggest
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
+
+########################
+# Specific
+########################
+
+# homebrew
+export HOMEBREW_HOME=/opt/homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+path=($HOMEBREW_HOME/bin(N-/) $HOMEBREW_HOME/sbin(N-/) $path)
+if type brew &>/dev/null; then
+  # completions
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
+# anyframe
+bindkey '^V^B' 'anyframe-widget-checkout-git-branch'
+bindkey '^V^K' 'anyframe-widget-kill'
+bindkey '^V^V' 'anyframe-widget-cd-ghq-repository'
+
 # ag
 alias ag='ag -S'
 alias agh='ag --hidden'
+
+# asdf.sh
+[ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
 
 # bundler
 alias b='bundle'
@@ -265,6 +226,24 @@ alias bs='bundle show'
 # color config ~/.colordiffrc
 # require: export LESS='-R'
 alias diff='colordiff -u'
+
+# diff-highlight
+if [[ ! -e $HOMEBREW_HOME/bin/diff-highlight ]]; then
+  ln -s $HOMEBREW_HOME/opt/git/share/git-core/contrib/diff-highlight/diff-highlight $HOMEBREW_HOME/bin
+fi
+
+# direnv config
+if type direnv > /dev/null 2>&1; then
+  eval "$(direnv hook $SHELL)"
+  export DIRENV_LOG_FORMAT=
+fi
+
+# fzf
+export FZF_DEFAULT_COMMAND='ag'
+export FZF_DEFAULT_OPTS='--extended --cycle --select-1 --exit-0 --multi'
+
+# gdircolors
+eval $(gdircolors ~/ghq/github.com/nalabjp/mac/themes/dircolors-solarized/dircolors.256dark)
 
 # git
 alias g='hub'
@@ -315,11 +294,28 @@ alias gstc='g stash clear'
 alias gstl='g stash list'
 alias gstp='g stash pop'
 
-# grep
-alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+# Go
+export GOPATH=$HOME/go
+path=($GOPATH/bin(N-/) $path)
 
-# history
-alias history='fc -l 1'
+# history-substring-search-up
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down
+
+# java
+# export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+# path+=($JAVA_HOME(N-/))
+# OpenJDK
+path=($HOMEBREW_HOME/opt/openjdk/bin(N-/) $path)
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/openjdk/include"
+
+# krew
+path+=(~/.krew/bin(N-/))
+
+# kubecolor
+# make completion work with kubecolor
+source <(kubectl completion zsh)
+compdef kubecolor=kubectl
 
 # kubectl
 alias _k='kubectl'
@@ -341,65 +337,107 @@ alias krm='k delete'
 alias kz='kustomize'
 alias kzb='kz build'
 
-# gnu-ln
-alias ln='gln'
-
-# gnu-ls
-# require coreutils
-alias ls='gls --color=auto'
-alias lsa='ls -lah'
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
-alias latr='ls -lAhtr'
-
 # memo
 alias memo=_memo
-
-# mkdir
-alias md='mkdir -p'
 
 # minikube
 alias mk='minikube'
 alias mks='mk start'
 
 # mysql
+path=($HOMEBREW_HOME/opt/mysql@5.7/bin(N-/) $path)
+export LDFLAGS="-L$HOMEBREW_HOME/opt/mysql@5.7/lib:$LDFLAGS"
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/mysql@5.7/include:$CPPFLAGS"
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/mysql@5.7/lib/pkgconfig:$PKG_CONFIG_PATH"
 alias mysql="mysql --pager='less -S -i -F'"
 alias mysql-start='mysql.server start'
 alias mysql-stop='mysql.server stop'
 alias mysql-restart='mysql.server restart'
 
-# Aliases to stop, start and restart Postgres
-# Paths noted below are for Postgress installed via Homebrew on OSX
+# nvim
+alias v='nvim'
+alias vi='v'
+alias vr='v -R'
+
+# nodebrew
+path+=(~/.nodebrew/current/bin(N-/))
+
+# nodenv
+[ -d $HOMEBREW_HOME/opt/nodenv ] && eval "$(nodenv init -)"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+
+# OpenSSL
+path=($HOMEBREW_HOME/opt/openssl@1.1/bin(N-/) $path)
+export LDFLAGS="-L$HOMEBREW_HOME/opt/openssl@1.1/lib:$LDFLAGS"
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/openssl@1.1/include:$CPPFLAGS"
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+# Perl5
+path+=(~/perl5(N-/))
+path+=(~/perl5/bin(N-/))
+path+=(~/perl5/lib/perl5(N-/))
+export PERL_CPANM_OPT=--local-lib=~/extlib
+export PERL5LIB=$HOME/extlib/lib/perl5:$PERL5LIB
+
+# postgresql
+export PGDATA=$HOMEBREW_HOME/var/postgresql@11
+path=($HOMEBREW_HOME/opt/postgresql@11/bin(N-/) $path)
+export LDFLAGS="-L$HOMEBREW_HOME/opt/postgresql@11/lib:$LDFLAGS"
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/postgresql@11/include:$CPPFLAGS"
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/postgresql@11/lib/pkgconfig:$PKG_CONFIG_PATH"
 alias pg-start='pg_ctl -l $HOMEBREW_HOME/var/postgres/server.log start'
 alias pg-stop='pg_ctl stop -s -m fast'
 alias pg-restart='pg-stop && sleep 1 && pg-start'
 
-# Push and pop directories on directory stack
-alias pu='pushd'
-alias po='popd'
-
-# reload .zshrc
-alias rz='source ~/.zshrc'
+# For pkg-config to find libxml2 on nokogiri.gem installation
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # rails
 alias rr='bin/rails'
 
-# rmdir
-alias rd=rmdir
+# rbenv
+export RBENV_ROOT=$(rbenv root)
+path=($RBENV_ROOT/bin(N-/) $path)
+
+if [ $+commands[rbenv] -ne 0 ]; then
+  rbenv_init(){
+    # eval "$(rbenv init - --no-rehash)" is crazy slow (it takes arround 100ms)
+    # below style took ~2ms
+    export RBENV_SHELL=zsh
+    source $HOMEBREW_HOME/opt/rbenv/completions/rbenv.zsh
+    rbenv() {
+      local command
+      command="$1"
+      if [ "$#" -gt 0 ]; then
+        shift
+      fi
+
+      case "$command" in
+      rehash|shell)
+        eval "`rbenv "sh-$command" "$@"`";;
+      *)
+        command rbenv "$command" "$@";;
+      esac
+    }
+    path=(~/.rbenv/shims(N-/) $path)
+  }
+  rbenv_init
+  unfunction rbenv_init
+fi
 
 # redis
-alias redis-start='redis-server /opt/homebrew/etc/redis.conf --daemonize yes'
+alias redis-start='redis-server $HOMEBREW_HOME/etc/redis.conf --daemonize yes'
 alias redis-stop='redis-cli shutdown'
 
-# gnu-sed
-alias sed='gsed'
+# rust with cargo
+path+=(~/.cargo/bin(N-/))
+export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/
 
-# less +F
-alias tailf='LESSOPEN= less +F'
-
-# gnu-tar
-alias tar='gtar'
+# starship
+eval "$(starship init zsh)"
 
 # tig
 alias t='tig'
@@ -412,60 +450,7 @@ alias ts='tig status'
 # tmux
 alias tmuxa='tmux_automatically_attach_session'
 
-# nvim
-alias v='nvim'
-alias vi='v'
-alias vr='v -R'
-
-# edit dotfiles
-alias vg='v ~/.gitconfig'
-alias vv='v ~/.config/nvim/init.vim'
-alias vz='v ~/.zshrc'
-
-# homebrew completions
-if type brew &>/dev/null; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
-
 # zsh-autocomplete
 zstyle ':autocomplete:*' insert-unambiguous yes
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-
-# diff-highlight
-if [[ ! -e $HOMEBREW_HOME/bin/diff-highlight ]]; then
-  ln -s $HOMEBREW_HOME/opt/git/share/git-core/contrib/diff-highlight/diff-highlight $HOMEBREW_HOME/bin
-fi
-
-# autosuggest
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
-
-# kubecolor
-# make completion work with kubecolor
-source <(kubectl completion zsh)
-compdef kubecolor=kubectl
-
-# asdf.sh
-[ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
-
-# .zshrc.local
-
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-# starship
-eval "$(starship init zsh)"
-
-# nodenv
-[ -d /opt/homebrew/opt/nodenv ] && eval "$(nodenv init -)"
-
-# load functions
-[ -f ~/.zfunctions ] && source ~/.zfunctions
-
-# Remove duplicated path
-typeset -U path PATH
-
-# zcompile
-if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
-  zcompile ~/.zshrc
-fi
-
