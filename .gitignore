@@ -29,16 +29,6 @@ tmp
 config/deploy/mac.rb
 # for solargraph
 .solargraph.yml
-# alfred
-/alfred/Alfred.alfredpreferences/*
-!/alfred/Alfred.alfredpreferences/workflows
-!/alfred/Alfred.alfredpreferences/preferences
-/alfred/Alfred.alfredpreferences/preferences/*
-!/alfred/Alfred.alfredpreferences/preferences/features
-/alfred/Alfred.alfredpreferences/preferences/features/*
-!/alfred/Alfred.alfredpreferences/preferences/features/websearch
-!/alfred/Alfred.alfredpreferences/preferences/features/defaultresults
-alfred/Alfred.alfredpreferences/workflows/user.workflow.8FE53511-C7B5-4D73-8EB8-54356887F12C
 
 # localignore
 localignore/
