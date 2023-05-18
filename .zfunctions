@@ -75,7 +75,7 @@ _rake() {
 compdef _rake rake
 
 function _memo() {
-  touch `date '+%y%m%d'`.md && v `date '+%y%m%d'`.md
+  touch `date '+%y%m%d'`.md && nvim `date '+%y%m%d'`.md
 }
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
 function is_osx() { [[ $OSTYPE == darwin* ]]; }
