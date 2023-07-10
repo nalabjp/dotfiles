@@ -6,5 +6,5 @@ See https://github.com/nalabjp/mac#installation
 
 # Edit .zshrc.local
 ```
-ansible-vault edit .zshrc.local.enc
+ansible-vault edit .zshrc.local.[machine].enc
 ```
