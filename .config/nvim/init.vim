@@ -80,7 +80,7 @@ Plug 'vim-scripts/AnsiEsc.vim'
 
 " 補完
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
 
 " スニペット
 Plug 'SirVer/ultisnips'
