@@ -402,36 +402,6 @@ export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PAT
 # rails
 alias rr='bin/rails'
 
-# rbenv
-export RBENV_ROOT=$(rbenv root)
-path=($RBENV_ROOT/bin(N-/) $path)
-
-if [ $+commands[rbenv] -ne 0 ]; then
-  rbenv_init(){
-    # eval "$(rbenv init - --no-rehash)" is crazy slow (it takes arround 100ms)
-    # below style took ~2ms
-    export RBENV_SHELL=zsh
-    source $HOMEBREW_HOME/opt/rbenv/completions/rbenv.zsh
-    rbenv() {
-      local command
-      command="$1"
-      if [ "$#" -gt 0 ]; then
-        shift
-      fi
-
-      case "$command" in
-      rehash|shell)
-        eval "`rbenv "sh-$command" "$@"`";;
-      *)
-        command rbenv "$command" "$@";;
-      esac
-    }
-    path=(~/.rbenv/shims(N-/) $path)
-  }
-  rbenv_init
-  unfunction rbenv_init
-fi
-
 # redis
 alias redis-start='redis-server $HOMEBREW_HOME/etc/redis.conf --daemonize yes'
 alias redis-stop='redis-cli shutdown'
