@@ -1,0 +1,11 @@
+bundler
+pry
+pry-byebug
+pry-doc
+pry-stack_explorer
+pry-power_assert
+awesome_print
+tapp
+benchmark-ips
+neovim
+solargraph
