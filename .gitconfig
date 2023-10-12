@@ -54,3 +54,5 @@
 	lineNumber = true
 [credential]
 	helper = osxkeychain
+[includeIf "gitdir:~/ghq/github.com/eightcard/"]
+  path = ~/.gitconfig_eightcard
