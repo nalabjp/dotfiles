@@ -53,6 +53,8 @@
 [grep]
 	lineNumber = true
 [credential]
-	helper = osxkeychain
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [includeIf "gitdir:~/ghq/github.com/eightcard/"]
   path = ~/.gitconfig_eightcard
+[credential "https://dev.azure.com"]
+	useHttpPath = true
