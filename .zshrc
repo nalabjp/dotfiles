@@ -429,3 +429,6 @@ alias tmuxa='tmux_automatically_attach_session'
 zstyle ':autocomplete:*' insert-unambiguous yes
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+
+# Rancher desktop
+path+=(~/.rd/bin(N-/))
