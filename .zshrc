@@ -203,7 +203,6 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 # anyframe
 bindkey '^V^B' 'anyframe-widget-checkout-git-branch'
 bindkey '^V^K' 'anyframe-widget-kill'
-bindkey '^V^V' 'anyframe-widget-cd-ghq-repository'
 
 # ag
 alias ag='ag -S'
@@ -298,6 +297,9 @@ alias gst='g stash'
 alias gstc='g stash clear'
 alias gstl='g stash list'
 alias gstp='g stash pop'
+
+# ghq
+bindkey '^V^V' _fzf_cd_ghq
 
 # Go
 export GOPATH=$HOME/go
