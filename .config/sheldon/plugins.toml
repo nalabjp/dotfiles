@@ -36,10 +36,6 @@ apply = ["defer"]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]
 
-[plugins.anyframe]
-github = "mollifier/anyframe"
-apply = ["defer"]
-
 [plugins.zsh-autocomplete]
 github = "marlonrichert/zsh-autocomplete"
 
