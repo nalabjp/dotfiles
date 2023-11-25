@@ -202,7 +202,6 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 
 # anyframe
 bindkey '^V^B' 'anyframe-widget-checkout-git-branch'
-bindkey '^V^K' 'anyframe-widget-kill'
 
 # ag
 alias ag='ag -S'
@@ -315,6 +314,9 @@ bindkey '^N' history-substring-search-down
 # OpenJDK
 path=($HOMEBREW_HOME/opt/openjdk/bin(N-/) $path)
 export CPPFLAGS="-I$HOMEBREW_HOME/opt/openjdk/include"
+
+# kill
+bindkey '^V^K' _fzf_kill_process
 
 # krew
 path+=(~/.krew/bin(N-/))

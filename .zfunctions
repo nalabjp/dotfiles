@@ -90,3 +90,11 @@ function _fzf_cd_ghq() {
     zle reset-prompt
 }
 zle -N _fzf_cd_ghq
+
+function _fzf_kill_process() {
+    local process="$(ps -u $USER -o pid,stat,%cpu,%mem,cputime,command | fzf | awk '{print $1}')"
+    kill $process
+    zle accept-line
+    zle reset-prompt
+}
+zle -N _fzf_kill_process
