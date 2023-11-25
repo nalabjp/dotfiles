@@ -200,9 +200,6 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 # Specific
 ########################
 
-# anyframe
-bindkey '^V^B' 'anyframe-widget-checkout-git-branch'
-
 # ag
 alias ag='ag -S'
 alias agh='ag --hidden'
@@ -297,6 +294,8 @@ alias gstc='g stash clear'
 alias gstl='g stash list'
 alias gstp='g stash pop'
 
+# git checkout
+bindkey '^V^B' _fzf_git_checkout_branch
 # ghq
 bindkey '^V^V' _fzf_cd_ghq
 

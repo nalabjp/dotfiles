@@ -98,3 +98,11 @@ function _fzf_kill_process() {
     zle reset-prompt
 }
 zle -N _fzf_kill_process
+
+function _fzf_git_checkout_branch() {
+    local branch="$(git branches | fzf | awk '{print $2}')"
+    git checkout $branch
+    zle accept-line
+    zle reset-prompt
+}
+zle -N _fzf_git_checkout_branch
