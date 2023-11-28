@@ -236,7 +236,8 @@ fi
 
 # direnv config
 if type direnv > /dev/null 2>&1; then
-  eval "$(direnv hook $SHELL)"
+  # `eval "$(direnv hook $SHELL)"` doesn't work in RubyMine terminal
+  eval "$(direnv hook $0)"
   export DIRENV_LOG_FORMAT=
 fi
 
