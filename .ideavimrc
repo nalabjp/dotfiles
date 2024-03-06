@@ -1,0 +1,3 @@
+" コロンとセミコロンの入れ替え
+nnoremap : ;
+nnoremap ; :
