@@ -1,3 +1,5 @@
 [user]
 	name = Hajime Kimura
 	email = hajime.kimura@sansan.com
+[url "https://hajime-kimura@github.com/eightcard"]
+	insteadOf = git@github.com:eightcard
