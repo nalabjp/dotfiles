@@ -54,6 +54,8 @@
 	lineNumber = true
 [credential]
 	helper = /usr/local/share/gcm-core/git-credential-manager
+[includeIf "gitdir:~/ghq/github.com/eightcard/"] # for release script
+  path = ~/.gitconfig_eightcard
 [includeIf "hasconfig:remote.*.url:https://*github.com/eightcard/*"]
   path = ~/.gitconfig_eightcard
 [credential "https://dev.azure.com"]
