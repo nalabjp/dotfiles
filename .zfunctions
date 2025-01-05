@@ -83,7 +83,7 @@ function tmux_automatically_attach_session()
 
 function _fzf_cd_git_src() {
     local root=${GIT_HOME}
-    local repo="$(find ${root} -depth 2 -type d | fzf --preview="ls -AF --color=always {1}")"
+    local repo="$(fd --min-depth=2 -t d --max-depth=2 . ${root}| fzf --preview="ls -AF --color=always {1}")"
     local dir="${repo}"
     [ -n "${dir}" ] && cd "${dir}"
     zle accept-line
