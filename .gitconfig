@@ -20,15 +20,13 @@
 	rename-nalabjp = !~/.gitscript/rename-nalabjp
 	ignore-gemfile = !git update-index --assume-unchanged Gemfile Gemfile.lock
 	revert-gemfile = !git update-index --no-assume-unchanged Gemfile Gemfile.lock
-	open-pr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
-	open-pr2 = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...upstream/master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
+	open-pr = "!f() { gh repo view --web --branch `git branch --show-current`; }; f"
 	branches = "!git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);(%(color:green)%(committerdate:relative)%(color:reset));%(authorname);%(contents:subject)' | column -t -s ';'"
+	clone-repo = "!f() { gh repo view $1 | awk \"/^name:/{print \\$2}\" | xargs -I% gh repo clone \"%\" ~/src/%;}; f"
 [help]
 	autocorrect = 1
 [branch]
 	autosetuprebase = always
-[ghq]
-	root = ~/ghq
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -54,7 +52,7 @@
 	lineNumber = true
 [credential]
 	helper = /usr/local/share/gcm-core/git-credential-manager
-[includeIf "gitdir:~/ghq/github.com/eightcard/"] # for release script
+[includeIf "gitdir:~/src/github.com/eightcard/"] # for release script
   path = ~/.gitconfig_eightcard
 [includeIf "hasconfig:remote.*.url:https://*github.com/eightcard/*"]
   path = ~/.gitconfig_eightcard

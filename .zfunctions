@@ -81,15 +81,15 @@ function tmux_automatically_attach_session()
     fi
 }
 
-function _fzf_cd_ghq() {
-    local root="$(ghq root)"
-    local repo="$(ghq list | fzf --preview="ls -AF --color=always ${root}/{1}")"
-    local dir="${root}/${repo}"
+function _fzf_cd_git_src() {
+    local root=${GIT_HOME}
+    local repo="$(find ${root} -depth 2 -type d | fzf --preview="ls -AF --color=always {1}")"
+    local dir="${repo}"
     [ -n "${dir}" ] && cd "${dir}"
     zle accept-line
     zle reset-prompt
 }
-zle -N _fzf_cd_ghq
+zle -N _fzf_cd_git_src
 
 function _fzf_kill_process() {
     local process="$(ps -u $USER -o pid,stat,%cpu,%mem,cputime,command | fzf | awk '{print $1}')"

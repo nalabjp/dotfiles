@@ -246,12 +246,13 @@ export FZF_DEFAULT_COMMAND='ag'
 export FZF_DEFAULT_OPTS='--extended --cycle --select-1 --exit-0 --multi'
 
 # git
-alias g='hub'
+export GIT_HOME=$HOME/src
+alias g='git'
 alias ga='g add -v'
 alias gaa='g add -Av'
 alias gb='g branch'
 alias gbs='g branches'
-alias gbr='g browse'
+alias gbr='gh repo view --web'
 alias gc='g commit -v'
 alias gcb='g checkout -b'
 alias gco='g checkout'
@@ -277,7 +278,8 @@ alias gn='g now'
 alias gna='g now --all'
 alias gp='g push -v'
 alias gpl='g pull'
-alias gpr='g pull-request'
+alias gpr='gh pr create'
+alias gprco='gh pr checkout'
 alias grb='g rebase'
 alias grbi='g rebase -i'
 alias grbih='g rebase -i HEAD^^'
@@ -297,8 +299,8 @@ alias gstp='g stash pop'
 
 # git checkout
 bindkey '^V^B' _fzf_git_checkout_branch
-# ghq
-bindkey '^V^V' _fzf_cd_ghq
+# git repo
+bindkey '^V^V' _fzf_cd_git_src
 
 # Go
 export GOPATH=$HOME/go

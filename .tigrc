@@ -46,15 +46,5 @@ bind status C !git commit -v
 bind diff F ?!git commit --fixup %(commit)
 # commit --suqash
 bind diff S ?!git commit --squash %(commit)
-# browse
-bind diff B @hub browse -- commit/%(commit)
 # rebase -i
 bind diff I !git rebase -i %(commit)^
-
-# blog
-# browse
-bind blob B @hub browse -- tree/%(commit)/%(file)
-
-# tree
-# browse
-bind tree B @hub browse -- tree/%(commit)/%(directory)
