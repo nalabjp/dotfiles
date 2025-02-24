@@ -5,6 +5,7 @@ if has('vim_starting')
     call system('mkdir -p ~/.vim/plugged/vim-plug')
     call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
   end
+  set termguicolors
 endif
 
 """"""""""""""""""""""""""""""""""""
