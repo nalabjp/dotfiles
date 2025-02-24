@@ -21,7 +21,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'taohexxx/lightline-solarized' | Plug 'tpope/vim-fugitive'
 
 " theme
-Plug 'chriskempson/base16-vim'
+Plug 'lifepillar/vim-solarized8', { 'branch': 'neovim' }
 
 " endに%で移動
 Plug 'vim-scripts/ruby-matchit', { 'for': ['ruby', 'eruby', 'haml', 'slim'] }
@@ -195,21 +195,9 @@ if s:plug.is_installed('lightline.vim')
     \ }
 endif
 
-if s:plug.is_installed('base16-vim')
-  colorscheme base16-solarized-dark
-  hi Search cterm=NONE ctermbg=darkgreen ctermfg=white
-  hi LineNr ctermbg=NONE ctermfg=darkgray
-  hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
-  hi CursorLineNr ctermbg=NONE ctermfg=yellow
-  hi Pmenu ctermbg=NONE
-  hi PmenuSel ctermbg=blue
-  hi PmenuSbar ctermbg=green
-  hi PmenuThumb ctermfg=yellow
-  hi Visual ctermbg=cyan ctermfg=white
-  hi WildMenu cterm=BOLD ctermbg=darkgreen ctermfg=white
-  hi StatusLine ctermbg=darkgray ctermfg=white
-  hi Todo cterm=BOLD ctermbg=yellow ctermfg=black
-  hi VertSplit ctermbg=NONE ctermfg=darkgray
+if s:plug.is_installed('vim-solarized8')
+  set background=dark
+  colorscheme solarized8
 endif
 
 if s:plug.is_installed('vim-easymotion')
