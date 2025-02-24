@@ -9,7 +9,7 @@
 	show = diff-highlight | less
 	diff = diff-highlight | less
 [merge]
-	tool = vimdiff
+	tool = nvim -d
 	conflictstyle = diff3
 	prompt = false
 	ff = false
