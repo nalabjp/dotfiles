@@ -54,7 +54,7 @@
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [includeIf "gitdir:."] # for bundle outdated
   path = ~/.gitconfig_eightcard
-[includeIf "gitdir:~/src/github.com/eightcard/"] # for release script
+[includeIf "gitdir:~/src/eightcard/"] # for release script
   path = ~/.gitconfig_eightcard
 [includeIf "hasconfig:remote.*.url:https://*github.com/eightcard/*"]
   path = ~/.gitconfig_eightcard
