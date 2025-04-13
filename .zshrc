@@ -400,7 +400,7 @@ path=($HOMEBREW_HOME/opt/postgresql@11/bin(N-/) $path)
 export LDFLAGS="-L$HOMEBREW_HOME/opt/postgresql@11/lib:$LDFLAGS"
 export CPPFLAGS="-I$HOMEBREW_HOME/opt/postgresql@11/include:$CPPFLAGS"
 export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/postgresql@11/lib/pkgconfig:$PKG_CONFIG_PATH"
-alias pg-start='pg_ctl -l $HOMEBREW_HOME/var/postgres/server.log start'
+alias pg-start='pg_ctl -l $HOMEBREW_HOME/var/postgresql/server.log -D $HOMEBREW_HOME/var/postgresql start'
 alias pg-stop='pg_ctl stop -s -m fast'
 alias pg-restart='pg-stop && sleep 1 && pg-start'
 
