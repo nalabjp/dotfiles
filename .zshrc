@@ -395,12 +395,12 @@ export PERL_CPANM_OPT=--local-lib=~/extlib
 export PERL5LIB=$HOME/extlib/lib/perl5:$PERL5LIB
 
 # postgresql
-export PGDATA=$HOMEBREW_HOME/var/postgresql@11
-path=($HOMEBREW_HOME/opt/postgresql@11/bin(N-/) $path)
-export LDFLAGS="-L$HOMEBREW_HOME/opt/postgresql@11/lib:$LDFLAGS"
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/postgresql@11/include:$CPPFLAGS"
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/postgresql@11/lib/pkgconfig:$PKG_CONFIG_PATH"
-alias pg-start='pg_ctl -l $HOMEBREW_HOME/var/postgresql/server.log -D $HOMEBREW_HOME/var/postgresql start'
+export PGDATA=$HOMEBREW_HOME/var/postgresql@14
+path=($HOMEBREW_HOME/opt/postgresql@14/bin(N-/) $path)
+export LDFLAGS="-L$HOMEBREW_HOME/opt/postgresql@14/lib/postgresql@14:$LDFLAGS"
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/postgresql@14/include/postgresql@14:$CPPFLAGS"
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/postgresql@14/lib/postgresql@14/pkgconfig:$PKG_CONFIG_PATH"
+alias pg-start='pg_ctl -l $HOMEBREW_HOME/var/postgresql@14/server.log -D $HOMEBREW_HOME/var/postgresql@14 start'
 alias pg-stop='pg_ctl stop -s -m fast'
 alias pg-restart='pg-stop && sleep 1 && pg-start'
 
