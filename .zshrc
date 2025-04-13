@@ -381,11 +381,11 @@ path+=(~/.nodebrew/current/bin(N-/))
 export NVM_DIR="$HOME/.nvm"
 
 # OpenSSL
-path=($HOMEBREW_HOME/opt/openssl@1.1/bin(N-/) $path)
-export LDFLAGS="-L$HOMEBREW_HOME/opt/openssl@1.1/lib:$LDFLAGS"
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/openssl@1.1/include:$CPPFLAGS"
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+path=($HOMEBREW_HOME/opt/openssl@3/bin(N-/) $path)
+export LDFLAGS="-L$HOMEBREW_HOME/opt/openssl@3/lib:$LDFLAGS"
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/openssl@3/include:$CPPFLAGS"
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 
 # Perl5
 path+=(~/perl5(N-/))
