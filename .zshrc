@@ -409,6 +409,7 @@ export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PAT
 
 # rails
 alias rr='bin/rails'
+alias rs='bin/rspec'
 
 # redis
 alias redis-start='redis-server $HOMEBREW_HOME/etc/redis.conf --daemonize yes'
