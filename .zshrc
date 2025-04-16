@@ -408,7 +408,7 @@ alias pg-restart='pg-stop && sleep 1 && pg-start'
 export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # rails
-alias rr='bin/rails'
+alias ra='be rails'
 alias rs='bin/rspec'
 
 # redis
