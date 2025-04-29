@@ -412,6 +412,7 @@ alias ra='be rails'
 alias rac='ra c'
 alias rad='ra db'
 alias rar='ra r'
+alias ras='ra s'
 
 # rspec
 alias rs='be rspec'
