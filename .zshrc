@@ -6,6 +6,7 @@
 export HOMEBREW_HOME=/opt/homebrew
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 path=($HOMEBREW_HOME/bin(N-/) $HOMEBREW_HOME/sbin(N-/) $path)
 if type brew &>/dev/null; then
   # completions
