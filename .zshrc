@@ -409,6 +409,7 @@ alias pg-restart='pg-stop && sleep 1 && pg-start'
 export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # rails
+alias ds='DISABLE_SPRING=1'
 alias ra='be rails'
 alias rac='ra c'
 alias rad='ra db'
