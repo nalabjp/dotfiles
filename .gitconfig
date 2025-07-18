@@ -62,3 +62,7 @@
 	useHttpPath = true
 [url "https://github.com/"]
 	insteadOf = git@github.com:
+[includeIf "gitdir:~/src/sansaninc/"] # for release script
+  path = ~/.gitconfig_sansaninc
+[includeIf "hasconfig:remote.*.url:https://*github.com/sansaninc/*"]
+  path = ~/.gitconfig_sansaninc
