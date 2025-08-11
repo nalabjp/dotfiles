@@ -432,9 +432,6 @@ alias redis-stop='redis-cli shutdown'
 path+=(~/.cargo/bin(N-/))
 export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/
 
-# starship
-eval "$(starship init zsh)"
-
 # tig
 alias t='tig'
 alias ta='tig --all'
@@ -453,3 +450,7 @@ bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 # Rancher desktop
 path+=(~/.rd/bin(N-/))
+
+# On the last line
+# starship
+eval "$(starship init zsh)"
