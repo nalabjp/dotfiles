@@ -405,6 +405,9 @@ alias pg-start='pg_ctl -l $HOMEBREW_HOME/var/postgresql@14/server.log -D $HOMEBR
 alias pg-stop='pg_ctl stop -s -m fast'
 alias pg-restart='pg-stop && sleep 1 && pg-start'
 
+# libpq(postgresql)
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig:$PKG_CONFIG_PATH"
+
 # For pkg-config to find libxml2 on nokogiri.gem installation
 export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
 
