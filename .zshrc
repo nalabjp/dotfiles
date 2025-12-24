@@ -358,10 +358,10 @@ alias mk='minikube'
 alias mks='mk start'
 
 # mysql
-path=($HOMEBREW_HOME/opt/mysql@5.7/bin(N-/) $path)
-export LDFLAGS="-L$HOMEBREW_HOME/opt/mysql@5.7/lib:$LDFLAGS"
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/mysql@5.7/include:$CPPFLAGS"
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/mysql@5.7/lib/pkgconfig:$PKG_CONFIG_PATH"
+path=($HOMEBREW_HOME/opt/mysql@8.0/bin(N-/) $path)
+export LDFLAGS="-L$HOMEBREW_HOME/opt/mysql@8.0/lib:$LDFLAGS"
+export CPPFLAGS="-I$HOMEBREW_HOME/opt/mysql@8.0/include:$CPPFLAGS"
+export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/mysql@8.0/lib/pkgconfig:$PKG_CONFIG_PATH"
 alias mysql="mysql --pager='less -S -i -F'"
 alias mysql-start='mysql.server start'
 alias mysql-stop='mysql.server stop'
