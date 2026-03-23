@@ -2,6 +2,16 @@
 # General
 ########################
 
+# --- Build Flags Setup ---
+# ユニーク設定
+typeset -U ldflags cppflags pkg_config_path
+# 同期（区切り文字がセミコロンで良い環境変数だけ）
+typeset -xT PKG_CONFIG_PATH pkg_config_path
+# リセット
+unset LDFLAGS CPPFLAGS
+ldflags=()
+cppflags=()
+
 # homebrew
 export HOMEBREW_HOME=/opt/homebrew
 export HOMEBREW_NO_ANALYTICS=1
@@ -358,10 +368,11 @@ alias mk='minikube'
 alias mks='mk start'
 
 # mysql
-path=($HOMEBREW_HOME/opt/mysql@8.0/bin(N-/) $path)
-export LDFLAGS="-L$HOMEBREW_HOME/opt/mysql@8.0/lib:$LDFLAGS"
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/mysql@8.0/include:$CPPFLAGS"
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/mysql@8.0/lib/pkgconfig:$PKG_CONFIG_PATH"
+export MYSQL_HOME=$HOMEBREW_HOME/opt/mysql@8.0
+path=($MYSQL_HOME/bin(N-/) $path)
+ldflags+=("-L$MYSQL_HOME/lib")
+cppflags+=("-I$MYSQL_HOME/include")
+pkg_config_path+=("$MYSQL_HOME/lib/pkgconfig")
 alias mysql="mysql --pager='less -S -i -F'"
 alias mysql-start='mysql.server start'
 alias mysql-stop='mysql.server stop'
@@ -382,10 +393,11 @@ path+=(~/.nodebrew/current/bin(N-/))
 export NVM_DIR="$HOME/.nvm"
 
 # OpenSSL
-path=($HOMEBREW_HOME/opt/openssl@3/bin(N-/) $path)
-export LDFLAGS="-L$HOMEBREW_HOME/opt/openssl@3/lib:$LDFLAGS"
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/openssl@3/include:$CPPFLAGS"
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
+export OPENSSL_HOME=$HOMEBREW_HOME/opt/openssl@3
+path=($OPENSSL_HOME/bin(N-/) $path)
+ldflags+=("-L$OPENSSL_HOME/lib")
+cppflags+=("-I$OPENSSL_HOME/include")
+pkg_config_path+=("$OPENSSL_HOME/lib/pkgconfig")
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 
 # Perl5
@@ -396,15 +408,17 @@ export PERL_CPANM_OPT=--local-lib=~/extlib
 export PERL5LIB=$HOME/extlib/lib/perl5:$PERL5LIB
 
 # postgresql
-export PGDATA=$HOMEBREW_HOME/var/postgresql@14
-path=($HOMEBREW_HOME/opt/postgresql@14/bin(N-/) $path)
-export LDFLAGS="-L$HOMEBREW_HOME/opt/postgresql@14/lib/postgresql@14:$LDFLAGS"
-export CPPFLAGS="-I$HOMEBREW_HOME/opt/postgresql@14/include/postgresql@14:$CPPFLAGS"
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/postgresql@14/lib/postgresql@14/pkgconfig:$PKG_CONFIG_PATH"
-alias pg-start='pg_ctl -l $HOMEBREW_HOME/var/postgresql@14/server.log -D $HOMEBREW_HOME/var/postgresql@14 start'
-alias pg-stop='pg_ctl stop -s -m fast'
-alias pg-restart='pg-stop && sleep 1 && pg-start'
-
+export PG_HOME=$HOMEBREW_HOME/opt/postgresql@14
+if [[ -d "$PG_HOME" ]]; then
+  export PGDATA=$HOMEBREW_HOME/var/postgresql@14
+  path=($PG_HOME/bin(N-/) $path)
+  ldflags+=("-L$PG_HOME/lib")
+  cppflags+=("-I$PG_HOME/include")
+  pkg_config_path+=("$PG_HOME/lib/postgresql@14/pkgconfig")
+  alias pg-start="pg_ctl -l $PGDATA/server.log -D $PGDATA start"
+  alias pg-stop='pg_ctl stop -s -m fast'
+  alias pg-restart='pg-stop && sleep 1 && pg-start'
+fi
 # libpq(postgresql)
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig:$PKG_CONFIG_PATH"
 
@@ -453,6 +467,10 @@ bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 # Rancher desktop
 path+=(~/.rd/bin(N-/))
+
+# for LDFLAGS, CPPFLAGS
+export LDFLAGS="${ldflags[*]}"
+export CPPFLAGS="${cppflags[*]}"
 
 # On the last line
 # starship
