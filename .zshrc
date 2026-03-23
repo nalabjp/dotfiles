@@ -360,6 +360,9 @@ alias krm='k delete'
 alias kz='kustomize'
 alias kzb='kz build'
 
+# libxml2(for nokogiri.gem)
+pkg_config_path+=("$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig")
+
 # memo
 alias memo=_memo
 
@@ -420,10 +423,7 @@ if [[ -d "$PG_HOME" ]]; then
   alias pg-restart='pg-stop && sleep 1 && pg-start'
 fi
 # libpq(postgresql)
-export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig:$PKG_CONFIG_PATH"
-
-# For pkg-config to find libxml2 on nokogiri.gem installation
-export PKG_CONFIG_PATH="$HOMEBREW_HOME/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
+pkg_config_path+=("$HOMEBREW_HOME/opt/libpq/lib/pkgconfig")
 
 # rails
 alias ds='DISABLE_SPRING=1'
