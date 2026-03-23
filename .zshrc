@@ -425,6 +425,9 @@ fi
 # libpq(postgresql)
 pkg_config_path+=("$HOMEBREW_HOME/opt/libpq/lib/pkgconfig")
 
+# Rancher desktop
+path+=(~/.rd/bin(N-/))
+
 # rails
 alias ds='DISABLE_SPRING=1'
 alias ra='be rails'
@@ -464,9 +467,6 @@ alias tmuxa='tmux_automatically_attach_session'
 zstyle ':autocomplete:*' insert-unambiguous yes
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-
-# Rancher desktop
-path+=(~/.rd/bin(N-/))
 
 # for LDFLAGS, CPPFLAGS
 export LDFLAGS="${ldflags[*]}"
