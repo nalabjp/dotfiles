@@ -1,0 +1,21 @@
+#!/bin/bash
+set -euo pipefail
+
+# Brewfile hash: {{ include "dot_config/homebrew/Brewfile.tmpl" | sha256sum }}
+# Brewfile.mas hash: {{ include "dot_config/homebrew/Brewfile.mas.tmpl" | sha256sum }}
+
+brewfile="${HOME}/.config/homebrew/Brewfile"
+brewfile_mas="${HOME}/.config/homebrew/Brewfile.mas"
+
+brew update
+brew bundle install --file="${brewfile}"
+
+# App Store 未サインイン等で失敗しても全体は止めない（旧 ignore_errors: yes 相当）
+brew bundle install --file="${brewfile_mas}" || \
+  echo "warning: mas entries failed to install (App Store のサインインを確認)" >&2
+
+# cleanup は tap/brew/cask/mas を全て含めた状態で判定する
+combined="$(mktemp)"
+trap 'rm -f "${combined}"' EXIT
+cat "${brewfile}" "${brewfile_mas}" > "${combined}"
+brew bundle cleanup --force --file="${combined}"

@@ -1,0 +1,4 @@
+{{- $m := .machine -}}
+{{ range (concat .packages.mas.shared (index .packages.mas $m)) -}}
+mas {{ .name | quote }}, id: {{ .id }}
+{{ end }}

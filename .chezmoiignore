@@ -1,0 +1,8 @@
+README.md
+karabiner
+
+{{ if ne .machine "capri" }}
+.gitconfig_eightcard
+.gitconfig_sansaninc
+.ideavimrc
+{{ end }}

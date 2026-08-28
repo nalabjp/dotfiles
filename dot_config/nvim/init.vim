@@ -1,3 +1,5 @@
+let g:python3_host_prog = expand('~/.local/share/nvim/venv/bin/python3')
+
 if has('vim_starting')
   set rtp+=~/.vim/plugged/vim-plug
   if !isdirectory(expand('~/.vim/plugged/vim-plug'))

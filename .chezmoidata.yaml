@@ -1,0 +1,120 @@
+packages:
+  taps:
+    shared:
+      - heroku/brew
+      - mongodb/brew
+      - neovim/neovim
+      - osx-cross/avr
+    maui: []
+    capri:
+      - kayac/tap
+      - songmu/tap
+  brews:
+    shared:
+      - asdf
+      - awscli
+      - avr-gcc
+      - cmake
+      - colordiff
+      - coreutils
+      - dfu-programmer
+      - direnv
+      - fd
+      - findutils
+      - fontforge
+      - fzf
+      - gh
+      - gist
+      - git
+      - git-filter-repo
+      - git-lfs
+      - git-now
+      - gnu-sed
+      - gnu-tar
+      - go
+      - glide
+      - heroku
+      - htop
+      - httpie
+      - hyperfine
+      - imagemagick
+      - jq
+      - krew
+      - kustomize
+      - lazydocker
+      - libpq
+      - libxml2
+      - libxslt
+      - lua
+      - mas
+      - minikube
+      - mysql@8.0
+      - neovim
+      - nginx
+      - nkf
+      - noti
+      - openjdk
+      - openssl@1.1
+      - php
+      - pstree
+      - pup
+      - pt
+      - python3
+      - pwgen
+      - readline
+      - redis
+      - rename
+      - ruby-build
+      - sheldon
+      - source-highlight
+      - starship
+      - sqlite
+      - teensy_loader_cli
+      - tfenv
+      - the_silver_searcher
+      - tig
+      - tmux
+      - tree
+      - watch
+      - webpack
+      - wget
+      - yarn
+      - zsh
+    maui:
+      - postgresql@14
+    capri:
+      - copilot-cli
+      - fujiwara/tap/ecsta
+      - harelba/q/q
+      - hubflow
+      - jnv
+      - jsonnet
+      - kayac/tap/ecspresso
+      - noborus/tap/trdsql
+      - saml2aws
+      - songmu/tap/ecschedule
+  casks:
+    shared:
+      - alfred
+      - deepl
+      - git-credential-manager
+      - iterm2
+      - karabiner-elements
+      - sequel-pro
+      - slack
+      - skitch
+    maui:
+      - docker
+      - google-chrome
+      - zoom
+    capri:
+      - 1password-cli
+      - rancher
+      - visual-studio-code
+  mas:
+    shared:
+      - { name: "Vimari", id: 1480933944 }
+      - { name: "BetterSnapTool", id: 417375580 }
+    maui: []
+    capri:
+      - { name: "Meeter", id: 1510445899 }

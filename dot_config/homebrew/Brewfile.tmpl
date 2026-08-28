@@ -1,0 +1,10 @@
+{{- $m := .machine -}}
+{{ range (concat .packages.taps.shared (index .packages.taps $m) | uniq | sortAlpha) -}}
+tap {{ . | quote }}
+{{ end }}
+{{ range (concat .packages.brews.shared (index .packages.brews $m) | uniq | sortAlpha) -}}
+brew {{ . | quote }}
+{{ end }}
+{{ range (concat .packages.casks.shared (index .packages.casks $m) | uniq | sortAlpha) -}}
+cask {{ . | quote }}
+{{ end }}
