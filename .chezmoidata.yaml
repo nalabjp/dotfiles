@@ -4,20 +4,23 @@ packages:
       - heroku/brew
       - mongodb/brew
       - neovim/neovim
-      - osx-cross/avr
+      - osx-cross/avr # for ergodox-ez
     maui: []
     capri:
+      - fujiwara/tap
+      - harelba/q
       - kayac/tap
+      - noborus/tap
       - songmu/tap
   brews:
     shared:
       - asdf
       - awscli
-      - avr-gcc
+      - avr-gcc # for ergodox-ez
       - cmake
       - colordiff
       - coreutils
-      - dfu-programmer
+      - dfu-programmer # for ergodox-ez
       - direnv
       - fd
       - findutils
@@ -58,7 +61,7 @@ packages:
       - php
       - pstree
       - pup
-      - pt
+      - pt # the_platinum_searcher
       - python3
       - pwgen
       - readline
@@ -69,9 +72,9 @@ packages:
       - source-highlight
       - starship
       - sqlite
-      - teensy_loader_cli
+      - teensy_loader_cli # for ergodox-ez
       - tfenv
-      - the_silver_searcher
+      - the_silver_searcher # ag
       - tig
       - tmux
       - tree
