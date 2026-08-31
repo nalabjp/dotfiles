@@ -89,7 +89,6 @@ packages:
     capri:
       - fujiwara/tap/ecsta
       - harelba/q/q
-      - hubflow
       - jnv
       - jsonnet
       - kayac/tap/ecspresso
@@ -104,9 +103,7 @@ packages:
       - git-credential-manager
       - iterm2
       - karabiner-elements
-      - sequel-pro
       - slack
-      - skitch
     maui:
       - docker-desktop
       - google-chrome
@@ -120,6 +117,7 @@ packages:
     shared:
       - { name: "Vimari", id: 1480933944 }
       - { name: "BetterSnapTool", id: 417375580 }
+      - { name: "Skitch", id: 425955336 }
     maui: []
     capri:
       - { name: "Meeter", id: 1510445899 }
