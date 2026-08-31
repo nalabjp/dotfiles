@@ -100,6 +100,7 @@ packages:
     shared:
       - alfred
       - deepl
+      - font-hackgen-nerd
       - git-credential-manager
       - iterm2
       - karabiner-elements
