@@ -509,7 +509,7 @@ set wildmode=longest,list:full
 autocmd QuickFixCmdPost *grep* cwindow
 
 " python3
-let g:python3_host_prog = $HOMEBREW_HOME . '/bin/python3'
+let g:python3_host_prog = expand('~/.local/share/nvim/venv/bin/python3')
 
 """"""""""""""""""""""""""""""""""""
 " move
