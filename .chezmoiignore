@@ -1,0 +1,12 @@
+README.md
+karabiner
+
+{{ if ne .machine "capri" }}
+.gitconfig_eightcard
+.gitconfig_sansaninc
+.ideavimrc
+{{ end }}
+
+{{ if ne .machine "maui" }}
+.zshrc.local
+{{ end }}

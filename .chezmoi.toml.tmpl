@@ -1,0 +1,11 @@
+{{- $machine := promptStringOnce . "machine" "machine name (maui or capri)" -}}
+
+[data]
+    machine = {{ $machine | quote }}
+
+# 秘密情報（~/.zshrc.local）を age で管理する場合は以下を有効化する。
+# 手順は README を参照。
+# encryption = "age"
+# [age]
+#     identity = {{ (joinPath .chezmoi.homeDir ".config" "chezmoi" "key.txt") | quote }}
+#     recipient = "age1..."
