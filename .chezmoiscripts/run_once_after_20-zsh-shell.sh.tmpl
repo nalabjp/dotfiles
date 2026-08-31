@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+{{ template "brew-shellenv.sh" . }}
+
 brew_zsh="$(brew --prefix)/bin/zsh"
 [ -x "${brew_zsh}" ] || { echo "skip: ${brew_zsh} not found" >&2; exit 0; }
 

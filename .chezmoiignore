@@ -6,3 +6,7 @@ karabiner
 .gitconfig_sansaninc
 .ideavimrc
 {{ end }}
+
+{{ if ne .machine "maui" }}
+.zshrc.local
+{{ end }}
