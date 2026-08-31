@@ -19,6 +19,22 @@ chezmoi init --apply nalabjp/dotfiles
 Karabiner の設定は、GUI から変更した内容が維持されるよう、ソース内の
 `karabiner/` への symlink として管理しています。
 
+## asdf から mise への移行
+
+`asdf` は Brewfile から外れているため、`brew bundle cleanup --force` の実行時に
+自動でアンインストールされます。plugin とランタイム実体を含む `~/.asdf` は
+Homebrew 管理外なので、不要になったら手動で削除してください。
+
+```sh
+rm -rf ~/.asdf
+```
+
+ランタイムは mise で入れ直します。各プロジェクトの `.tool-versions` と
+`.ruby-version` はそのまま利用できます。グローバル設定は chezmoi 管理の
+`~/.config/mise/config.toml` にあり、`.ruby-version` を読み込む設定も含まれています。
+`~/.default-gems` は mise の `ruby.default_packages_file` の既定値としてそのまま
+流用できますが、mise では deprecated 扱いです。
+
 ## ~/.zshrc.local の暗号化
 
 `.zshrc.local.maui.enc` は今回移行していません。実機で一度だけ次の手順を
