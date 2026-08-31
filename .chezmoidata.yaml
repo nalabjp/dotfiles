@@ -17,6 +17,7 @@ packages:
       - asdf
       - awscli
       - avr-gcc # for ergodox-ez
+      - chezmoi
       - cmake
       - colordiff
       - coreutils
