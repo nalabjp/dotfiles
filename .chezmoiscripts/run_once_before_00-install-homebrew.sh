@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# 既にインストール済みなら PATH に載せて終了（初回シェルでは shellenv 未評価）
+# 既にインストール済みなら何もしない
 for prefix in /opt/homebrew /usr/local; do
   if [ -x "${prefix}/bin/brew" ]; then
     exit 0
