@@ -35,7 +35,6 @@ packages:
       - gnu-sed
       - gnu-tar
       - go
-      - glide
       - heroku
       - htop
       - httpie
@@ -58,7 +57,7 @@ packages:
       - nkf
       - noti
       - openjdk
-      - openssl@1.1
+      - openssl@3
       - php
       - pkgconf
       - pstree
@@ -88,7 +87,6 @@ packages:
     maui:
       - postgresql@14
     capri:
-      - copilot-cli
       - fujiwara/tap/ecsta
       - harelba/q/q
       - hubflow
@@ -110,11 +108,12 @@ packages:
       - slack
       - skitch
     maui:
-      - docker
+      - docker-desktop
       - google-chrome
       - zoom
     capri:
       - 1password-cli
+      - copilot-cli
       - rancher
       - visual-studio-code
   mas:
