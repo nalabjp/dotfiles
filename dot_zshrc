@@ -215,9 +215,6 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=auto_bundle_exec_accept_line
 alias ag='ag -S'
 alias agh='ag --hidden'
 
-# asdf.sh
-[ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
-
 # base16 shell
 BASE16_SHELL="$XDG_CONFIG_HOME/base16-shell/"
 [ -n "$PS1" ] && \
@@ -369,6 +366,9 @@ alias memo=_memo
 # minikube
 alias mk='minikube'
 alias mks='mk start'
+
+# mise
+type mise &>/dev/null && eval "$(mise activate zsh)"
 
 # mysql
 export MYSQL_HOME=$HOMEBREW_HOME/opt/mysql@8.0
