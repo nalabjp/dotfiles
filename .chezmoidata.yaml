@@ -14,7 +14,6 @@ packages:
       - songmu/tap
   brews:
     shared:
-      - asdf
       - awscli
       - avr-gcc # for ergodox-ez
       - chezmoi
@@ -52,6 +51,7 @@ packages:
       - lua
       - mas
       - minikube
+      - mise
       - mysql@8.0
       - neovim
       - nginx
