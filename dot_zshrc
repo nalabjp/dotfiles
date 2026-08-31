@@ -368,7 +368,7 @@ alias mk='minikube'
 alias mks='mk start'
 
 # mise
-eval "$(mise activate zsh)"
+type mise &>/dev/null && eval "$(mise activate zsh)"
 
 # mysql
 export MYSQL_HOME=$HOMEBREW_HOME/opt/mysql@8.0
