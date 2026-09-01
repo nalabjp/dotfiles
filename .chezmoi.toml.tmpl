@@ -1,5 +1,7 @@
 {{- $machine := promptStringOnce . "machine" "machine name (maui or capri)" -}}
 
+sourceDir = {{ (joinPath .chezmoi.homeDir "src" "nalabjp" "dotfiles") | quote }}
+
 [data]
     machine = {{ $machine | quote }}
 
