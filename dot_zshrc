@@ -33,9 +33,6 @@ typeset -U path PATH
 export EDITOR='nvim'
 export GIT_EDITOR=$EDITOR
 
-# TERM
-export TERM=screen-256color
-
 # history config
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
