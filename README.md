@@ -5,7 +5,8 @@
 ```sh
 sudo -v
 sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$(mktemp -d)" \
-  init --use-builtin-git=true --apply nalabjp/dotfiles
+  init --use-builtin-git=true --source="$HOME/src/nalabjp/dotfiles" \
+  --apply nalabjp/dotfiles
 ```
 
 1行目で管理者パスワードを一度だけ入力します。Homebrew のインストールに
@@ -19,6 +20,10 @@ sudo が必要ですが、apply 中は自動で資格情報のキャッシュが
 ための指定です。clone は設定ファイル生成より前に実行されるため、設定ファイル
 ではなくフラグで指定します。
 
+`--source` で clone 先（= source ディレクトリ）を ghq の管理下に揃えています。
+設定ファイル生成より前に clone するため、初回だけはフラグで指定します
+（2 回目以降は `.chezmoi.toml.tmpl` の `sourceDir` が効きます）。
+
 `chezmoi init` の途中で `machine name (maui or capri)` と表示されたら、
 対象マシンに応じて `maui` または `capri` を入力します。検証したいブランチを
 指定する場合は `--branch <ブランチ名>` を追加してください。
@@ -28,8 +33,10 @@ Karabiner の設定は、GUI から変更した内容が維持されるよう、
 
 ## 日常運用
 
-chezmoi が参照するのは source ディレクトリ（`chezmoi source-path`、既定は
-`~/.local/share/chezmoi`）だけです。別の場所に clone したリポジトリを編集しても
+chezmoi が参照するのは source ディレクトリ（`chezmoi source-path`）だけです。
+chezmoi の既定は `~/.local/share/chezmoi` ですが、このリポジトリでは
+`.chezmoi.toml.tmpl` の `sourceDir` で `~/src/nalabjp/dotfiles` を指定しているため、
+ghq 管理下の clone をそのまま編集できます。別の場所に clone したものを編集しても
 反映されないので注意してください。
 
 ```sh
@@ -61,6 +68,17 @@ chezmoi apply
 ```sh
 chezmoi cat ~/.config/homebrew/Brewfile          # 実際に配置される内容を表示
 echo '{{ .machine }}' | chezmoi execute-template # 任意のテンプレートを試す
+```
+
+既に `~/.local/share/chezmoi` で運用している機体は、次の手順で source ディレクトリを
+移せます（未 push の変更が無いことを確認してから実行してください）。
+
+```sh
+chezmoi git -- status          # 未 push の変更が無いか確認
+rm -rf ~/.local/share/chezmoi
+chezmoi init --source="$HOME/src/nalabjp/dotfiles" nalabjp/dotfiles
+chezmoi source-path            # ~/src/nalabjp/dotfiles になっていること
+chezmoi diff && chezmoi apply
 ```
 
 その他のコマンドやテンプレート記法は公式リファレンスを参照してください。
