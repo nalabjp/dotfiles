@@ -21,12 +21,54 @@ sudo が必要ですが、apply 中は自動で資格情報のキャッシュが
 
 `chezmoi init` の途中で `machine name (maui or capri)` と表示されたら、
 対象マシンに応じて `maui` または `capri` を入力します。検証したいブランチを
-指定する場合は `--branch <ブランチ名>` を追加してください。パッケージを増減
-したい場合は `.chezmoidata.yaml` の対象ホストのリストを編集してから
-`chezmoi apply` を実行してください。
+指定する場合は `--branch <ブランチ名>` を追加してください。
 
 Karabiner の設定は、GUI から変更した内容が維持されるよう、ソース内の
 `karabiner/` への symlink として管理しています。
+
+## 日常運用
+
+chezmoi が参照するのは source ディレクトリ（`chezmoi source-path`、既定は
+`~/.local/share/chezmoi`）だけです。別の場所に clone したリポジトリを編集しても
+反映されないので注意してください。
+
+```sh
+chezmoi source-path            # source ディレクトリの場所
+chezmoi cd                     # source ディレクトリに移動（exit で戻る）
+chezmoi update                 # source を git pull して apply（普段はこれ）
+chezmoi diff                   # 適用前に差分を確認
+chezmoi apply                  # 適用（-v で詳細、-n で dry-run）
+chezmoi data                   # テンプレートに渡されるデータを表示
+chezmoi edit ~/.zshrc          # source 側の対応ファイルを編集
+chezmoi add ~/.gitconfig       # 実機側の変更を source に取り込む
+chezmoi status                 # 未適用の変更を一覧
+```
+
+パッケージを増減する場合は、source ディレクトリの `.chezmoidata.yaml` で対象
+ホストのリストを編集し、`chezmoi apply` します。変更を他の機体にも反映するには
+commit して push し、各機体で `chezmoi update` を実行します。
+
+```sh
+chezmoi cd
+$EDITOR .chezmoidata.yaml
+git commit -am "Add foo" && git push
+exit
+chezmoi apply
+```
+
+テンプレートの展開結果だけを確認したい場合は次のとおりです。
+
+```sh
+chezmoi cat ~/.config/homebrew/Brewfile          # 実際に配置される内容を表示
+echo '{{ .machine }}' | chezmoi execute-template # 任意のテンプレートを試す
+```
+
+その他のコマンドやテンプレート記法は公式リファレンスを参照してください。
+
+- ユーザーガイド: https://www.chezmoi.io/user-guide/command-overview/
+- コマンドリファレンス: https://www.chezmoi.io/reference/commands/
+- テンプレート: https://www.chezmoi.io/reference/templates/
+- 設定ファイル: https://www.chezmoi.io/reference/configuration-file/
 
 ## Neovim の Python provider
 
