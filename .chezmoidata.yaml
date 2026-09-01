@@ -4,7 +4,6 @@ packages:
       - heroku/brew
       - mongodb/brew
       - neovim/neovim
-      - osx-cross/avr # for ergodox-ez
     maui: []
     capri:
       - fujiwara/tap
@@ -15,7 +14,6 @@ packages:
   brews:
     shared:
       - awscli
-      - avr-gcc # for ergodox-ez
       - chezmoi
       - cmake
       - colordiff
