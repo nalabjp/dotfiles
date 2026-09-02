@@ -19,7 +19,7 @@ for __pam_prefix in /opt/homebrew /usr/local; do
 done
 desired+="auth       sufficient     pam_tid.so"$'\n'
 
-if [ "$(cat "${pam_local}" 2>/dev/null || true)" = "${desired}" ]; then
+if [ "$(cat "${pam_local}" 2>/dev/null || true)" = "${desired%$'\n'}" ]; then
   exit 0
 fi
 
