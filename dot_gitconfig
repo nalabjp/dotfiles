@@ -3,7 +3,6 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
-	commentchar = auto
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
