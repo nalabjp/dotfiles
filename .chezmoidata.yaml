@@ -33,7 +33,7 @@ packages:
       - gnu-sed
       - gnu-tar
       - go
-      - heroku
+      - heroku/brew/heroku
       - htop
       - httpie
       - hyperfine
