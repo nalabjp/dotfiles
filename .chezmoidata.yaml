@@ -113,8 +113,8 @@ packages:
       - visual-studio-code
   mas:
     shared:
-      - { name: "Vimari", id: 1480933944 }
       - { name: "Skitch", id: 425955336 }
     maui:
       - { name: "BetterSnapTool", id: 417375580 }
+      - { name: "Vimari", id: 1480933944 }
     capri: []
