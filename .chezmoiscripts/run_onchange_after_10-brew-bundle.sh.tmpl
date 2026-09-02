@@ -1,3 +1,4 @@
+{{- $m := .machine -}}
 #!/bin/bash
 set -euo pipefail
 
@@ -9,7 +10,21 @@ set -euo pipefail
 brewfile="${HOME}/.config/homebrew/Brewfile"
 brewfile_mas="${HOME}/.config/homebrew/Brewfile.mas"
 
-brew update
+# 更新に失敗しても（アップストリーム由来のクラッシュ等）install/cleanup は続行する
+brew update || echo "warning: brew update failed (古いメタデータのまま続行します)" >&2
+
+# 非公式 tap の formula/cask は Homebrew 6.0.0 以降 明示的な信頼が必要。
+# tap 全体ではなく、宣言しているものだけを個別に信頼する。
+{{ range (concat .packages.brews.shared (index .packages.brews $m) | uniq | sortAlpha) -}}
+{{ if contains "/" . -}}
+brew trust --formula {{ . | quote }}
+{{ end -}}
+{{ end -}}
+{{ range (concat .packages.casks.shared (index .packages.casks $m) | uniq | sortAlpha) -}}
+{{ if contains "/" . -}}
+brew trust --cask {{ . | quote }}
+{{ end -}}
+{{ end }}
 brew bundle install --file="${brewfile}"
 
 # App Store 未サインイン等で失敗しても全体は止めない（旧 ignore_errors: yes 相当）
