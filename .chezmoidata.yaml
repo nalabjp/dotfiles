@@ -102,6 +102,7 @@ packages:
       - git-credential-manager
       - iterm2
       - karabiner-elements
+      - meetingbar
       - slack
     maui:
       - docker-desktop
@@ -118,5 +119,4 @@ packages:
       - { name: "Skitch", id: 425955336 }
     maui:
       - { name: "BetterSnapTool", id: 417375580 }
-    capri:
-      - { name: "Meeter", id: 1510445899 }
+    capri: []
