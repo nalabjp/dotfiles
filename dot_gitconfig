@@ -51,6 +51,7 @@
 [grep]
 	lineNumber = true
 [credential]
+	helper =
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [includeIf "gitdir:."] # for bundle outdated
   path = ~/.gitconfig_eightcard
