@@ -115,8 +115,8 @@ packages:
   mas:
     shared:
       - { name: "Vimari", id: 1480933944 }
-      - { name: "BetterSnapTool", id: 417375580 }
       - { name: "Skitch", id: 425955336 }
-    maui: []
+    maui:
+      - { name: "BetterSnapTool", id: 417375580 }
     capri:
       - { name: "Meeter", id: 1510445899 }
