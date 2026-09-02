@@ -155,6 +155,9 @@ alias 9='cd -9'
 # GitHub Copilot
 alias co='copilot'
 
+# chezmoi
+alias cz='chezmoi'
+
 # grep
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 
