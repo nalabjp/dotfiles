@@ -31,6 +31,13 @@ sudo が必要ですが、apply 中は自動で資格情報のキャッシュが
 Karabiner の設定は、GUI から変更した内容が維持されるよう、ソース内の
 `karabiner/` への symlink として管理しています。
 
+## sudo の Touch ID 認証
+
+セットアップの最初に Touch ID による sudo 認証を設定します。macOS 14 未満では
+対応する `sudo_local` がないためスキップされます。tmux 内でも有効にするには
+`pam-reattach`（Brewfile に含まれる）が必要で、インストール後の次回 `chezmoi apply`
+で設定に自動的に追記されます。
+
 ## 日常運用
 
 chezmoi が参照するのは source ディレクトリ（`chezmoi source-path`）だけです。
