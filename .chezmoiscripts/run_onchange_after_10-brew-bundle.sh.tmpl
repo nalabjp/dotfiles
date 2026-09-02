@@ -31,8 +31,10 @@ brew bundle install --file="${brewfile}"
 brew bundle install --file="${brewfile_mas}" || \
   echo "warning: mas entries failed to install (App Store のサインインを確認)" >&2
 
-# cleanup は tap/brew/cask/mas を全て含めた状態で判定する
+# cleanup は tap/brew/cask を宣言と一致させる。
+# App Store のアプリは購入履歴に依存し（Apple Account 毎に再入手できないものがある）
+# 誤って消すと復旧が難しいため対象外にする。
 combined="$(mktemp)"
 trap 'rm -f "${combined}"' EXIT
 cat "${brewfile}" "${brewfile_mas}" > "${combined}"
-brew bundle cleanup --force --file="${combined}"
+brew bundle cleanup --force --no-mas --file="${combined}"
