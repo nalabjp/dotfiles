@@ -124,6 +124,12 @@ rm -rf ~/.asdf
 `~/.default-gems` は mise の `ruby.default_packages_file` の既定値としてそのまま
 流用できますが、mise では deprecated 扱いです。
 
+グローバルの既定バージョンは `.chezmoidata.yaml` の `runtimes` で宣言します
+（`shared` に共通、`maui` / `capri` にマシン固有。マシン側が `shared` を上書きします）。
+`~/.config/mise/config.toml` はこの宣言から生成されるため、`mise use -g` で直接書き
+換えると次の `chezmoi apply` で戻ります。バージョンを変えるときは `runtimes` を編集し、
+apply 後に `mise install` してください。
+
 ## ~/.zshrc.local の暗号化
 
 `.zshrc.local.maui.enc` を age で管理する場合は、実機で次の手順を実行します。
