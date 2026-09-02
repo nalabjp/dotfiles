@@ -152,6 +152,9 @@ alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
 
+# GitHub Copilot
+alias co='copilot'
+
 # grep
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 
