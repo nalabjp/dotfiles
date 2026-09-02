@@ -7,7 +7,6 @@ packages:
     maui: []
     capri:
       - fujiwara/tap
-      - harelba/q
       - kayac/tap
       - noborus/tap
       - songmu/tap
@@ -87,7 +86,6 @@ packages:
       - postgresql@14
     capri:
       - fujiwara/tap/ecsta
-      - harelba/q/q
       - jnv
       - jsonnet
       - kayac/tap/ecspresso
