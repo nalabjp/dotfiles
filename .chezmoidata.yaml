@@ -98,6 +98,7 @@ packages:
       - deepl
       - font-hackgen-nerd
       - git-credential-manager
+      - google-japanese-ime
       - iterm2
       - karabiner-elements
       - meetingbar
@@ -127,3 +128,55 @@ runtimes:
     ruby: "3.4.8"
   capri:
     ruby: "3.2.2"
+
+# macOS の defaults。machine 側が shared を上書きする（domain/key 単位）。
+defaults:
+  shared:
+    NSGlobalDomain:
+      AppleInterfaceStyle: {type: string, value: Dark}
+      AppleLanguages: {type: array, value: [ja-JP, en-JP]}
+      AppleLocale: {type: string, value: ja_JP}
+      AppleKeyboardUIMode: {type: int, value: 0}
+      ApplePressAndHoldEnabled: {type: bool, value: false}
+      InitialKeyRepeat: {type: int, value: 15}
+      KeyRepeat: {type: int, value: 2}
+      NSAutomaticCapitalizationEnabled: {type: bool, value: false}
+      NSAutomaticDashSubstitutionEnabled: {type: bool, value: false}
+      NSAutomaticPeriodSubstitutionEnabled: {type: bool, value: false}
+      NSAutomaticQuoteSubstitutionEnabled: {type: bool, value: false}
+      NSAutomaticSpellingCorrectionEnabled: {type: bool, value: false}
+      com.apple.sound.beep.sound: {type: string, value: /System/Library/Sounds/Tink.aiff}
+      com.apple.trackpad.forceClick: {type: bool, value: true}
+      com.apple.trackpad.scaling: {type: float, value: 3}
+    com.apple.dock:
+      autohide: {type: bool, value: true}
+      expose-group-apps: {type: bool, value: false}
+      largesize: {type: int, value: 104}
+      magnification: {type: bool, value: true}
+      minimize-to-application: {type: bool, value: false}
+      orientation: {type: string, value: bottom}
+      showAppExposeGestureEnabled: {type: bool, value: false}
+      tilesize: {type: int, value: 16}
+      wvous-br-corner: {type: int, value: 1}
+    com.apple.finder:
+      AppleShowAllFiles: {type: bool, value: true}
+      FXEnableExtensionChangeWarning: {type: bool, value: false}
+      FXPreferredViewStyle: {type: string, value: Nlsv}
+      FXRemoveOldTrashItems: {type: bool, value: true}
+      NewWindowTarget: {type: string, value: PfHm}
+      NewWindowTargetPath: {type: string, value: "file://~/"}
+      ShowExternalHardDrivesOnDesktop: {type: bool, value: true}
+      ShowHardDrivesOnDesktop: {type: bool, value: true}
+      ShowPathbar: {type: bool, value: true}
+      ShowStatusBar: {type: bool, value: true}
+      _FXShowPosixPathInTitle: {type: bool, value: true}
+      _FXSortFoldersFirst: {type: bool, value: true}
+    com.apple.HIToolbox:
+      AppleFnUsageType: {type: int, value: 1}
+    com.apple.screencapture:
+      disable-shadow: {type: bool, value: true}
+      include-date: {type: bool, value: false}
+      location: {type: string, value: "~/Desktop/ss"}
+      type: {type: string, value: png}
+  maui: {}
+  capri: {}
