@@ -1,0 +1,33 @@
+{{- $d := mergeOverwrite (dict) .defaults.shared (index .defaults .machine) -}}
+{{- define "defaults-value" -}}
+{{- if eq .spec.type "bool" -}}
+{{- if .spec.value }}true{{ else }}false{{ end -}}
+{{- else if eq .spec.type "int" -}}
+{{- printf "%v" .spec.value -}}
+{{- else if eq .spec.type "float" -}}
+{{- printf "%v" .spec.value -}}
+{{- else if eq .spec.type "string" -}}
+{{- $v := .spec.value -}}
+{{- if hasPrefix "file://~/" $v -}}
+{{- $v = replace "file://~/" (printf "file://%s/" .homeDir) $v -}}
+{{- else if hasPrefix "~/" $v -}}
+{{- $v = replace "~/" (printf "%s/" .homeDir) $v -}}
+{{- end -}}
+{{- $v | quote -}}
+{{- else if eq .spec.type "array" -}}
+{{- range $i, $item := .spec.value -}}{{ if $i }} {{ end }}{{ $item | quote }}{{- end -}}
+{{- end -}}
+{{- end -}}
+#!/bin/bash
+set -euo pipefail
+
+# .chezmoidata.yaml の defaults 宣言を defaults write で適用する（宣言が変わった時だけ再実行）。
+
+mkdir -p "${HOME}/Desktop/ss"   # com.apple.screencapture.location
+
+{{ range $domain, $keys := $d -}}
+{{ range $key, $spec := $keys -}}
+defaults write {{ $domain | quote }} {{ $key | quote }} -{{ $spec.type }} {{ template "defaults-value" (dict "spec" $spec "homeDir" $.chezmoi.homeDir) }}
+{{ end -}}
+{{ end -}}
+killall Dock Finder SystemUIServer 2>/dev/null || true

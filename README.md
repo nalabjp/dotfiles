@@ -130,6 +130,14 @@ rm -rf ~/.asdf
 換えると次の `chezmoi apply` で戻ります。バージョンを変えるときは `runtimes` を編集し、
 apply 後に `mise install` してください。
 
+## macOS の defaults
+
+macOS の defaults は `.chezmoidata.yaml` の `defaults`（`shared` / `maui` / `capri`）で
+宣言します。machine 側の値が domain/key 単位で shared を上書きし、
+`run_onchange_after_40-macos-defaults.sh` が変更時に `defaults write` で一方向に適用します。
+GUI で変更した値は自動では戻らないため、必要に応じて `defaults read` の before/after
+差分を取得して宣言へ転記してください。Dock のアプリ配置と入力ソース一覧は管理対象外です。
+
 ## ~/.zshrc.local の暗号化
 
 `.zshrc.local.maui.enc` を age で管理する場合は、実機で次の手順を実行します。
