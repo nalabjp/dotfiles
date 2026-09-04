@@ -478,3 +478,9 @@ export CPPFLAGS="${cppflags[*]}"
 # On the last line
 # starship
 eval "$(starship init zsh)"
+{{- if has "rancher" (concat .packages.casks.shared (index .packages.casks .machine)) }}
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="{{ .chezmoi.homeDir }}/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+{{- end }}
