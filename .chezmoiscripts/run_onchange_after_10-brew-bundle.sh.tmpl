@@ -25,10 +25,11 @@ brew trust --formula {{ . | quote }}
 brew trust --cask {{ . | quote }}
 {{ end -}}
 {{ end }}
-brew bundle install --file="${brewfile}"
+# 未インストールのものだけ入れる。既存パッケージの upgrade は明示的に実行する（README 参照）。
+brew bundle install --no-upgrade --file="${brewfile}"
 
 # App Store 未サインイン等で失敗しても全体は止めない（旧 ignore_errors: yes 相当）
-brew bundle install --file="${brewfile_mas}" || \
+brew bundle install --no-upgrade --file="${brewfile_mas}" || \
   echo "warning: mas entries failed to install (App Store のサインインを確認)" >&2
 
 # cleanup は tap/brew/cask を宣言と一致させる。

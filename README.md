@@ -70,6 +70,17 @@ exit
 chezmoi apply
 ```
 
+`chezmoi apply` が実行する `brew bundle install` は `--no-upgrade` 付きで、Brewfile に
+あって未インストールのものだけを入れます。既存パッケージの upgrade は自動では
+走らないので、必要な時に明示的に実行してください。
+
+```sh
+brew update && brew outdated                 # 更新があるものを確認
+brew upgrade                                 # formula を一括 upgrade
+brew upgrade --cask --greedy                 # cask も含めて upgrade（自動更新アプリも対象）
+brew bundle install --file=~/.config/homebrew/Brewfile   # Brewfile の宣言分だけ upgrade
+```
+
 テンプレートの展開結果だけを確認したい場合は次のとおりです。
 
 ```sh
