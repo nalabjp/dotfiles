@@ -94,6 +94,7 @@ packages:
       - songmu/tap/ecschedule
   casks:
     shared:
+      - 1password
       - alfred
       - deepl
       - font-hackgen-nerd
