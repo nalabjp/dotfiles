@@ -1,4 +1,5 @@
 README.md
+alfred
 karabiner
 
 {{ if ne .machine "capri" }}

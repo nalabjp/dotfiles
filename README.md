@@ -31,6 +31,12 @@ sudo が必要ですが、apply 中は自動で資格情報のキャッシュが
 Karabiner の設定は、GUI から変更した内容が維持されるよう、ソース内の
 `karabiner/` への symlink として管理しています。
 
+Alfred の設定（`Alfred.alfredpreferences`）も同様にソース内の `alfred/` が実体で、
+defaults の `com.runningwithcrayons.Alfred-Preferences syncfolder` でそのフォルダを
+指定しています。Alfred 初回起動後に設定画面で参照先が `~/src/nalabjp/dotfiles/alfred`
+になっていることを確認してください（Powerpack ライセンスは手動で入力します）。
+GUI での変更はそのまま `alfred/` に書き込まれるので `git diff` で確認して commit します。
+
 ## sudo の Touch ID 認証
 
 セットアップの最初に Touch ID による sudo 認証を設定します。macOS 14 未満では

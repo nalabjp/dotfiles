@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DEEPL_KEY</key>
+	<string>ef4868c8-c7d7-ce44-11e4-538ecd2375be:fx</string>
+	<key>DEEPL_PREFERRED</key>
+	<string>["JA", "EN"]</string>
+	<key>DEEPL_TARGET</key>
+	<string>ja</string>
+</dict>
+</plist>

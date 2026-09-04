@@ -178,5 +178,8 @@ defaults:
       include-date: {type: bool, value: false}
       location: {type: string, value: "~/Desktop/ss"}
       type: {type: string, value: png}
+    # Alfred の設定フォルダ（Alfred.alfredpreferences の親）をソース内の alfred/ に向ける
+    com.runningwithcrayons.Alfred-Preferences:
+      syncfolder: {type: string, value: "~/src/nalabjp/dotfiles/alfred"}
   maui: {}
   capri: {}
