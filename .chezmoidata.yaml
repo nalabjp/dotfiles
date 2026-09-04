@@ -114,10 +114,10 @@ packages:
       - visual-studio-code
   mas:
     shared:
-      - { name: "BetterSnapTool", id: 417375580 }
       - { name: "Skitch", id: 425955336 }
       - { name: "Vimari", id: 1480933944 }
-    maui: []
+    maui:
+      - { name: "BetterSnapTool", id: 417375580 }
     capri: []
 
 # mise のグローバル既定バージョン（~/.config/mise/config.toml の [tools] を生成する）。
