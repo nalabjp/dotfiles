@@ -155,6 +155,13 @@ macOS の defaults は `.chezmoidata.yaml` の `defaults`（`shared` / `maui` / 
 GUI で変更した値は自動では戻らないため、必要に応じて `defaults read` の before/after
 差分を取得して宣言へ転記してください。Dock のアプリ配置と入力ソース一覧は管理対象外です。
 
+iTerm2 の既定プロファイルは `com.googlecode.iterm2 Default Bookmark Guid` で Dynamic Profile
+（`Library/Application Support/iTerm2/DynamicProfiles/Default.json`）を指しています。iTerm2 は
+終了時にメモリ上の設定で plist を書き戻すため、iTerm2 内で apply した場合は反映されない
+ことがあります。フォントが HackGen になっていなければ、iTerm2 を ⌘Q で終了してから
+Terminal.app 等で `chezmoi apply` を再実行するか、GUI で Dynamic 側の Default を
+「Set as Default」にしてください。
+
 ## ~/.zshrc.local の暗号化
 
 `.zshrc.local.maui.enc` を age で管理する場合は、実機で次の手順を実行します。
