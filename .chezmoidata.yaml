@@ -178,6 +178,9 @@ defaults:
       include-date: {type: bool, value: false}
       location: {type: string, value: "~/Desktop/ss"}
       type: {type: string, value: png}
+    # Dynamic Profile（Library/Application Support/iTerm2/DynamicProfiles/Default.json）の Guid を既定プロファイルにする
+    com.googlecode.iterm2:
+      Default Bookmark Guid: {type: string, value: "05DDD52F-F9CE-4172-87EE-5FB60A7BA4DC"}
     # Alfred の設定フォルダ（Alfred.alfredpreferences の親）をソース内の alfred/ に向ける
     com.runningwithcrayons.Alfred-Preferences:
       syncfolder: {type: string, value: "~/src/nalabjp/dotfiles/alfred"}
