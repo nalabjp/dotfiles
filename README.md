@@ -150,6 +150,23 @@ rm -rf ~/.asdf
 換えると次の `chezmoi apply` で戻ります。バージョンを変えるときは `runtimes` を編集し、
 apply 後に `mise install` してください。
 
+### Ruby はソースからビルドする
+
+mise は既定で jdx/ruby の precompiled バイナリを使いますが、そのバイナリは readline 拡張が
+macOS の libedit にリンクされており（`ruby -rreadline -e 'p Readline::VERSION'` が
+`"EditLine wrapper"`）、pry の履歴呼び出しで表示が崩れます。そのため
+`~/.config/mise/config.toml` で `ruby.compile = true` にして常に ruby-build でビルドし、
+`.zshrc` の `RUBY_CONFIGURE_OPTS` で Homebrew の openssl@3 / readline を指定しています。
+ビルド後は `Readline::VERSION` が `"8.x"` になります。
+
+precompiled で入ってしまった版は `mise install -f` では再ダウンロードされるだけなので、
+`mise uninstall ruby@X.Y.Z && mise install ruby@X.Y.Z` で入れ直します。
+
+`RUBY_CONFIGURE_OPTS` には `--with-baseruby=/usr/bin/ruby` も含めています。これが無いと
+configure が PATH 上の mise shim（`~/.local/share/mise/shims/ruby`）を baseruby に拾い、
+ビルド対象の版が未インストール（初回や uninstall 直後）の間は shim が解決できずに
+`checking for ruby...` で止まります。`.zshrc` が apply 済みの shell なら追加の指定は不要です。
+
 ## macOS の defaults
 
 macOS の defaults は `.chezmoidata.yaml` の `defaults`（`shared` / `maui` / `capri`）で
