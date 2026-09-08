@@ -2,5 +2,8 @@
 # .ruby-version / Gemfile を読む（asdf の legacy_version_file = yes 相当）
 idiomatic_version_file_enable_tools = ["ruby"]
 
+[settings.ruby]
+compile = true
+
 [tools]
 {{ merge (dict) (index .runtimes .machine) .runtimes.shared | toToml -}}
