@@ -373,6 +373,8 @@ alias mks='mk start'
 
 # mise
 type mise &>/dev/null && eval "$(mise activate zsh)"
+# ruby-build の configure が PATH 上の mise shim を baseruby に拾うと、対象版が未インストールの間はハングする
+ruby_configure_opts+=("--with-baseruby=/usr/bin/ruby")
 
 # mysql
 export MYSQL_HOME=$HOMEBREW_HOME/opt/mysql@8.0
