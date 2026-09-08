@@ -4,13 +4,14 @@
 
 # --- Build Flags Setup ---
 # ユニーク設定
-typeset -U ldflags cppflags pkg_config_path
+typeset -U ldflags cppflags pkg_config_path ruby_configure_opts
 # 同期（区切り文字がセミコロンで良い環境変数だけ）
 typeset -xT PKG_CONFIG_PATH pkg_config_path
 # リセット
-unset LDFLAGS CPPFLAGS
+unset LDFLAGS CPPFLAGS RUBY_CONFIGURE_OPTS
 ldflags=()
 cppflags=()
+ruby_configure_opts=()
 
 # homebrew
 export HOMEBREW_HOME=/opt/homebrew
@@ -404,7 +405,7 @@ path=($OPENSSL_HOME/bin(N-/) $path)
 ldflags+=("-L$OPENSSL_HOME/lib")
 cppflags+=("-I$OPENSSL_HOME/include")
 pkg_config_path+=("$OPENSSL_HOME/lib/pkgconfig")
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
+ruby_configure_opts+=("--with-openssl-dir=$HOMEBREW_HOME/opt/openssl@3")
 
 # Perl5
 path+=(~/perl5(N-/))
@@ -430,6 +431,12 @@ pkg_config_path+=("$HOMEBREW_HOME/opt/libpq/lib/pkgconfig")
 
 # Rancher desktop
 path+=(~/.rd/bin(N-/))
+
+# readline
+ldflags+=("-L$HOMEBREW_HOME/opt/readline/lib")
+cppflags+=("-I$HOMEBREW_HOME/opt/readline/include")
+pkg_config_path+=("$HOMEBREW_HOME/opt/readline/lib/pkgconfig")
+ruby_configure_opts+=("--with-readline-dir=$HOMEBREW_HOME/opt/readline")
 
 # rails
 alias ds='DISABLE_SPRING=1'
@@ -471,9 +478,10 @@ zstyle ':autocomplete:*' insert-unambiguous yes
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
-# for LDFLAGS, CPPFLAGS
+# for LDFLAGS, CPPFLAGS, RUBY_CONFIGURE_OPTS
 export LDFLAGS="${ldflags[*]}"
 export CPPFLAGS="${cppflags[*]}"
+export RUBY_CONFIGURE_OPTS="${ruby_configure_opts[*]}"
 
 # On the last line
 # starship
