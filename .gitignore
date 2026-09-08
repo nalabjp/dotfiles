@@ -1,11 +1,4 @@
 .DS_Store
 
-# alfred: GUI が書く一時/端末依存の設定は追跡しない（workflows と検索設定だけ管理）
-/alfred/Alfred.alfredpreferences/*
-!/alfred/Alfred.alfredpreferences/workflows
-!/alfred/Alfred.alfredpreferences/preferences
-/alfred/Alfred.alfredpreferences/preferences/*
-!/alfred/Alfred.alfredpreferences/preferences/features
-/alfred/Alfred.alfredpreferences/preferences/features/*
-!/alfred/Alfred.alfredpreferences/preferences/features/websearch
-!/alfred/Alfred.alfredpreferences/preferences/features/defaultresults
+# alfred: 端末固有の設定（preferences/local/<機体ID>）だけ追跡しない
+/alfred/Alfred.alfredpreferences/preferences/local/

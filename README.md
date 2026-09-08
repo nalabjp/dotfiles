@@ -36,6 +36,9 @@ defaults の `com.runningwithcrayons.Alfred-Preferences syncfolder` でそのフ
 指定しています。Alfred 初回起動後に設定画面で参照先が `~/src/nalabjp/dotfiles/alfred`
 になっていることを確認してください（Powerpack ライセンスは手動で入力します）。
 GUI での変更はそのまま `alfred/` に書き込まれるので `git diff` で確認して commit します。
+外観・ホットキー・各機能の設定・snippets・themes も追跡対象で、端末固有の
+`preferences/local/<機体ID>/` だけ `.gitignore` で除外しています。設定を整えた機体で
+`git add alfred && git commit` して push すると他の機体に反映されます。
 
 ## sudo の Touch ID 認証
 
