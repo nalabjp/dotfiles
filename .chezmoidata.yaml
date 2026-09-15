@@ -112,6 +112,7 @@ packages:
       - 1password-cli
       - copilot-cli
       - rancher
+      - session-manager-plugin
       - visual-studio-code
   mas:
     shared:
