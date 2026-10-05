@@ -1,19 +1,20 @@
 <?php
 
-require 'workflow.php';
+require __DIR__ . '/workflow.php';
 
+assert(isset($argv[1]));
 $query = trim($argv[1]);
 
-if ('>' !== $query[0] && 0 !== strpos($query, 'e >')) {
+if ('>' !== $query[0] && !str_starts_with($query, 'e >')) {
     if ('.git' == substr($query, -4)) {
-        $query = 'x-github-client://openRepo/'.substr($query, 0, -4);
+        $query = 'x-github-client://openRepo/' . substr($query, 0, -4);
     }
-    exec('open '.$query);
+    exec('open ' . $query);
 
     return;
 }
 
-$enterprise = 0 === strpos($query, 'e ');
+$enterprise = str_starts_with($query, 'e ');
 if ($enterprise) {
     $query = substr($query, 2);
 }
@@ -39,9 +40,8 @@ switch ($parts[1]) {
             echo 'Successfully logged in';
         } elseif (!$enterprise) {
             Workflow::startServer();
-            $state = version_compare(PHP_VERSION, '5.4', '<') ? 'm' : '';
-            $url = Workflow::getBaseUrl().'/login/oauth/authorize?client_id=2d4f43826cb68e11c17c&scope=repo&state='.$state;
-            exec('open '.escapeshellarg($url));
+            $url = Workflow::getBaseUrl() . '/login/oauth/authorize?client_id=2d4f43826cb68e11c17c&scope=repo';
+            exec('open ' . escapeshellarg($url));
         }
         break;
 
@@ -62,11 +62,12 @@ switch ($parts[1]) {
         break;
 
     case 'refresh-cache':
-        $curl = new Curl();
+        $fetcher = new Fetcher();
+        $options = new FetchOptions(maxAgeMinutes: 0, refreshInBackground: false);
         foreach (explode(',', $parts[2]) as $url) {
-            Workflow::requestCache($url, $curl, null, false, 0, false);
+            $fetcher->queueUrl($url, null, $options);
         }
-        $curl->execute();
+        $fetcher->run();
         Workflow::cleanCache();
         break;
 
@@ -81,18 +82,18 @@ switch ($parts[1]) {
         break;
 
     case 'update':
-        $release = json_decode(Workflow::request('https://api.github.com/repos/gharlan/alfred-github-workflow/releases/latest'));
+        $release = json_decode(Fetcher::requestRaw('https://api.github.com/repos/gharlan/alfred-github-workflow/releases/latest'));
         if (!isset($release->assets[0]->browser_download_url)) {
             echo 'Update failed';
             exit;
         }
-        $response = Workflow::request($release->assets[0]->browser_download_url, null, null, false);
+        $response = Fetcher::requestRaw($release->assets[0]->browser_download_url, auth: false);
         if (!$response) {
             echo 'Update failed';
             exit;
         }
-        $path = getenv('alfred_workflow_data').'/github.alfredworkflow';
+        $path = getenv('alfred_workflow_data') . '/github.alfredworkflow';
         file_put_contents($path, $response);
-        exec('open '.escapeshellarg($path));
+        exec('open ' . escapeshellarg($path));
         break;
 }

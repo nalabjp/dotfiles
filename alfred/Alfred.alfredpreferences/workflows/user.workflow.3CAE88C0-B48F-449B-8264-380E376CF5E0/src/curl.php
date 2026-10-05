@@ -1,15 +1,15 @@
 <?php
 
-class Curl
+final class Curl
 {
-    /** @var CurlRequest[] */
-    private $requests = [];
-    private $running = false;
-    private $debug = false;
+    /** @var array<string, CurlRequest> */
+    private array $requests = [];
+    private bool $running = false;
+    private bool $debug = false;
 
-    private static $multiHandle;
+    private static ?CurlMultiHandle $multiHandle = null;
 
-    public function add(CurlRequest $request)
+    public function add(CurlRequest $request): void
     {
         $this->requests[$request->url] = $request;
         if ($this->running) {
@@ -17,10 +17,10 @@ class Curl
         }
     }
 
-    public function execute()
+    public function execute(): bool
     {
         $this->running = true;
-        if (!is_resource(self::$multiHandle)) {
+        if (null === self::$multiHandle) {
             self::$multiHandle = curl_multi_init();
         }
 
@@ -44,9 +44,9 @@ class Curl
                 $request = $this->requests[$url];
                 $rawResponse = curl_multi_getcontent($ch);
                 if (preg_match("@^HTTP/\\d\\.\\d 200 Connection established\r\n\r\n@i", $rawResponse)) {
-                    list(, $header, $body) = explode("\r\n\r\n", $rawResponse, 3);
+                    [, $header, $body] = explode("\r\n\r\n", $rawResponse, 3);
                 } else {
-                    list($header, $body) = explode("\r\n\r\n", $rawResponse, 2);
+                    [$header, $body] = explode("\r\n\r\n", $rawResponse, 2);
                 }
                 $response = new CurlResponse();
                 $response->request = $request;
@@ -65,7 +65,6 @@ class Curl
                 $callback = $request->callback;
                 $callback($response);
                 curl_multi_remove_handle(self::$multiHandle, $ch);
-                curl_close($ch);
             }
             if ($running || !$finish) {
                 if (-1 === curl_multi_select(self::$multiHandle, 1)) {
@@ -79,7 +78,7 @@ class Curl
         return true;
     }
 
-    private function addHandle(CurlRequest $request)
+    private function addHandle(CurlRequest $request): void
     {
         $defaultOptions = [
             CURLOPT_HEADER => true,
@@ -100,21 +99,21 @@ class Curl
         $options = $defaultOptions;
         $options[CURLOPT_URL] = $request->url;
         $header = [];
-        $header[] = 'X-Url: '.$request->url;
+        $header[] = 'X-Url: ' . $request->url;
         if ($request->token) {
-            $header[] = 'Authorization: token '.$request->token;
+            $header[] = 'Authorization: token ' . $request->token;
         }
         if ($request->etag) {
-            $header[] = 'If-None-Match: '.$request->etag;
+            $header[] = 'If-None-Match: ' . $request->etag;
         }
         $options[CURLOPT_HTTPHEADER] = $header;
         curl_setopt_array($ch, $options);
         curl_multi_add_handle(self::$multiHandle, $ch);
     }
 
-    public static function getHeader($header, $key)
+    public static function getHeader(string $header, string $key): ?string
     {
-        if (preg_match('/^'.preg_quote($key, '/').': (\V*)/mi', $header, $match)) {
+        if (preg_match('/^' . preg_quote($key, '/') . ': (\V*)/mi', $header, $match)) {
             return $match[1];
         }
 
@@ -122,29 +121,22 @@ class Curl
     }
 }
 
-class CurlRequest
+final readonly class CurlRequest
 {
-    public $url;
-    public $etag;
-    public $token;
-    public $callback;
-
-    public function __construct($url, $etag, $token, $callback)
-    {
-        $this->url = $url;
-        $this->etag = $etag;
-        $this->token = $token;
-        $this->callback = $callback;
-    }
+    public function __construct(
+        public string $url,
+        public ?string $etag,
+        public ?string $token,
+        public Closure $callback,
+    ) {}
 }
 
-class CurlResponse
+final class CurlResponse
 {
-    /** @var CurlRequest */
-    public $request;
-    public $status;
-    public $contentType;
-    public $etag;
-    public $link;
-    public $content;
+    public CurlRequest $request;
+    public int $status;
+    public ?string $contentType = null;
+    public ?string $etag = null;
+    public ?string $link = null;
+    public ?string $content = null;
 }
