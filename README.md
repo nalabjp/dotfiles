@@ -209,35 +209,19 @@ swiftc -framework Carbon -o /tmp/tis /tmp/tis.swift && /tmp/tis
 
 ## ~/.zshrc.local の暗号化
 
-`.zshrc.local.maui.enc` を age で管理する場合は、実機で次の手順を実行します。
+`~/.zshrc.local`（maui のみ）は、age で暗号化した
+`encrypted_private_dot_zshrc.local.age` として管理しています。
+`.chezmoiignore` により capri には配置されません。
 
-1. `age` をインストールして鍵を1組作成します。標準出力に表示される
-   `Public key: age1...` を控えてください。`key.txt` は秘密鍵なので
-   リポジトリには入れず、1Password などにも保管します。
-
-```sh
-brew install age
-age-keygen -o ~/.config/chezmoi/key.txt
-```
-
-2. `.chezmoi.toml.tmpl` の age ブロックのコメントを外し、`recipient` に
-   控えた公開鍵を設定して `chezmoi init` で設定を再生成します。
-3. maui（`~/.ansible-vault` がある機体）で、旧暗号文を復号して配置します。
+- 秘密鍵は `~/.config/chezmoi/key.txt` に置きます。リポジトリには入れず、
+  1Password に Document として保管しています。
+- 公開鍵は `.chezmoi.toml.tmpl` の `recipient` に設定しています。
+- 新しい機体では、1Password から `key.txt` を `~/.config/chezmoi/key.txt` に
+  復元してから `chezmoi apply` を実行すると、自動的に復号されます。
 
 ```sh
-ansible-vault view ~/src/nalabjp/dotfiles/.zshrc.local.maui.enc \
-  --vault-password-file ~/.ansible-vault > ~/.zshrc.local
+chmod 600 ~/.config/chezmoi/key.txt
 ```
 
-4. `.zshrc.local` を chezmoi の暗号化ソースに追加します。
-
-```sh
-chezmoi add --encrypt ~/.zshrc.local
-```
-
-5. `chezmoi cat ~/.zshrc.local` で復号できることを確認します。
-6. リポジトリから `.zshrc.local.maui.enc` を削除し、実機から
-   `~/.ansible-vault` も削除してコミットします。
-7. 新しい機体では `~/.config/chezmoi/key.txt` を復元しておけば、
-   `chezmoi apply` で自動的に復号されます。`.chezmoiignore` により capri
-   には配置されません。
+- 中身を編集するときは、`chezmoi edit ~/.zshrc.local` を使います。
+  復号した一時ファイルを編集し、保存すると再暗号化されます。
