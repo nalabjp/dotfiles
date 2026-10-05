@@ -1,0 +1,68 @@
+{{- $ids := index .input_sources .machine | default list -}}
+#!/bin/bash
+set -euo pipefail
+
+{{ if not $ids -}}
+echo "input_sources.{{ .machine }} is empty; skip" >&2
+exit 0
+{{ end -}}
+
+# swift の実行モード（swift -）では Carbon がリンクされない環境があるため swiftc でビルドする
+workdir="$(mktemp -d)"
+trap 'rm -rf "${workdir}"' EXIT
+
+cat > "${workdir}/input-sources.swift" <<'EOF'
+import Carbon
+
+func sources(_ filter: [String: Any]?, includeAllInstalled: Bool) -> [TISInputSource] {
+  guard let list = TISCreateInputSourceList(filter as CFDictionary?, includeAllInstalled) else { return [] }
+  return list.takeRetainedValue() as NSArray as! [TISInputSource]
+}
+
+func property<T>(_ source: TISInputSource, _ key: CFString) -> T? {
+  guard let p = TISGetInputSourceProperty(source, key) else { return nil }
+  return Unmanaged<AnyObject>.fromOpaque(p).takeUnretainedValue() as? T
+}
+
+let declared = Array(CommandLine.arguments.dropFirst())
+var failed = false
+
+for id in declared {
+  guard let source = sources([kTISPropertyInputSourceID as String: id], includeAllInstalled: true).first else {
+    fputs("not installed: \(id)\n", stderr)
+    failed = true
+    continue
+  }
+  if property(source, kTISPropertyInputSourceIsEnabled) as Bool? == true { continue }
+  let status = TISEnableInputSource(source)
+  if status == noErr {
+    print("enabled: \(id)")
+  } else {
+    fputs("failed to enable: \(id) (\(status))\n", stderr)
+    failed = true
+  }
+}
+
+if failed {
+  fputs("skip disabling undeclared input sources\n", stderr)
+  exit(1)
+}
+
+for source in sources(nil, includeAllInstalled: false) {
+  guard let id = property(source, kTISPropertyInputSourceID) as String?,
+        property(source, kTISPropertyInputSourceCategory) as String? == kTISCategoryKeyboardInputSource as String,
+        !declared.contains(id) else { continue }
+  let status = TISDisableInputSource(source)
+  if status == noErr {
+    print("disabled: \(id)")
+  } else {
+    fputs("failed to disable: \(id) (\(status))\n", stderr)
+    failed = true
+  }
+}
+
+exit(failed ? 1 : 0)
+EOF
+
+swiftc -framework Carbon -o "${workdir}/input-sources" "${workdir}/input-sources.swift"
+"${workdir}/input-sources"{{ range $ids }} {{ . | quote }}{{ end }}

@@ -173,7 +173,7 @@ macOS の defaults は `.chezmoidata.yaml` の `defaults`（`shared` / `maui` / 
 宣言します。machine 側の値が domain/key 単位で shared を上書きし、
 `run_onchange_after_40-macos-defaults.sh` が変更時に `defaults write` で一方向に適用します。
 GUI で変更した値は自動では戻らないため、必要に応じて `defaults read` の before/after
-差分を取得して宣言へ転記してください。Dock のアプリ配置と入力ソース一覧は管理対象外です。
+差分を取得して宣言へ転記してください。Dock のアプリ配置は管理対象外です。
 
 iTerm2 の既定プロファイルは `com.googlecode.iterm2 Default Bookmark Guid` で Dynamic Profile
 （`Library/Application Support/iTerm2/DynamicProfiles/Default.json`）を指しています。iTerm2 は
@@ -181,6 +181,30 @@ iTerm2 の既定プロファイルは `com.googlecode.iterm2 Default Bookmark Gu
 ことがあります。フォントが HackGen になっていなければ、iTerm2 を ⌘Q で終了してから
 Terminal.app 等で `chezmoi apply` を再実行するか、GUI で Dynamic 側の Default を
 「Set as Default」にしてください。
+
+## 入力ソース
+
+有効にするキーボード入力ソースは `.chezmoidata.yaml` の `input_sources`（`maui` / `capri`）に
+TIS の InputSourceID で宣言します。`run_onchange_after_50-input-sources.sh` が変更時に
+宣言したものを有効にし、宣言外のキーボード入力ソースを無効にします。宣言したものが
+1 つでも有効にできなかった場合（IME が未インストール、ID の誤りなど）は何も無効にしません。
+`com.apple.HIToolbox` の `AppleEnabledInputSources` には Google 日本語入力が入らない（maui で確認）ため、
+defaults ではなく TIS API で操作しています。
+
+有効な入力ソースの ID は次で確認できます。
+
+```sh
+cat > /tmp/tis.swift <<'EOF'
+import Carbon
+let list = TISCreateInputSourceList(nil, false).takeRetainedValue() as NSArray as! [TISInputSource]
+for s in list {
+  if let p = TISGetInputSourceProperty(s, kTISPropertyInputSourceID) {
+    print(Unmanaged<CFString>.fromOpaque(p).takeUnretainedValue())
+  }
+}
+EOF
+swiftc -framework Carbon -o /tmp/tis /tmp/tis.swift && /tmp/tis
+```
 
 ## ~/.zshrc.local の暗号化
 
