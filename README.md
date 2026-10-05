@@ -20,7 +20,7 @@ sudo が必要ですが、apply 中は自動で資格情報のキャッシュが
 ための指定です。clone は設定ファイル生成より前に実行されるため、設定ファイル
 ではなくフラグで指定します。
 
-`--source` で clone 先（= source ディレクトリ）を ghq の管理下に揃えています。
+`--source` で clone 先（= source ディレクトリ）を `git clone-repo` と同じ `~/src/<owner>/<repo>` に揃えています。
 設定ファイル生成より前に clone するため、初回だけはフラグで指定します
 （2 回目以降は `.chezmoi.toml.tmpl` の `sourceDir` が効きます）。
 
@@ -52,7 +52,7 @@ GUI での変更はそのまま `alfred/` に書き込まれるので `git diff`
 chezmoi が参照するのは source ディレクトリ（`chezmoi source-path`）だけです。
 chezmoi の既定は `~/.local/share/chezmoi` ですが、このリポジトリでは
 `.chezmoi.toml.tmpl` の `sourceDir` で `~/src/nalabjp/dotfiles` を指定しているため、
-ghq 管理下の clone をそのまま編集できます。別の場所に clone したものを編集しても
+`~/src` 配下の clone をそのまま編集できます。別の場所に clone したものを編集しても
 反映されないので注意してください。
 
 ```sh
