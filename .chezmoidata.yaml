@@ -131,6 +131,18 @@ runtimes:
   capri:
     ruby: "3.2.2"
 
+# 有効にするキーボード入力ソース（TIS の InputSourceID）。宣言外のキーボード入力ソースは無効にする。
+# 入力メソッド本体を、そのモードより先に書く。
+input_sources:
+  maui:
+    - com.google.inputmethod.Japanese
+    - com.google.inputmethod.Japanese.base
+    - com.google.inputmethod.Japanese.Roman
+  capri:
+    - com.apple.keylayout.ABC
+    - com.apple.inputmethod.Kotoeri.RomajiTyping
+    - com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese
+
 # macOS の defaults。machine 側が shared を上書きする（domain/key 単位）。
 defaults:
   shared:
