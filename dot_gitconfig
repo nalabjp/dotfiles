@@ -58,8 +58,6 @@
   path = ~/.gitconfig_eightcard
 [includeIf "hasconfig:remote.*.url:https://*github.com/eightcard/*"]
   path = ~/.gitconfig_eightcard
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 [url "https://github.com/"]
 	insteadOf = git@github.com:
 [includeIf "gitdir:~/src/sansaninc/"] # for release script
