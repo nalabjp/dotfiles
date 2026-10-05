@@ -1,10 +1,10 @@
 packages:
   taps:
     shared:
-      - heroku/brew
       - mongodb/brew
       - neovim/neovim
-    maui: []
+    maui:
+      - heroku/brew
     capri:
       - fujiwara/tap
       - kayac/tap
@@ -32,7 +32,6 @@ packages:
       - gnu-sed
       - gnu-tar
       - go
-      - heroku/brew/heroku
       - htop
       - httpie
       - hyperfine
@@ -83,6 +82,7 @@ packages:
       - yarn
       - zsh
     maui:
+      - heroku/brew/heroku
       - postgresql@14
     capri:
       - fujiwara/tap/ecsta
