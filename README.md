@@ -31,10 +31,11 @@ sudo が必要ですが、apply 中は自動で資格情報のキャッシュが
 Karabiner の設定は、GUI から変更した内容が維持されるよう、ソース内の
 `karabiner/` への symlink として管理しています。
 
-Alfred の設定（`Alfred.alfredpreferences`）も同様にソース内の `alfred/` が実体で、
-defaults の `com.runningwithcrayons.Alfred-Preferences syncfolder` でそのフォルダを
-指定しています。Alfred 初回起動後に設定画面で参照先が `~/src/nalabjp/dotfiles/alfred`
-になっていることを確認してください（Powerpack ライセンスは手動で入力します）。
+Alfred の設定（`Alfred.alfredpreferences`）も同様にソース内の `alfred/` が実体です。
+Alfred 5 は参照先を defaults ではなく `~/Library/Application Support/Alfred/prefs.json` に
+保存するため、chezmoi では設定しません。Alfred 初回起動後に設定画面の Advanced タブで
+「Set preferences folder…」から `~/src/nalabjp/dotfiles/alfred` を選んでください
+（Powerpack ライセンスは手動で入力します）。
 GUI での変更はそのまま `alfred/` に書き込まれるので `git diff` で確認して commit します。
 外観・ホットキー・各機能の設定・snippets・themes も追跡対象で、端末固有の
 `preferences/local/<機体ID>/` だけ `.gitignore` で除外しています。設定を整えた機体で
