@@ -13,11 +13,6 @@ brewfile_mas="${HOME}/.config/homebrew/Brewfile.mas"
 # 更新に失敗しても（アップストリーム由来のクラッシュ等）install/cleanup は続行する
 brew update || echo "warning: brew update failed (古いメタデータのまま続行します)" >&2
 
-# 非公式 tap の formula/cask は Homebrew 6.0.0 以降 明示的な信頼が必要。
-# formula 単位の信頼は tap 更新で失効するので、宣言している tap を tap 単位で信頼する。
-{{ range (concat .packages.taps.shared (index .packages.taps $m) | uniq | sortAlpha) -}}
-brew trust --tap {{ . | quote }}
-{{ end }}
 # 未インストールのものだけ入れる。既存パッケージの upgrade は明示的に実行する（README 参照）。
 brew bundle install --no-upgrade --file="${brewfile}"
 
